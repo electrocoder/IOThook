@@ -11,7 +11,7 @@ headers = {'content-type': 'application/json'}
 
 API_KEY = "11111"
 
-url = 'http://iothook.com/channel/api/API_KEY'
+url = 'http://iothook.com/channel/api/' + API_KEY
 
 data = {"temperature":"28.45","humidity":"8",}
 
