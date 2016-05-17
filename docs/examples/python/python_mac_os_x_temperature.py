@@ -12,7 +12,7 @@
 #  * http://www.eidac.de/smcfancontrol/
 #  * https://github.com/hholtmann/smcFanControl/tree/master/smc-command
 
-from subprocess import call
+import subprocess
 import json
 import urllib
 import urllib2
@@ -20,11 +20,13 @@ import time
 from datetime import datetime
 
 headers = {'content-type': 'application/json'}
-API_KEY = "xxxxxxx"
+API_KEY = "xxxxxxxx"
 url = 'http://iothook.com/channel/api/' + API_KEY
 
 for i in range(0,5):
-	data = {"temperature":"%s" % call(["./osx-cpu-temp"]),"datetime":"%s" % datetime.now(),}
+	p = subprocess.Popen(['./osx-cpu-temp',], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+	out, err = p.communicate()
+	data = {"temperature":"%d" % float(out[:4]),"datetime":"%s" % datetime.now(),}
 	data = urllib.urlencode(data)
 	req = urllib2.Request(url, data)
 	response = urllib2.urlopen(req)
