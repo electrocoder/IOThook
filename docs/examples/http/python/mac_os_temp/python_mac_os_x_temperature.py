@@ -21,7 +21,7 @@ from datetime import datetime
 
 headers = {'content-type': 'application/json'}
 API_KEY = "*****"
-url = 'https://iothook.com/channel/api/' + API_KEY
+url = 'https://iothook.com/iot/api/' + API_KEY
 
 for i in range(5):
 	p = subprocess.Popen(['./osx-cpu-temp',], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
