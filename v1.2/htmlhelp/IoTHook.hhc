@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<!-- Sitemap 1.0 -->
+</HEAD><BODY>
+<OBJECT type="text/site properties">
+        <param name="Window Styles" value="0x801227">
+        <param name="ImageType" value="Folder">
+</OBJECT>
+<UL>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="Internete Baðlý Nesneler 1.2 belgelendirme çalýþmasý">
+    <param name="Local" value="index.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="Iot Nedir">
+    <param name="Local" value="what-is-iot.html">
+</OBJECT>
+<UL>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="Iot Nedir?">
+    <param name="Local" value="what-is-iot.html#id1">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="Iothook nedir?">
+    <param name="Local" value="what-is-iot.html#iothook-nedir">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="Niçin Iothook?">
+    <param name="Local" value="what-is-iot.html#nicin-iothook">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="Iothook’ un sunduðu avantajlar:">
+    <param name="Local" value="what-is-iot.html#iothook-un-sundugu-avantajlar">
+</OBJECT>
+</UL>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="Kanal Aç">
+    <param name="Local" value="create-new-channel.html">
+</OBJECT>
+<UL>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="Kanal Ekle">
+    <param name="Local" value="create-new-channel.html#kanal-ekle">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="Element Ekle">
+    <param name="Local" value="create-new-channel.html#element-ekle">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="Element ayarlarý:">
+    <param name="Local" value="create-new-channel.html#element-ayarlari">
+</OBJECT>
+</UL>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="Veri Gönder">
+    <param name="Local" value="send-data.html">
+</OBJECT>
+<UL>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="Python 2 Json ile Veri Gönderme">
+    <param name="Local" value="send-data.html#python-2-json-ile-veri-gonderme">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="Python 3 Json ile Veri Gönderme">
+    <param name="Local" value="send-data.html#python-3-json-ile-veri-gonderme">
+</OBJECT>
+</UL>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="Veri Al">
+    <param name="Local" value="read-data.html">
+</OBJECT>
+<UL>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="Python 2, Python 3 Json ile Veri Alma">
+    <param name="Local" value="read-data.html#python-2-python-3-json-ile-veri-alma">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="Python 2, Python 3 Json ile Ýlk Veriyi Alma">
+    <param name="Local" value="read-data.html#python-2-python-3-json-ile-ilk-veriyi-alma">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="Python 2, Python 3 Json ile Son Veriyi Alma">
+    <param name="Local" value="read-data.html#python-2-python-3-json-ile-son-veriyi-alma">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="Python 2, Python 3 Json ile Veriye Ait Detay Alma">
+    <param name="Local" value="read-data.html#python-2-python-3-json-ile-veriye-ait-detay-alma">
+</OBJECT>
+</UL>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="Email Besleme">
+    <param name="Local" value="email-feed.html">
+</OBJECT>
+<UL>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="Iot cihazlardan email alma">
+    <param name="Local" value="email-feed.html#iot-cihazlardan-email-alma">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="Email besleme planý">
+    <param name="Local" value="email-feed.html#email-besleme-plani">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="Email besleme süresi">
+    <param name="Local" value="email-feed.html#email-besleme-suresi">
+</OBJECT>
+</UL>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="Iot Email Sms Alarm">
+    <param name="Local" value="email-sms-alert.html">
+</OBJECT>
+<UL>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="Alarm nedir?">
+    <param name="Local" value="email-sms-alert.html#alarm-nedir">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="Operatörler">
+    <param name="Local" value="email-sms-alert.html#operatorler">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="Email Alarm nedir?">
+    <param name="Local" value="email-sms-alert.html#email-alarm-nedir">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="SMS Alarm nedir?">
+    <param name="Local" value="email-sms-alert.html#sms-alarm-nedir">
+</OBJECT>
+</UL>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="Iot Mqtt Nedir?">
+    <param name="Local" value="what-is-iot-mqtt.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="Mqtt Protokolü Nasýldýr?">
+    <param name="Local" value="what-is-iot-mqtt.html#mqtt-protokolu-nasildir">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="MQTT Temp Test Client">
+    <param name="Local" value="mqtt-temp-test-client.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="MQTT Test Client Publisher Subscriber">
+    <param name="Local" value="mqtt-temp-test-client-publisher-subscriber.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="Full Featured MQTT Client">
+    <param name="Local" value="full-featured-mqtt-client.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="IHook Nedir?">
+    <param name="Local" value="what-is-ihook.html">
+</OBJECT>
+<UL>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="Iot Dashboard Nedir?">
+    <param name="Local" value="what-is-ihook.html#iot-dashboard-nedir">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="IHook GITHUB">
+    <param name="Local" value="what-is-ihook.html#ihook-github">
+</OBJECT>
+</UL>
+</UL></BODY></HTML>

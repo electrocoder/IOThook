@@ -1,0 +1,266 @@
+<?xml version="1.0"?>
+<ncx version="2005-1" xmlns="http://www.daisy.org/z3986/2005/ncx/">
+  <head>
+    <meta name="dtb:uid" content="unknown"/>
+    <meta name="dtb:depth" content="2"/>
+    <meta name="dtb:totalPageCount" content="0"/>
+    <meta name="dtb:maxPageNumber" content="0"/>
+  </head>
+  <docTitle>
+    <text>Internete Bağlı Nesneler</text>
+  </docTitle>
+  <navMap>
+    <navPoint id="navPoint36" playOrder="1">
+      <navLabel>
+        <text>IOT HOOK</text>
+      </navLabel>
+      <content src="index.xhtml" />
+    </navPoint>
+    <navPoint id="navPoint37" playOrder="2">
+      <navLabel>
+        <text>Iot Nedir</text>
+      </navLabel>
+      <content src="what-is-iot.xhtml" />
+      <navPoint id="navPoint38" playOrder="2">
+        <navLabel>
+          <text>Iot Nedir</text>
+        </navLabel>
+        <content src="what-is-iot.xhtml" />
+      </navPoint>
+      <navPoint id="navPoint39" playOrder="3">
+        <navLabel>
+          <text>Iot Nedir?</text>
+        </navLabel>
+        <content src="what-is-iot.xhtml#id1" />
+      </navPoint>
+      <navPoint id="navPoint40" playOrder="4">
+        <navLabel>
+          <text>Iothook nedir?</text>
+        </navLabel>
+        <content src="what-is-iot.xhtml#iothook-nedir" />
+      </navPoint>
+      <navPoint id="navPoint41" playOrder="5">
+        <navLabel>
+          <text>Niçin Iothook?</text>
+        </navLabel>
+        <content src="what-is-iot.xhtml#nicin-iothook" />
+      </navPoint>
+      <navPoint id="navPoint42" playOrder="6">
+        <navLabel>
+          <text>Iothook’ un sunduğu avantajlar:</text>
+        </navLabel>
+        <content src="what-is-iot.xhtml#iothook-un-sundugu-avantajlar" />
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint43" playOrder="7">
+      <navLabel>
+        <text>Kanal Aç</text>
+      </navLabel>
+      <content src="create-new-channel.xhtml" />
+      <navPoint id="navPoint44" playOrder="7">
+        <navLabel>
+          <text>Kanal Aç</text>
+        </navLabel>
+        <content src="create-new-channel.xhtml" />
+      </navPoint>
+      <navPoint id="navPoint45" playOrder="8">
+        <navLabel>
+          <text>Kanal Ekle</text>
+        </navLabel>
+        <content src="create-new-channel.xhtml#kanal-ekle" />
+      </navPoint>
+      <navPoint id="navPoint46" playOrder="9">
+        <navLabel>
+          <text>Element Ekle</text>
+        </navLabel>
+        <content src="create-new-channel.xhtml#element-ekle" />
+      </navPoint>
+      <navPoint id="navPoint47" playOrder="10">
+        <navLabel>
+          <text>Element ayarları:</text>
+        </navLabel>
+        <content src="create-new-channel.xhtml#element-ayarlari" />
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint48" playOrder="11">
+      <navLabel>
+        <text>Veri Gönder</text>
+      </navLabel>
+      <content src="send-data.xhtml" />
+      <navPoint id="navPoint49" playOrder="11">
+        <navLabel>
+          <text>Veri Gönder</text>
+        </navLabel>
+        <content src="send-data.xhtml" />
+      </navPoint>
+      <navPoint id="navPoint50" playOrder="12">
+        <navLabel>
+          <text>Python 2 Json ile Veri Gönderme</text>
+        </navLabel>
+        <content src="send-data.xhtml#python-2-json-ile-veri-gonderme" />
+      </navPoint>
+      <navPoint id="navPoint51" playOrder="13">
+        <navLabel>
+          <text>Python 3 Json ile Veri Gönderme</text>
+        </navLabel>
+        <content src="send-data.xhtml#python-3-json-ile-veri-gonderme" />
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint52" playOrder="14">
+      <navLabel>
+        <text>Veri Al</text>
+      </navLabel>
+      <content src="read-data.xhtml" />
+      <navPoint id="navPoint53" playOrder="14">
+        <navLabel>
+          <text>Veri Al</text>
+        </navLabel>
+        <content src="read-data.xhtml" />
+      </navPoint>
+      <navPoint id="navPoint54" playOrder="15">
+        <navLabel>
+          <text>Python 2, Python 3 Json ile Veri Alma</text>
+        </navLabel>
+        <content src="read-data.xhtml#python-2-python-3-json-ile-veri-alma" />
+      </navPoint>
+      <navPoint id="navPoint55" playOrder="16">
+        <navLabel>
+          <text>Python 2, Python 3 Json ile İlk Veriyi Alma</text>
+        </navLabel>
+        <content src="read-data.xhtml#python-2-python-3-json-ile-ilk-veriyi-alma" />
+      </navPoint>
+      <navPoint id="navPoint56" playOrder="17">
+        <navLabel>
+          <text>Python 2, Python 3 Json ile Son Veriyi Alma</text>
+        </navLabel>
+        <content src="read-data.xhtml#python-2-python-3-json-ile-son-veriyi-alma" />
+      </navPoint>
+      <navPoint id="navPoint57" playOrder="18">
+        <navLabel>
+          <text>Python 2, Python 3 Json ile Veriye Ait Detay Alma</text>
+        </navLabel>
+        <content src="read-data.xhtml#python-2-python-3-json-ile-veriye-ait-detay-alma" />
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint58" playOrder="19">
+      <navLabel>
+        <text>Email Besleme</text>
+      </navLabel>
+      <content src="email-feed.xhtml" />
+      <navPoint id="navPoint59" playOrder="19">
+        <navLabel>
+          <text>Email Besleme</text>
+        </navLabel>
+        <content src="email-feed.xhtml" />
+      </navPoint>
+      <navPoint id="navPoint60" playOrder="20">
+        <navLabel>
+          <text>Iot cihazlardan email alma</text>
+        </navLabel>
+        <content src="email-feed.xhtml#iot-cihazlardan-email-alma" />
+      </navPoint>
+      <navPoint id="navPoint61" playOrder="21">
+        <navLabel>
+          <text>Email besleme planı</text>
+        </navLabel>
+        <content src="email-feed.xhtml#email-besleme-plani" />
+      </navPoint>
+      <navPoint id="navPoint62" playOrder="22">
+        <navLabel>
+          <text>Email besleme süresi</text>
+        </navLabel>
+        <content src="email-feed.xhtml#email-besleme-suresi" />
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint63" playOrder="23">
+      <navLabel>
+        <text>Iot Email Sms Alarm</text>
+      </navLabel>
+      <content src="email-sms-alert.xhtml" />
+      <navPoint id="navPoint64" playOrder="23">
+        <navLabel>
+          <text>Iot Email Sms Alarm</text>
+        </navLabel>
+        <content src="email-sms-alert.xhtml" />
+      </navPoint>
+      <navPoint id="navPoint65" playOrder="24">
+        <navLabel>
+          <text>Alarm nedir?</text>
+        </navLabel>
+        <content src="email-sms-alert.xhtml#alarm-nedir" />
+      </navPoint>
+      <navPoint id="navPoint66" playOrder="25">
+        <navLabel>
+          <text>Operatörler</text>
+        </navLabel>
+        <content src="email-sms-alert.xhtml#operatorler" />
+      </navPoint>
+      <navPoint id="navPoint67" playOrder="26">
+        <navLabel>
+          <text>Email Alarm nedir?</text>
+        </navLabel>
+        <content src="email-sms-alert.xhtml#email-alarm-nedir" />
+      </navPoint>
+      <navPoint id="navPoint68" playOrder="27">
+        <navLabel>
+          <text>SMS Alarm nedir?</text>
+        </navLabel>
+        <content src="email-sms-alert.xhtml#sms-alarm-nedir" />
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint69" playOrder="28">
+      <navLabel>
+        <text>Iot Mqtt Nedir?</text>
+      </navLabel>
+      <content src="what-is-iot-mqtt.xhtml" />
+    </navPoint>
+    <navPoint id="navPoint70" playOrder="29">
+      <navLabel>
+        <text>Mqtt Protokolü Nasıldır?</text>
+      </navLabel>
+      <content src="what-is-iot-mqtt.xhtml#mqtt-protokolu-nasildir" />
+    </navPoint>
+    <navPoint id="navPoint71" playOrder="30">
+      <navLabel>
+        <text>MQTT Temp Test Client</text>
+      </navLabel>
+      <content src="mqtt-temp-test-client.xhtml" />
+    </navPoint>
+    <navPoint id="navPoint72" playOrder="31">
+      <navLabel>
+        <text>MQTT Test Client Publisher Subscriber</text>
+      </navLabel>
+      <content src="mqtt-temp-test-client-publisher-subscriber.xhtml" />
+    </navPoint>
+    <navPoint id="navPoint73" playOrder="32">
+      <navLabel>
+        <text>Full Featured MQTT Client</text>
+      </navLabel>
+      <content src="full-featured-mqtt-client.xhtml" />
+    </navPoint>
+    <navPoint id="navPoint74" playOrder="33">
+      <navLabel>
+        <text>IHook Nedir?</text>
+      </navLabel>
+      <content src="what-is-ihook.xhtml" />
+      <navPoint id="navPoint75" playOrder="33">
+        <navLabel>
+          <text>IHook Nedir?</text>
+        </navLabel>
+        <content src="what-is-ihook.xhtml" />
+      </navPoint>
+      <navPoint id="navPoint76" playOrder="34">
+        <navLabel>
+          <text>Iot Dashboard Nedir?</text>
+        </navLabel>
+        <content src="what-is-ihook.xhtml#iot-dashboard-nedir" />
+      </navPoint>
+      <navPoint id="navPoint77" playOrder="35">
+        <navLabel>
+          <text>IHook GITHUB</text>
+        </navLabel>
+        <content src="what-is-ihook.xhtml#ihook-github" />
+      </navPoint>
+    </navPoint>
+  </navMap>
+</ncx>

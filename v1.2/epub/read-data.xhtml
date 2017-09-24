@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="tr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Veri Al</title>
+    
+    <link rel="stylesheet" href="_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/customstyle.css" type="text/css" /> 
+  </head>
+  <body role="document">
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="veri-al">
+<span id="read-data"></span><h1>Veri Al</h1>
+<p>Iot cihazından gönderilen ısı, nem, voltaj, ışık gibi değerleri iothook data
+merkezinden çekebilmek için öncelikle kanal üye kullanıcı adı ve giriş şifresineihtiyaç vardır. Iot cihazından gelen veriler, Android, iOS gibi mobil cihazınızdan
+veya web sitenizden izlenebilir. Kanalınızın kullanımı genel kullanıma açık ise diğer kullanıcılar
+ile de bu verileri paylaşabilirsiniz.</p>
+<p>Örneğin; Kanal adımız &#8220;Temperature sensor&#8221; olarak belirlenmiş ve kanal içerisinde bulunacak
+iot cihazımızdan &#8220;temperature&#8221; ve &#8220;humidity&#8221; element verileri gönderiliyor olsun.</p>
+<div class="section" id="python-2-python-3-json-ile-veri-alma">
+<h2>Python 2, Python 3 Json ile Veri Alma</h2>
+<p>Python Json ile Get Örneği:</p>
+<p>Bu örneği <a class="reference external" href="https://goo.gl/Cd74oF">https://goo.gl/Cd74oF</a> sayfasından inceleyebilirsiniz.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Python 2, Python 3 ile IoThook REST Api Testi</span>
+
+<span class="sd">  Kod çalıştırıldığında &#39;data&#39; değişkenine verilen &#39;all&#39; değişkeni ile</span>
+<span class="sd">  auth sahipliğindeki tüm veriler alınır.</span>
+
+<span class="sd">  Bu ornek IotHook servisine veri almak/gondermek icin baslangic seviyesinde</span>
+<span class="sd">  testlerin yapilmasini amaclamaktadir.</span>
+
+<span class="sd">  10 Mayıs 2017</span>
+<span class="sd">  Sahin MERSIN</span>
+
+<span class="sd">  Daha fazlasi icin</span>
+
+<span class="sd">  http://www.iothook.com</span>
+<span class="sd">  ve</span>
+<span class="sd">  https://github.com/electrocoder/iotHook</span>
+
+<span class="sd">  sitelerine gidiniz.</span>
+
+<span class="sd">  Sorular ve destek talepleri icin</span>
+<span class="sd">  https://github.com/electrocoder/iotHook/issues</span>
+<span class="sd">  sayfasindan veya Meşe Bilişim den yardım alabilirsiniz.</span>
+
+<span class="sd">  Yayin : http://mesebilisim.com</span>
+
+<span class="sd">  Licensed under the Apache License, Version 2.0 (the &quot;License&quot;).</span>
+<span class="sd">  You may not use this file except in compliance with the License.</span>
+<span class="sd">  A copy of the License is located at</span>
+
+<span class="sd">  http://www.apache.org/licenses/</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://iothook.com/api/v1.2/datas/?data=all&#39;</span>
+
+<span class="n">auth</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">,</span> <span class="s1">&#39;test12345&#39;</span><span class="p">)</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="n">auth</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="python-2-python-3-json-ile-ilk-veriyi-alma">
+<h2>Python 2, Python 3 Json ile İlk Veriyi Alma</h2>
+<p>Python İlk Veriyi Alma, Json ile Get Örneği:</p>
+<p>Bu örneği <a class="reference external" href="https://goo.gl/yNK75j">https://goo.gl/yNK75j</a> sayfasından inceleyebilirsiniz.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Python 2 ile IoThook REST Api Testi</span>
+
+<span class="sd">  Kod çalıştırıldığında &#39;data&#39; değişkenine verilen &#39;first&#39; değişkeni ile</span>
+<span class="sd">  auth sahipliğindeki ilk veri alınır. &#39;channel&#39; değişkeni Iothook dashboard</span>
+<span class="sd">  Kanal oluşturma sırasında otomatik verilen id numarasıdır.</span>
+
+<span class="sd">  Bu ornek IotHook servisine veri almak/gondermek icin baslangic seviyesinde</span>
+<span class="sd">  testlerin yapilmasini amaclamaktadir.</span>
+
+<span class="sd">  10 Mayıs 2017</span>
+<span class="sd">  Sahin MERSIN</span>
+
+<span class="sd">  Daha fazlasi icin</span>
+
+<span class="sd">  http://www.iothook.com</span>
+<span class="sd">  ve</span>
+<span class="sd">  https://github.com/electrocoder/iotHook</span>
+
+<span class="sd">  sitelerine gidiniz.</span>
+
+<span class="sd">  Sorular ve destek talepleri icin</span>
+<span class="sd">  https://github.com/electrocoder/iotHook/issues</span>
+<span class="sd">  sayfasindan veya Meşe Bilişim den yardım alabilirsiniz.</span>
+
+<span class="sd">  Yayin : http://mesebilisim.com</span>
+
+<span class="sd">  Licensed under the Apache License, Version 2.0 (the &quot;License&quot;).</span>
+<span class="sd">  You may not use this file except in compliance with the License.</span>
+<span class="sd">  A copy of the License is located at</span>
+
+<span class="sd">  http://www.apache.org/licenses/</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://iothook.com/api/v1.2/datas/?data=first&amp;channel=106&#39;</span>
+
+<span class="n">auth</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">,</span> <span class="s1">&#39;test12345&#39;</span><span class="p">)</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="n">auth</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="python-2-python-3-json-ile-son-veriyi-alma">
+<h2>Python 2, Python 3 Json ile Son Veriyi Alma</h2>
+<p>Python Son Veriyi Alma, Json ile Get Örneği:</p>
+<p>Bu örneği <a class="reference external" href="https://goo.gl/iyvU7G">https://goo.gl/iyvU7G</a> sayfasından inceleyebilirsiniz.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Python 2 ile IoThook REST Api Testi</span>
+
+<span class="sd">  Kod çalıştırıldığında &#39;data&#39; değişkenine verilen &#39;last&#39; değişkeni ile</span>
+<span class="sd">  auth sahipliğindeki en son veri alınır. &#39;channel&#39; değişkeni Iothook dashboard</span>
+<span class="sd">  Kanal oluşturma sırasında otomatik verilen id numarasıdır.</span>
+
+<span class="sd">  Bu ornek IotHook servisine veri almak/gondermek icin baslangic seviyesinde</span>
+<span class="sd">  testlerin yapilmasini amaclamaktadir.</span>
+
+<span class="sd">  10 Mayıs 2017</span>
+<span class="sd">  Sahin MERSIN</span>
+
+<span class="sd">  Daha fazlasi icin</span>
+
+<span class="sd">  http://www.iothook.com</span>
+<span class="sd">  ve</span>
+<span class="sd">  https://github.com/electrocoder/iotHook</span>
+
+<span class="sd">  sitelerine gidiniz.</span>
+
+<span class="sd">  Sorular ve destek talepleri icin</span>
+<span class="sd">  https://github.com/electrocoder/iotHook/issues</span>
+<span class="sd">  sayfasindan veya Meşe Bilişim den yardım alabilirsiniz.</span>
+
+<span class="sd">  Yayin : http://mesebilisim.com</span>
+
+<span class="sd">  Licensed under the Apache License, Version 2.0 (the &quot;License&quot;).</span>
+<span class="sd">  You may not use this file except in compliance with the License.</span>
+<span class="sd">  A copy of the License is located at</span>
+
+<span class="sd">  http://www.apache.org/licenses/</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://iothook.com/api/v1.2/datas/?data=last&amp;channel=108&#39;</span>
+
+<span class="n">auth</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">,</span> <span class="s1">&#39;test12345&#39;</span><span class="p">)</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="n">auth</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="python-2-python-3-json-ile-veriye-ait-detay-alma">
+<h2>Python 2, Python 3 Json ile Veriye Ait Detay Alma</h2>
+<p>Python veriye ait detay alma örneği:</p>
+<p>Bu örneği <a class="reference external" href="https://goo.gl/Muvpbs">https://goo.gl/Muvpbs</a> sayfasından inceleyebilirsiniz.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Python 2, 3 ile IoThook REST Api Testi</span>
+
+<span class="sd">  Kod çalıştırıldığında datas url yapısına parametre olarak verilen</span>
+<span class="sd">  değer Kanal ve Element içerisinde tanımlı datanın ayrıntılarını getirir.</span>
+
+<span class="sd">  Bu ornek IotHook servisine veri almak/gondermek icin baslangic seviyesinde</span>
+<span class="sd">  testlerin yapilmasini amaclamaktadir.</span>
+
+<span class="sd">  10 Mayıs 2017</span>
+<span class="sd">  Sahin MERSIN</span>
+
+<span class="sd">  Daha fazlasi icin</span>
+
+<span class="sd">  http://www.iothook.com</span>
+<span class="sd">  ve</span>
+<span class="sd">  https://github.com/electrocoder/iotHook</span>
+
+<span class="sd">  sitelerine gidiniz.</span>
+
+<span class="sd">  Sorular ve destek talepleri icin</span>
+<span class="sd">  https://github.com/electrocoder/iotHook/issues</span>
+<span class="sd">  sayfasindan veya Meşe Bilişim den yardım alabilirsiniz.</span>
+
+<span class="sd">  Yayin : http://mesebilisim.com</span>
+
+<span class="sd">  Licensed under the Apache License, Version 2.0 (the &quot;License&quot;).</span>
+<span class="sd">  You may not use this file except in compliance with the License.</span>
+<span class="sd">  A copy of the License is located at</span>
+
+<span class="sd">  http://www.apache.org/licenses/</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://iothook.com/api/v1.2/datas/8864/&#39;</span>
+
+<span class="n">auth</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">,</span> <span class="s1">&#39;test12345&#39;</span><span class="p">)</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="n">auth</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">data</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

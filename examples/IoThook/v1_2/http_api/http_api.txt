@@ -1,0 +1,1 @@
+curl --data "temperature=33&datetime=2016-05-18 23:31:01.986031" http://iothook.com/iot/api/API_KEY

@@ -1,0 +1,914 @@
+.. _send-data:
+
+***********
+Veri Gönder
+***********
+
+Veri göndermek için öncelikle kanal ve element eklemeniz gerekir. Kanal oluşturulduğunda
+size özel "api_key" üretilerek belirlenen erişim metoduna göre (POST, GET, POST/GET) veri işlemi gerçekleştirilir.
+
+Örneğin; Kanalımız ısı, ışık, hareket, bar ve nem değerlerini alan bir yapıda olsun.
+Kanal içerisinde bulunacak iot cihazlarımız bizlere bu dataları 15 sn. yede bir 100 kere göndersin.
+
+Oluşturulan "API_KEY" Key Yöneticisi sayfasından görülebilir.
+
+Python ile JSON Veri Gönderme
+-----------------------------
+
+Python ile Json Post Örneği:
+
+Bu örneği http://bit.ly/2jI1FNQ sayfasından indirebilirsiniz.
+
+.. code-block:: python
+
+    # -*- coding: utf-8 -*-
+
+    """
+      Python ile IoThook REST Api Testi
+
+      Kod çalıştırıldığında APIKEY ile doğrulama gerçekleştirilir.
+      Kanal api_key ile ilgili kanal ve element değerleri IoThook a post edilir.
+
+      Bu ornek IotHook servisine veri almak/gondermek icin baslangic seviyesinde
+      testlerin yapilmasini amaclamaktadir.
+
+      20 Eylul 2017
+      Sahin MERSIN
+
+      Daha fazlasi icin
+
+      http://www.iothook.com
+      ve
+      https://github.com/electrocoder/iotHook
+
+      sitelerine gidiniz.
+
+      Sorular ve destek talepleri icin
+      https://github.com/electrocoder/iotHook/issues
+      sayfasindan veya Meşe Bilişim den yardım alabilirsiniz.
+
+      Yayin : http://mesebilisim.com
+
+      Licensed under the Apache License, Version 2.0 (the "License").
+      You may not use this file except in compliance with the License.
+      A copy of the License is located at
+
+      http://www.apache.org/licenses/
+
+    """
+
+    import requests
+    import json
+    import random
+    import pprint
+    import time
+
+
+    headers = {'Content-type': 'application/json'}
+
+    url = 'https://iothook.com/api/latest/datas/'
+
+    for i in range(100):
+        data={
+            'api_key': '519ac5d4-95a5-116e185a343eac447b', # demo hesap api_key
+            'value_1': i*1,
+            }
+
+        data_json = json.dumps(data)
+
+        response = requests.post(url, data=data_json, headers=headers)
+        pprint.pprint(response.json())
+        time.sleep(15)
+
+
+Python GET Metodu ile Veri Gönderme
+-----------------------------------
+
+IoThook Api v1.3 güncellemesi ile GET metodu ile veri göndermeye izin vermektedir.
+
+Python ile Get metodu kullanarak veri gönderme Örneği:
+
+.. code-block:: python
+
+    # -*- coding: utf-8 -*-
+
+    """
+      Python ile IoThook REST Api Testi
+
+      Kod çalıştırıldığında APIKEY ile gonderim gerçekleştirilir.
+      Kanal api_key ile ilgili kanal ve element değerleri IoThook a GET metodu ile gonderilir.
+
+      Bu ornek IotHook servisine veri almak/gondermek icin baslangic seviyesinde
+      testlerin yapilmasini amaclamaktadir.
+
+      11 Eylul 2017
+      Sahin MERSIN
+
+      Daha fazlasi icin
+
+      http://www.iothook.com
+      ve
+      https://github.com/electrocoder/iotHook
+
+      sitelerine gidiniz.
+
+      Sorular ve destek talepleri icin
+      https://github.com/electrocoder/iotHook/issues
+      sayfasindan veya Meşe Bilişim den yardım alabilirsiniz.
+
+      Yayin : http://mesebilisim.com
+
+      Licensed under the Apache License, Version 2.0 (the "License").
+      You may not use this file except in compliance with the License.
+      A copy of the License is located at
+
+      http://www.apache.org/licenses/
+
+    """
+
+    import requests
+    import json
+    import random
+    import pprint
+    import time
+
+
+    headers = {'Content-type': 'application/json'}
+
+    API_KEY = '85c4ba5f-96ae-11841415634e983487e'
+
+    for i in range(10):
+        url = 'https://iothook.com/api/latest/datas/update?api_key=' + API_KEY + '&value_1=10&value_2=2&value_3=3'
+
+        response = requests.get(url)
+        data = response.json()
+        print data
+        time.sleep(15)
+
+Arduino, ESP8266 POST Metodu ile Veri Gönderme
+----------------------------------------------
+
+Bu örnekde Arduino Uno ya RX ve TX ile bağlanmış olan ESP8266 ile iothook a veri gonderme örneği verilmiştir.
+Örnekde 0-100 arasında rastgele sayı üretilerek iothook da https://iothook.com/tr/channel/api/public/240 id numaralı
+cihaz için gönderim gerçekleşmiştir. Cihaz datalarını https://iothook.com/tr/channel/api/public/240 linkinden gercek
+zamanlı olarak takip edebilirsiniz.
+
+Bu örneğe https://github.com/electrocoder/IoThook/tree/master/examples/IoThook/v1_3/arduino sayfasından
+ulaşabilirsiniz.
+
+.. code-block:: c
+
+    /*
+      Arduino ile ESP8266 Wifi Modul Testi
+
+      Kod Arduino ya yuklendiginde Arduino IDE nin Serial Monitor u
+      ile ESP8266 arasinda haberlesme gozlenebilir.
+
+      Arduino ile ESP8266 arasindaki iletisim Baud ayari
+      115200 olmalidir.
+
+      Arduino 0 ile 100 arasinda uretmis oldugu Random sayıyı iothook a gonderir.
+
+      Bu cihaza ait datalar
+      https://iothook.com/tr/channel/api/public/240
+      adresinden gercek zamanli olarak izlenebilir.
+
+      Bu ornek IoThook servisine veri gondermek icin baslangic ayarlarinin
+      yapilmasini amaclamaktadir.
+
+      24 Eylul 2017
+      Sahin MERSIN
+
+      Daha fazlasi icin
+
+      http://www.iothook.com
+      ve
+      https://github.com/electrocoder/IoThook
+
+      sitelerine gidiniz.
+      Sorular ve destek talepleri icin
+      https://github.com/electrocoder/IoThook/issues
+      sayfasina gidiniz.
+
+      Yayin ve sahiplik http://mesebilisim.com
+    */
+
+    #include "SoftwareSerial.h"
+
+    String ssid = "WIFI_ID";
+    String password = "WIFI_PASSWORD";
+
+    SoftwareSerial esp(10, 11);// RX, TX
+
+    String data;
+
+    String server = "iothook.com";
+
+    String uri = "/api/latest/datas/";
+
+    void setup() {
+
+      esp.begin(115200);
+
+      Serial.begin(115200);
+
+      Serial.println("Arduino ile ESP8266 Wifi Modul Testi");
+      Serial.println("          www.IoThook.com           ");
+      Serial.println("");
+
+      reset();
+
+      connectWifi();
+
+    }
+
+
+    void reset() {
+
+      esp.println("AT+RST");
+
+      delay(2000);
+
+      if (esp.find("OK") ) Serial.println("Modul Reset yapildi");
+      else Serial.println("Module Reset yapılamadi");
+
+    }
+
+
+    void connectWifi() {
+
+      String cmd = "AT+CWJAP=\"" + ssid + "\",\"" + password + "\"";
+
+      esp.println(cmd);
+
+      delay(4000);
+
+      if (esp.find("OK")) {
+
+        Serial.println("ESP8266 Wifi ye baglandi");
+
+      }
+
+      else {
+
+        connectWifi();
+
+        Serial.println("ESP8266 Wifi ye baglanamadı!");
+      }
+
+    }
+
+
+    void loop () {
+
+      data = "{\"api_key\":\"b4301a9f-9854-11790bdf8d320140da\",\"value_1\":" + String(random(0, 100)) + "}";
+
+      httppost();
+
+      delay(5000);
+
+    }
+
+
+    void httppost () {
+
+      esp.println("AT+CIPSTART=\"TCP\",\"" + server + "\",80");
+
+      if ( esp.find("OK")) {
+
+        Serial.println("TCP baglanti hazir");
+
+      }
+      else
+        Serial.println("TCP baglanti hatali");
+
+      delay(3000);
+
+      String postRequest =
+
+        "POST " + uri + " HTTP/1.0\r\n" +
+
+        "Host: " + server + "\r\n" +
+
+        "Accept: *" + "/" + "*\r\n" +
+
+        "Content-Length: " + data.length() + "\r\n" +
+
+        "Content-Type: application/x-www-form-urlencoded\r\n" +
+
+        "\r\n" + data;
+
+      String sendCmd = "AT+CIPSEND=";
+
+      esp.print(sendCmd);
+
+      esp.println(postRequest.length() );
+
+      delay(1500);
+
+      if (esp.find(">")) {
+        Serial.println("Gonderiliyor...");
+        esp.print(postRequest);
+
+        if ( esp.find("SEND OK")) {
+          Serial.println("Gonderildi :)");
+
+          while (esp.available()) {
+
+            String tmpResp = esp.readString();
+
+            Serial.println(tmpResp);
+
+          }
+
+          esp.println("AT+CIPCLOSE");
+
+        }
+        else
+          Serial.println("Gonderilemedi :(");
+
+      }
+      else
+        Serial.println("Gonderim hatasi! ESP hazir degil!");
+    }
+
+
+Arduino, ESP8266 POST Metodu ile 2 Veri Gönderme
+------------------------------------------------
+
+Bu örnekde Arduino Uno ya RX ve TX ile bağlanmış olan ESP8266 ile iothook a veri gonderme örneği verilmiştir.
+Örnekde 0-100 arasında rastgele 2 sayı üretilerek iothook da https://iothook.com/tr/channel/api/public/192 id numaralı
+cihaz için gönderim gerçekleşmiştir. Cihaz datalarını https://iothook.com/tr/channel/api/public/192 linkinden gercek
+zamanlı olarak takip edebilirsiniz.
+
+Bu örneğe https://github.com/electrocoder/IoThook/tree/master/examples/IoThook/v1_3/arduino sayfasından
+ulaşabilirsiniz.
+
+.. code-block:: c
+
+    /*
+      Arduino ile ESP8266 Wifi Modul Testi
+
+      Kod Arduino ya yuklendiginde Arduino IDE nin Serial Monitor u
+      ile ESP8266 arasinda haberlesme gozlenebilir.
+
+      Arduino ile ESP8266 arasindaki iletisim Baud ayari
+      115200 olmalidir.
+
+      Arduino 0 ile 100 arasinda uretmis oldugu 2 adet Random sayıyı iothook a gonderir.
+      Bu sayılar 'data' değişkeni içerisinde value_1 ve value_2 değerleridir. Bu değerler
+      sensör olarak kullanılmaktadır. Sıcaklık  ve Nem gibi sensörlerinizi bu alanlara
+      gönderebilirsiniz.
+
+      Bu cihaza ait datalar
+      https://iothook.com/tr/channel/api/public/192
+      adresinden gercek zamanli olarak izlenebilir.
+
+      Bu ornek IoThook servisine veri gondermek icin baslangic ayarlarinin
+      yapilmasini amaclamaktadir.
+
+      24 Eylul 2017
+      Sahin MERSIN
+
+      Daha fazlasi icin
+
+      http://www.iothook.com
+      ve
+      https://github.com/electrocoder/IoThook
+
+      sitelerine gidiniz.
+      Sorular ve destek talepleri icin
+      https://github.com/electrocoder/IoThook/issues
+      sayfasina gidiniz.
+
+      Yayin ve sahiplik http://mesebilisim.com
+    */
+
+    #include "SoftwareSerial.h"
+
+    String ssid = "WIFI_SSID";
+    String password = "WIFI_PASSWORD";
+
+    SoftwareSerial esp(10, 11);// RX, TX
+
+    String data;
+
+    String server = "iothook.com";
+
+    String uri = "/api/latest/datas/";
+
+    void setup() {
+
+      esp.begin(115200);
+
+      Serial.begin(115200);
+
+      Serial.println("Arduino ile ESP8266 Wifi Modul Testi");
+      Serial.println("          www.IoThook.com           ");
+      Serial.println("");
+
+      reset();
+
+      connectWifi();
+
+    }
+
+
+    void reset() {
+
+      esp.println("AT+RST");
+
+      delay(2000);
+
+      if (esp.find("OK") ) Serial.println("Modul Reset yapildi");
+      else Serial.println("Module Reset yapılamadi");
+
+    }
+
+
+    void connectWifi() {
+
+      String cmd = "AT+CWJAP=\"" + ssid + "\",\"" + password + "\"";
+
+      esp.println(cmd);
+
+      delay(4000);
+
+      if (esp.find("OK")) {
+
+        Serial.println("ESP8266 Wifi ye baglandi");
+
+      }
+
+      else {
+
+        connectWifi();
+
+        Serial.println("ESP8266 Wifi ye baglanamadı!");
+      }
+
+    }
+
+
+    void loop () {
+
+      data = "{\"api_key\":\"5180e8bd-95a5-11cc4ce6cfe4ee481c\",\"value_1\":" + String(random(0, 100)) + ",\"value_2\":" + String(random(0, 100)) + "}";
+
+      httppost();
+
+      delay(8000);
+
+    }
+
+
+    void httppost () {
+
+      esp.println("AT+CIPSTART=\"TCP\",\"" + server + "\",80");
+
+      if ( esp.find("OK")) {
+
+        Serial.println("TCP baglanti hazir");
+
+      }
+      else
+        Serial.println("TCP baglanti hatali");
+
+      delay(3000);
+
+      String postRequest =
+
+        "POST " + uri + " HTTP/1.0\r\n" +
+
+        "Host: " + server + "\r\n" +
+
+        "Accept: *" + "/" + "*\r\n" +
+
+        "Content-Length: " + data.length() + "\r\n" +
+
+        "Content-Type: application/x-www-form-urlencoded\r\n" +
+
+        "\r\n" + data;
+
+      String sendCmd = "AT+CIPSEND=";
+
+      esp.print(sendCmd);
+
+      esp.println(postRequest.length() );
+
+      delay(1500);
+
+      if (esp.find(">")) {
+        Serial.println("Gonderiliyor...");
+        esp.print(postRequest);
+
+        if ( esp.find("SEND OK")) {
+          Serial.println("Gonderildi :)");
+
+          while (esp.available()) {
+
+            String tmpResp = esp.readString();
+
+            Serial.println(tmpResp);
+
+          }
+
+          esp.println("AT+CIPCLOSE");
+
+        }
+        else
+          Serial.println("Gonderilemedi :(");
+
+      }
+      else
+        Serial.println("Gonderim hatasi! ESP hazir degil!");
+    }
+
+
+Arduino, ESP8266, Nodemcu GET Metodu ile Veri Gönderme
+------------------------------------------------------
+
+IoThook Api v1.3 güncellemesi ile GET metodu ile veri göndermeye izin vermektedir.
+
+Bu örnekde Arduino, ESP8266 ve NodeMCU ile ile Get metodu kullanarak veri gönderme örneği verilmiştir:
+
+.. code-block:: c
+
+    // 18.09.2017
+    // nodemcu ile sicaklik ve nem takibi
+    // electrocoder@gmail.com
+    // sahin mersin
+    // v1
+
+    #include <ESP8266WiFi.h>          //https://github.com/esp8266/Arduino
+
+    //needed for library
+    #include <DNSServer.h>
+    #include <ESP8266WebServer.h>
+    #include <WiFiManager.h>          //https://github.com/tzapu/WiFiManager
+
+    //for LED status
+    #include <Ticker.h>
+
+    #include <ESP8266HTTPClient.h>
+
+    #include "DHT.h"
+
+    #define DHTPIN 4     // what digital pin we're connected to   // D2 - GPIO4
+    #define DHTTYPE DHT11
+
+    DHT dht(DHTPIN, DHTTYPE);
+
+    Ticker ticker;
+
+    void tick()
+    {
+      //toggle state
+      int state = digitalRead(BUILTIN_LED);  // get the current state of GPIO1 pin
+      digitalWrite(BUILTIN_LED, !state);     // set pin to the opposite state
+    }
+
+    //gets called when WiFiManager enters configuration mode
+    void configModeCallback (WiFiManager *myWiFiManager) {
+      Serial.println("Entered config mode");
+      Serial.println(WiFi.softAPIP());
+      //if you used auto generated SSID, print it
+      Serial.println(myWiFiManager->getConfigPortalSSID());
+      //entered config mode, make led toggle faster
+      ticker.attach(0.2, tick);
+    }
+
+
+    void setup() {
+      // put your setup code here, to run once:
+      Serial.begin(115200);
+
+      //set led pin as output
+      pinMode(BUILTIN_LED, OUTPUT);
+
+      // start ticker with 0.5 because we start in AP mode and try to connect
+      ticker.attach(0.6, tick);
+
+      //WiFiManager
+      //Local intialization. Once its business is done, there is no need to keep it around
+      WiFiManager wifiManager;
+      //reset settings - for testing
+      //wifiManager.resetSettings();
+
+      //set callback that gets called when connecting to previous WiFi fails, and enters Access Point mode
+      wifiManager.setAPCallback(configModeCallback);
+
+      //fetches ssid and pass and tries to connect
+      //if it does not connect it starts an access point with the specified name
+      //here  "AutoConnectAP"
+      //and goes into a blocking loop awaiting configuration
+      if (!wifiManager.autoConnect("MeseIoT", "MeseIoT**")) {
+        Serial.println("failed to connect and hit timeout");
+        //reset and try again, or maybe put it to deep sleep
+        ESP.reset();
+        delay(1000);
+      }
+
+      //if you get here you have connected to the WiFi
+      Serial.println("connected...yeey :)");
+      ticker.detach();
+      //keep LED on
+      digitalWrite(BUILTIN_LED, LOW);
+
+      dht.begin();
+    }
+
+
+    void loop() {
+      // Wait a few seconds between measurements.
+      delay(2000);
+
+      // Reading temperature or humidity takes about 250 milliseconds!
+      // Sensor readings may also be up to 2 seconds 'old' (its a very slow sensor)
+      float h = dht.readHumidity();
+      // Read temperature as Celsius (the default)
+      float t = dht.readTemperature();
+      // Read temperature as Fahrenheit (isFahrenheit = true)
+      float f = dht.readTemperature(true);
+
+      // Check if any reads failed and exit early (to try again).
+      if (isnan(h) || isnan(t) || isnan(f)) {
+        Serial.println("Failed to read from DHT sensor!");
+        return;
+      }
+
+      // Compute heat index in Fahrenheit (the default)
+      float hif = dht.computeHeatIndex(f, h);
+      // Compute heat index in Celsius (isFahreheit = false)
+      float hic = dht.computeHeatIndex(t, h, false);
+
+      Serial.print("Humidity: ");
+      Serial.print(h);
+      Serial.print(" %\t");
+      Serial.print("Temperature: ");
+      Serial.print(t);
+      Serial.print(" *C ");
+      Serial.print(f);
+      Serial.print(" *F\t");
+      Serial.print("Heat index: ");
+      Serial.print(hic);
+      Serial.print(" *C ");
+      Serial.print(hif);
+      Serial.println(" *F");
+
+      ///
+      HTTPClient http;
+
+      // configure server and url
+      http.begin("http://iothook.com/api/latest/datas/update/?api_key=095c75f-9c40-11e14084d3e&value_1=" + String(t) + "&value_2=" + String(h) + "");
+      //http.begin("192.168.1.12", 80, "/test.html");
+
+      Serial.print("[HTTP] GET...\n");
+      // start connection and send HTTP header
+      int httpCode = http.GET();
+      if (httpCode > 0) {
+        // HTTP header has been send and Server response header has been handled
+        Serial.printf("[HTTP] GET... code: %d\n", httpCode);
+
+        // file found at server
+        if (httpCode == HTTP_CODE_OK) {
+
+          // get lenght of document (is -1 when Server sends no Content-Length header)
+          int len = http.getSize();
+
+          // create buffer for read
+          uint8_t buff[128] = { 0 };
+
+          // get tcp stream
+          WiFiClient * stream = http.getStreamPtr();
+
+          // read all data from server
+          while (http.connected() && (len > 0 || len == -1)) {
+            // get available data size
+            size_t size = stream->available();
+
+            if (size) {
+              // read up to 128 byte
+              int c = stream->readBytes(buff, ((size > sizeof(buff)) ? sizeof(buff) : size));
+
+              // write it to Serial
+              Serial.write(buff, c);
+
+              if (len > 0) {
+                len -= c;
+              }
+            }
+            delay(1);
+          }
+
+          Serial.println();
+          Serial.print("[HTTP] connection closed or file end.\n");
+
+        }
+      } else {
+        Serial.printf("[HTTP] GET... failed, error: %s\n", http.errorToString(httpCode).c_str());
+      }
+
+      http.end();
+      ////
+      delay(13000);
+    }
+
+
+GO GET Metodu ile Veri Gönderme
+-------------------------------
+
+IoThook Api v1.3 güncellemesi ile GET metodu ile veri göndermeye izin vermektedir.
+
+Bu örnekde GO dili ile ile Get metodu kullanarak veri gönderme örneği verilmiştir:
+
+.. code-block:: go
+
+    // 04 Eylul 2017
+    // Sahin MERSIN
+    // iothook.com
+    // postman kullanilarak olusturulmustur
+
+
+    package main
+
+    import (
+        "fmt"
+        "net/http"
+        "io/ioutil"
+    )
+
+    func main() {
+
+        url := "http://iothook.com/api/latest/datas/update?api_key=22dbb35d-9dd5-113c0200ec44bb9&value_1=10&value_2=2&value_3=3"
+
+        req, _ := http.NewRequest("GET", url, nil)
+
+        req.Header.Add("cache-control", "no-cache")
+
+        res, _ := http.DefaultClient.Do(req)
+
+        defer res.Body.Close()
+        body, _ := ioutil.ReadAll(res.Body)
+
+        fmt.Println(res)
+        fmt.Println(string(body))
+
+    }
+
+
+PHP GET Metodu ile Veri Gönderme
+--------------------------------
+
+IoThook Api v1.3 güncellemesi ile GET metodu ile veri göndermeye izin vermektedir.
+
+Bu örnekde PHP dili ile ile Get metodu kullanarak veri gönderme örneği verilmiştir:
+
+.. code-block:: php
+
+    // 04 Eylul 2017
+    // Sahin MERSIN
+    // iothook.com
+    // postman kullanilarak olusturulmustur
+
+    <?php
+
+    $request = new HttpRequest();
+    $request->setUrl('http://iothook.com/api/latest/datas/update');
+    $request->setMethod(HTTP_METH_GET);
+
+    $request->setQueryData(array(
+      'api_key' => '22dbb35d-9dd5-12300ec44bb9',
+      'value_1' => '10',
+      'value_2' => '2',
+      'value_3' => '3'
+    ));
+
+    $request->setHeaders(array(
+      'postman-token' => '791ba738-7cb8-a920-0e5c-883cfb3e4498',
+      'cache-control' => 'no-cache'
+    ));
+
+    try {
+      $response = $request->send();
+
+      echo $response->getBody();
+    } catch (HttpException $ex) {
+      echo $ex;
+    }
+
+
+NodeJS GET Metodu ile Veri Gönderme
+-----------------------------------
+
+IoThook Api v1.3 güncellemesi ile GET metodu ile veri göndermeye izin vermektedir.
+
+Bu örnekde NodeJS Native metodu kullanarak veri gönderme örneği verilmiştir:
+
+.. code-block:: js
+
+    // 04 Eylul 2017
+    // Sahin MERSIN
+    // iothook.com
+    // postman kullanilarak olusturulmustur
+
+    var http = require("http");
+
+    var options = {
+      "method": "GET",
+      "hostname": "iothook.com",
+      "port": null,
+      "path": "/api/latest/datas/update?api_key=22dbb35d-9dd5-113200ec44bb9&value_1=10&value_2=2&value_3=3",
+      "headers": {
+        "cache-control": "no-cache",
+        "postman-token": "033da3c8-6196-cd49-f72d-1850a7d18500"
+      }
+    };
+
+    var req = http.request(options, function (res) {
+      var chunks = [];
+
+      res.on("data", function (chunk) {
+        chunks.push(chunk);
+      });
+
+      res.on("end", function () {
+        var body = Buffer.concat(chunks);
+        console.log(body.toString());
+      });
+    });
+
+    req.end();
+
+
+Javascript Jquery Ajax GET Metodu ile Veri Gönderme
+---------------------------------------------------
+
+IoThook Api v1.3 güncellemesi ile GET metodu ile veri göndermeye izin vermektedir.
+
+Bu örnekde NodeJS Native metodu kullanarak veri gönderme örneği verilmiştir:
+
+.. code-block:: js
+
+    // 04 Eylul 2017
+    // Sahin MERSIN
+    // iothook.com
+    // postman kullanilarak olusturulmustur
+
+    var settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": "http://iothook.com/api/latest/datas/update?api_key=22dbb35d-9dd5-113c0342c44bb9&value_1=10&value_2=2&value_3=3",
+      "method": "GET",
+      "headers": {
+        "cache-control": "no-cache",
+      }
+    }
+
+    $.ajax(settings).done(function (response) {
+      console.log(response);
+    });
+
+
+Java Unirest GET Metodu ile Veri Gönderme
+-----------------------------------------
+
+IoThook Api v1.3 güncellemesi ile GET metodu ile veri göndermeye izin vermektedir.
+
+Bu örnekde NodeJS Native metodu kullanarak veri gönderme örneği verilmiştir:
+
+.. code-block:: java
+
+    // 04 Eylul 2017
+    // Sahin MERSIN
+    // iothook.com
+    // postman kullanilarak olusturulmustur
+
+    HttpResponse<String> response = Unirest.get("http://iothook.com/api/latest/datas/update?api_key=22dbb35d-9dd5-113c0342c44bb9&value_1=10&value_2=2&value_3=3")
+      .header("cache-control", "no-cache")
+      .asString();
+
+
+Java Unirest GET Metodu ile Veri Gönderme
+-----------------------------------------
+
+IoThook Api v1.3 güncellemesi ile GET metodu ile veri göndermeye izin vermektedir.
+
+Bu örnekde NodeJS Native metodu kullanarak veri gönderme örneği verilmiştir:
+
+.. code-block:: java
+
+    // 04 Eylul 2017
+    // Sahin MERSIN
+    // iothook.com
+    // postman kullanilarak olusturulmustur
+
+    OkHttpClient client = new OkHttpClient();
+
+    Request request = new Request.Builder()
+      .url("http://iothook.com/api/latest/datas/update?api_key=22dbb35d-9dd5-113c03420ec44bb9&value_1=10&value_2=2&value_3=3")
+      .get()
+      .addHeader("cache-control", "no-cache")
+      .build();
+
+    Response response = client.newCall(request).execute();
+

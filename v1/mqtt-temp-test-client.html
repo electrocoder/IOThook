@@ -1,0 +1,144 @@
+
+
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="tr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>MQTT Temp Test Client &#8212; Internete Bağlı Nesneler 1 belgelendirme çalışması</title>
+    
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/customstyle.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <link rel="index" title="Dizin" href="genindex.html" />
+    <link rel="search" title="Ara" href="search.html" />
+    <link rel="next" title="MQTT Test Client Publisher Subscriber" href="mqtt-temp-test-client-publisher-subscriber.html" />
+    <link rel="prev" title="Iot Mqtt Nedir?" href="what-is-iot-mqtt.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Gezinti</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Genel Dizin"
+             accesskey="I">dizin</a></li>
+        <li class="right" >
+          <a href="mqtt-temp-test-client-publisher-subscriber.html" title="MQTT Test Client Publisher Subscriber"
+             accesskey="N">sonraki</a> |</li>
+        <li class="right" >
+          <a href="what-is-iot-mqtt.html" title="Iot Mqtt Nedir?"
+             accesskey="P">önceki</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Internete Bağlı Nesneler 1 belgelendirme çalışması</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Önceki konu</h4>
+  <p class="topless"><a href="what-is-iot-mqtt.html"
+                        title="önceki bölüm">Iot Mqtt Nedir?</a></p>
+  <h4>Sonraki konu</h4>
+  <p class="topless"><a href="mqtt-temp-test-client-publisher-subscriber.html"
+                        title="sonraki bölüm">MQTT Test Client Publisher Subscriber</a></p>
+  <div role="note" aria-label="source link">
+    <h3>Bu Sayfa</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/mqtt-temp-test-client.rst.txt"
+            rel="nofollow">Kaynağı Göster</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Hızlı Arama</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Git" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="admonition warning" id="mqtt-temp-test-client">
+<p class="first admonition-title">Uyarı</p>
+<p class="last">Api sisteminin son versiyonu v1.2 dir. Son versiyonu kullanmaniz tavsiye edilir!
+Son versiyon dökümana <a class="reference external" href="/docs/v1.2/index.html">buradan</a> ulaşabilirsiniz.</p>
+</div>
+<div class="section" id="id1">
+<h1>MQTT Temp Test Client<a class="headerlink" href="#id1" title="Bu başlığın kalıcı bağlantısı">¶</a></h1>
+<p>Iot MQTT Temp Test Client
+Mosquitto Brokera websocket ile gelen temp/random başlığını dinler.</p>
+<p>Bu örnek &#8216;test.mosquitto.org&#8217; sitesinden alınmıştır. MQTT Temp örneğinin orjinal kaynağına &#8216;desert-home.com&#8217; adresinden ve Github üzerinden ulaşabilirsiniz.
+MQTT Brokera nasıl mesaj gönderebilirim?</p>
+<p>Iothook MQTT brokerına veri göndermek için &#8220;temp/random&#8221; başlığı gönderilmelidir. Gönderilen değer -20 ile +50 aralığında kayar noktalı (float) veya tamsayı (int) formatında olmalıdır.</p>
+<p>MQTT Broker kimlik doğrulama ile çalışır.</p>
+<p>Örnek -&gt; Mesaj yayınlama: mosquitto_pub -h iothook.com -p 1883 -t &#8220;temp/random&#8221; -m &#8220;6&#8221; -u pub_user -P iothook_pub_user</p>
+<p>Örnek -&gt; Mesaja abone olma: mosquitto_sub -h iothook.com -p 1883 -t &#8220;temp/random&#8221; -u pub_user -P iothook_pub_user</p>
+<p>MQTT Brokera için Test Kullanıcıları:</p>
+<p>Kullanıcı Adı : pub_user Şifre : iothook_pub_user</p>
+<p>Kullanıcı Adı : sub_user Şifre : iothook_sub_user</p>
+<p>Kullanıcı Adı : pub_client Şifre : iothook_pub_client</p>
+<p>Kullanıcı Adı : sub_client Şifre : iothook_sub_client</p>
+<div class="figure align-center" id="id2">
+<a class="reference internal image-reference" href="_images/mqtt-temp-test.png"><img alt="mqtt-temp-test.png" src="_images/mqtt-temp-test.png" style="width: 502.45000000000005px; height: 348.40000000000003px;" /></a>
+<p class="caption"><span class="caption-text"><em>MQTT Temp Test</em></span></p>
+</div>
+<p>Temp client sayfasına
+<a class="reference external" href="https://iothook.com/mqtt/mqtt-temp-test/">https://iothook.com/mqtt/mqtt-temp-test/</a>
+adresinden ulaşabilirsiniz.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Gezinti</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Genel Dizin"
+             >dizin</a></li>
+        <li class="right" >
+          <a href="mqtt-temp-test-client-publisher-subscriber.html" title="MQTT Test Client Publisher Subscriber"
+             >sonraki</a> |</li>
+        <li class="right" >
+          <a href="what-is-iot-mqtt.html" title="Iot Mqtt Nedir?"
+             >önceki</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Internete Bağlı Nesneler 1 belgelendirme çalışması</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016, mesebilisim.
+      <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.4 ile oluşturulmuştur.
+    </div>
+  </body>
+</html>

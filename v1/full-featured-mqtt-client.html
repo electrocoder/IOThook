@@ -1,0 +1,137 @@
+
+
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="tr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Full Featured MQTT Client &#8212; Internete Bağlı Nesneler 1 belgelendirme çalışması</title>
+    
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/customstyle.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <link rel="index" title="Dizin" href="genindex.html" />
+    <link rel="search" title="Ara" href="search.html" />
+    <link rel="next" title="IHook Nedir?" href="what-is-ihook.html" />
+    <link rel="prev" title="MQTT Test Client Publisher Subscriber" href="mqtt-temp-test-client-publisher-subscriber.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Gezinti</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Genel Dizin"
+             accesskey="I">dizin</a></li>
+        <li class="right" >
+          <a href="what-is-ihook.html" title="IHook Nedir?"
+             accesskey="N">sonraki</a> |</li>
+        <li class="right" >
+          <a href="mqtt-temp-test-client-publisher-subscriber.html" title="MQTT Test Client Publisher Subscriber"
+             accesskey="P">önceki</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Internete Bağlı Nesneler 1 belgelendirme çalışması</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Önceki konu</h4>
+  <p class="topless"><a href="mqtt-temp-test-client-publisher-subscriber.html"
+                        title="önceki bölüm">MQTT Test Client Publisher Subscriber</a></p>
+  <h4>Sonraki konu</h4>
+  <p class="topless"><a href="what-is-ihook.html"
+                        title="sonraki bölüm">IHook Nedir?</a></p>
+  <div role="note" aria-label="source link">
+    <h3>Bu Sayfa</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/full-featured-mqtt-client.rst.txt"
+            rel="nofollow">Kaynağı Göster</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Hızlı Arama</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Git" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="admonition warning" id="full-featured-mqtt-client">
+<p class="first admonition-title">Uyarı</p>
+<p class="last">Api sisteminin son versiyonu v1.2 dir. Son versiyonu kullanmaniz tavsiye edilir!
+Son versiyon dökümana <a class="reference external" href="/docs/v1.2/index.html">buradan</a> ulaşabilirsiniz.</p>
+</div>
+<div class="section" id="id1">
+<h1>Full Featured MQTT Client<a class="headerlink" href="#id1" title="Bu başlığın kalıcı bağlantısı">¶</a></h1>
+<p>MQTT Brokera Mesaj Gönderme ve Alma</p>
+<p>MQTT Broker kimlik doğrulama ile çalışır.</p>
+<p>Örnek -&gt; Mesaj yayınlama: mosquitto_pub -h iothook.com -p 1883 -t “temp/random” -m “6” -u pub_user -P iothook_pub_user</p>
+<p>Örnek -&gt; Mesaja abone olma: mosquitto_sub -h iothook.com -p 1883 -t “temp/random” -u pub_user -P iothook_pub_user</p>
+<p>MQTT Brokera için Test Kullanıcıları:</p>
+<p>Kullanıcı Adı : pub_user Şifre : iothook_pub_user</p>
+<p>Kullanıcı Adı : sub_user Şifre : iothook_sub_user</p>
+<p>Kullanıcı Adı : pub_client Şifre : iothook_pub_client</p>
+<p>Kullanıcı Adı : sub_client Şifre : iothook_sub_client</p>
+<p>Websockets Client Uygulaması Apache License Version 2.0 ile HiveMQ <a class="reference external" href="http://www.hivemq.com/">http://www.hivemq.com/</a> tarafından dağıtılmaktadır. Lisans hakkında ayrıca bilgi alınız.</p>
+<p>Temp client sayfasına
+<a class="reference external" href="https://iothook.com/mqtt/full-featured-mqtt-client/">https://iothook.com/mqtt/full-featured-mqtt-client/</a>
+adresinden ulaşabilirsiniz.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Gezinti</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Genel Dizin"
+             >dizin</a></li>
+        <li class="right" >
+          <a href="what-is-ihook.html" title="IHook Nedir?"
+             >sonraki</a> |</li>
+        <li class="right" >
+          <a href="mqtt-temp-test-client-publisher-subscriber.html" title="MQTT Test Client Publisher Subscriber"
+             >önceki</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Internete Bağlı Nesneler 1 belgelendirme çalışması</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016, mesebilisim.
+      <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.4 ile oluşturulmuştur.
+    </div>
+  </body>
+</html>

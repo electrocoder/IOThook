@@ -1,0 +1,127 @@
+
+
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="tr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1254" />
+    
+    <title>Kanal Aç</title>
+    
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/customstyle.css" type="text/css" />
+    <link rel="index" title="Dizin" href="genindex.html" />
+    <link rel="next" title="Veri Gönder" href="send-data.html" />
+    <link rel="prev" title="Iot Nedir" href="what-is-iot.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Gezinti</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Genel Dizin"
+             accesskey="I">dizin</a></li>
+        <li class="right" >
+          <a href="send-data.html" title="Veri Gönder"
+             accesskey="N">sonraki</a> |</li>
+        <li class="right" >
+          <a href="what-is-iot.html" title="Iot Nedir"
+             accesskey="P">önceki</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Internete Bağlı Nesneler 1.2 belgelendirme çalışması</a> &#187;</li> 
+      </ul>
+    </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="kanal-ac">
+<span id="create-new-channel"></span><h1>Kanal Aç</h1>
+<p>Iothook kanal; internete bağlı nesneler arasında veri iletimini sağlamak için oluşturulmuş
+kanca sistemidir. Kanal ile iot sistemleri veri paylaşımı yapılabilir, veri gönderim işlemleri tanımlanır.</p>
+<p>Iothook web servislerini kullanabilmek için üye olunmalıdır. Üyelik
+seçenekleri ‘Free’, ‘Student’, ‘Pro’ ve ‘Ultra’ olmak üzere 4
+kullanım planı vardır. Üye olmak için adrese gidiniz.</p>
+<p>Üyelik adımından sonra yönetim paneli aracılığı ile ‘Kanal Ekle’ ekranına girilir.</p>
+<div class="section" id="kanal-ekle">
+<h2>Kanal Ekle</h2>
+<p>Kanal ekleme adımları şu şekildedir:</p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="first docutils">
+<dt>Form Metod: Http (Hyper Text Transfer Protocol) de veriler TCP/IP metodu ile iletilmektedir. Http protokolü üzerinden veri iletimi request ve response istekleri ile gerçekleşir. ‘Request’ gerçekleşmesi istenen     talep, ‘Response’ ise yanıt olarak kullanılır. HTTP protokolüne göre POST, GET veya POST/GET metodu seçilir. Iothook iletişiminde post ve get metodları kullanılmaktadır.</dt>
+<dd><ul class="first last">
+<li>Post: Verilerin iot cihazda mesaj gövdesine yerleştirilerek gönderilme işlemidir.</li>
+<li>Get: Verilerin iot cihaz ile sorgulanma ve cevap alınma talebidir.</li>
+<li>Post/Get: Veri aktarımının iot nesnesi ile server arasında çift taraflı olacağını gösterir.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>Form enctype: &#8220;application/x-www-form-urlencoded&#8221; ile iot cihazından gönderilen karakterlerin gönderilmeden önce kodlanacağını belirtir. &#8220;mutlipart/form-data&#8221; ise verilerin içerisinde ASCII olmayan verilerin olduğunu dosya veya image formatında veri olduğunu belirtir.</li>
+<li>Aygıt türü: Iot cihazın türünü belirler. Arduino, Raspberry Pi... gibi</li>
+<li>Kanal adı: Verilerin toplanacağı kanalın adı.</li>
+<li>Web site: Veriler bir web sitesinde kullanılacak ise web site adresi girilmelidir.</li>
+<li>Email ile haber ver: Veri alındığında kayıtlı olan mail adresine mesaj gonderir. Aktif edilirse 15dk. da bir veri gönderilmesi gerekir.</li>
+<li>Verileri kaydet: Iot nesnesinden gelen verilerin iothook veritabanında saklanması için gereklidir.</li>
+<li>Resim: Kanal tanıtım resmi olarak kullanılır.</li>
+<li>Açıklama: Kanal bilgileri girilmelidir.</li>
+<li>Is public POST: Bu kanal genel kullanıma açık ve veri eklenmesine açıktır.</li>
+<li>Is public GET: Bu kanal genel kullanıma açık ve verilerin okunmasına izin verir.</li>
+<li>Yayındamı: Kanalı aktif et.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="element-ekle">
+<h2>Element Ekle</h2>
+<p>Iot cihazınız için kanal oluşturduktan sonra kanalda bulunmasını istediğiniz
+veri alanlarını oluşturmalısınız. Bu alanlar veri almaya başlamak
+için eklenir. Element verilerine POST veta GET metodu ile ulaşabilirsiniz.</p>
+</div>
+<div class="section" id="element-ayarlari">
+<h2>Element ayarları:</h2>
+<blockquote>
+<div><ul class="simple">
+<li>Kanal adı: Elementin hangi kanala veri aktaracağı seçilir.</li>
+<li>Grafik türü: Toplanan verilerin çizileceği grafik türünü belirler.</li>
+<li>Element tipi: Verilerin depolanacağı alan tipini belirler. Grafik çizimi sadece &#8220;number&#8221; veri tipinde yapılmalıdır.</li>
+<li>Kanal adı: Verilerin toplanacağı kanalın adı.</li>
+<li>Element adı: Verilerin tutulacağı element adı.</li>
+<li>Yayındamı: Elementi aktif et.</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Gezinti</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Genel Dizin"
+             >dizin</a></li>
+        <li class="right" >
+          <a href="send-data.html" title="Veri Gönder"
+             >sonraki</a> |</li>
+        <li class="right" >
+          <a href="what-is-iot.html" title="Iot Nedir"
+             >önceki</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Internete Bağlı Nesneler 1.2 belgelendirme çalışması</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016-2017, mesebilisim.
+      <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.4 ile oluşturulmuştur.
+    </div>
+  </body>
+</html>

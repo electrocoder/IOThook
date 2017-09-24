@@ -1,0 +1,414 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Iot Email Sms Alarm &mdash; Internete Bağlı Nesneler 1.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/customstyle.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Internete Bağlı Nesneler 1.2 documentation" href="index.html"/>
+        <link rel="next" title="Iot Mqtt Nedir?" href="what-is-iot-mqtt.html"/>
+        <link rel="prev" title="Email Besleme" href="email-feed.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Internete Bağlı Nesneler
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">None</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="what-is-iot.html">Iot Nedir</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create-new-channel.html">Kanal Aç</a></li>
+<li class="toctree-l1"><a class="reference internal" href="send-data.html">Veri Gönder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="read-data.html">Veri Al</a></li>
+<li class="toctree-l1"><a class="reference internal" href="email-feed.html">Email Besleme</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Iot Email Sms Alarm</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#alarm-nedir">Alarm nedir?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#operatorler">Operatörler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#email-alarm-nedir">Email Alarm nedir?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sms-alarm-nedir">SMS Alarm nedir?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="what-is-iot-mqtt.html">Iot Mqtt Nedir?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="what-is-iot-mqtt.html#mqtt-protokolu-nasildir">Mqtt Protokolü Nasıldır?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mqtt-temp-test-client.html">MQTT Temp Test Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mqtt-temp-test-client-publisher-subscriber.html">MQTT Test Client Publisher Subscriber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="full-featured-mqtt-client.html">Full Featured MQTT Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="what-is-ihook.html">IHook Nedir?</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Internete Bağlı Nesneler</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Iot Email Sms Alarm</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/email-sms-alert.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="admonition warning" id="email-sms-alert">
+<p class="first admonition-title">Warning</p>
+<p class="last">Api sisteminin son versiyonu v1.3 dir. Son versiyonu kullanmaniz tavsiye edilir!
+Son versiyon dökümana <a class="reference external" href="/docs/v1.3/index.html">buradan</a> ulaşabilirsiniz.</p>
+</div>
+<div class="section" id="iot-email-sms-alarm">
+<h1>Iot Email Sms Alarm<a class="headerlink" href="#iot-email-sms-alarm" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="alarm-nedir">
+<h2>Alarm nedir?<a class="headerlink" href="#alarm-nedir" title="Permalink to this headline">¶</a></h2>
+<p>Iot Kanal altında oluşturulan Elementlere alarm değeri kurma işlemidir. Alarm değeri kurularak iot cihazıdan her veri
+alındığında operatör ile işlem yapılarak sonuca göre alarm üretilir. Üretilen alarm abonelik tipine göre bir günde en fazla
+atılabilecek email ve sms planına göre belirlenir.</p>
+</div>
+<div class="section" id="operatorler">
+<h2>Operatörler<a class="headerlink" href="#operatorler" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>İşlem operatörleri aşağıdaki gibidir:</dt>
+<dd><ul class="first last simple">
+<li>&lt;   : Küçüktür operatörü. a &lt; b. gelen_deger &lt; alarm_degeri. Iot cihazdan gönderilen değer ile alarm değerini karşılaştırır. İşlem sonucu doğru (True) ise alarm üretilir.</li>
+<li>&lt;=  : Küçük eşittir operatörü. a &lt;= b. gelen_deger &lt;= alarm_degeri. Iot cihazdan gönderilen değer ile alarm değerini karşılaştırır. İşlem sonucu doğru (True) ise alarm üretilir.</li>
+<li>==  : Eşittir operatörü. a == b. gelen_deger == alarm_degeri. Iot cihazdan gönderilen değer ile alarm değerini karşılaştırır. İşlem sonucu doğru (True) ise alarm üretilir.</li>
+<li>!=  : Eşit değil operatörü. a != b. gelen_deger != alarm_degeri. Iot cihazdan gönderilen değer ile alarm değerini karşılaştırır. İşlem sonucu doğru (True) ise alarm üretilir.</li>
+<li>&gt;=  : Büyük eşit operatörü. a &gt;= b. gelen_deger &gt;= alarm_degeri. Iot cihazdan gönderilen değer ile alarm değerini karşılaştırır. İşlem sonucu doğru (True) ise alarm üretilir.</li>
+<li>&gt;   : Büyüktür operatörü. a &gt; b. gelen_deger &gt; alarm_degeri. Iot cihazdan gönderilen değer ile alarm değerini karşılaştırır. İşlem sonucu doğru (True) ise alarm üretilir.</li>
+</ul>
+</dd>
+</dl>
+<p>Örnek operatör işlemleri:</p>
+<blockquote>
+<div><ul class="simple">
+<li>&lt; Küçüktür operatörü python örnek:</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span>
+<span class="bp">True</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span>
+<span class="bp">False</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>&lt;= Küçük eşittir operatörü python örnek :</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">a</span> <span class="o">&lt;=</span> <span class="n">b</span>
+<span class="bp">True</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">a</span> <span class="o">&lt;=</span> <span class="n">b</span>
+<span class="bp">True</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>== Eşittir operatörü python örnek :</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">a</span> <span class="o">==</span> <span class="n">b</span>
+<span class="bp">False</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">a</span> <span class="o">==</span> <span class="n">b</span>
+<span class="bp">True</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>!= Eşit değil operatörü python örnek :</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">a</span> <span class="o">!=</span> <span class="n">b</span>
+<span class="bp">True</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">a</span> <span class="o">!=</span> <span class="n">b</span>
+<span class="bp">False</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>&gt;= Büyük eşit operatörü python örnek :</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">a</span> <span class="o">&gt;=</span> <span class="n">b</span>
+<span class="bp">False</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">a</span> <span class="o">&gt;=</span> <span class="n">b</span>
+<span class="bp">True</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>&gt; Büyüktür operatörü python örnek :</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span>
+<span class="bp">False</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span>
+<span class="bp">True</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="email-alarm-nedir">
+<h2>Email Alarm nedir?<a class="headerlink" href="#email-alarm-nedir" title="Permalink to this headline">¶</a></h2>
+<p>Iot Kanal/Element alarm işlemi uygulandığında gelen değer ile alarm değeri mantıksal operatör işlem sonucuna göre kanal yöneticisine
+email gönderilir. Kayıt olur iken kullanılan email adresi geçerli email adresidir. Günlük (24 saat) email gönderilme sayısı
+üyelik planına göre hesaplanır.</p>
+</div>
+<div class="section" id="sms-alarm-nedir">
+<h2>SMS Alarm nedir?<a class="headerlink" href="#sms-alarm-nedir" title="Permalink to this headline">¶</a></h2>
+<p>Iot Kanal/Element alarm işlemi uygulandığında gelen değer ile alarm değeri mantıksal operatör işlem sonucuna göre kanal yöneticisine
+sms gönderilir. Sms mesaj gönderilebilmesi için kanal yöneticisinin cep telefonunun onaylı olması gerekir. Günlük (24 saat) sms gönderilme sayısı
+üyelik planına göre hesaplanır.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="what-is-iot-mqtt.html" class="btn btn-neutral float-right" title="Iot Mqtt Nedir?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="email-feed.html" class="btn btn-neutral" title="Email Besleme" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016-2017, mesebilisim.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Ports and Versions</span>
+     ()
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Ports</dt>
+      
+    </dl>
+    <dl>
+      <dt>Versions</dt>
+      
+    </dl>
+    <dl>
+      <dt>Downloads</dt>
+      
+    </dl>
+    <hr/>
+    <dl>
+      <dt>External links</dt>
+        <dd>
+          <a href="http://www.mesebilisim.com">Meşe Bilişim</a>
+        </dd>
+        <dd>
+          <a href="https://github.com/electrocoder/iotHook">GitHub</a>
+        </dd>
+    </dl>
+  </div>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

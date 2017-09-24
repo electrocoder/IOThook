@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="tr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>MQTT Test Client Publisher Subscriber</title>
+    
+    <link rel="stylesheet" href="_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/customstyle.css" type="text/css" /> 
+  </head>
+  <body role="document">
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="mqtt-test-client-publisher-subscriber">
+<span id="mqtt-temp-test-client-publisher-subscriber"></span><h1>MQTT Test Client Publisher Subscriber</h1>
+<p>MQTT Brokera Mesaj Gönderme ve Abone Olma
+Mosquitto Brokera websocket ile gelen temp/random başlığını dinler.</p>
+<p>Iothook MQTT brokerına veri göndermek için &#8220;temp/random&#8221; başlığı gönderilmelidir. Gönderilen veri kayar
+noktalı (float), tamsayı (int) veya string (text) formatında olabilir.</p>
+<p>MQTT Broker kimlik doğrulama ile çalışır.</p>
+<p>Örnek -&gt; Mesaj yayınlama: mosquitto_pub -h iothook.com -p 1883 -t &#8220;temp/random&#8221; -m &#8220;6&#8221; -u pub_user -P iothook_pub_user</p>
+<p>Örnek -&gt; Mesaja abone olma: mosquitto_sub -h iothook.com -p 1883 -t &#8220;temp/random&#8221; -u pub_user -P iothook_pub_user</p>
+<p>MQTT Brokera için Test Kullanıcıları:</p>
+<p>Kullanıcı Adı : pub_user Şifre : iothook_pub_user</p>
+<p>Kullanıcı Adı : sub_user Şifre : iothook_sub_user</p>
+<p>Kullanıcı Adı : pub_client Şifre : iothook_pub_client</p>
+<p>Kullanıcı Adı : sub_client Şifre : iothook_sub_client</p>
+<div class="figure align-center" id="id1">
+<img alt="mqtt-temp-test-client-publisher-subscriber.png" src="_images/mqtt-temp-test-client-publisher-subscriber.png" style="width: 751.4px; height: 154.70000000000002px;" />
+<p class="caption"><span class="caption-text"><em>MQTT Test Publisher Subscriber</em></span></p>
+</div>
+<p>Temp client sayfasına
+<a class="reference external" href="https://iothook.com/mqtt/mqtt-temp-test-pub-sub/">https://iothook.com/mqtt/mqtt-temp-test-pub-sub/</a>
+adresinden ulaşabilirsiniz.</p>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

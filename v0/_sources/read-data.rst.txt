@@ -1,0 +1,97 @@
+.. _read-data:
+
+.. warning::
+
+   Api sisteminin son versiyonu v1.1 dir. Son versiyonu kullanmaniz tavsiye edilir!
+   Son versiyon dökümana `buradan`_ ulaşabilirsiniz.
+
+.. _buradan: /docs/v1.1/index.html
+
+*******
+Veri Al
+*******
+
+Iot cihazından gönderilen ısı, nem, voltaj, ışık gibi değerleri iothook data
+merkezinden çekebilmek için öncelikle kanal API_KEY anahtarına ihtiyaç vardır. API_KEY kanal oluştururken
+size özel olarak üretilir. Iot cihazından gelen veriler, Android, iOS gibi mobil cihazınızdan
+veya web sitenizden izlenebilir. Kanalınızın kullanımı genel kullanıma açık ise diğer kullanıcılar
+ile de bu verileri paylaşabilirsiniz.
+
+Örneğin; Kanal adımız "Temperature sensor" olarak belirlenmiş ve kanal içerisinde bulunacak
+iot cihazımızdan "temperature" ve "humidity" element verileri gönderiliyor olsun.
+
+Oluşturulan "API_KEY" elementler sayfasından görülebilir.
+
+Python Json ile Veri Alma
+-------------------------
+
+Python Json ile Get Örneği:
+
+.. code-block:: python
+
+    # sicaklik verilerini python ile json formatinda alma
+    # 19.05.2016
+    # electro
+
+    import requests
+    import json
+    import urllib
+    import urllib2
+
+    API_KEY = "89e495e7941cf9e40e6980d14a16bf023ccd4c91-c74cc36f-ITokooIT"
+    url = 'http://iothook.com/iot/api/v1/' + API_KEY
+
+    response = urllib.urlopen(url)
+    html = json.loads(response.read())
+
+    print html
+
+Python Xml Formatında Veri Alma
+-------------------------------
+
+Api sisteminin son versiyonu v1.1 dir. Son versiyonu kullanmaniz tavsiye edilir!
+
+Buradan Python ile XML parse hakkında daha fazla bilgi alabilirsiniz.
+
+Python Xml ile Get Örneği:
+
+.. code-block:: python
+
+    # sicaklik verilerini python ile xml formatinda alma
+    # 19.05.2016
+    # electro
+
+    import requests
+    import json
+    import urllib
+    import urllib2
+    import xml.etree.ElementTree as ET
+
+    API_KEY = "89e495e7941cf9e40e6980d14a16bf023ccd4c91-c74cc36f-ITokooIT"
+    url = 'http://iothook.com/iot/api/v1/' + API_KEY
+
+    response = urllib.urlopen(url)
+
+    tree = ET.parse(response)
+    root = tree.getroot()
+
+    for child in root:
+        print child[1].text, ": ", child[2].text
+
+HTTP API ile Json Veri Alma
+---------------------------
+
+Curl ile Json Get örneği:
+
+.. code-block:: bash
+
+    curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://iothook.com/iot/api/v1/API_KEY
+
+HTTP API ile XML Veri Alma
+--------------------------
+
+Curl ile XML Get örneği:
+
+.. code-block:: bash
+
+    curl -i -H "Accept: application/xml" -H "Content-Type: application/xml" -X GET http://iothook.com/iot/api/v1/API_KEY

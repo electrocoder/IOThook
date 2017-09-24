@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="tr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>MQTT Temp Test Client</title>
+    
+    <link rel="stylesheet" href="_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/customstyle.css" type="text/css" /> 
+  </head>
+  <body role="document">
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="mqtt-temp-test-client">
+<span id="id1"></span><h1>MQTT Temp Test Client</h1>
+<p>Iot MQTT Temp Test Client
+Mosquitto Brokera websocket ile gelen temp/random başlığını dinler.</p>
+<p>Bu örnek &#8216;test.mosquitto.org&#8217; sitesinden alınmıştır. MQTT Temp örneğinin orjinal kaynağına &#8216;desert-home.com&#8217; adresinden ve Github üzerinden ulaşabilirsiniz.
+MQTT Brokera nasıl mesaj gönderebilirim?</p>
+<p>Iothook MQTT brokerına veri göndermek için &#8220;temp/random&#8221; başlığı gönderilmelidir. Gönderilen değer -20 ile +50 aralığında kayar noktalı (float) veya tamsayı (int) formatında olmalıdır.</p>
+<p>MQTT Broker kimlik doğrulama ile çalışır.</p>
+<p>Örnek -&gt; Mesaj yayınlama: mosquitto_pub -h iothook.com -p 1883 -t &#8220;temp/random&#8221; -m &#8220;6&#8221; -u pub_user -P iothook_pub_user</p>
+<p>Örnek -&gt; Mesaja abone olma: mosquitto_sub -h iothook.com -p 1883 -t &#8220;temp/random&#8221; -u pub_user -P iothook_pub_user</p>
+<p>MQTT Brokera için Test Kullanıcıları:</p>
+<p>Kullanıcı Adı : pub_user Şifre : iothook_pub_user</p>
+<p>Kullanıcı Adı : sub_user Şifre : iothook_sub_user</p>
+<p>Kullanıcı Adı : pub_client Şifre : iothook_pub_client</p>
+<p>Kullanıcı Adı : sub_client Şifre : iothook_sub_client</p>
+<div class="figure align-center" id="id2">
+<img alt="mqtt-temp-test.png" src="_images/mqtt-temp-test.png" style="width: 502.45000000000005px; height: 348.40000000000003px;" />
+<p class="caption"><span class="caption-text"><em>MQTT Temp Test</em></span></p>
+</div>
+<p>Temp client sayfasına
+<a class="reference external" href="https://iothook.com/mqtt/mqtt-temp-test/">https://iothook.com/mqtt/mqtt-temp-test/</a>
+adresinden ulaşabilirsiniz.</p>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

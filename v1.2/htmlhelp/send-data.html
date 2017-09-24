@@ -1,0 +1,217 @@
+
+
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="tr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1254" />
+    
+    <title>Veri Gönder</title>
+    
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/customstyle.css" type="text/css" />
+    <link rel="index" title="Dizin" href="genindex.html" />
+    <link rel="next" title="Veri Al" href="read-data.html" />
+    <link rel="prev" title="Kanal Aç" href="create-new-channel.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Gezinti</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Genel Dizin"
+             accesskey="I">dizin</a></li>
+        <li class="right" >
+          <a href="read-data.html" title="Veri Al"
+             accesskey="N">sonraki</a> |</li>
+        <li class="right" >
+          <a href="create-new-channel.html" title="Kanal Aç"
+             accesskey="P">önceki</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Internete Bağlı Nesneler 1.2 belgelendirme çalışması</a> &#187;</li> 
+      </ul>
+    </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="veri-gonder">
+<span id="send-data"></span><h1>Veri Gönder</h1>
+<p>Veri göndermek için öncelikle kanal ve element eklemeniz gerekir. Kanal oluşturulduğunda
+size özel &#8220;api_key&#8221; üretilerek belirlenen erişim metoduna göre (POST, GET, POST/GET) veri işlemi gerçekleştirilir.</p>
+<p>Örneğin; Kanalımız ısı, ışık, hareket, bar ve nem değerlerini alan bir yapıda olsun.
+Kanal içerisinde bulunacak iot cihazlarımız bizlere bu dataları 15 sn. yede bir 100 kere göndersin.</p>
+<p>Oluşturulan &#8220;API_KEY&#8221; Key Yöneticisi sayfasından görülebilir.</p>
+<div class="section" id="python-2-json-ile-veri-gonderme">
+<h2>Python 2 Json ile Veri Gönderme</h2>
+<p>Python Json ile Post Örneği:</p>
+<p>Bu örneği <a class="reference external" href="https://goo.gl/v9Gd3U" target="_blank">https://goo.gl/v9Gd3U</a> sayfasından indirebilirsiniz.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Python 2 ile IoThook REST Api Testi</span>
+
+<span class="sd">  Kod çalıştırıldığında auth kullanıcı adı ve şifre ile doğrulama gerçekleştirilir.</span>
+<span class="sd">  Kanal api_key ile ilgili kanal ve element değerleri IoThook a post edilir.</span>
+
+<span class="sd">  Bu ornek IotHook servisine veri almak/gondermek icin baslangic seviyesinde</span>
+<span class="sd">  testlerin yapilmasini amaclamaktadir.</span>
+
+<span class="sd">  10 Mayıs 2017</span>
+<span class="sd">  Sahin MERSIN</span>
+
+<span class="sd">  Daha fazlasi icin</span>
+
+<span class="sd">  http://www.iothook.com</span>
+<span class="sd">  ve</span>
+<span class="sd">  https://github.com/electrocoder/iotHook</span>
+
+<span class="sd">  sitelerine gidiniz.</span>
+
+<span class="sd">  Sorular ve destek talepleri icin</span>
+<span class="sd">  https://github.com/electrocoder/iotHook/issues</span>
+<span class="sd">  sayfasindan veya Meşe Bilişim den yardım alabilirsiniz.</span>
+
+<span class="sd">  Yayin : http://mesebilisim.com</span>
+
+<span class="sd">  Licensed under the Apache License, Version 2.0 (the &quot;License&quot;).</span>
+<span class="sd">  You may not use this file except in compliance with the License.</span>
+<span class="sd">  A copy of the License is located at</span>
+
+<span class="sd">  http://www.apache.org/licenses/</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">urllib</span>
+<span class="kn">import</span> <span class="nn">urllib2</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">pprint</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Content-type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">}</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://iothook.com/api/v1.2/datas/&#39;</span>
+
+<span class="n">auth</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;anonymoususer&#39;</span><span class="p">,</span> <span class="s1">&#39;a12345678&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="n">data</span><span class="o">=</span><span class="p">{</span>
+        <span class="s1">&#39;api_key&#39;</span><span class="p">:</span><span class="s1">&#39;F6H8h7dnGggc-9c-R-UahcVV20wbsVg&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;element_1&#39;</span><span class="p">:</span><span class="s1">&#39;isi&#39;</span><span class="p">,</span> <span class="s1">&#39;value_1&#39;</span><span class="p">:</span><span class="n">i</span><span class="o">*</span><span class="mi">10</span><span class="p">,</span>
+        <span class="s1">&#39;element_2&#39;</span><span class="p">:</span><span class="s1">&#39;isik&#39;</span><span class="p">,</span> <span class="s1">&#39;value_2&#39;</span><span class="p">:</span><span class="n">i</span><span class="o">*</span><span class="mi">20</span><span class="p">,</span>
+        <span class="s1">&#39;element_3&#39;</span><span class="p">:</span><span class="s1">&#39;hareket&#39;</span><span class="p">,</span> <span class="s1">&#39;value_3&#39;</span><span class="p">:</span><span class="n">i</span><span class="o">*</span><span class="mi">30</span><span class="p">,</span>
+        <span class="s1">&#39;element_4&#39;</span><span class="p">:</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;value_4&#39;</span><span class="p">:</span><span class="n">i</span><span class="o">*</span><span class="mi">40</span><span class="p">,</span>
+        <span class="s1">&#39;element_5&#39;</span><span class="p">:</span><span class="s1">&#39;nem&#39;</span><span class="p">,</span> <span class="s1">&#39;value_5&#39;</span><span class="p">:</span><span class="n">i</span><span class="o">*</span><span class="mi">50</span><span class="p">,</span>
+        <span class="p">}</span>
+
+    <span class="n">data_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data_json</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="n">auth</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="python-3-json-ile-veri-gonderme">
+<h2>Python 3 Json ile Veri Gönderme</h2>
+<p>Python Json ile Post Örneği:</p>
+<p>Bu örneği <a class="reference external" href="https://goo.gl/7lyYV1" target="_blank">https://goo.gl/7lyYV1</a> sayfasından inceliyebilirsiniz.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Python 3 ile IoThook REST Api Testi</span>
+
+<span class="sd">  Kod çalıştırıldığında auth kullanıcı adı ve şifre ile doğrulama gerçekleştirilir.</span>
+<span class="sd">  Kanal api_key ile ilgili kanal ve element değerleri IoThook a post edilir.</span>
+
+<span class="sd">  Bu ornek IotHook servisine veri almak/gondermek icin baslangic seviyesinde</span>
+<span class="sd">  testlerin yapilmasini amaclamaktadir.</span>
+
+<span class="sd">  10 Mayıs 2017</span>
+<span class="sd">  Sahin MERSIN</span>
+
+<span class="sd">  Daha fazlasi icin</span>
+
+<span class="sd">  http://www.iothook.com</span>
+<span class="sd">  ve</span>
+<span class="sd">  https://github.com/electrocoder/iotHook</span>
+
+<span class="sd">  sitelerine gidiniz.</span>
+
+<span class="sd">  Sorular ve destek talepleri icin</span>
+<span class="sd">  https://github.com/electrocoder/iotHook/issues</span>
+<span class="sd">  sayfasindan veya Meşe Bilişim den yardım alabilirsiniz.</span>
+
+<span class="sd">  Yayin : http://mesebilisim.com</span>
+
+<span class="sd">  Licensed under the Apache License, Version 2.0 (the &quot;License&quot;).</span>
+<span class="sd">  You may not use this file except in compliance with the License.</span>
+<span class="sd">  A copy of the License is located at</span>
+
+<span class="sd">  http://www.apache.org/licenses/</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">urllib</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">pprint</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Content-type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">}</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://iothook.com/api/v1.2/datas/&#39;</span>
+<span class="n">auth</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">,</span> <span class="s1">&#39;test12345&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">data</span><span class="o">=</span><span class="p">{</span>
+        <span class="s1">&#39;api_key&#39;</span><span class="p">:</span><span class="s1">&#39;f8c4a4d07a6-dc92f27f7b2&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;element_1&#39;</span><span class="p">:</span><span class="s1">&#39;sicaklik&#39;</span><span class="p">,</span> <span class="s1">&#39;value_1&#39;</span><span class="p">:</span><span class="n">i</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span>
+        <span class="s1">&#39;element_2&#39;</span><span class="p">:</span><span class="s1">&#39;isik&#39;</span><span class="p">,</span> <span class="s1">&#39;value_2&#39;</span><span class="p">:</span><span class="n">i</span><span class="o">*</span><span class="mi">200</span><span class="p">,</span>
+        <span class="s1">&#39;element_3&#39;</span><span class="p">:</span><span class="s1">&#39;hareket&#39;</span><span class="p">,</span> <span class="s1">&#39;value_3&#39;</span><span class="p">:</span><span class="n">i</span><span class="o">*</span><span class="mi">300</span><span class="p">,</span>
+        <span class="s1">&#39;element_4&#39;</span><span class="p">:</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;value_4&#39;</span><span class="p">:</span><span class="n">i</span><span class="o">*</span><span class="mi">400</span><span class="p">,</span>
+        <span class="s1">&#39;element_5&#39;</span><span class="p">:</span><span class="s1">&#39;nem&#39;</span><span class="p">,</span> <span class="s1">&#39;value_5&#39;</span><span class="p">:</span><span class="n">i</span><span class="o">*</span><span class="mi">500</span><span class="p">,</span>
+        <span class="p">}</span>
+
+    <span class="n">data_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data_json</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="n">auth</span><span class="p">)</span>
+    <span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Gezinti</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Genel Dizin"
+             >dizin</a></li>
+        <li class="right" >
+          <a href="read-data.html" title="Veri Al"
+             >sonraki</a> |</li>
+        <li class="right" >
+          <a href="create-new-channel.html" title="Kanal Aç"
+             >önceki</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Internete Bağlı Nesneler 1.2 belgelendirme çalışması</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016-2017, mesebilisim.
+      <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.4 ile oluşturulmuştur.
+    </div>
+  </body>
+</html>

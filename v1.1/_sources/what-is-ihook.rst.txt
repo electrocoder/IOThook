@@ -1,0 +1,26 @@
+.. _what-is-ihook:
+
+.. warning::
+
+   Api sisteminin son versiyonu v1.2 dir. Son versiyonu kullanmaniz tavsiye edilir!
+   Son versiyon dökümana `buradan`_ ulaşabilirsiniz.
+
+.. _buradan: /docs/v1.2/index.html
+
+************
+IHook Nedir?
+************
+
+Iot Dashboard Nedir?
+--------------------
+
+Banana Pi, NanoPC, Intel Edison, Parallella, Raspberry Pi gibi tek kart bilgisayarlarda çalışan Python/Django REST framework ile geliştirilmiş Web Api servisidir. IOT cihazlar ile iletişime geçerek Web Api sayesinde GET, POST, PUT ve DELETE işlemlerini kolayca yapabilmek için tasarlanmıştır.
+Iotdashboard tüm cihazlarınız arasında kesintisiz veri aktarımı yapan, internete bağlı nesnelerin kolayca ulaşabileceği iletişim protokollerini destekler. Google developer chart apileri ile entegre olarak verileri gerçek zamanlı izleme olanağı sağlar.
+Proje iOTHOOK tarafından açık kaynak olarak geliştirilmiş ve MIT lisansı ile dağıtılmaktadır. Kaynak kodlara http://electrocoder.github.io/iotdashboard/ buradan  ulaşabilirsiniz.
+
+IHook GITHUB
+------------
+
+Iot Dashboard GITHUB
+Iot dashboard projesi Raspberry Pi türevi tek kart bilgisayarlar için geliştirilmiş Django Rest framewok server projesidir.
+Proje iOTHOOK tarafından açık kaynak olarak geliştirilmiş ve MIT lisansı ile dağıtılmaktadır. Kaynak kodlara http://electrocoder.github.io/iotdashboard/ buradan ulaşabilirsiniz.

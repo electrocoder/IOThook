@@ -1,0 +1,18 @@
+{% extends "defindex.html" %}
+{% block body %}
+
+  <h1>IoTHook Nedir?</h1>
+
+  <p>
+    {{ _('Merhaba! Bu döküman iot web servisi içindir. IoTHook') }}
+    v{{ release|e }}{% if last_updated %}, {{ _('last updated') }} {{ last_updated|e }}{% endif %}.
+  </p>
+
+  <p>
+    IotHook İnternete bağlı nesneler için geliştirilmiş bulut tabanlı web servisidir.
+    IoThook ile Arduino, Raspberry Pi, Android, iOS, Windows Phone, Web Site, Banana Pi, Orange Pi,
+      Beaglebone, ARM, Pic, Windows, Mac OS X, Linux ve diğer iot sistemlerini kontrol edebilirsiniz.
+  </p>
+
+{% endblock %}
+a
