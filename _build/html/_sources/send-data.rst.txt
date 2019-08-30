@@ -13,6 +13,22 @@ Oluşturulan Okuma ve Yazma API Key Yöneticisi sayfasından görülebilir.
 Python ile JSON Veri Gönderme
 -----------------------------
 
+Python ile IOT sunucularına veri göndermek için kullanacağımız API ENDPOINT adresi *https://iothook.com/api/update/* dir.
+Veri göndermek için yazma *api_key* bilgisine ihtiyaç vardır. Bu KEY e cihaz **detail** sayfasından ulaşabilirsiniz.
+
+Veri göndermek için olmazsa olmaz 2 alan vardır. Bunlar **api_key ve field_1** alanlarıdır. APIKEY cihaz sahipliğinizi
+onaylar ve en az bir veri alanı olması gerektiğinden *field_1* kesinlikle olmalıdır. Diğer alanlar tanımlanmış
+bile olsalar gönderilmedikleri zaman **None** olarak işaretlenir.
+
+Veri başarılı bir şekilde gönderildiğinde veriye dair Json REST çıktı gelmelidir. Bunu *response.json()* metodu ile
+gerçekleştiriyoruz. Örnek çıktı:
+
+    >>> {'device': 17, 'field_1': '6', 'field_2': '3.49', 'field_3': None, 'field_4': None, 'field_5': None, 'field_6': None, 'field_7': None, 'field_8': None, 'id': 502491, 'pub_date': '2019-08-31T01:07:29.438160', 'remote_address': '88.242.135.167&python-requests/2.18.4&HTTP/1.1'}
+
+Bu örneğe ve diğerlerine `IOTHOOK Git`_ sayfasından ulaşabilirsiniz.
+
+.. _IOTHOOK Git: https://github.com/electrocoder/IOThook/tree/master/examples/
+
 Python ile Json Post Örneği:
 
 .. figure:: _static/python-send-data.png
@@ -24,10 +40,10 @@ Python ile Json Post Örneği:
     # -*- coding: utf-8 -*-
 
     """
-      Python ile IoThook REST Api Testi
+      Python ile IOThook REST Api Testi
 
       Kod çalıştırıldığında APIKEY ile doğrulama gerçekleştirilir.
-      Cihaz api_key ile ilgili veriler IoThook a post edilir.
+      Cihaz api_key ile ilgili veriler IOThook a post edilir.
 
       Bu ornek IotHook servisine veri almak/gondermek icin baslangic seviyesinde
       testlerin yapilmasini amaclamaktadir.
@@ -40,12 +56,81 @@ Python ile Json Post Örneği:
 
       http://www.iothook.com
       ve
-      https://github.com/electrocoder/iotHook
+      https://github.com/electrocoder/IOThook
 
       sitelerine gidiniz.
 
       Sorular ve destek talepleri icin
-      https://github.com/electrocoder/iotHook/issues
+      https://github.com/electrocoder/IOThook/issues
+      sayfasindan veya Meşe Bilişim den yardım alabilirsiniz.
+
+      Yayin : http://mesebilisim.com
+
+      Licensed under the Apache License, Version 2.0 (the "License").
+      You may not use this file except in compliance with the License.
+      A copy of the License is located at
+
+      http://www.apache.org/licenses/
+    """
+
+    import json
+    import pprint
+    import random
+    import time
+
+    import requests
+
+    headers = {'Content-type': 'application/json'}
+
+    url = 'http://iothook.com/api/update/'
+
+    for i in range(100):
+        data = {  # write api key
+            'api_key': '78b0ca6a4a7da7e20f689818',  # demo hesap #17 random test
+            'field_1': random.randint(1, 10),
+            'field_2': round(random.uniform(0.0, 10.0), 2),
+        }
+
+        data_json = json.dumps(data)
+
+        response = requests.post(url, data=data_json, headers=headers)
+        pprint.pprint(response.json())
+        time.sleep(15)
+
+
+Python ile Json Post Örneği 2:
+
+.. figure:: _static/python-send-data.png
+   :alt: python-send-data.png
+   :align: center
+
+.. code-block:: python
+
+    # -*- coding: utf-8 -*-
+
+    """
+      Python ile IOThook REST Api Testi
+
+      Kod çalıştırıldığında APIKEY ile doğrulama gerçekleştirilir.
+      Cihaz api_key ile ilgili veriler IOThook a post edilir.
+
+      Bu ornek IotHook servisine veri almak/gondermek icin baslangic seviyesinde
+      testlerin yapilmasini amaclamaktadir.
+
+      20 Eylul 2017
+      Güncelleme : 19 Agustos 2019
+      Sahin MERSIN
+
+      Daha fazlasi icin
+
+      http://www.iothook.com
+      ve
+      https://github.com/electrocoder/IOThook
+
+      sitelerine gidiniz.
+
+      Sorular ve destek talepleri icin
+      https://github.com/electrocoder/IOThook/issues
       sayfasindan veya Meşe Bilişim den yardım alabilirsiniz.
 
       Yayin : http://mesebilisim.com
@@ -69,23 +154,25 @@ Python ile Json Post Örneği:
     url = 'https://iothook.com/api/update/'
 
     for i in range(100):
-        data = {
-            'api_key': '78b0ca6a4a7da7e20f689818',  # demo hesap yazma API KEY #17 random test
+        data = {  # write api key
+            'api_key': 'd88f4aa6b089478f78a9c9e5',  # demo hesap #24 Temperature sensor
             'field_1': random.randint(1, 10),
-            'field_2': round(random.uniform(0.0,10.0), 2),
+            'field_2': round(random.uniform(0.0, 10.0), 2),
         }
 
         data_json = json.dumps(data)
 
         response = requests.post(url, data=data_json, headers=headers)
         pprint.pprint(response.json())
-        time.sleep(15)
+        time.sleep(10)
 
 
 Python GET Metodu ile Veri Gönderme
 -----------------------------------
 
-IoThook Api v1.4 güncellemesi ile GET metodu ile veri göndermeye izin vermektedir.
+IOThook Api güncellemesi ile GET metodu ile veri göndermeye izin vermektedir.
+
+Bu örneğe ve diğerlerine `IOTHOOK Git`_ sayfasından ulaşabilirsiniz.
 
 Python ile Get Metodu Kullanarak Veri Gönderme Örneği:
 
@@ -98,10 +185,10 @@ Python ile Get Metodu Kullanarak Veri Gönderme Örneği:
     # -*- coding: utf-8 -*-
 
     """
-      Python ile IoThook REST Api Testi
+      Python ile IOThook REST Api Testi
 
       Kod çalıştırıldığında APIKEY ile doğrulama gerçekleştirilir.
-      Cihaz api_key ile ilgili veriler IoThook a post edilir.
+      Cihaz api_key ile ilgili veriler IOThook a post edilir.
 
       Bu ornek IotHook servisine veri almak/gondermek icin baslangic seviyesinde
       testlerin yapilmasini amaclamaktadir.
@@ -114,12 +201,12 @@ Python ile Get Metodu Kullanarak Veri Gönderme Örneği:
 
       http://www.iothook.com
       ve
-      https://github.com/electrocoder/iotHook
+      https://github.com/electrocoder/IOThook
 
       sitelerine gidiniz.
 
       Sorular ve destek talepleri icin
-      https://github.com/electrocoder/iotHook/issues
+      https://github.com/electrocoder/IOThook/issues
       sayfasindan veya Meşe Bilişim den yardım alabilirsiniz.
 
       Yayin : http://mesebilisim.com
@@ -131,16 +218,15 @@ Python ile Get Metodu Kullanarak Veri Gönderme Örneği:
       http://www.apache.org/licenses/
     """
 
-    import json
     import pprint
     import random
     import time
 
     import requests
 
-    # demo hesap yazma API KEY #17 random test
-    for i in range(100):
-        url = 'https://iothook.com/api/update/?api_key=78b0ca6a4a7da7e20f689818&field_1={}&field_2={}'.format(random.randint(1, 100), round(random.uniform(0.0,10.0), 2))
+    for i in range(100):  # write api key
+        url = 'http://iothook.com/api/update/?api_key=78b0ca6a4a7da7e20f689818&field_1={}&field_2={}'.format(
+            random.randint(1, 100), round(random.uniform(0.0, 10.0), 2))
 
         response = requests.get(url)
         pprint.pprint(response.json())
@@ -151,12 +237,11 @@ Arduino, ESP8266 POST Metodu ile Veri Gönderme
 ----------------------------------------------
 
 Bu örnekde Arduino Uno ya RX ve TX ile bağlanmış olan ESP8266 ile iothook a veri gonderme örneği verilmiştir.
-Örnekde 0-100 arasında rastgele sayı üretilerek iothook da https://iothook.com/en/device/chart/12/ id numaralı
-cihaz için gönderim gerçekleşmiştir. Cihaz datalarını https://iothook.com/en/device/chart/12/ linkinden gercek
+Örnekde 0-100 arasında rastgele sayı üretilerek iothook da #19 test id numaralı
+cihaz için gönderim gerçekleşmiştir. Cihaz datalarını https://iothook.com/en/device/data/19/ linkinden gercek
 zamanlı olarak takip edebilirsiniz.
 
-Bu örneğe ve diğerlerine https://github.com/electrocoder/IoThook/tree/master/examples/IoThook/v1_4 sayfasından
-ulaşabilirsiniz.
+Bu örneğe ve diğerlerine `IOTHOOK Git`_ sayfasından ulaşabilirsiniz.
 
 .. code-block:: c
 
@@ -172,10 +257,10 @@ ulaşabilirsiniz.
       Arduino 0 ile 100 arasinda uretmis oldugu Random sayıyı iothook a gonderir.
 
       Bu cihaza ait datalar
-      https://iothook.com/en/device/chart/12/
+      https://iothook.com/en/device/data/19/
       adresinden gercek zamanli olarak izlenebilir.
 
-      Bu ornek IoThook servisine veri gondermek icin baslangic ayarlarinin
+      Bu ornek IOThook servisine veri gondermek icin baslangic ayarlarinin
       yapilmasini amaclamaktadir.
 
       24 Eylul 2017
@@ -186,11 +271,11 @@ ulaşabilirsiniz.
 
       http://www.iothook.com
       ve
-      https://github.com/electrocoder/IoThook
+      https://github.com/electrocoder/IOThook
 
       sitelerine gidiniz.
       Sorular ve destek talepleri icin
-      https://github.com/electrocoder/IoThook/issues
+      https://github.com/electrocoder/IOThook/issues
       sayfasina gidiniz.
 
       Yayin ve sahiplik http://mesebilisim.com
@@ -216,7 +301,7 @@ ulaşabilirsiniz.
       Serial.begin(115200);
 
       Serial.println("Arduino ile ESP8266 Wifi Modul Testi");
-      Serial.println("          www.IoThook.com           ");
+      Serial.println("          www.IOThook.com           ");
       Serial.println("");
 
       reset();
@@ -264,7 +349,7 @@ ulaşabilirsiniz.
 
     void loop () {
 
-      data = "{\"api_key\":\"e2ef29104644a6a6216561b5\",\"field_1\":" + String(random(0, 100)) + "}";
+      data = "{\"api_key\":\"58088bb005633bb39cdf3b7d\",\"field_1\":" + String(random(0, 100)) + "}";
 
       httppost();
 
@@ -340,12 +425,11 @@ Arduino, ESP8266 POST Metodu ile 2 Veri Gönderme
 ------------------------------------------------
 
 Bu örnekde Arduino Uno ya RX ve TX ile bağlanmış olan ESP8266 ile iothook a veri gonderme örneği verilmiştir.
-Örnekde 0-100 arasında rastgele 2 sayı üretilerek iothook da https://iothook.com/en/device/chart/17/ id numaralı
-cihaz için gönderim gerçekleşmiştir. Cihaz datalarını https://iothook.com/en/device/chart/17/ linkinden gercek
+Örnekde 0-100 arasında rastgele 2 sayı üretilerek iothook da #12 temp id numaralı
+cihaz için gönderim gerçekleşmiştir. Cihaz datalarını https://iothook.com/en/device/data/12/ linkinden gercek
 zamanlı olarak takip edebilirsiniz.
 
-Bu örneğe https://github.com/electrocoder/IoThook/tree/master/examples/IoThook/v1_4/arduino sayfasından
-ulaşabilirsiniz.
+Bu örneğe ve diğerlerine `IOTHOOK Git`_ sayfasından ulaşabilirsiniz.
 
 .. code-block:: c
 
@@ -364,10 +448,10 @@ ulaşabilirsiniz.
       gönderebilirsiniz.
 
       Bu cihaza ait datalar
-      https://iothook.com/en/device/chart/17/
+      https://iothook.com/en/device/data/12/
       adresinden gercek zamanli olarak izlenebilir.
 
-      Bu ornek IoThook servisine veri gondermek icin baslangic ayarlarinin
+      Bu ornek IOThook servisine veri gondermek icin baslangic ayarlarinin
       yapilmasini amaclamaktadir.
 
       24 Eylul 2017
@@ -377,11 +461,11 @@ ulaşabilirsiniz.
 
       http://www.iothook.com
       ve
-      https://github.com/electrocoder/IoThook
+      https://github.com/electrocoder/IOThook
 
       sitelerine gidiniz.
       Sorular ve destek talepleri icin
-      https://github.com/electrocoder/IoThook/issues
+      https://github.com/electrocoder/IOThook/issues
       sayfasina gidiniz.
 
       Yayin ve sahiplik http://mesebilisim.com
@@ -407,7 +491,7 @@ ulaşabilirsiniz.
       Serial.begin(115200);
 
       Serial.println("Arduino ile ESP8266 Wifi Modul Testi");
-      Serial.println("          www.IoThook.com           ");
+      Serial.println("          www.IOThook.com           ");
       Serial.println("");
 
       reset();
@@ -455,7 +539,7 @@ ulaşabilirsiniz.
 
     void loop () {
 
-      data = "{\"api_key\":\"78b0ca6a4a7da7e20f689818\",\"field_1\":" + String(random(0, 100)) + ",\"field_2\":" + String(random(0, 100)) + "}";
+      data = "{\"api_key\":\"58088bb005633bb39cdf3b7d\",\"field_1\":" + String(random(0, 100)) + ",\"field_2\":" + String(random(0, 100)) + "}";
 
       httppost();
 
@@ -530,7 +614,9 @@ ulaşabilirsiniz.
 Arduino, ESP8266, Nodemcu GET Metodu ile Veri Gönderme
 ------------------------------------------------------
 
-IoThook Api v1.4 güncellemesi ile GET metodu ile veri göndermeye izin vermektedir.
+IOThook Api v1.4 güncellemesi ile GET metodu ile veri göndermeye izin vermektedir.
+
+Bu örneğe ve diğerlerine `IOTHOOK Git`_ sayfasından ulaşabilirsiniz.
 
 Bu örnekde Arduino, ESP8266 ve NodeMCU ile ile Get metodu kullanarak veri gönderme örneği verilmiştir:
 
@@ -663,7 +749,7 @@ Bu örnekde Arduino, ESP8266 ve NodeMCU ile ile Get metodu kullanarak veri gönd
       HTTPClient http;
 
       // configure server and url
-      http.begin("http://iothook.com/api/update/?api_key=78b0ca6a4a7da7e20f689818&field_1=" + String(t) + "&field_2=" + String(h) + "");
+      http.begin("http://iothook.com/api/update/?api_key=58088bb005633bb39cdf3b7d&field_1=" + String(t) + "&field_2=" + String(h) + "");
       //http.begin("192.168.1.12", 80, "/test.html");
 
       Serial.print("[HTTP] GET...\n");
@@ -721,7 +807,9 @@ Bu örnekde Arduino, ESP8266 ve NodeMCU ile ile Get metodu kullanarak veri gönd
 GO GET Metodu ile Veri Gönderme
 -------------------------------
 
-IoThook Api v1.4 güncellemesi ile GET metodu ile veri göndermeye izin vermektedir.
+IOThook Api v1.4 güncellemesi ile GET metodu ile veri göndermeye izin vermektedir.
+
+Bu örneğe ve diğerlerine `IOTHOOK Git`_ sayfasından ulaşabilirsiniz.
 
 Bu örnekde GO dili ile ile Get metodu kullanarak veri gönderme örneği verilmiştir:
 
@@ -744,7 +832,7 @@ Bu örnekde GO dili ile ile Get metodu kullanarak veri gönderme örneği verilm
 
     func main() {
 
-        url := "http://iothook.com/api/update?api_key=78b0ca6a4a7da7e20f689818&field_1=10&field_2=2&field_3=3"
+        url := "http://iothook.com/api/update?api_key=58088bb005633bb39cdf3b7d&field_1=10&field_2=2&field_3=3"
 
         req, _ := http.NewRequest("GET", url, nil)
 
@@ -764,7 +852,9 @@ Bu örnekde GO dili ile ile Get metodu kullanarak veri gönderme örneği verilm
 PHP GET Metodu ile Veri Gönderme
 --------------------------------
 
-IoThook Api v1.4 güncellemesi ile GET metodu ile veri göndermeye izin vermektedir.
+IOThook Api v1.4 güncellemesi ile GET metodu ile veri göndermeye izin vermektedir.
+
+Bu örneğe ve diğerlerine `IOTHOOK Git`_ sayfasından ulaşabilirsiniz.
 
 Bu örnekde PHP dili ile ile Get metodu kullanarak veri gönderme örneği verilmiştir:
 
@@ -783,7 +873,7 @@ Bu örnekde PHP dili ile ile Get metodu kullanarak veri gönderme örneği veril
     $request->setMethod(HTTP_METH_GET);
 
     $request->setQueryData(array(
-      'api_key' => '78b0ca6a4a7da7e20f689818',
+      'api_key' => '58088bb005633bb39cdf3b7d',
       'field_1' => '10',
       'field_2' => '2',
       'field_3' => '3'
@@ -806,7 +896,9 @@ Bu örnekde PHP dili ile ile Get metodu kullanarak veri gönderme örneği veril
 NodeJS GET Metodu ile Veri Gönderme
 -----------------------------------
 
-IoThook Api v1.4 güncellemesi ile GET metodu ile veri göndermeye izin vermektedir.
+IOThook Api v1.4 güncellemesi ile GET metodu ile veri göndermeye izin vermektedir.
+
+Bu örneğe ve diğerlerine `IOTHOOK Git`_ sayfasından ulaşabilirsiniz.
 
 Bu örnekde NodeJS Native metodu kullanarak veri gönderme örneği verilmiştir:
 
@@ -824,7 +916,7 @@ Bu örnekde NodeJS Native metodu kullanarak veri gönderme örneği verilmiştir
       "method": "GET",
       "hostname": "iothook.com",
       "port": null,
-      "path": "/api/update?api_key=78b0ca6a4a7da7e20f689818&field_1=10&field_2=2&field_3=3",
+      "path": "/api/update?api_key=58088bb005633bb39cdf3b7d&field_1=10&field_2=2&field_3=3",
       "headers": {
         "cache-control": "no-cache",
         "postman-token": "033da3c8-6196-cd49-f72d-1850a7d18500"
@@ -850,7 +942,9 @@ Bu örnekde NodeJS Native metodu kullanarak veri gönderme örneği verilmiştir
 Javascript Jquery Ajax GET Metodu ile Veri Gönderme
 ---------------------------------------------------
 
-IoThook Api v1.4 güncellemesi ile GET metodu ile veri göndermeye izin vermektedir.
+IOThook Api v1.4 güncellemesi ile GET metodu ile veri göndermeye izin vermektedir.
+
+Bu örneğe ve diğerlerine `IOTHOOK Git`_ sayfasından ulaşabilirsiniz.
 
 Bu örnekde NodeJS Native metodu kullanarak veri gönderme örneği verilmiştir:
 
@@ -865,7 +959,7 @@ Bu örnekde NodeJS Native metodu kullanarak veri gönderme örneği verilmiştir
     var settings = {
       "async": true,
       "crossDomain": true,
-      "url": "http://iothook.com/api/update?api_key=78b0ca6a4a7da7e20f689818&field_1=10&field_2=2&field_3=3",
+      "url": "http://iothook.com/api/update?api_key=58088bb005633bb39cdf3b7d&field_1=10&field_2=2&field_3=3",
       "method": "GET",
       "headers": {
         "cache-control": "no-cache",
@@ -880,7 +974,9 @@ Bu örnekde NodeJS Native metodu kullanarak veri gönderme örneği verilmiştir
 Java Unirest GET Metodu ile Veri Gönderme
 -----------------------------------------
 
-IoThook Api v1.4 güncellemesi ile GET metodu ile veri göndermeye izin vermektedir.
+IOThook Api v1.4 güncellemesi ile GET metodu ile veri göndermeye izin vermektedir.
+
+Bu örneğe ve diğerlerine `IOTHOOK Git`_ sayfasından ulaşabilirsiniz.
 
 Bu örnekde NodeJS Native metodu kullanarak veri gönderme örneği verilmiştir:
 
@@ -892,7 +988,7 @@ Bu örnekde NodeJS Native metodu kullanarak veri gönderme örneği verilmiştir
     // iothook.com
     // postman kullanilarak olusturulmustur
 
-    HttpResponse<String> response = Unirest.get("http://iothook.com/api/update?api_key=78b0ca6a4a7da7e20f689818&field_1=10&field_2=2&field_3=3")
+    HttpResponse<String> response = Unirest.get("http://iothook.com/api/update?api_key=58088bb005633bb39cdf3b7d&field_1=10&field_2=2&field_3=3")
       .header("cache-control", "no-cache")
       .asString();
 
@@ -900,7 +996,9 @@ Bu örnekde NodeJS Native metodu kullanarak veri gönderme örneği verilmiştir
 Java Unirest GET Metodu ile Veri Gönderme
 -----------------------------------------
 
-IoThook Api v1.4 güncellemesi ile GET metodu ile veri göndermeye izin vermektedir.
+IOThook Api v1.4 güncellemesi ile GET metodu ile veri göndermeye izin vermektedir.
+
+Bu örneğe ve diğerlerine `IOTHOOK Git`_ sayfasından ulaşabilirsiniz.
 
 Bu örnekde NodeJS Native metodu kullanarak veri gönderme örneği verilmiştir:
 
@@ -915,7 +1013,7 @@ Bu örnekde NodeJS Native metodu kullanarak veri gönderme örneği verilmiştir
     OkHttpClient client = new OkHttpClient();
 
     Request request = new Request.Builder()
-      .url("http://iothook.com/api/update?api_key=78b0ca6a4a7da7e20f689818&field_1=10&field_2=2&field_3=3")
+      .url("http://iothook.com/api/update?api_key=58088bb005633bb39cdf3b7d&field_1=10&field_2=2&field_3=3")
       .get()
       .addHeader("cache-control", "no-cache")
       .build();

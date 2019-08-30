@@ -101,7 +101,16 @@ sensörlerimiz &#8220;temperature&#8221; ve &#8220;humidity&#8221; olsun.</p>
 <div class="section" id="python-2-python-3-json-ile-veri-alma">
 <h2>Python 2, Python 3 Json ile Veri Alma<a class="headerlink" href="#python-2-python-3-json-ile-veri-alma" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
 <p>Python Json ile Get Örneği:</p>
-<p>Bu örneği <a class="reference external" href="https://github.com/electrocoder/IoThook/tree/master/examples/IoThook/v1_4">https://github.com/electrocoder/IoThook/tree/master/examples/IoThook/v1_4</a> sayfasından inceleyebilirsiniz.</p>
+<p>IOTHOOK sunucusundan <em>requests.get</em> metodu kullanılarak <em>results</em> ile belirtilen sayı kadar veri okuması yapılmıştır.
+<em>results</em> değişkeni ile en fazla 99 adet veri okunabilir. <em>results</em> değişkeni belirtilmez ise sadece 1 veri okunabilir.
+Okunan verinin formatı <em>json</em> şeklindedir.</p>
+<p>Aşağıdaki Python scriptinin çalıştırılması ile şu çıktı elde edilir.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="mi">502483</span><span class="p">,</span> <span class="s1">&#39;device&#39;</span><span class="p">:</span> <span class="mi">17</span><span class="p">,</span> <span class="s1">&#39;field_1&#39;</span><span class="p">:</span> <span class="s1">&#39;46&#39;</span><span class="p">,</span> <span class="s1">&#39;field_2&#39;</span><span class="p">:</span> <span class="s1">&#39;6.70&#39;</span><span class="p">,</span> <span class="s1">&#39;field_3&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;field_4&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;field_5&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;field_6&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;field_7&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;field_8&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;pub_date&#39;</span><span class="p">:</span> <span class="s1">&#39;2019-08-31T00:57:27.086837&#39;</span><span class="p">,</span> <span class="s1">&#39;remote_address&#39;</span><span class="p">:</span> <span class="s1">&#39;88.242.132.150&amp;python-requests/2.12.4&amp;HTTP/1.1&#39;</span><span class="p">}]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">502483</span>
+</pre></div>
+</div>
+<p>Bu örneğe ve diğerlerine <a class="reference external" href="https://github.com/electrocoder/IOThook/tree/master/examples/">IOTHOOK Git</a> sayfasından ulaşabilirsiniz.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
@@ -138,6 +147,60 @@ sensörlerimiz &#8220;temperature&#8221; ve &#8220;humidity&#8221; olsun.</p>
 
 <span class="kn">import</span> <span class="nn">requests</span>
 
+<span class="c1"># read api key</span>
+<span class="n">API_KEY</span> <span class="o">=</span> <span class="s1">&#39;ceb0024b84ff6fb7527d5506&#39;</span> <span class="c1"># demo hesap #17 random test</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://iothook.com/api/device/?api_key=&#39;</span> <span class="o">+</span> <span class="n">API_KEY</span> <span class="o">+</span> <span class="s2">&quot;&amp;results=1&quot;</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="python-2-python-3-json-ile-ilk-veriyi-alma">
+<h2>Python 2, Python 3 Json ile İlk Veriyi Alma<a class="headerlink" href="#python-2-python-3-json-ile-ilk-veriyi-alma" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<p>Python İlk Veriyi Alma, Json ile Get Örneği:</p>
+<p>Bu örneğe ve diğerlerine <a class="reference external" href="https://github.com/electrocoder/IOThook/tree/master/examples/">IOTHOOK Git</a> sayfasından ulaşabilirsiniz.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Python 2, Python 3 ile IoThook REST Api Testi</span>
+
+<span class="sd">  Bu ornek IotHook servisine veri almak/gondermek icin baslangic seviyesinde</span>
+<span class="sd">  testlerin yapilmasini amaclamaktadir.</span>
+
+<span class="sd">  10 Mayıs 2017</span>
+<span class="sd">  Guncelleme: 19 Agustos 2019</span>
+<span class="sd">  Sahin MERSIN</span>
+
+<span class="sd">  Daha fazlasi icin</span>
+
+<span class="sd">  http://www.iothook.com</span>
+<span class="sd">  ve</span>
+<span class="sd">  https://github.com/electrocoder/iotHook</span>
+
+<span class="sd">  sitelerine gidiniz.</span>
+
+<span class="sd">  Sorular ve destek talepleri icin</span>
+<span class="sd">  https://github.com/electrocoder/iotHook/issues</span>
+<span class="sd">  sayfasindan veya Meşe Bilişim den yardım alabilirsiniz.</span>
+
+<span class="sd">  Yayin : http://mesebilisim.com</span>
+
+<span class="sd">  Licensed under the Apache License, Version 2.0 (the &quot;License&quot;).</span>
+<span class="sd">  You may not use this file except in compliance with the License.</span>
+<span class="sd">  A copy of the License is located at</span>
+
+<span class="sd">  http://www.apache.org/licenses/</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="c1"># read api key</span>
 <span class="n">API_KEY</span> <span class="o">=</span> <span class="s1">&#39;76d2628fd60903d3c1f7f8a0&#39;</span> <span class="c1"># demo hesap #24 Temperature sensor</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://iothook.com/api/device/?api_key=&#39;</span> <span class="o">+</span> <span class="n">API_KEY</span> <span class="o">+</span> <span class="s2">&quot;&amp;results=2&quot;</span>
@@ -152,62 +215,10 @@ sensörlerimiz &#8220;temperature&#8221; ve &#8220;humidity&#8221; olsun.</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="python-2-python-3-json-ile-ilk-veriyi-alma">
-<h2>Python 2, Python 3 Json ile İlk Veriyi Alma<a class="headerlink" href="#python-2-python-3-json-ile-ilk-veriyi-alma" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
-<p>Python İlk Veriyi Alma, Json ile Get Örneği:</p>
-<p>Bu örneği <a class="reference external" href="https://github.com/electrocoder/IoThook/tree/master/examples/IoThook/v1_4">https://github.com/electrocoder/IoThook/tree/master/examples/IoThook/v1_4</a> sayfasından inceleyebilirsiniz.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
-
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">  Python 2, Python 3 ile IoThook REST Api Testi</span>
-
-<span class="sd">  Bu ornek IotHook servisine veri almak/gondermek icin baslangic seviyesinde</span>
-<span class="sd">  testlerin yapilmasini amaclamaktadir.</span>
-
-<span class="sd">  10 Mayıs 2017</span>
-<span class="sd">  Guncelleme: 19 Agustos 2019</span>
-<span class="sd">  Sahin MERSIN</span>
-
-<span class="sd">  Daha fazlasi icin</span>
-
-<span class="sd">  http://www.iothook.com</span>
-<span class="sd">  ve</span>
-<span class="sd">  https://github.com/electrocoder/iotHook</span>
-
-<span class="sd">  sitelerine gidiniz.</span>
-
-<span class="sd">  Sorular ve destek talepleri icin</span>
-<span class="sd">  https://github.com/electrocoder/iotHook/issues</span>
-<span class="sd">  sayfasindan veya Meşe Bilişim den yardım alabilirsiniz.</span>
-
-<span class="sd">  Yayin : http://mesebilisim.com</span>
-
-<span class="sd">  Licensed under the Apache License, Version 2.0 (the &quot;License&quot;).</span>
-<span class="sd">  You may not use this file except in compliance with the License.</span>
-<span class="sd">  A copy of the License is located at</span>
-
-<span class="sd">  http://www.apache.org/licenses/</span>
-
-<span class="sd">&quot;&quot;&quot;</span>
-
-<span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">API_KEY</span> <span class="o">=</span> <span class="s1">&#39;76d2628fd60903d3c1f7f8a0&#39;</span> <span class="c1"># demo hesap #24 Temperature sensor</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://iothook.com/api/device/?api_key=&#39;</span> <span class="o">+</span> <span class="n">API_KEY</span> <span class="o">+</span> <span class="s2">&quot;&amp;results=1&quot;</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;datas&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">])</span>
-<span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;datas&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;pub_date&#39;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
 <div class="section" id="python-2-python-3-json-ile-son-veriyi-alma">
 <h2>Python 2, Python 3 Json ile Son Veriyi Alma<a class="headerlink" href="#python-2-python-3-json-ile-son-veriyi-alma" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
 <p>Python Son Veriyi Alma, Json ile Get Örneği:</p>
-<p>Bu örneği <a class="reference external" href="https://github.com/electrocoder/IoThook/tree/master/examples/IoThook/v1_4">https://github.com/electrocoder/IoThook/tree/master/examples/IoThook/v1_4</a> sayfasından inceleyebilirsiniz.</p>
+<p>Bu örneğe ve diğerlerine <a class="reference external" href="https://github.com/electrocoder/IOThook/tree/master/examples/">IOTHOOK Git</a> sayfasından ulaşabilirsiniz.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
@@ -244,6 +255,7 @@ sensörlerimiz &#8220;temperature&#8221; ve &#8220;humidity&#8221; olsun.</p>
 
 <span class="kn">import</span> <span class="nn">requests</span>
 
+<span class="c1"># read api key</span>
 <span class="n">API_KEY</span> <span class="o">=</span> <span class="s1">&#39;76d2628fd60903d3c1f7f8a0&#39;</span> <span class="c1"># demo hesap #24 Temperature sensor</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://iothook.com/api/device/?api_key=&#39;</span> <span class="o">+</span> <span class="n">API_KEY</span>
@@ -259,6 +271,7 @@ sensörlerimiz &#8220;temperature&#8221; ve &#8220;humidity&#8221; olsun.</p>
 <div class="section" id="c-ile-json-formatinda-veri-alma">
 <h2>C# ile Json Formatında Veri Alma<a class="headerlink" href="#c-ile-json-formatinda-veri-alma" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
 <p>IoThook kullanıcısının cihazına ait veriyi alabilmesi için GET metodu kullanılarak Postman ile üretilmiştir.</p>
+<p>Bu örneğe ve diğerlerine <a class="reference external" href="https://github.com/electrocoder/IOThook/tree/master/examples/">IOTHOOK Git</a> sayfasından ulaşabilirsiniz.</p>
 <div class="highlight-c#"><div class="highlight"><pre><span></span><span class="cm">/*</span>
 <span class="cm">  C# ile IoThook REST Api Testi</span>
 
@@ -311,6 +324,7 @@ sensörlerimiz &#8220;temperature&#8221; ve &#8220;humidity&#8221; olsun.</p>
 <div class="section" id="go-ile-iot-veri-alma">
 <h2>GO ile IOT Veri Alma<a class="headerlink" href="#go-ile-iot-veri-alma" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
 <p>IoThook kullanıcısının cihazına ait veriyi alabilmesi için GET metodu kullanılarak Postman ile üretilmiştir.</p>
+<p>Bu örneğe ve diğerlerine <a class="reference external" href="https://github.com/electrocoder/IOThook/tree/master/examples/">IOTHOOK Git</a> sayfasından ulaşabilirsiniz.</p>
 <div class="highlight-go"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nx">main</span>
 
 <span class="kn">import</span> <span class="p">(</span>
@@ -349,6 +363,7 @@ sensörlerimiz &#8220;temperature&#8221; ve &#8220;humidity&#8221; olsun.</p>
 <div class="section" id="java-ile-iot-veri-alma">
 <h2>JAVA ile IOT Veri Alma<a class="headerlink" href="#java-ile-iot-veri-alma" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
 <p>IoThook kullanıcısının cihazına ait veriyi alabilmesi için GET metodu kullanılarak Postman ile üretilmiştir.</p>
+<p>Bu örneğe ve diğerlerine <a class="reference external" href="https://github.com/electrocoder/IOThook/tree/master/examples/">IOTHOOK Git</a> sayfasından ulaşabilirsiniz.</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OkHttpClient</span><span class="o">();</span>
 
 <span class="n">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
@@ -371,6 +386,7 @@ sensörlerimiz &#8220;temperature&#8221; ve &#8220;humidity&#8221; olsun.</p>
 <div class="section" id="php-ile-iot-veri-alma">
 <h2>PHP ile IOT Veri Alma<a class="headerlink" href="#php-ile-iot-veri-alma" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
 <p>IoThook kullanıcısının cihazına ait veriyi alabilmesi için GET metodu kullanılarak Postman ile üretilmiştir.</p>
+<p>Bu örneğe ve diğerlerine <a class="reference external" href="https://github.com/electrocoder/IOThook/tree/master/examples/">IOTHOOK Git</a> sayfasından ulaşabilirsiniz.</p>
 <div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
 
 <span class="nv">$request</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">HttpRequest</span><span class="p">();</span>
@@ -406,6 +422,7 @@ sensörlerimiz &#8220;temperature&#8221; ve &#8220;humidity&#8221; olsun.</p>
 <div class="section" id="ruby-ile-iot-veri-alma">
 <h2>Ruby ile IOT Veri Alma<a class="headerlink" href="#ruby-ile-iot-veri-alma" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
 <p>IoThook kullanıcısının cihazına ait veriyi alabilmesi için GET metodu kullanılarak Postman ile üretilmiştir.</p>
+<p>Bu örneğe ve diğerlerine <a class="reference external" href="https://github.com/electrocoder/IOThook/tree/master/examples/">IOTHOOK Git</a> sayfasından ulaşabilirsiniz.</p>
 <div class="highlight-ruby"><div class="highlight"><pre><span></span><span class="nb">require</span> <span class="s1">&#39;uri&#39;</span>
 <span class="nb">require</span> <span class="s1">&#39;net/http&#39;</span>
 
@@ -431,6 +448,7 @@ sensörlerimiz &#8220;temperature&#8221; ve &#8220;humidity&#8221; olsun.</p>
 <div class="section" id="javascript-ajax-ile-iot-veri-alma">
 <h2>Javascript Ajax ile IOT Veri Alma<a class="headerlink" href="#javascript-ajax-ile-iot-veri-alma" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
 <p>IoThook kullanıcısının cihazına ait veriyi alabilmesi için GET metodu kullanılarak Postman ile üretilmiştir.</p>
+<p>Bu örneğe ve diğerlerine <a class="reference external" href="https://github.com/electrocoder/IOThook/tree/master/examples/">IOTHOOK Git</a> sayfasından ulaşabilirsiniz.</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
   <span class="s2">&quot;async&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="s2">&quot;crossDomain&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>

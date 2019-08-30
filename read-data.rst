@@ -14,7 +14,19 @@ Python 2, Python 3 Json ile Veri Alma
 
 Python Json ile Get Örneği:
 
-Bu örneği https://github.com/electrocoder/IoThook/tree/master/examples/IoThook/v1_4 sayfasından inceleyebilirsiniz.
+IOTHOOK sunucusundan *requests.get* metodu kullanılarak *results* ile belirtilen sayı kadar veri okuması yapılmıştır.
+*results* değişkeni ile en fazla 99 adet veri okunabilir. *results* değişkeni belirtilmez ise sadece 1 veri okunabilir.
+Okunan verinin formatı *json* şeklindedir.
+
+Aşağıdaki Python scriptinin çalıştırılması ile şu çıktı elde edilir.
+
+    >>> [{'id': 502483, 'device': 17, 'field_1': '46', 'field_2': '6.70', 'field_3': None, 'field_4': None, 'field_5': None, 'field_6': None, 'field_7': None, 'field_8': None, 'pub_date': '2019-08-31T00:57:27.086837', 'remote_address': '88.242.132.150&python-requests/2.12.4&HTTP/1.1'}]
+    >>> 1
+    >>> 502483
+
+Bu örneğe ve diğerlerine `IOTHOOK Git`_ sayfasından ulaşabilirsiniz.
+
+.. _IOTHOOK Git: https://github.com/electrocoder/IOThook/tree/master/examples/
 
 .. code-block:: python
 
@@ -54,6 +66,64 @@ Bu örneği https://github.com/electrocoder/IoThook/tree/master/examples/IoThook
 
     import requests
 
+    # read api key
+    API_KEY = 'ceb0024b84ff6fb7527d5506' # demo hesap #17 random test
+
+    url = 'http://iothook.com/api/device/?api_key=' + API_KEY + "&results=1"
+
+    response = requests.get(url)
+    data = response.json()
+    print(data)
+    print(len(data))
+    print(data[0]['id'])
+
+
+Python 2, Python 3 Json ile İlk Veriyi Alma
+-------------------------------------------
+
+Python İlk Veriyi Alma, Json ile Get Örneği:
+
+Bu örneğe ve diğerlerine `IOTHOOK Git`_ sayfasından ulaşabilirsiniz.
+
+.. code-block:: python
+
+    # -*- coding: utf-8 -*-
+
+    """
+      Python 2, Python 3 ile IoThook REST Api Testi
+
+      Bu ornek IotHook servisine veri almak/gondermek icin baslangic seviyesinde
+      testlerin yapilmasini amaclamaktadir.
+
+      10 Mayıs 2017
+      Guncelleme: 19 Agustos 2019
+      Sahin MERSIN
+
+      Daha fazlasi icin
+
+      http://www.iothook.com
+      ve
+      https://github.com/electrocoder/iotHook
+
+      sitelerine gidiniz.
+
+      Sorular ve destek talepleri icin
+      https://github.com/electrocoder/iotHook/issues
+      sayfasindan veya Meşe Bilişim den yardım alabilirsiniz.
+
+      Yayin : http://mesebilisim.com
+
+      Licensed under the Apache License, Version 2.0 (the "License").
+      You may not use this file except in compliance with the License.
+      A copy of the License is located at
+
+      http://www.apache.org/licenses/
+
+    """
+
+    import requests
+
+    # read api key
     API_KEY = '76d2628fd60903d3c1f7f8a0' # demo hesap #24 Temperature sensor
 
     url = 'https://iothook.com/api/device/?api_key=' + API_KEY + "&results=2"
@@ -67,68 +137,12 @@ Bu örneği https://github.com/electrocoder/IoThook/tree/master/examples/IoThook
     print(data['datas'][1]['pub_date'])
 
 
-Python 2, Python 3 Json ile İlk Veriyi Alma
--------------------------------------------
-
-Python İlk Veriyi Alma, Json ile Get Örneği:
-
-Bu örneği https://github.com/electrocoder/IoThook/tree/master/examples/IoThook/v1_4 sayfasından inceleyebilirsiniz.
-
-.. code-block:: python
-
-    # -*- coding: utf-8 -*-
-
-    """
-      Python 2, Python 3 ile IoThook REST Api Testi
-
-      Bu ornek IotHook servisine veri almak/gondermek icin baslangic seviyesinde
-      testlerin yapilmasini amaclamaktadir.
-
-      10 Mayıs 2017
-      Guncelleme: 19 Agustos 2019
-      Sahin MERSIN
-
-      Daha fazlasi icin
-
-      http://www.iothook.com
-      ve
-      https://github.com/electrocoder/iotHook
-
-      sitelerine gidiniz.
-
-      Sorular ve destek talepleri icin
-      https://github.com/electrocoder/iotHook/issues
-      sayfasindan veya Meşe Bilişim den yardım alabilirsiniz.
-
-      Yayin : http://mesebilisim.com
-
-      Licensed under the Apache License, Version 2.0 (the "License").
-      You may not use this file except in compliance with the License.
-      A copy of the License is located at
-
-      http://www.apache.org/licenses/
-
-    """
-
-    import requests
-
-    API_KEY = '76d2628fd60903d3c1f7f8a0' # demo hesap #24 Temperature sensor
-
-    url = 'https://iothook.com/api/device/?api_key=' + API_KEY + "&results=1"
-
-    response = requests.get(url)
-    data = response.json()
-    print(data)
-    print(data['datas'][0]['id'])
-    print(data['datas'][0]['pub_date'])
-
-
 Python 2, Python 3 Json ile Son Veriyi Alma
 -------------------------------------------
 
 Python Son Veriyi Alma, Json ile Get Örneği:
 
-Bu örneği https://github.com/electrocoder/IoThook/tree/master/examples/IoThook/v1_4 sayfasından inceleyebilirsiniz.
+Bu örneğe ve diğerlerine `IOTHOOK Git`_ sayfasından ulaşabilirsiniz.
 
 .. code-block:: python
 
@@ -168,6 +182,7 @@ Bu örneği https://github.com/electrocoder/IoThook/tree/master/examples/IoThook
 
     import requests
 
+    # read api key
     API_KEY = '76d2628fd60903d3c1f7f8a0' # demo hesap #24 Temperature sensor
 
     url = 'https://iothook.com/api/device/?api_key=' + API_KEY
@@ -183,6 +198,8 @@ C# ile Json Formatında Veri Alma
 --------------------------------
 
 IoThook kullanıcısının cihazına ait veriyi alabilmesi için GET metodu kullanılarak Postman ile üretilmiştir.
+
+Bu örneğe ve diğerlerine `IOTHOOK Git`_ sayfasından ulaşabilirsiniz.
 
 .. code-block:: c#
 
@@ -239,6 +256,8 @@ GO ile IOT Veri Alma
 
 IoThook kullanıcısının cihazına ait veriyi alabilmesi için GET metodu kullanılarak Postman ile üretilmiştir.
 
+Bu örneğe ve diğerlerine `IOTHOOK Git`_ sayfasından ulaşabilirsiniz.
+
 .. code-block:: go
 
     package main
@@ -280,6 +299,8 @@ JAVA ile IOT Veri Alma
 
 IoThook kullanıcısının cihazına ait veriyi alabilmesi için GET metodu kullanılarak Postman ile üretilmiştir.
 
+Bu örneğe ve diğerlerine `IOTHOOK Git`_ sayfasından ulaşabilirsiniz.
+
 .. code-block:: java
 
     OkHttpClient client = new OkHttpClient();
@@ -304,6 +325,8 @@ PHP ile IOT Veri Alma
 ---------------------
 
 IoThook kullanıcısının cihazına ait veriyi alabilmesi için GET metodu kullanılarak Postman ile üretilmiştir.
+
+Bu örneğe ve diğerlerine `IOTHOOK Git`_ sayfasından ulaşabilirsiniz.
 
 .. code-block:: php
 
@@ -343,6 +366,8 @@ Ruby ile IOT Veri Alma
 
 IoThook kullanıcısının cihazına ait veriyi alabilmesi için GET metodu kullanılarak Postman ile üretilmiştir.
 
+Bu örneğe ve diğerlerine `IOTHOOK Git`_ sayfasından ulaşabilirsiniz.
+
 .. code-block:: ruby
 
     require 'uri'
@@ -370,6 +395,8 @@ Javascript Ajax ile IOT Veri Alma
 ---------------------------------
 
 IoThook kullanıcısının cihazına ait veriyi alabilmesi için GET metodu kullanılarak Postman ile üretilmiştir.
+
+Bu örneğe ve diğerlerine `IOTHOOK Git`_ sayfasından ulaşabilirsiniz.
 
 .. code-block:: javascript
 

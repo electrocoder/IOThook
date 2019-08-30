@@ -46,7 +46,7 @@ headers = {'Content-type': 'application/json'}
 url = 'https://iothook.com/api/update/'
 
 for i in range(100):
-    data = {
+    data = {  # write api key
         'api_key': 'd88f4aa6b089478f78a9c9e5',  # demo hesap #24 Temperature sensor
         'field_1': random.randint(1, 10),
         'field_2': round(random.uniform(0.0, 10.0), 2),

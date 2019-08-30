@@ -34,6 +34,7 @@
 
 import requests
 
+# read api key
 API_KEY = 'ceb0024b84ff6fb7527d5506' # demo hesap #17 random test
 
 url = 'http://iothook.com/api/device/?api_key=' + API_KEY + "&results=1"
