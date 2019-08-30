@@ -1,0 +1,35 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, electrocoder
+# This file is distributed under the same license as the iothook package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: iothook 1.4\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-08-18 23:16+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.4.0\n"
+
+#: ../../what-is-iot.rst:3
+msgid "IOT Nedir?"
+msgstr ""
+
+#: ../../what-is-iot.rst:5
+msgid ""
+"Nesnelerin interneti \"internet of things\" 1999 yılında Kevin Ashton "
+"tarafından kullanılan bir kavramdır ve teknolojideki gelişmeler ile "
+"birlikte bugünkü haline gelmiştir. RFID teknolojisi için üretilen bu "
+"kavram günümüzde tüm elektronik cihazlara uygulanmaktadır."
+msgstr ""
+
+#: ../../what-is-iot.rst:14
+msgid "*IoT - Nesnelerin İnterneti*"
+msgstr ""
+

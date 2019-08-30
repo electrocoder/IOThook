@@ -1,81 +1,43 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2016, mese
-# This file is distributed under the same license as the iotmqtt package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+# Copyright (C) 2019, electrocoder
+# This file is distributed under the same license as the iothook package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: iotmqtt 0.1\n"
+"Project-Id-Version: iothook 1.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-13 16:48+0300\n"
+"POT-Creation-Date: 2019-08-18 23:16+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Generated-By: Babel 2.4.0\n"
 
 #: ../../index.rst:7
-msgid "IOT MQTT"
+msgid "Welcome to iothook's documentation!"
 msgstr ""
 
-#: ../../index.rst:10
-msgid "İçindekiler"
-msgstr "Quick reference"
+#: ../../index.rst:9
+msgid "İçindekiler:"
+msgstr ""
 
-#: ../../index.rst:12
+#: ../../index.rst:17
+msgid "Indices and tables"
+msgstr ""
+
+#: ../../index.rst:19
 msgid ":ref:`genindex`"
 msgstr ""
 
-#: ../../index.rst:13
+#: ../../index.rst:20
 msgid ":ref:`modindex`"
 msgstr ""
 
-#: ../../index.rst:14
+#: ../../index.rst:21
 msgid ":ref:`search`"
 msgstr ""
-
-#: ../../index.rst:16
-msgid "Iot Mqtt Nedir?"
-msgstr "What is IoT MQTT?"
-
-#: ../../index.rst:18
-msgid ""
-"**MQTT** Message Queuing Telemetry Transport kelimelerinin baş harfleri "
-"ile tanıdığımız bu teknoloji mesajın karşı tarafa ulaştırılması için "
-"kullanılan haberleşme protokolüdür.  Haberleşme için mesaj yayınlayan, "
-"mesaja abone olan ve mesaj trafiğini kontrol eden yöneticiden "
-"oluşmaktadır."
-msgstr ""
-
-#: ../../index.rst:22
-msgid ""
-"Mesaj trafiğini kontrol eden yöneticiye BROKER, mesaj yayınına PUBLISH ve"
-" aboneye SUBSCRIBE denir. Mesaj alışverişi publisher dan subscriber lara "
-"doğru yani yayıncılardan abonelere doğru olmaktadır."
-msgstr ""
-
-#: ../../index.rst:30
-msgid "*MQTT*"
-msgstr ""
-
-#: ../../index.rst:32
-msgid "Mqtt Protokolü Nasıldır?"
-msgstr ""
-
-#: ../../index.rst:34
-msgid ""
-"MQTT de asenkron haberleşme protokolü kullanılmaktadır. Mesaj yayıncıları"
-" ve mesaj alıcılar arasında eşzamansız olarak veri taşınmaktadır. Diğer "
-"haberleşme yapılarına göre basit oluşu ve minimum kaynak tüketmesi "
-"sebebiyle “machine-to-machine” (M2M)  makineden makineye veri iletiminde "
-"ve (IOT) “Internet of Things” İnternete bağlı nesnelerin mesajlaşmasında "
-"tercih edilmektedir."
-msgstr ""
-
-#: ../../index.rst:39
-msgid "İlerle:"
-msgstr "Next:"
 

@@ -1,0 +1,1006 @@
+
+
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="tr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Veri Gönder &#8212; IOTHOOK Internet Of Things Project</title>
+    
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <link rel="shortcut icon" href="_static/internet-of-things.png"/>
+    <link rel="index" title="Dizin" href="genindex.html" />
+    <link rel="search" title="Ara" href="search.html" />
+    <link rel="next" title="Veri Al" href="read-data.html" />
+    <link rel="prev" title="Cihaz Ekle" href="create-new-device.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Gezinti</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Genel Dizin"
+             accesskey="I">dizin</a></li>
+        <li class="right" >
+          <a href="read-data.html" title="Veri Al"
+             accesskey="N">sonraki</a> |</li>
+        <li class="right" >
+          <a href="create-new-device.html" title="Cihaz Ekle"
+             accesskey="P">önceki</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">IOTHOOK Internet Of Things Project</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/internet-of-things.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">İçindekiler Tablosu</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Veri Gönder</a><ul>
+<li><a class="reference internal" href="#python-ile-json-veri-gonderme">Python ile JSON Veri Gönderme</a></li>
+<li><a class="reference internal" href="#python-get-metodu-ile-veri-gonderme">Python GET Metodu ile Veri Gönderme</a></li>
+<li><a class="reference internal" href="#arduino-esp8266-post-metodu-ile-veri-gonderme">Arduino, ESP8266 POST Metodu ile Veri Gönderme</a></li>
+<li><a class="reference internal" href="#arduino-esp8266-post-metodu-ile-2-veri-gonderme">Arduino, ESP8266 POST Metodu ile 2 Veri Gönderme</a></li>
+<li><a class="reference internal" href="#arduino-esp8266-nodemcu-get-metodu-ile-veri-gonderme">Arduino, ESP8266, Nodemcu GET Metodu ile Veri Gönderme</a></li>
+<li><a class="reference internal" href="#go-get-metodu-ile-veri-gonderme">GO GET Metodu ile Veri Gönderme</a></li>
+<li><a class="reference internal" href="#php-get-metodu-ile-veri-gonderme">PHP GET Metodu ile Veri Gönderme</a></li>
+<li><a class="reference internal" href="#nodejs-get-metodu-ile-veri-gonderme">NodeJS GET Metodu ile Veri Gönderme</a></li>
+<li><a class="reference internal" href="#javascript-jquery-ajax-get-metodu-ile-veri-gonderme">Javascript Jquery Ajax GET Metodu ile Veri Gönderme</a></li>
+<li><a class="reference internal" href="#java-unirest-get-metodu-ile-veri-gonderme">Java Unirest GET Metodu ile Veri Gönderme</a></li>
+<li><a class="reference internal" href="#id1">Java Unirest GET Metodu ile Veri Gönderme</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Önceki konu</h4>
+  <p class="topless"><a href="create-new-device.html"
+                        title="önceki bölüm">Cihaz Ekle</a></p>
+  <h4>Sonraki konu</h4>
+  <p class="topless"><a href="read-data.html"
+                        title="sonraki bölüm">Veri Al</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Hızlı Arama</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Git" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="veri-gonder">
+<h1>Veri Gönder<a class="headerlink" href="#veri-gonder" title="Bu başlığın kalıcı bağlantısı">¶</a></h1>
+<p>Veri göndermek için öncelikle cihaz eklemeniz gerekir. Cihaz oluşturulduğunda
+size özel okuma ve yazma &#8220;API KEY&#8221; üretilerek belirlenen erişim metoduna göre (POST, GET, POST/GET) veri işlemi gerçekleştirilir.</p>
+<p>Örneğin; Cihazımız ısı, ışık, hareket, bar ve nem değerlerini alan bir yapıda olsun.
+Cihaz içerisinde bulunacak sensörlerimiz bizlere bu dataları 15 saniyede bir ve toplamda 100 kere göndersin.</p>
+<p>Oluşturulan Okuma ve Yazma API Key Yöneticisi sayfasından görülebilir.</p>
+<div class="section" id="python-ile-json-veri-gonderme">
+<h2>Python ile JSON Veri Gönderme<a class="headerlink" href="#python-ile-json-veri-gonderme" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<p>Python ile Json Post Örneği:</p>
+<div class="figure align-center">
+<img alt="python-send-data.png" src="_images/python-send-data.png" />
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Python ile IoThook REST Api Testi</span>
+
+<span class="sd">  Kod çalıştırıldığında APIKEY ile doğrulama gerçekleştirilir.</span>
+<span class="sd">  Cihaz api_key ile ilgili veriler IoThook a post edilir.</span>
+
+<span class="sd">  Bu ornek IotHook servisine veri almak/gondermek icin baslangic seviyesinde</span>
+<span class="sd">  testlerin yapilmasini amaclamaktadir.</span>
+
+<span class="sd">  20 Eylul 2017</span>
+<span class="sd">  Güncelleme : 19 Agustos 2019</span>
+<span class="sd">  Sahin MERSIN</span>
+
+<span class="sd">  Daha fazlasi icin</span>
+
+<span class="sd">  http://www.iothook.com</span>
+<span class="sd">  ve</span>
+<span class="sd">  https://github.com/electrocoder/iotHook</span>
+
+<span class="sd">  sitelerine gidiniz.</span>
+
+<span class="sd">  Sorular ve destek talepleri icin</span>
+<span class="sd">  https://github.com/electrocoder/iotHook/issues</span>
+<span class="sd">  sayfasindan veya Meşe Bilişim den yardım alabilirsiniz.</span>
+
+<span class="sd">  Yayin : http://mesebilisim.com</span>
+
+<span class="sd">  Licensed under the Apache License, Version 2.0 (the &quot;License&quot;).</span>
+<span class="sd">  You may not use this file except in compliance with the License.</span>
+<span class="sd">  A copy of the License is located at</span>
+
+<span class="sd">  http://www.apache.org/licenses/</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">pprint</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Content-type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">}</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://iothook.com/api/update/&#39;</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;api_key&#39;</span><span class="p">:</span> <span class="s1">&#39;78b0ca6a4a7da7e20f689818&#39;</span><span class="p">,</span>  <span class="c1"># demo hesap yazma API KEY #17 random test</span>
+        <span class="s1">&#39;field_1&#39;</span><span class="p">:</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+        <span class="s1">&#39;field_2&#39;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">10.0</span><span class="p">),</span> <span class="mi">2</span><span class="p">),</span>
+    <span class="p">}</span>
+
+    <span class="n">data_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data_json</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+    <span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="python-get-metodu-ile-veri-gonderme">
+<h2>Python GET Metodu ile Veri Gönderme<a class="headerlink" href="#python-get-metodu-ile-veri-gonderme" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<p>IoThook Api v1.4 güncellemesi ile GET metodu ile veri göndermeye izin vermektedir.</p>
+<p>Python ile Get Metodu Kullanarak Veri Gönderme Örneği:</p>
+<div class="figure align-center">
+<img alt="python-send-data.png" src="_images/python-iothook.png" />
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Python ile IoThook REST Api Testi</span>
+
+<span class="sd">  Kod çalıştırıldığında APIKEY ile doğrulama gerçekleştirilir.</span>
+<span class="sd">  Cihaz api_key ile ilgili veriler IoThook a post edilir.</span>
+
+<span class="sd">  Bu ornek IotHook servisine veri almak/gondermek icin baslangic seviyesinde</span>
+<span class="sd">  testlerin yapilmasini amaclamaktadir.</span>
+
+<span class="sd">  11 Eylul 2017</span>
+<span class="sd">  Güncelleme : 19 Agustos 2019</span>
+<span class="sd">  Sahin MERSIN</span>
+
+<span class="sd">  Daha fazlasi icin</span>
+
+<span class="sd">  http://www.iothook.com</span>
+<span class="sd">  ve</span>
+<span class="sd">  https://github.com/electrocoder/iotHook</span>
+
+<span class="sd">  sitelerine gidiniz.</span>
+
+<span class="sd">  Sorular ve destek talepleri icin</span>
+<span class="sd">  https://github.com/electrocoder/iotHook/issues</span>
+<span class="sd">  sayfasindan veya Meşe Bilişim den yardım alabilirsiniz.</span>
+
+<span class="sd">  Yayin : http://mesebilisim.com</span>
+
+<span class="sd">  Licensed under the Apache License, Version 2.0 (the &quot;License&quot;).</span>
+<span class="sd">  You may not use this file except in compliance with the License.</span>
+<span class="sd">  A copy of the License is located at</span>
+
+<span class="sd">  http://www.apache.org/licenses/</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">pprint</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="c1"># demo hesap yazma API KEY #17 random test</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://iothook.com/api/update/?api_key=78b0ca6a4a7da7e20f689818&amp;field_1={}&amp;field_2={}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">10.0</span><span class="p">),</span> <span class="mi">2</span><span class="p">))</span>
+
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="arduino-esp8266-post-metodu-ile-veri-gonderme">
+<h2>Arduino, ESP8266 POST Metodu ile Veri Gönderme<a class="headerlink" href="#arduino-esp8266-post-metodu-ile-veri-gonderme" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<p>Bu örnekde Arduino Uno ya RX ve TX ile bağlanmış olan ESP8266 ile iothook a veri gonderme örneği verilmiştir.
+Örnekde 0-100 arasında rastgele sayı üretilerek iothook da <a class="reference external" href="https://iothook.com/en/device/chart/12/">https://iothook.com/en/device/chart/12/</a> id numaralı
+cihaz için gönderim gerçekleşmiştir. Cihaz datalarını <a class="reference external" href="https://iothook.com/en/device/chart/12/">https://iothook.com/en/device/chart/12/</a> linkinden gercek
+zamanlı olarak takip edebilirsiniz.</p>
+<p>Bu örneğe ve diğerlerine <a class="reference external" href="https://github.com/electrocoder/IoThook/tree/master/examples/IoThook/v1_4">https://github.com/electrocoder/IoThook/tree/master/examples/IoThook/v1_4</a> sayfasından
+ulaşabilirsiniz.</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="cm">/*</span>
+<span class="cm">  Arduino ile ESP8266 Wifi Modul Testi</span>
+
+<span class="cm">  Kod Arduino ya yuklendiginde Arduino IDE nin Serial Monitor u</span>
+<span class="cm">  ile ESP8266 arasinda haberlesme gozlenebilir.</span>
+
+<span class="cm">  Arduino ile ESP8266 arasindaki iletisim Baud ayari</span>
+<span class="cm">  115200 olmalidir.</span>
+
+<span class="cm">  Arduino 0 ile 100 arasinda uretmis oldugu Random sayıyı iothook a gonderir.</span>
+
+<span class="cm">  Bu cihaza ait datalar</span>
+<span class="cm">  https://iothook.com/en/device/chart/12/</span>
+<span class="cm">  adresinden gercek zamanli olarak izlenebilir.</span>
+
+<span class="cm">  Bu ornek IoThook servisine veri gondermek icin baslangic ayarlarinin</span>
+<span class="cm">  yapilmasini amaclamaktadir.</span>
+
+<span class="cm">  24 Eylul 2017</span>
+<span class="cm">  Güncelleme : 19 Agustos 2019</span>
+<span class="cm">  Sahin MERSIN</span>
+
+<span class="cm">  Daha fazlasi icin</span>
+
+<span class="cm">  http://www.iothook.com</span>
+<span class="cm">  ve</span>
+<span class="cm">  https://github.com/electrocoder/IoThook</span>
+
+<span class="cm">  sitelerine gidiniz.</span>
+<span class="cm">  Sorular ve destek talepleri icin</span>
+<span class="cm">  https://github.com/electrocoder/IoThook/issues</span>
+<span class="cm">  sayfasina gidiniz.</span>
+
+<span class="cm">  Yayin ve sahiplik http://mesebilisim.com</span>
+<span class="cm">*/</span>
+
+<span class="cp">#include</span> <span class="cpf">&quot;SoftwareSerial.h&quot;</span><span class="cp"></span>
+
+<span class="n">String</span> <span class="n">ssid</span> <span class="o">=</span> <span class="s">&quot;WIFI_ID&quot;</span><span class="p">;</span>
+<span class="n">String</span> <span class="n">password</span> <span class="o">=</span> <span class="s">&quot;WIFI_PASSWORD&quot;</span><span class="p">;</span>
+
+<span class="n">SoftwareSerial</span> <span class="nf">esp</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">);</span><span class="c1">// RX, TX</span>
+
+<span class="n">String</span> <span class="n">data</span><span class="p">;</span>
+
+<span class="n">String</span> <span class="n">server</span> <span class="o">=</span> <span class="s">&quot;iothook.com&quot;</span><span class="p">;</span>
+
+<span class="n">String</span> <span class="n">uri</span> <span class="o">=</span> <span class="s">&quot;/api/update/&quot;</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="n">esp</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+
+  <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+
+  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Arduino ile ESP8266 Wifi Modul Testi&quot;</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;          www.IoThook.com           &quot;</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">);</span>
+
+  <span class="n">reset</span><span class="p">();</span>
+
+  <span class="n">connectWifi</span><span class="p">();</span>
+
+<span class="p">}</span>
+
+
+<span class="kt">void</span> <span class="nf">reset</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="n">esp</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;AT+RST&quot;</span><span class="p">);</span>
+
+  <span class="n">delay</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="n">esp</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;OK&quot;</span><span class="p">)</span> <span class="p">)</span> <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Modul Reset yapildi&quot;</span><span class="p">);</span>
+  <span class="k">else</span> <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Module Reset yapılamadi&quot;</span><span class="p">);</span>
+
+<span class="p">}</span>
+
+
+<span class="kt">void</span> <span class="nf">connectWifi</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="n">String</span> <span class="n">cmd</span> <span class="o">=</span> <span class="s">&quot;AT+CWJAP=</span><span class="se">\&quot;</span><span class="s">&quot;</span> <span class="o">+</span> <span class="n">ssid</span> <span class="o">+</span> <span class="s">&quot;</span><span class="se">\&quot;</span><span class="s">,</span><span class="se">\&quot;</span><span class="s">&quot;</span> <span class="o">+</span> <span class="n">password</span> <span class="o">+</span> <span class="s">&quot;</span><span class="se">\&quot;</span><span class="s">&quot;</span><span class="p">;</span>
+
+  <span class="n">esp</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">cmd</span><span class="p">);</span>
+
+  <span class="n">delay</span><span class="p">(</span><span class="mi">4000</span><span class="p">);</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="n">esp</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;OK&quot;</span><span class="p">))</span> <span class="p">{</span>
+
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;ESP8266 Wifi ye baglandi&quot;</span><span class="p">);</span>
+
+  <span class="p">}</span>
+
+  <span class="k">else</span> <span class="p">{</span>
+
+    <span class="n">connectWifi</span><span class="p">();</span>
+
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;ESP8266 Wifi ye baglanamadı!&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+
+
+<span class="kt">void</span> <span class="nf">loop</span> <span class="p">()</span> <span class="p">{</span>
+
+  <span class="n">data</span> <span class="o">=</span> <span class="s">&quot;{</span><span class="se">\&quot;</span><span class="s">api_key</span><span class="se">\&quot;</span><span class="s">:</span><span class="se">\&quot;</span><span class="s">e2ef29104644a6a6216561b5</span><span class="se">\&quot;</span><span class="s">,</span><span class="se">\&quot;</span><span class="s">field_1</span><span class="se">\&quot;</span><span class="s">:&quot;</span> <span class="o">+</span> <span class="n">String</span><span class="p">(</span><span class="n">random</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span> <span class="o">+</span> <span class="s">&quot;}&quot;</span><span class="p">;</span>
+
+  <span class="n">httppost</span><span class="p">();</span>
+
+  <span class="n">delay</span><span class="p">(</span><span class="mi">5000</span><span class="p">);</span>
+
+<span class="p">}</span>
+
+
+<span class="kt">void</span> <span class="nf">httppost</span> <span class="p">()</span> <span class="p">{</span>
+
+  <span class="n">esp</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;AT+CIPSTART=</span><span class="se">\&quot;</span><span class="s">TCP</span><span class="se">\&quot;</span><span class="s">,</span><span class="se">\&quot;</span><span class="s">&quot;</span> <span class="o">+</span> <span class="n">server</span> <span class="o">+</span> <span class="s">&quot;</span><span class="se">\&quot;</span><span class="s">,80&quot;</span><span class="p">);</span>
+
+  <span class="k">if</span> <span class="p">(</span> <span class="n">esp</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;OK&quot;</span><span class="p">))</span> <span class="p">{</span>
+
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;TCP baglanti hazir&quot;</span><span class="p">);</span>
+
+  <span class="p">}</span>
+  <span class="k">else</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;TCP baglanti hatali&quot;</span><span class="p">);</span>
+
+  <span class="n">delay</span><span class="p">(</span><span class="mi">3000</span><span class="p">);</span>
+
+  <span class="n">String</span> <span class="n">postRequest</span> <span class="o">=</span>
+
+    <span class="s">&quot;POST &quot;</span> <span class="o">+</span> <span class="n">uri</span> <span class="o">+</span> <span class="s">&quot; HTTP/1.0</span><span class="se">\r\n</span><span class="s">&quot;</span> <span class="o">+</span>
+
+    <span class="s">&quot;Host: &quot;</span> <span class="o">+</span> <span class="n">server</span> <span class="o">+</span> <span class="s">&quot;</span><span class="se">\r\n</span><span class="s">&quot;</span> <span class="o">+</span>
+
+    <span class="s">&quot;Accept: *&quot;</span> <span class="o">+</span> <span class="s">&quot;/&quot;</span> <span class="o">+</span> <span class="s">&quot;*</span><span class="se">\r\n</span><span class="s">&quot;</span> <span class="o">+</span>
+
+    <span class="s">&quot;Content-Length: &quot;</span> <span class="o">+</span> <span class="n">data</span><span class="p">.</span><span class="n">length</span><span class="p">()</span> <span class="o">+</span> <span class="s">&quot;</span><span class="se">\r\n</span><span class="s">&quot;</span> <span class="o">+</span>
+
+    <span class="s">&quot;Content-Type: application/x-www-form-urlencoded</span><span class="se">\r\n</span><span class="s">&quot;</span> <span class="o">+</span>
+
+    <span class="s">&quot;</span><span class="se">\r\n</span><span class="s">&quot;</span> <span class="o">+</span> <span class="n">data</span><span class="p">;</span>
+
+  <span class="n">String</span> <span class="n">sendCmd</span> <span class="o">=</span> <span class="s">&quot;AT+CIPSEND=&quot;</span><span class="p">;</span>
+
+  <span class="n">esp</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">sendCmd</span><span class="p">);</span>
+
+  <span class="n">esp</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">postRequest</span><span class="p">.</span><span class="n">length</span><span class="p">()</span> <span class="p">);</span>
+
+  <span class="n">delay</span><span class="p">(</span><span class="mi">1500</span><span class="p">);</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="n">esp</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;&gt;&quot;</span><span class="p">))</span> <span class="p">{</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Gonderiliyor...&quot;</span><span class="p">);</span>
+    <span class="n">esp</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">postRequest</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span> <span class="n">esp</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;SEND OK&quot;</span><span class="p">))</span> <span class="p">{</span>
+      <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Gonderildi :)&quot;</span><span class="p">);</span>
+
+      <span class="k">while</span> <span class="p">(</span><span class="n">esp</span><span class="p">.</span><span class="n">available</span><span class="p">())</span> <span class="p">{</span>
+
+        <span class="n">String</span> <span class="n">tmpResp</span> <span class="o">=</span> <span class="n">esp</span><span class="p">.</span><span class="n">readString</span><span class="p">();</span>
+
+        <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">tmpResp</span><span class="p">);</span>
+
+      <span class="p">}</span>
+
+      <span class="n">esp</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;AT+CIPCLOSE&quot;</span><span class="p">);</span>
+
+    <span class="p">}</span>
+    <span class="k">else</span>
+      <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Gonderilemedi :(&quot;</span><span class="p">);</span>
+
+  <span class="p">}</span>
+  <span class="k">else</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Gonderim hatasi! ESP hazir degil!&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="arduino-esp8266-post-metodu-ile-2-veri-gonderme">
+<h2>Arduino, ESP8266 POST Metodu ile 2 Veri Gönderme<a class="headerlink" href="#arduino-esp8266-post-metodu-ile-2-veri-gonderme" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<p>Bu örnekde Arduino Uno ya RX ve TX ile bağlanmış olan ESP8266 ile iothook a veri gonderme örneği verilmiştir.
+Örnekde 0-100 arasında rastgele 2 sayı üretilerek iothook da <a class="reference external" href="https://iothook.com/en/device/chart/17/">https://iothook.com/en/device/chart/17/</a> id numaralı
+cihaz için gönderim gerçekleşmiştir. Cihaz datalarını <a class="reference external" href="https://iothook.com/en/device/chart/17/">https://iothook.com/en/device/chart/17/</a> linkinden gercek
+zamanlı olarak takip edebilirsiniz.</p>
+<p>Bu örneğe <a class="reference external" href="https://github.com/electrocoder/IoThook/tree/master/examples/IoThook/v1_4/arduino">https://github.com/electrocoder/IoThook/tree/master/examples/IoThook/v1_4/arduino</a> sayfasından
+ulaşabilirsiniz.</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="cm">/*</span>
+<span class="cm">  Arduino ile ESP8266 Wifi Modul Testi</span>
+
+<span class="cm">  Kod Arduino ya yuklendiginde Arduino IDE nin Serial Monitor u</span>
+<span class="cm">  ile ESP8266 arasinda haberlesme gozlenebilir.</span>
+
+<span class="cm">  Arduino ile ESP8266 arasindaki iletisim Baud ayari</span>
+<span class="cm">  115200 olmalidir.</span>
+
+<span class="cm">  Arduino 0 ile 100 arasinda uretmis oldugu 2 adet Random sayıyı iothook a gonderir.</span>
+<span class="cm">  Bu sayılar &#39;data&#39; değişkeni içerisinde field_1 ve field_2 değerleridir. Bu değerler</span>
+<span class="cm">  sensör olarak kullanılmaktadır. Sıcaklık  ve Nem gibi sensörlerinizi bu alanlara</span>
+<span class="cm">  gönderebilirsiniz.</span>
+
+<span class="cm">  Bu cihaza ait datalar</span>
+<span class="cm">  https://iothook.com/en/device/chart/17/</span>
+<span class="cm">  adresinden gercek zamanli olarak izlenebilir.</span>
+
+<span class="cm">  Bu ornek IoThook servisine veri gondermek icin baslangic ayarlarinin</span>
+<span class="cm">  yapilmasini amaclamaktadir.</span>
+
+<span class="cm">  24 Eylul 2017</span>
+<span class="cm">  Sahin MERSIN</span>
+
+<span class="cm">  Daha fazlasi icin</span>
+
+<span class="cm">  http://www.iothook.com</span>
+<span class="cm">  ve</span>
+<span class="cm">  https://github.com/electrocoder/IoThook</span>
+
+<span class="cm">  sitelerine gidiniz.</span>
+<span class="cm">  Sorular ve destek talepleri icin</span>
+<span class="cm">  https://github.com/electrocoder/IoThook/issues</span>
+<span class="cm">  sayfasina gidiniz.</span>
+
+<span class="cm">  Yayin ve sahiplik http://mesebilisim.com</span>
+<span class="cm">*/</span>
+
+<span class="cp">#include</span> <span class="cpf">&quot;SoftwareSerial.h&quot;</span><span class="cp"></span>
+
+<span class="n">String</span> <span class="n">ssid</span> <span class="o">=</span> <span class="s">&quot;WIFI_SSID&quot;</span><span class="p">;</span>
+<span class="n">String</span> <span class="n">password</span> <span class="o">=</span> <span class="s">&quot;WIFI_PASSWORD&quot;</span><span class="p">;</span>
+
+<span class="n">SoftwareSerial</span> <span class="nf">esp</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">);</span><span class="c1">// RX, TX</span>
+
+<span class="n">String</span> <span class="n">data</span><span class="p">;</span>
+
+<span class="n">String</span> <span class="n">server</span> <span class="o">=</span> <span class="s">&quot;iothook.com&quot;</span><span class="p">;</span>
+
+<span class="n">String</span> <span class="n">uri</span> <span class="o">=</span> <span class="s">&quot;/api/update/&quot;</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="n">esp</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+
+  <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+
+  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Arduino ile ESP8266 Wifi Modul Testi&quot;</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;          www.IoThook.com           &quot;</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">);</span>
+
+  <span class="n">reset</span><span class="p">();</span>
+
+  <span class="n">connectWifi</span><span class="p">();</span>
+
+<span class="p">}</span>
+
+
+<span class="kt">void</span> <span class="nf">reset</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="n">esp</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;AT+RST&quot;</span><span class="p">);</span>
+
+  <span class="n">delay</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="n">esp</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;OK&quot;</span><span class="p">)</span> <span class="p">)</span> <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Modul Reset yapildi&quot;</span><span class="p">);</span>
+  <span class="k">else</span> <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Module Reset yapılamadi&quot;</span><span class="p">);</span>
+
+<span class="p">}</span>
+
+
+<span class="kt">void</span> <span class="nf">connectWifi</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="n">String</span> <span class="n">cmd</span> <span class="o">=</span> <span class="s">&quot;AT+CWJAP=</span><span class="se">\&quot;</span><span class="s">&quot;</span> <span class="o">+</span> <span class="n">ssid</span> <span class="o">+</span> <span class="s">&quot;</span><span class="se">\&quot;</span><span class="s">,</span><span class="se">\&quot;</span><span class="s">&quot;</span> <span class="o">+</span> <span class="n">password</span> <span class="o">+</span> <span class="s">&quot;</span><span class="se">\&quot;</span><span class="s">&quot;</span><span class="p">;</span>
+
+  <span class="n">esp</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">cmd</span><span class="p">);</span>
+
+  <span class="n">delay</span><span class="p">(</span><span class="mi">4000</span><span class="p">);</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="n">esp</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;OK&quot;</span><span class="p">))</span> <span class="p">{</span>
+
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;ESP8266 Wifi ye baglandi&quot;</span><span class="p">);</span>
+
+  <span class="p">}</span>
+
+  <span class="k">else</span> <span class="p">{</span>
+
+    <span class="n">connectWifi</span><span class="p">();</span>
+
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;ESP8266 Wifi ye baglanamadı!&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+
+
+<span class="kt">void</span> <span class="nf">loop</span> <span class="p">()</span> <span class="p">{</span>
+
+  <span class="n">data</span> <span class="o">=</span> <span class="s">&quot;{</span><span class="se">\&quot;</span><span class="s">api_key</span><span class="se">\&quot;</span><span class="s">:</span><span class="se">\&quot;</span><span class="s">78b0ca6a4a7da7e20f689818</span><span class="se">\&quot;</span><span class="s">,</span><span class="se">\&quot;</span><span class="s">field_1</span><span class="se">\&quot;</span><span class="s">:&quot;</span> <span class="o">+</span> <span class="n">String</span><span class="p">(</span><span class="n">random</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span> <span class="o">+</span> <span class="s">&quot;,</span><span class="se">\&quot;</span><span class="s">field_2</span><span class="se">\&quot;</span><span class="s">:&quot;</span> <span class="o">+</span> <span class="n">String</span><span class="p">(</span><span class="n">random</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span> <span class="o">+</span> <span class="s">&quot;}&quot;</span><span class="p">;</span>
+
+  <span class="n">httppost</span><span class="p">();</span>
+
+  <span class="n">delay</span><span class="p">(</span><span class="mi">8000</span><span class="p">);</span>
+
+<span class="p">}</span>
+
+
+<span class="kt">void</span> <span class="nf">httppost</span> <span class="p">()</span> <span class="p">{</span>
+
+  <span class="n">esp</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;AT+CIPSTART=</span><span class="se">\&quot;</span><span class="s">TCP</span><span class="se">\&quot;</span><span class="s">,</span><span class="se">\&quot;</span><span class="s">&quot;</span> <span class="o">+</span> <span class="n">server</span> <span class="o">+</span> <span class="s">&quot;</span><span class="se">\&quot;</span><span class="s">,80&quot;</span><span class="p">);</span>
+
+  <span class="k">if</span> <span class="p">(</span> <span class="n">esp</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;OK&quot;</span><span class="p">))</span> <span class="p">{</span>
+
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;TCP baglanti hazir&quot;</span><span class="p">);</span>
+
+  <span class="p">}</span>
+  <span class="k">else</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;TCP baglanti hatali&quot;</span><span class="p">);</span>
+
+  <span class="n">delay</span><span class="p">(</span><span class="mi">3000</span><span class="p">);</span>
+
+  <span class="n">String</span> <span class="n">postRequest</span> <span class="o">=</span>
+
+    <span class="s">&quot;POST &quot;</span> <span class="o">+</span> <span class="n">uri</span> <span class="o">+</span> <span class="s">&quot; HTTP/1.0</span><span class="se">\r\n</span><span class="s">&quot;</span> <span class="o">+</span>
+
+    <span class="s">&quot;Host: &quot;</span> <span class="o">+</span> <span class="n">server</span> <span class="o">+</span> <span class="s">&quot;</span><span class="se">\r\n</span><span class="s">&quot;</span> <span class="o">+</span>
+
+    <span class="s">&quot;Accept: *&quot;</span> <span class="o">+</span> <span class="s">&quot;/&quot;</span> <span class="o">+</span> <span class="s">&quot;*</span><span class="se">\r\n</span><span class="s">&quot;</span> <span class="o">+</span>
+
+    <span class="s">&quot;Content-Length: &quot;</span> <span class="o">+</span> <span class="n">data</span><span class="p">.</span><span class="n">length</span><span class="p">()</span> <span class="o">+</span> <span class="s">&quot;</span><span class="se">\r\n</span><span class="s">&quot;</span> <span class="o">+</span>
+
+    <span class="s">&quot;Content-Type: application/x-www-form-urlencoded</span><span class="se">\r\n</span><span class="s">&quot;</span> <span class="o">+</span>
+
+    <span class="s">&quot;</span><span class="se">\r\n</span><span class="s">&quot;</span> <span class="o">+</span> <span class="n">data</span><span class="p">;</span>
+
+  <span class="n">String</span> <span class="n">sendCmd</span> <span class="o">=</span> <span class="s">&quot;AT+CIPSEND=&quot;</span><span class="p">;</span>
+
+  <span class="n">esp</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">sendCmd</span><span class="p">);</span>
+
+  <span class="n">esp</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">postRequest</span><span class="p">.</span><span class="n">length</span><span class="p">()</span> <span class="p">);</span>
+
+  <span class="n">delay</span><span class="p">(</span><span class="mi">1500</span><span class="p">);</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="n">esp</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;&gt;&quot;</span><span class="p">))</span> <span class="p">{</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Gonderiliyor...&quot;</span><span class="p">);</span>
+    <span class="n">esp</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">postRequest</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span> <span class="n">esp</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;SEND OK&quot;</span><span class="p">))</span> <span class="p">{</span>
+      <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Gonderildi :)&quot;</span><span class="p">);</span>
+
+      <span class="k">while</span> <span class="p">(</span><span class="n">esp</span><span class="p">.</span><span class="n">available</span><span class="p">())</span> <span class="p">{</span>
+
+        <span class="n">String</span> <span class="n">tmpResp</span> <span class="o">=</span> <span class="n">esp</span><span class="p">.</span><span class="n">readString</span><span class="p">();</span>
+
+        <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">tmpResp</span><span class="p">);</span>
+
+      <span class="p">}</span>
+
+      <span class="n">esp</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;AT+CIPCLOSE&quot;</span><span class="p">);</span>
+
+    <span class="p">}</span>
+    <span class="k">else</span>
+      <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Gonderilemedi :(&quot;</span><span class="p">);</span>
+
+  <span class="p">}</span>
+  <span class="k">else</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Gonderim hatasi! ESP hazir degil!&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="arduino-esp8266-nodemcu-get-metodu-ile-veri-gonderme">
+<h2>Arduino, ESP8266, Nodemcu GET Metodu ile Veri Gönderme<a class="headerlink" href="#arduino-esp8266-nodemcu-get-metodu-ile-veri-gonderme" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<p>IoThook Api v1.4 güncellemesi ile GET metodu ile veri göndermeye izin vermektedir.</p>
+<p>Bu örnekde Arduino, ESP8266 ve NodeMCU ile ile Get metodu kullanarak veri gönderme örneği verilmiştir:</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="c1">// 18.09.2017</span>
+<span class="c1">// Guncelleme : 19.08.2019</span>
+<span class="c1">// nodemcu ile sicaklik ve nem takibi</span>
+<span class="c1">// electrocoder@gmail.com</span>
+<span class="c1">// sahin mersin</span>
+<span class="c1">// v1</span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;ESP8266WiFi.h&gt;          //https://github.com/esp8266/Arduino</span><span class="cp"></span>
+
+<span class="c1">//needed for library</span>
+<span class="cp">#include</span> <span class="cpf">&lt;DNSServer.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;ESP8266WebServer.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;WiFiManager.h&gt;          //https://github.com/tzapu/WiFiManager</span><span class="cp"></span>
+
+<span class="c1">//for LED status</span>
+<span class="cp">#include</span> <span class="cpf">&lt;Ticker.h&gt;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;ESP8266HTTPClient.h&gt;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&quot;DHT.h&quot;</span><span class="cp"></span>
+
+<span class="cp">#define DHTPIN 4     </span><span class="c1">// what digital pin we&#39;re connected to   // D2 - GPIO4</span>
+<span class="cp">#define DHTTYPE DHT11</span>
+
+<span class="n">DHT</span> <span class="nf">dht</span><span class="p">(</span><span class="n">DHTPIN</span><span class="p">,</span> <span class="n">DHTTYPE</span><span class="p">);</span>
+
+<span class="n">Ticker</span> <span class="n">ticker</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">tick</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">//toggle state</span>
+  <span class="kt">int</span> <span class="n">state</span> <span class="o">=</span> <span class="n">digitalRead</span><span class="p">(</span><span class="n">BUILTIN_LED</span><span class="p">);</span>  <span class="c1">// get the current state of GPIO1 pin</span>
+  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">BUILTIN_LED</span><span class="p">,</span> <span class="o">!</span><span class="n">state</span><span class="p">);</span>     <span class="c1">// set pin to the opposite state</span>
+<span class="p">}</span>
+
+<span class="c1">//gets called when WiFiManager enters configuration mode</span>
+<span class="kt">void</span> <span class="nf">configModeCallback</span> <span class="p">(</span><span class="n">WiFiManager</span> <span class="o">*</span><span class="n">myWiFiManager</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Entered config mode&quot;</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">WiFi</span><span class="p">.</span><span class="n">softAPIP</span><span class="p">());</span>
+  <span class="c1">//if you used auto generated SSID, print it</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">myWiFiManager</span><span class="o">-&gt;</span><span class="n">getConfigPortalSSID</span><span class="p">());</span>
+  <span class="c1">//entered config mode, make led toggle faster</span>
+  <span class="n">ticker</span><span class="p">.</span><span class="n">attach</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">tick</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// put your setup code here, to run once:</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+
+  <span class="c1">//set led pin as output</span>
+  <span class="n">pinMode</span><span class="p">(</span><span class="n">BUILTIN_LED</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+
+  <span class="c1">// start ticker with 0.5 because we start in AP mode and try to connect</span>
+  <span class="n">ticker</span><span class="p">.</span><span class="n">attach</span><span class="p">(</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">tick</span><span class="p">);</span>
+
+  <span class="c1">//WiFiManager</span>
+  <span class="c1">//Local intialization. Once its business is done, there is no need to keep it around</span>
+  <span class="n">WiFiManager</span> <span class="n">wifiManager</span><span class="p">;</span>
+  <span class="c1">//reset settings - for testing</span>
+  <span class="c1">//wifiManager.resetSettings();</span>
+
+  <span class="c1">//set callback that gets called when connecting to previous WiFi fails, and enters Access Point mode</span>
+  <span class="n">wifiManager</span><span class="p">.</span><span class="n">setAPCallback</span><span class="p">(</span><span class="n">configModeCallback</span><span class="p">);</span>
+
+  <span class="c1">//fetches ssid and pass and tries to connect</span>
+  <span class="c1">//if it does not connect it starts an access point with the specified name</span>
+  <span class="c1">//here  &quot;AutoConnectAP&quot;</span>
+  <span class="c1">//and goes into a blocking loop awaiting configuration</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">wifiManager</span><span class="p">.</span><span class="n">autoConnect</span><span class="p">(</span><span class="s">&quot;MeseIoT&quot;</span><span class="p">,</span> <span class="s">&quot;MeseIoT**&quot;</span><span class="p">))</span> <span class="p">{</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;failed to connect and hit timeout&quot;</span><span class="p">);</span>
+    <span class="c1">//reset and try again, or maybe put it to deep sleep</span>
+    <span class="n">ESP</span><span class="p">.</span><span class="n">reset</span><span class="p">();</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">//if you get here you have connected to the WiFi</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;connected...yeey :)&quot;</span><span class="p">);</span>
+  <span class="n">ticker</span><span class="p">.</span><span class="n">detach</span><span class="p">();</span>
+  <span class="c1">//keep LED on</span>
+  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">BUILTIN_LED</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+
+  <span class="n">dht</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+<span class="p">}</span>
+
+
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// Wait a few seconds between measurements.</span>
+  <span class="n">delay</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span>
+
+  <span class="c1">// Reading temperature or humidity takes about 250 milliseconds!</span>
+  <span class="c1">// Sensor readings may also be up to 2 seconds &#39;old&#39; (its a very slow sensor)</span>
+  <span class="kt">float</span> <span class="n">h</span> <span class="o">=</span> <span class="n">dht</span><span class="p">.</span><span class="n">readHumidity</span><span class="p">();</span>
+  <span class="c1">// Read temperature as Celsius (the default)</span>
+  <span class="kt">float</span> <span class="n">t</span> <span class="o">=</span> <span class="n">dht</span><span class="p">.</span><span class="n">readTemperature</span><span class="p">();</span>
+  <span class="c1">// Read temperature as Fahrenheit (isFahrenheit = true)</span>
+  <span class="kt">float</span> <span class="n">f</span> <span class="o">=</span> <span class="n">dht</span><span class="p">.</span><span class="n">readTemperature</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+
+  <span class="c1">// Check if any reads failed and exit early (to try again).</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">isnan</span><span class="p">(</span><span class="n">h</span><span class="p">)</span> <span class="o">||</span> <span class="n">isnan</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">||</span> <span class="n">isnan</span><span class="p">(</span><span class="n">f</span><span class="p">))</span> <span class="p">{</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Failed to read from DHT sensor!&quot;</span><span class="p">);</span>
+    <span class="k">return</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// Compute heat index in Fahrenheit (the default)</span>
+  <span class="kt">float</span> <span class="n">hif</span> <span class="o">=</span> <span class="n">dht</span><span class="p">.</span><span class="n">computeHeatIndex</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">h</span><span class="p">);</span>
+  <span class="c1">// Compute heat index in Celsius (isFahreheit = false)</span>
+  <span class="kt">float</span> <span class="n">hic</span> <span class="o">=</span> <span class="n">dht</span><span class="p">.</span><span class="n">computeHeatIndex</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="nb">false</span><span class="p">);</span>
+
+  <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Humidity: &quot;</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">h</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot; %</span><span class="se">\t</span><span class="s">&quot;</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Temperature: &quot;</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot; *C &quot;</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">f</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot; *F</span><span class="se">\t</span><span class="s">&quot;</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Heat index: &quot;</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">hic</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot; *C &quot;</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">hif</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot; *F&quot;</span><span class="p">);</span>
+
+  <span class="c1">///</span>
+  <span class="n">HTTPClient</span> <span class="n">http</span><span class="p">;</span>
+
+  <span class="c1">// configure server and url</span>
+  <span class="n">http</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="s">&quot;http://iothook.com/api/update/?api_key=78b0ca6a4a7da7e20f689818&amp;field_1=&quot;</span> <span class="o">+</span> <span class="n">String</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot;&amp;field_2=&quot;</span> <span class="o">+</span> <span class="n">String</span><span class="p">(</span><span class="n">h</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot;&quot;</span><span class="p">);</span>
+  <span class="c1">//http.begin(&quot;192.168.1.12&quot;, 80, &quot;/test.html&quot;);</span>
+
+  <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;[HTTP] GET...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+  <span class="c1">// start connection and send HTTP header</span>
+  <span class="kt">int</span> <span class="n">httpCode</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="n">GET</span><span class="p">();</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">httpCode</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// HTTP header has been send and Server response header has been handled</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;[HTTP] GET... code: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">httpCode</span><span class="p">);</span>
+
+    <span class="c1">// file found at server</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">httpCode</span> <span class="o">==</span> <span class="n">HTTP_CODE_OK</span><span class="p">)</span> <span class="p">{</span>
+
+      <span class="c1">// get lenght of document (is -1 when Server sends no Content-Length header)</span>
+      <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="n">getSize</span><span class="p">();</span>
+
+      <span class="c1">// create buffer for read</span>
+      <span class="kt">uint8_t</span> <span class="n">buff</span><span class="p">[</span><span class="mi">128</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span> <span class="p">};</span>
+
+      <span class="c1">// get tcp stream</span>
+      <span class="n">WiFiClient</span> <span class="o">*</span> <span class="n">stream</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="n">getStreamPtr</span><span class="p">();</span>
+
+      <span class="c1">// read all data from server</span>
+      <span class="k">while</span> <span class="p">(</span><span class="n">http</span><span class="p">.</span><span class="n">connected</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">len</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">len</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="p">{</span>
+        <span class="c1">// get available data size</span>
+        <span class="kt">size_t</span> <span class="n">size</span> <span class="o">=</span> <span class="n">stream</span><span class="o">-&gt;</span><span class="n">available</span><span class="p">();</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="p">{</span>
+          <span class="c1">// read up to 128 byte</span>
+          <span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="n">stream</span><span class="o">-&gt;</span><span class="n">readBytes</span><span class="p">(</span><span class="n">buff</span><span class="p">,</span> <span class="p">((</span><span class="n">size</span> <span class="o">&gt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buff</span><span class="p">))</span> <span class="o">?</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buff</span><span class="p">)</span> <span class="o">:</span> <span class="n">size</span><span class="p">));</span>
+
+          <span class="c1">// write it to Serial</span>
+          <span class="n">Serial</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">buff</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
+
+          <span class="k">if</span> <span class="p">(</span><span class="n">len</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">len</span> <span class="o">-=</span> <span class="n">c</span><span class="p">;</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="n">delay</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+      <span class="p">}</span>
+
+      <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">();</span>
+      <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;[HTTP] connection closed or file end.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+
+    <span class="p">}</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;[HTTP] GET... failed, error: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">http</span><span class="p">.</span><span class="n">errorToString</span><span class="p">(</span><span class="n">httpCode</span><span class="p">).</span><span class="n">c_str</span><span class="p">());</span>
+  <span class="p">}</span>
+
+  <span class="n">http</span><span class="p">.</span><span class="n">end</span><span class="p">();</span>
+  <span class="c1">////</span>
+  <span class="n">delay</span><span class="p">(</span><span class="mi">13000</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="go-get-metodu-ile-veri-gonderme">
+<h2>GO GET Metodu ile Veri Gönderme<a class="headerlink" href="#go-get-metodu-ile-veri-gonderme" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<p>IoThook Api v1.4 güncellemesi ile GET metodu ile veri göndermeye izin vermektedir.</p>
+<p>Bu örnekde GO dili ile ile Get metodu kullanarak veri gönderme örneği verilmiştir:</p>
+<div class="highlight-go"><div class="highlight"><pre><span></span><span class="c1">// 04 Eylul 2017</span>
+<span class="c1">// Guncelleme: 19 Agustos 2019</span>
+<span class="c1">// Sahin MERSIN</span>
+<span class="c1">// iothook.com</span>
+<span class="c1">// postman kullanilarak olusturulmustur</span>
+
+
+<span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+    <span class="s">&quot;fmt&quot;</span>
+    <span class="s">&quot;net/http&quot;</span>
+    <span class="s">&quot;io/ioutil&quot;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="nx">url</span> <span class="o">:=</span> <span class="s">&quot;http://iothook.com/api/update?api_key=78b0ca6a4a7da7e20f689818&amp;field_1=10&amp;field_2=2&amp;field_3=3&quot;</span>
+
+    <span class="nx">req</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nx">NewRequest</span><span class="p">(</span><span class="s">&quot;GET&quot;</span><span class="p">,</span> <span class="nx">url</span><span class="p">,</span> <span class="kc">nil</span><span class="p">)</span>
+
+    <span class="nx">req</span><span class="p">.</span><span class="nx">Header</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="s">&quot;cache-control&quot;</span><span class="p">,</span> <span class="s">&quot;no-cache&quot;</span><span class="p">)</span>
+
+    <span class="nx">res</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nx">DefaultClient</span><span class="p">.</span><span class="nx">Do</span><span class="p">(</span><span class="nx">req</span><span class="p">)</span>
+
+    <span class="k">defer</span> <span class="nx">res</span><span class="p">.</span><span class="nx">Body</span><span class="p">.</span><span class="nx">Close</span><span class="p">()</span>
+    <span class="nx">body</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">ioutil</span><span class="p">.</span><span class="nx">ReadAll</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">Body</span><span class="p">)</span>
+
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">body</span><span class="p">))</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="php-get-metodu-ile-veri-gonderme">
+<h2>PHP GET Metodu ile Veri Gönderme<a class="headerlink" href="#php-get-metodu-ile-veri-gonderme" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<p>IoThook Api v1.4 güncellemesi ile GET metodu ile veri göndermeye izin vermektedir.</p>
+<p>Bu örnekde PHP dili ile ile Get metodu kullanarak veri gönderme örneği verilmiştir:</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="x">// 04 Eylul 2017</span>
+<span class="x">// Guncelleme: 19 Agustos 2019</span>
+<span class="x">// Sahin MERSIN</span>
+<span class="x">// iothook.com</span>
+<span class="x">// postman kullanilarak olusturulmustur</span>
+
+<span class="cp">&lt;?php</span>
+
+<span class="nv">$request</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">HttpRequest</span><span class="p">();</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setUrl</span><span class="p">(</span><span class="s1">&#39;http://iothook.com/api/update&#39;</span><span class="p">);</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setMethod</span><span class="p">(</span><span class="nx">HTTP_METH_GET</span><span class="p">);</span>
+
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setQueryData</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+  <span class="s1">&#39;api_key&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;78b0ca6a4a7da7e20f689818&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;field_1&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;10&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;field_2&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;field_3&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;3&#39;</span>
+<span class="p">));</span>
+
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setHeaders</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+  <span class="s1">&#39;postman-token&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;791ba738-7cb8-a920-0e5c-883cfb3e4498&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;cache-control&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;no-cache&#39;</span>
+<span class="p">));</span>
+
+<span class="k">try</span> <span class="p">{</span>
+  <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">();</span>
+
+  <span class="k">echo</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getBody</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">HttpException</span> <span class="nv">$ex</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">echo</span> <span class="nv">$ex</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="nodejs-get-metodu-ile-veri-gonderme">
+<h2>NodeJS GET Metodu ile Veri Gönderme<a class="headerlink" href="#nodejs-get-metodu-ile-veri-gonderme" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<p>IoThook Api v1.4 güncellemesi ile GET metodu ile veri göndermeye izin vermektedir.</p>
+<p>Bu örnekde NodeJS Native metodu kullanarak veri gönderme örneği verilmiştir:</p>
+<div class="highlight-js"><div class="highlight"><pre><span></span><span class="c1">// 04 Eylul 2017</span>
+<span class="c1">// Guncelleme: 19 Agustos 2019</span>
+<span class="c1">// Sahin MERSIN</span>
+<span class="c1">// iothook.com</span>
+<span class="c1">// postman kullanilarak olusturulmustur</span>
+
+<span class="kd">var</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http&quot;</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">&quot;method&quot;</span><span class="o">:</span> <span class="s2">&quot;GET&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;hostname&quot;</span><span class="o">:</span> <span class="s2">&quot;iothook.com&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;port&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="s2">&quot;path&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/update?api_key=78b0ca6a4a7da7e20f689818&amp;field_1=10&amp;field_2=2&amp;field_3=3&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;headers&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;cache-control&quot;</span><span class="o">:</span> <span class="s2">&quot;no-cache&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;postman-token&quot;</span><span class="o">:</span> <span class="s2">&quot;033da3c8-6196-cd49-f72d-1850a7d18500&quot;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">req</span> <span class="o">=</span> <span class="nx">http</span><span class="p">.</span><span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">chunks</span> <span class="o">=</span> <span class="p">[];</span>
+
+  <span class="nx">res</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">chunk</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">chunks</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">chunk</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">res</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;end&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">body</span> <span class="o">=</span> <span class="nx">Buffer</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">chunks</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+
+<span class="nx">req</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="javascript-jquery-ajax-get-metodu-ile-veri-gonderme">
+<h2>Javascript Jquery Ajax GET Metodu ile Veri Gönderme<a class="headerlink" href="#javascript-jquery-ajax-get-metodu-ile-veri-gonderme" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<p>IoThook Api v1.4 güncellemesi ile GET metodu ile veri göndermeye izin vermektedir.</p>
+<p>Bu örnekde NodeJS Native metodu kullanarak veri gönderme örneği verilmiştir:</p>
+<div class="highlight-js"><div class="highlight"><pre><span></span><span class="c1">// 04 Eylul 2017</span>
+<span class="c1">// Guncelleme: 19 Agustos 2019</span>
+<span class="c1">// Sahin MERSIN</span>
+<span class="c1">// iothook.com</span>
+<span class="c1">// postman kullanilarak olusturulmustur</span>
+
+<span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">&quot;async&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">&quot;crossDomain&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;http://iothook.com/api/update?api_key=78b0ca6a4a7da7e20f689818&amp;field_1=10&amp;field_2=2&amp;field_3=3&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;method&quot;</span><span class="o">:</span> <span class="s2">&quot;GET&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;headers&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;cache-control&quot;</span><span class="o">:</span> <span class="s2">&quot;no-cache&quot;</span><span class="p">,</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="java-unirest-get-metodu-ile-veri-gonderme">
+<h2>Java Unirest GET Metodu ile Veri Gönderme<a class="headerlink" href="#java-unirest-get-metodu-ile-veri-gonderme" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<p>IoThook Api v1.4 güncellemesi ile GET metodu ile veri göndermeye izin vermektedir.</p>
+<p>Bu örnekde NodeJS Native metodu kullanarak veri gönderme örneği verilmiştir:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// 04 Eylul 2017</span>
+<span class="c1">// Guncelleme: 19 Agustos 2019</span>
+<span class="c1">// Sahin MERSIN</span>
+<span class="c1">// iothook.com</span>
+<span class="c1">// postman kullanilarak olusturulmustur</span>
+
+<span class="n">HttpResponse</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="n">Unirest</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;http://iothook.com/api/update?api_key=78b0ca6a4a7da7e20f689818&amp;field_1=10&amp;field_2=2&amp;field_3=3&quot;</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">header</span><span class="o">(</span><span class="s">&quot;cache-control&quot;</span><span class="o">,</span> <span class="s">&quot;no-cache&quot;</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">asString</span><span class="o">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>Java Unirest GET Metodu ile Veri Gönderme<a class="headerlink" href="#id1" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<p>IoThook Api v1.4 güncellemesi ile GET metodu ile veri göndermeye izin vermektedir.</p>
+<p>Bu örnekde NodeJS Native metodu kullanarak veri gönderme örneği verilmiştir:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// 04 Eylul 2017</span>
+<span class="c1">// Guncelleme: 19 Agustos 2019</span>
+<span class="c1">// Sahin MERSIN</span>
+<span class="c1">// iothook.com</span>
+<span class="c1">// postman kullanilarak olusturulmustur</span>
+
+<span class="n">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OkHttpClient</span><span class="o">();</span>
+
+<span class="n">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">&quot;http://iothook.com/api/update?api_key=78b0ca6a4a7da7e20f689818&amp;field_1=10&amp;field_2=2&amp;field_3=3&quot;</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">get</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">&quot;cache-control&quot;</span><span class="o">,</span> <span class="s">&quot;no-cache&quot;</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+
+<span class="n">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Gezinti</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Genel Dizin"
+             >dizin</a></li>
+        <li class="right" >
+          <a href="read-data.html" title="Veri Al"
+             >sonraki</a> |</li>
+        <li class="right" >
+          <a href="create-new-device.html" title="Cihaz Ekle"
+             >önceki</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">IOTHOOK Internet Of Things Project</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, electrocoder.
+      <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.3 ile oluşturulmuştur.
+    </div>
+  </body>
+</html>
