@@ -420,3 +420,55 @@ Bu örneğe ve diğerlerine `IOTHOOK Git`_ sayfasından ulaşabilirsiniz.
     $.ajax(settings).done(function (response) {
       console.log(response);
     });
+
+
+Python PySide2 ile IOT Veri Alma
+---------------------------------
+
+PySide2, Qt nin Python projelerinde Qt 5.12+ framework e erişimini sağlayan resmi Python modülüdür. PySide2 yi
+kullanmadan önce yüklenmesi gereken modüller şu şekildedir.
+
+    $ pip install matplotlib
+
+    $ pip install numpy
+
+    $ pip install PySide2
+
+Python kütüphanelerinin yükleme işlemi pip ile yapılmıştır. Sisteminizde pip yüklü değil ise https://bootstrap.pypa.io/get-pip.py
+adresine giderek dosyayı bilgisayarınıza kaydediniz ve çalıştırınız.
+
+Biz burada PySide2 ve matplotlib kullanarak oluşturduğumuz Window içerisinde gelen verileri grafik olarak göstereceğiz.
+
+Script çalıştırıldığında aşağıdaki gibi bir pencere görmemiz gerekiyor.
+
+.. figure:: _static/pyside2-matplotlib-iothook.png
+   :alt: pyside2-matplotlib-iothook.png
+   :align: center
+
+Bu örnekde *QT Designer* kullanılarak arayüz tasarımı yapılmıştır. Widget için *Promote to ...* seçeneği ile *MplWidget*
+sınıfı kullanılmıştır. Bu örneği hazırlamada *manap.se* `Manap`_ ve *yapayzekalabs.blogspot.com* `Yapayzekalabs`_
+sitelerinden faydalandım. Bu sitelerde daha fazla kaynak bulabilirsiniz.
+
+.. _Manap: https://blog.manap.se/pyqt/bolum3/plot.html
+.. _Yapayzekalabs: http://yapayzekalabs.blogspot.com/2018/11/pyside2-gui-qt-designer-matplotlib.html
+
+Test işlemi IoThook da bulunan *230* id numaralı *5 channel test* isimli cihaz ile yapılmıştır.
+ Bu cihaz demo kullanıcısına aittir.
+
+Bu örneğe ve diğerlerine `IOTHOOK Git`_ sayfasından ulaşabilirsiniz.
+
+iothook.ui dosyası:
+
+.. literalinclude:: examples/python/pyside2/iothook.ui
+    :caption: iothook.ui
+    :name: iothook.ui
+
+
+iothook.py dosyası:
+
+.. literalinclude:: examples/python/pyside2/iothook.py
+    :caption: iothook.py
+    :name: iothook.py
+
+
+
