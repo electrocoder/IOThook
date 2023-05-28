@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2022, electrocoder
+# Copyright (C) 2023, electrocoder
 # This file is distributed under the same license as the iothook package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: iothook 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-21 13:47+0300\n"
+"POT-Creation-Date: 2023-05-29 01:18+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,49 +17,57 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../../why-iothook.rst:3
-msgid "Niçin Iothook?"
+msgid "Why IoThook?"
 msgstr ""
 
 #: ../../why-iothook.rst:5
-msgid "Iothook ücretsizdir,"
+msgid "IoThook is free,"
 msgstr ""
 
 #: ../../why-iothook.rst:6
-msgid "Iothook Açık Kaynaktır,"
+msgid "IoThook is Open Source,"
 msgstr ""
 
 #: ../../why-iothook.rst:7
-msgid "Iothook hızlıdır,"
+msgid "IoThook is fast (HTTP and MQTT),"
 msgstr ""
 
 #: ../../why-iothook.rst:8
-msgid "Sınırsız Cihaz oluşturabilirsin,"
+msgid "You can create Unlimited Devices,"
 msgstr ""
 
 #: ../../why-iothook.rst:9
-msgid "Sınırsız Sensör ekleyebilirsin,"
+msgid "You can add Unlimited Sensors,"
 msgstr ""
 
 #: ../../why-iothook.rst:10
-msgid "Tüm cihazların ile kolayca veri gönderebilirsin (post),"
+msgid "You can easily send data with all your devices. (HTTP Post, HTTP Get, MQTT Publish),"
 msgstr ""
 
 #: ../../why-iothook.rst:11
-msgid "Tüm iot cihazlarından kolayca veri alabilirsin (get),"
+msgid "You can easily get data from all iot devices (HTTP Post, HTTP Get, MQTT Subscribe),"
 msgstr ""
 
 #: ../../why-iothook.rst:12
-msgid "Datalarını gerçek zamanlı takip edebilirsin,"
+msgid "You can monitor your data in real time,"
 msgstr ""
 
 #: ../../why-iothook.rst:13
-msgid "Dataların için gerçek zamanlı grafik oluşturabilirsin,"
+msgid "You can create real-time graphs for your data,"
 msgstr ""
 
 #: ../../why-iothook.rst:15
-msgid "Iothook tüm cihazlarınız arasında kesintisiz veri aktarımı yapan, internete bağlı nesnelerin kolayca ulaşabileceği iletişim protokollerini destekler."
+msgid "IoThook is an internet-connected object that seamlessly transfers data between all your devices. It supports communication protocols that it can easily reach."
 msgstr ""
 
 #: ../../why-iothook.rst:18
-msgid "ChartJS ile entegre olarak verileri gerçek zamanlı izleme olanağı sağlar."
+msgid "It integrates with ChartJS to monitor data in real time."
+msgstr ""
+
+#: ../../why-iothook.rst:20
+msgid "IoThook allows you to write your own Python scripts with fx function support. (Beta)"
+msgstr ""
+
+#: ../../why-iothook.rst:None
+msgid "iothook-dashboard-img.png"
 msgstr ""

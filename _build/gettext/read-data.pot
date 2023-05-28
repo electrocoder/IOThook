@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2022, electrocoder
+# Copyright (C) 2023, electrocoder
 # This file is distributed under the same license as the iothook package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: iothook 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-21 13:47+0300\n"
+"POT-Creation-Date: 2023-05-29 01:18+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../../read-data.rst:3
-msgid "Veri Al"
+msgid "Read Data"
 msgstr ""
 
 #: ../../read-data.rst:5
@@ -158,6 +158,14 @@ msgstr ""
 msgid "iothook.ui dosyası:"
 msgstr ""
 
+#: ../../read-data.rst:462
+msgid "iothook.ui"
+msgstr ""
+
 #: ../../read-data.rst:467
 msgid "iothook.py dosyası:"
+msgstr ""
+
+#: ../../read-data.rst:469
+msgid "iothook.py"
 msgstr ""

@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2022, electrocoder
+# Copyright (C) 2023, electrocoder
 # This file is distributed under the same license as the iothook package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: iothook 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-21 13:47+0300\n"
+"POT-Creation-Date: 2023-05-29 01:18+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,9 +17,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../../what-is-iothook.rst:3
-msgid "IOTHOOK Nedir?"
+msgid "What is IOTHOOK?"
 msgstr ""
 
 #: ../../what-is-iothook.rst:5
-msgid "Iothook internete bağlı nesneler (iot) arasında veri transferi yapan web servis ağı projesidir. Iothook ile Arduino, Raspberry Pi, Android, iOS, Windows Phone, Web Site, Banana Pi, Orange Pi, Beaglebone, ARM, Pic, Windows, Mac OS X, ve Linux tabanlı sistemleri birbirine bağlar."
+msgid "IoThook is a web service network project that transfers data between internet-connected objects (IoT, IIoT). IoThook connects Arduino, Raspberry Pi, Android, iOS, Windows Phone, Website, Banana Pi, Orange Pi, Beaglebone, ARM, Pic, Windows, Mac OS X, and Linux based systems. It supports HTTP and MQTT protocols. With IoThook, you can send and receive data via HTTP and MQTT, and record data. IoThook is open source. <https://iothook.com/>"
+msgstr ""
+
+#: ../../what-is-iothook.rst:None
+msgid "iothook.png"
 msgstr ""
