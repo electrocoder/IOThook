@@ -48,8 +48,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'iot-examples'
-copyright = '2022, electrocoder'
+project = 'iothook'
+copyright = '2023, electrocoder'
 author = 'electrocoder'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -102,7 +102,7 @@ html_static_path = ['_static']
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'iot-examples'
+htmlhelp_basename = 'iothook'
 
 
 # -- Options for LaTeX output ---------------------------------------------
@@ -129,7 +129,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'iot-examples.tex', 'IoT Documentation',
+    (master_doc, 'iothook.tex', 'IoT Documentation',
      'electrocoder', 'manual'),
 ]
 
@@ -139,7 +139,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'iot-examples', 'IoT Documentation',
+    (master_doc, 'iothook', 'IoT Documentation',
      [author], 1)
 ]
 
@@ -150,7 +150,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'iot-examples', 'IoT Documentation',
+    (master_doc, 'iothook', 'IoT Documentation',
      author, 'electrocoder', 'Internet Of Things Project',
      'Miscellaneous'),
 ]
