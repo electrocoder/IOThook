@@ -37,7 +37,7 @@ Example output:
 Send JSON Data in POST with Python Examples:
 --------------------------------------------
 
-You can find this example and others at `IoT Examples Github <https://github.com/meseiot/iot-examples/blob/master/http/python/iot_post_json_update_post.py>`_.
+You can find this example and others at `IoT Examples Github <https://github.com/electrocoder/IOThook/blob/master/examples/http/python/iot_post_json_update_post.py>`_.
 
 .. figure:: _static/python-send-data.png
    :alt: python-send-data.png
@@ -111,7 +111,7 @@ You can find this example and others at `IoT Examples Github <https://github.com
 Send JSON Data in POST with Python Examples 2:
 ----------------------------------------------
 
-You can find this example and others at `IoT Examples Github <https://github.com/meseiot/iot-examples/blob/master/http/python/iot_post_json_update_post_1.py>`_.
+You can find this example and others at `IoT Examples Json Post 1 Github <https://github.com/meseiot/iot-examples/blob/master/http/python/iot_post_json_update_post_1.py>`_.
 
 .. figure:: _static/python-send-data.png
    :alt: python-send-data.png
@@ -185,7 +185,7 @@ You can find this example and others at `IoT Examples Github <https://github.com
 Send JSON Data in POST with Python Examples 3:
 ----------------------------------------------
 
-You can find this example and others at `IoT Examples Github <https://github.com/meseiot/iot-examples/blob/master/http/python/iot_post_json_update_post_2.py>`_.
+You can find this example and others at `IoT Examples Json Update 2 Github <https://github.com/meseiot/iot-examples/blob/master/http/python/iot_post_json_update_post_2.py>`_.
 
 .. figure:: _static/python-send-data.png
    :alt: python-send-data.png
@@ -272,7 +272,7 @@ they are not sent, they are recorded as None.
 Send Data in GET with Python Examples:
 --------------------------------------
 
-You can find this example and others at `IoT Examples Github <https://github.com/meseiot/iot-examples/blob/master/http/python/iot_get_write.py>`_.
+You can find this example and others at `IoT Examples Get Write Github <https://github.com/meseiot/iot-examples/blob/master/http/python/iot_get_write.py>`_.
 
 .. figure:: _static/python-iothook.png
    :alt: python-send-data.png
@@ -331,7 +331,7 @@ You can find this example and others at `IoT Examples Github <https://github.com
 Send Data in GET with Python Examples 2:
 ----------------------------------------
 
-You can find this example and others at `IoT Examples Github <https://raw.githubusercontent.com/meseiot/iot-examples/master/http/python/iot_get_write_1.py>`_.
+You can find this example and others at `IoT Examples Get Write 1 Github <https://raw.githubusercontent.com/meseiot/iot-examples/master/http/python/iot_get_write_1.py>`_.
 
 .. figure:: _static/python-iothook.png
    :alt: python-send-data.png
@@ -402,7 +402,7 @@ In this example, Arduino code is given for sending data to iothook with ESP8266 
 In the example, random numbers between 0-100 were generated and the device was sent to the device with
 "# 650 - iot_examples" on iothook.
 
-You can find this example and others at `IoT Examples Github <https://github.com/meseiot/iot-examples/blob/master/http/arduino/esp8266/arduino_esp8266_post_send_data.ino>`_.
+You can find this example and others at `IoT Examples ESP8266 Post Github <https://github.com/meseiot/iot-examples/blob/master/http/arduino/esp8266/arduino_esp8266_post_send_data.ino>`_.
 
 .. code-block:: c
 
@@ -588,7 +588,7 @@ In this example, Arduino code is given for sending data to iothook with ESP8266 
 In the example, random numbers between 0-100 were generated and the device was sent to the device with
 "# 650 - iot_examples" on iothook.
 
-You can find this example and others at `IoT Examples Github <https://github.com/meseiot/iot-examples/blob/master/http/arduino/esp8266/arduino_esp8266_post_send_data.ino>`_.
+You can find this example and others at `IoT Examples ESP8266 Post Send Github <https://github.com/meseiot/iot-examples/blob/master/http/arduino/esp8266/arduino_esp8266_post_send_data.ino>`_.
 
 
 .. code-block:: c
