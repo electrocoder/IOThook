@@ -1,33 +1,78 @@
-**********
-Cihaz Ekle
-**********
+**************
+Add New Device
+**************
 
-Iothook; internete bağlı nesneler arasında veri iletimini sağlamak için oluşturulmuş
-web servisidir. Cihaz ile diğer iot sistemleri veri paylaşımı yapabilir, birbirlerini tetikleyerek çalıştırabilir.
+IoThook; created to enable data transmission between internet-connected objects is a web service. The device and
+other iot systems can share data and operate by triggering each other.
 
-Iothook web servislerini kullanabilmek için üye olunmalıdır.
+You must be a member to use IoThook web services.
 
-Üyelik adımından sonra yönetim paneli aracılığı ile ‘Cihaz Ekle’ ekranına girilir.
+After the membership step, the 'Add Device' screen is entered via the administration panel. Add Device screens are
+divided into HTTP and MQTT. Continue by choosing the appropriate one according to the working protocol of your IoT
+device.
 
-Cihaz Ekle
-----------
+Add HTTP Device
+---------------
 
-Cihaz ekleme adımları şu şekildedir:
+The steps to add HTTP Device are as follows:
 
-    * İsim: Cihaza bir isim verilir. Hatırlamak için Ev Misafir Odası Sıcaklık gibi isimlendirilebilir.
-    * Etiket(ler): Cihaz için tanımlama etiketleri kullanılır.
-    * Web Site Adresi: Bir proje için kullanılacak ise adres yazılır.
-    * Git Web Site Adresi: Kaynak kodlar veriliyor ise adres yazılır.
-    * Lokasyon Göster: Harita üzerinde gelen verilerin kaynağı gösterilir.
-    * Video Adresi: Tanıtım videosu var ise adres yazılır.
-    * Açıklama: Projeye ait detaylı açıklama yazılabilir.
-    * Aktif: Cihazın Aktif/Pasif yapılması buradan sağlanır.
+    * Log in to your DEMO account with the free login button, if you already have an account, log in.
+    * Add HTTP Device button is click.
+    * Name: Enter device name. To remember, the Home Guest Room can be named like Temperature.
+    * 1.Field Type: Select Field Type (First field is required)
+    * 1.Field Name: Enter a field name (First field is required)
+    * 2-8.Field Type: Select Field Type (Optional)
+    * 2-8.Field Name: Enter a field name (Optional)
+    * Label(s): Label(s) write please (Optional)
+    * Website address: Please Website address.
+    * Git Website address: Git Website address, for source code.
+    * Show Location: The incoming data source is shown on the map.
+    * Video address: Video URL address, If there is a promotional video, the address is written.
+    * Description: Detailed description of the project can be written.
+    * Enable: Active/Passive setting of the device is provided here.
+    * Response: Response detail Enable/Disable (Return record ID is response False, else return all field value and timestamp)
+    * Is Public: Share Device and data.
 
-Sensör Ekle
------------
+HTTP Device Add Sensor
+----------------------
 
-Iot cihazınız için bulunmasını istediğiniz veri alanlarını oluşturmalısınız. Bu alanlar veri almaya başlamak
-için eklenir. En az 1 alan eklenmelidir. Sensörler Nem, Isı, Oksijen, Rüzgar gibi isimlendirilebilir.
+For IoT systems, you must create the data fields you want to exist. Start importing data into these fields
+is added for. At least 1 field must be added. Sensors can be named as Humidity, Heat, Oxygen, Wind.
 
-    * Alan Tipi: Sensörün tipi seçilir. Bu işlem insan okumasını kolaylaştırmak için yapılır.
-    * Alan Adı: Sensöre bir isim verilir.
+    * 1.Field Type: Select Field Type (First field is required)
+    * 1.Field Name: Enter a field name (First field is required)
+    * 2-8.Field Type: Select Field Type (Optional)
+    * 2-8.Field Name: Enter a field name (Optional)
+
+Add MQTT Device
+---------------
+
+The steps to add MQTT Device are as follows:
+
+    * Log in to your DEMO account with the free login button, if you already have an account, log in.
+    * Add MQTT Device button is click.
+    * Name: Enter device name. To remember, the Home Guest Room can be named like Temperature.
+    * 1.Field Type: Select Field Type (First field is required)
+    * 1.Field Name: Enter a field name (First field is required)
+    * 2-8.Field Type: Select Field Type (Optional)
+    * 2-8.Field Name: Enter a field name (Optional)
+    * Label(s): Label(s) write please (Optional)
+    * Website address: Please Website address.
+    * Git Website address: Git Website address, for source code.
+    * Show Location: The incoming data source is shown on the map.
+    * Video address: Video URL address, If there is a promotional video, the address is written.
+    * Description: Detailed description of the project can be written.
+    * Enable: Active/Passive setting of the device is provided here.
+    * Response: Response detail Enable/Disable (Return record ID is response False, else return all field value and timestamp)
+    * Is Public: Share Device and data.
+
+MQTT Device Add Sensor
+----------------------
+
+For IoT systems, you must create the data fields you want to exist. Start importing data into these fields
+is added for. At least 1 field must be added. Sensors can be named as Humidity, Heat, Oxygen, Wind.
+
+    * 1.Field Type: Select Field Type (First field is required)
+    * 1.Field Name: Enter a field name (First field is required)
+    * 2-8.Field Type: Select Field Type (Optional)
+    * 2-8.Field Name: Enter a field name (Optional)

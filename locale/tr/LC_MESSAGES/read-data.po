@@ -1,0 +1,183 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022, electrocoder
+# This file is distributed under the same license as the iot-examples
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: iot-examples 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-19 23:50+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../read-data.rst:3
+msgid "Veri Al"
+msgstr ""
+
+#: ../../read-data.rst:5
+msgid ""
+"Iot cihazından gönderilen ısı, nem, voltaj, ışık gibi değerleri iothook "
+"data servisinden çekebilmek için öncelikle cihaz API KEY bilgisine "
+"ihtiyaç vardır. Iot cihazından gelen veriler, Arduino, Raspberry Pi, "
+"Android, iOS gibi mobil cihazınızdan veya web sitenizden izlenebilir."
+msgstr ""
+
+#: ../../read-data.rst:9
+msgid ""
+"Örneğin; Cihaz adımız \"Temperature sensor\" olarak belirlenmiş ve cihaz "
+"içerisinde bulunacak sensörlerimiz \"temperature\" ve \"humidity\" olsun."
+msgstr ""
+
+#: ../../read-data.rst:13
+msgid "Python 2, Python 3 Json ile Veri Alma"
+msgstr ""
+
+#: ../../read-data.rst:15
+msgid "Python Json ile Get Örneği:"
+msgstr ""
+
+#: ../../read-data.rst:17
+msgid ""
+"IOTHOOK sunucusundan *requests.get* metodu kullanılarak *results* ile "
+"belirtilen sayı kadar veri okuması yapılmıştır. *results* değişkeni ile "
+"en fazla 99 adet veri okunabilir. *results* değişkeni belirtilmez ise "
+"sadece 1 veri okunabilir. Okunan verinin formatı *json* şeklindedir."
+msgstr ""
+
+#: ../../read-data.rst:21
+msgid "Aşağıdaki Python scriptinin çalıştırılması ile şu çıktı elde edilir."
+msgstr ""
+
+#: ../../read-data.rst:27 ../../read-data.rst:86 ../../read-data.rst:145
+#: ../../read-data.rst:202 ../../read-data.rst:259 ../../read-data.rst:302
+#: ../../read-data.rst:329 ../../read-data.rst:369 ../../read-data.rst:399
+#: ../../read-data.rst:458
+msgid "Bu örneğe ve diğerlerine `IOTHOOK Git`_ sayfasından ulaşabilirsiniz."
+msgstr ""
+
+#: ../../read-data.rst:82
+msgid "Python 2, Python 3 Json ile İlk Veriyi Alma"
+msgstr ""
+
+#: ../../read-data.rst:84
+msgid "Python İlk Veriyi Alma, Json ile Get Örneği:"
+msgstr ""
+
+#: ../../read-data.rst:141
+msgid "Python 2, Python 3 Json ile Son Veriyi Alma"
+msgstr ""
+
+#: ../../read-data.rst:143
+msgid "Python Son Veriyi Alma, Json ile Get Örneği:"
+msgstr ""
+
+#: ../../read-data.rst:198
+msgid "C# ile Json Formatında Veri Alma"
+msgstr ""
+
+#: ../../read-data.rst:200 ../../read-data.rst:257 ../../read-data.rst:300
+#: ../../read-data.rst:327 ../../read-data.rst:367 ../../read-data.rst:397
+msgid ""
+"IoThook kullanıcısının cihazına ait veriyi alabilmesi için GET metodu "
+"kullanılarak Postman ile üretilmiştir."
+msgstr ""
+
+#: ../../read-data.rst:255
+msgid "GO ile IOT Veri Alma"
+msgstr ""
+
+#: ../../read-data.rst:298
+msgid "JAVA ile IOT Veri Alma"
+msgstr ""
+
+#: ../../read-data.rst:325
+msgid "PHP ile IOT Veri Alma"
+msgstr ""
+
+#: ../../read-data.rst:365
+msgid "Ruby ile IOT Veri Alma"
+msgstr ""
+
+#: ../../read-data.rst:395
+msgid "Javascript Ajax ile IOT Veri Alma"
+msgstr ""
+
+#: ../../read-data.rst:426
+msgid "Python PySide2 ile IOT Veri Alma"
+msgstr ""
+
+#: ../../read-data.rst:428
+msgid ""
+"PySide2, Qt nin Python projelerinde Qt 5.12+ framework e erişimini "
+"sağlayan resmi Python modülüdür. PySide2 yi kullanmadan önce yüklenmesi "
+"gereken modüller şu şekildedir."
+msgstr ""
+
+#: ../../read-data.rst:431
+msgid "$ pip install matplotlib"
+msgstr ""
+
+#: ../../read-data.rst:433
+msgid "$ pip install numpy"
+msgstr ""
+
+#: ../../read-data.rst:435
+msgid "$ pip install PySide2"
+msgstr ""
+
+#: ../../read-data.rst:437
+msgid ""
+"Python kütüphanelerinin yükleme işlemi pip ile yapılmıştır. Sisteminizde "
+"pip yüklü değil ise https://bootstrap.pypa.io/get-pip.py adresine giderek"
+" dosyayı bilgisayarınıza kaydediniz ve çalıştırınız."
+msgstr ""
+
+#: ../../read-data.rst:440
+msgid ""
+"Biz burada PySide2 ve matplotlib kullanarak oluşturduğumuz Window "
+"içerisinde gelen verileri grafik olarak göstereceğiz."
+msgstr ""
+
+#: ../../read-data.rst:442
+msgid "Script çalıştırıldığında aşağıdaki gibi bir pencere görmemiz gerekiyor."
+msgstr ""
+
+#: ../../read-data.rst:-1
+msgid "pyside2-matplotlib-iothook.png"
+msgstr ""
+
+#: ../../read-data.rst:448
+msgid ""
+"Bu örnekde *QT Designer* kullanılarak arayüz tasarımı yapılmıştır. Widget"
+" için *Promote to ...* seçeneği ile *MplWidget* sınıfı kullanılmıştır. Bu"
+" örneği hazırlamada *manap.se* `Manap`_ ve *yapayzekalabs.blogspot.com* "
+"`Yapayzekalabs`_ sitelerinden faydalandım. Bu sitelerde daha fazla kaynak"
+" bulabilirsiniz."
+msgstr ""
+
+#: ../../read-data.rst:456
+msgid ""
+"Test işlemi IoThook da bulunan *230* id numaralı *5 channel test* isimli "
+"cihaz ile yapılmıştır."
+msgstr ""
+
+#: ../../read-data.rst:456
+msgid "Bu cihaz demo kullanıcısına aittir."
+msgstr ""
+
+#: ../../read-data.rst:460
+msgid "iothook.ui dosyası:"
+msgstr ""
+
+#: ../../read-data.rst:467
+msgid "iothook.py dosyası:"
+msgstr ""
+

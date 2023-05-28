@@ -1,0 +1,101 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022, electrocoder
+# This file is distributed under the same license as the iot-examples
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: iot-examples 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-19 23:50+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../create-new-device.rst:3 ../../create-new-device.rst:13
+msgid "Cihaz Ekle"
+msgstr ""
+
+#: ../../create-new-device.rst:5
+msgid ""
+"Iothook; internete bağlı nesneler arasında veri iletimini sağlamak için "
+"oluşturulmuş web servisidir. Cihaz ile diğer iot sistemleri veri "
+"paylaşımı yapabilir, birbirlerini tetikleyerek çalıştırabilir."
+msgstr ""
+
+#: ../../create-new-device.rst:8
+msgid "Iothook web servislerini kullanabilmek için üye olunmalıdır."
+msgstr ""
+
+#: ../../create-new-device.rst:10
+msgid ""
+"Üyelik adımından sonra yönetim paneli aracılığı ile ‘Cihaz Ekle’ ekranına"
+" girilir."
+msgstr ""
+
+#: ../../create-new-device.rst:15
+msgid "Cihaz ekleme adımları şu şekildedir:"
+msgstr ""
+
+#: ../../create-new-device.rst:17
+msgid ""
+"İsim: Cihaza bir isim verilir. Hatırlamak için Ev Misafir Odası Sıcaklık "
+"gibi isimlendirilebilir."
+msgstr ""
+
+#: ../../create-new-device.rst:18
+msgid "Etiket(ler): Cihaz için tanımlama etiketleri kullanılır."
+msgstr ""
+
+#: ../../create-new-device.rst:19
+msgid "Web Site Adresi: Bir proje için kullanılacak ise adres yazılır."
+msgstr ""
+
+#: ../../create-new-device.rst:20
+msgid "Git Web Site Adresi: Kaynak kodlar veriliyor ise adres yazılır."
+msgstr ""
+
+#: ../../create-new-device.rst:21
+msgid "Lokasyon Göster: Harita üzerinde gelen verilerin kaynağı gösterilir."
+msgstr ""
+
+#: ../../create-new-device.rst:22
+msgid "Video Adresi: Tanıtım videosu var ise adres yazılır."
+msgstr ""
+
+#: ../../create-new-device.rst:23
+msgid "Açıklama: Projeye ait detaylı açıklama yazılabilir."
+msgstr ""
+
+#: ../../create-new-device.rst:24
+msgid "Aktif: Cihazın Aktif/Pasif yapılması buradan sağlanır."
+msgstr ""
+
+#: ../../create-new-device.rst:27
+msgid "Sensör Ekle"
+msgstr ""
+
+#: ../../create-new-device.rst:29
+msgid ""
+"Iot cihazınız için bulunmasını istediğiniz veri alanlarını "
+"oluşturmalısınız. Bu alanlar veri almaya başlamak için eklenir. En az 1 "
+"alan eklenmelidir. Sensörler Nem, Isı, Oksijen, Rüzgar gibi "
+"isimlendirilebilir."
+msgstr ""
+
+#: ../../create-new-device.rst:32
+msgid ""
+"Alan Tipi: Sensörün tipi seçilir. Bu işlem insan okumasını kolaylaştırmak"
+" için yapılır."
+msgstr ""
+
+#: ../../create-new-device.rst:33
+msgid "Alan Adı: Sensöre bir isim verilir."
+msgstr ""
+

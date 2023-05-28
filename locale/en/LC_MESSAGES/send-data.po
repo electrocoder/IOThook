@@ -1,0 +1,187 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022, electrocoder
+# This file is distributed under the same license as the iot-examples
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: iot-examples 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-19 23:50+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../send-data.rst:3
+msgid "Veri Gönder"
+msgstr ""
+
+#: ../../send-data.rst:5
+msgid ""
+"Veri göndermek için öncelikle cihaz eklemeniz gerekir. Cihaz "
+"oluşturulduğunda size özel okuma ve yazma \"API KEY\" üretilerek "
+"belirlenen erişim metoduna göre (POST, GET, POST/GET) veri işlemi "
+"gerçekleştirilir."
+msgstr ""
+
+#: ../../send-data.rst:8
+msgid ""
+"Örneğin; Cihazımız ısı, ışık, hareket, bar ve nem değerlerini alan bir "
+"yapıda olsun. Cihaz içerisinde bulunacak sensörlerimiz bizlere bu "
+"dataları 15 saniyede bir ve toplamda 100 kere göndersin."
+msgstr ""
+
+#: ../../send-data.rst:11
+msgid "Oluşturulan Okuma ve Yazma API Key Yöneticisi sayfasından görülebilir."
+msgstr ""
+
+#: ../../send-data.rst:14
+msgid "Python ile JSON Veri Gönderme"
+msgstr ""
+
+#: ../../send-data.rst:16
+msgid ""
+"Python ile IOT sunucularına veri göndermek için kullanacağımız API "
+"ENDPOINT adresi *https://iothook.com/api/update/* dir. Veri göndermek "
+"için yazma *api_key* bilgisine ihtiyaç vardır. Bu KEY e cihaz **detail** "
+"sayfasından ulaşabilirsiniz."
+msgstr ""
+
+#: ../../send-data.rst:19
+msgid ""
+"Veri göndermek için olmazsa olmaz 2 alan vardır. Bunlar **api_key ve "
+"field_1** alanlarıdır. APIKEY cihaz sahipliğinizi onaylar ve en az bir "
+"veri alanı olması gerektiğinden *field_1* kesinlikle olmalıdır. Diğer "
+"alanlar tanımlanmış bile olsalar gönderilmedikleri zaman **None** olarak "
+"işaretlenir."
+msgstr ""
+
+#: ../../send-data.rst:23
+msgid ""
+"Veri başarılı bir şekilde gönderildiğinde veriye dair Json REST çıktı "
+"gelmelidir. Bunu *response.json()* metodu ile gerçekleştiriyoruz. Örnek "
+"çıktı:"
+msgstr ""
+
+#: ../../send-data.rst:28 ../../send-data.rst:175 ../../send-data.rst:244
+#: ../../send-data.rst:432 ../../send-data.rst:619 ../../send-data.rst:812
+#: ../../send-data.rst:857 ../../send-data.rst:901 ../../send-data.rst:947
+#: ../../send-data.rst:979 ../../send-data.rst:1001
+msgid "Bu örneğe ve diğerlerine `IOTHOOK Git`_ sayfasından ulaşabilirsiniz."
+msgstr ""
+
+#: ../../send-data.rst:32
+msgid "Python ile Json Post Örneği:"
+msgstr ""
+
+#: ../../send-data.rst:-1
+msgid "python-send-data.png"
+msgstr ""
+
+#: ../../send-data.rst:101
+msgid "Python ile Json Post Örneği 2:"
+msgstr ""
+
+#: ../../send-data.rst:171
+msgid "Python GET Metodu ile Veri Gönderme"
+msgstr ""
+
+#: ../../send-data.rst:173
+msgid ""
+"IOThook Api güncellemesi ile GET metodu ile veri göndermeye izin "
+"vermektedir."
+msgstr ""
+
+#: ../../send-data.rst:177
+msgid "Python ile Get Metodu Kullanarak Veri Gönderme Örneği:"
+msgstr ""
+
+#: ../../send-data.rst:237
+msgid "Arduino, ESP8266 POST Metodu ile Veri Gönderme"
+msgstr ""
+
+#: ../../send-data.rst:239
+msgid ""
+"Bu örnekde Arduino Uno ya RX ve TX ile bağlanmış olan ESP8266 ile iothook"
+" a veri gonderme örneği verilmiştir. Örnekde 0-100 arasında rastgele sayı"
+" üretilerek iothook da #19 test id numaralı cihaz için gönderim "
+"gerçekleşmiştir. Cihaz datalarını https://iothook.com/en/device/data/19/ "
+"linkinden gercek zamanlı olarak takip edebilirsiniz."
+msgstr ""
+
+#: ../../send-data.rst:425
+msgid "Arduino, ESP8266 POST Metodu ile 2 Veri Gönderme"
+msgstr ""
+
+#: ../../send-data.rst:427
+msgid ""
+"Bu örnekde Arduino Uno ya RX ve TX ile bağlanmış olan ESP8266 ile iothook"
+" a veri gonderme örneği verilmiştir. Örnekde 0-100 arasında rastgele 2 "
+"sayı üretilerek iothook da #12 temp id numaralı cihaz için gönderim "
+"gerçekleşmiştir. Cihaz datalarını https://iothook.com/en/device/data/12/ "
+"linkinden gercek zamanlı olarak takip edebilirsiniz."
+msgstr ""
+
+#: ../../send-data.rst:615
+msgid "Arduino, ESP8266, Nodemcu GET Metodu ile Veri Gönderme"
+msgstr ""
+
+#: ../../send-data.rst:617 ../../send-data.rst:810 ../../send-data.rst:855
+#: ../../send-data.rst:899 ../../send-data.rst:945 ../../send-data.rst:977
+#: ../../send-data.rst:999
+msgid ""
+"IOThook Api v1.4 güncellemesi ile GET metodu ile veri göndermeye izin "
+"vermektedir."
+msgstr ""
+
+#: ../../send-data.rst:621
+msgid ""
+"Bu örnekde Arduino, ESP8266 ve NodeMCU ile ile Get metodu kullanarak veri"
+" gönderme örneği verilmiştir:"
+msgstr ""
+
+#: ../../send-data.rst:808
+msgid "GO GET Metodu ile Veri Gönderme"
+msgstr ""
+
+#: ../../send-data.rst:814
+msgid ""
+"Bu örnekde GO dili ile ile Get metodu kullanarak veri gönderme örneği "
+"verilmiştir:"
+msgstr ""
+
+#: ../../send-data.rst:853
+msgid "PHP GET Metodu ile Veri Gönderme"
+msgstr ""
+
+#: ../../send-data.rst:859
+msgid ""
+"Bu örnekde PHP dili ile ile Get metodu kullanarak veri gönderme örneği "
+"verilmiştir:"
+msgstr ""
+
+#: ../../send-data.rst:897
+msgid "NodeJS GET Metodu ile Veri Gönderme"
+msgstr ""
+
+#: ../../send-data.rst:903 ../../send-data.rst:949 ../../send-data.rst:981
+#: ../../send-data.rst:1003
+msgid ""
+"Bu örnekde NodeJS Native metodu kullanarak veri gönderme örneği "
+"verilmiştir:"
+msgstr ""
+
+#: ../../send-data.rst:943
+msgid "Javascript Jquery Ajax GET Metodu ile Veri Gönderme"
+msgstr ""
+
+#: ../../send-data.rst:975 ../../send-data.rst:997
+msgid "Java Unirest GET Metodu ile Veri Gönderme"
+msgstr ""
+

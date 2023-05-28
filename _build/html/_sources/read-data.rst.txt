@@ -1,6 +1,6 @@
-*******
-Veri Al
-*******
+*********
+Read Data
+*********
 
 Iot cihazından gönderilen ısı, nem, voltaj, ışık gibi değerleri iothook data servisinden çekebilmek için öncelikle
 cihaz API KEY bilgisine ihtiyaç vardır. Iot cihazından gelen veriler, Arduino, Raspberry Pi, Android, iOS gibi mobil

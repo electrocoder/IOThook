@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2019, electrocoder
-# This file is distributed under the same license as the iothook package.
+# Copyright (C) 2022, electrocoder
+# This file is distributed under the same license as the iot-examples package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: iothook 1.4\n"
+"Project-Id-Version: iot-examples 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-18 23:55+0300\n"
+"POT-Creation-Date: 2022-11-21 13:47+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,14 +17,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../../what-is-iot.rst:3
-msgid "IOT Nedir?"
+msgid "What is IOT?"
 msgstr ""
 
 #: ../../what-is-iot.rst:5
-msgid "Nesnelerin interneti \"internet of things\" 1999 yılında Kevin Ashton tarafından kullanılan bir kavramdır ve teknolojideki gelişmeler ile birlikte bugünkü haline gelmiştir. RFID teknolojisi için üretilen bu kavram günümüzde tüm elektronik cihazlara uygulanmaktadır."
+msgid "SahinNesnelerin interneti \"internet of things\" 1999 yılında Kevin Ashton tarafından kullanılan bir kavramdır ve teknolojideki gelişmeler ile birlikte bugünkü haline gelmiştir. RFID teknolojisi için üretilen bu kavram günümüzde tüm elektronik cihazlara uygulanmaktadır."
 msgstr ""
 
-#: ../../what-is-iot.rst:14
-msgid "*IoT - Nesnelerin İnterneti*"
+#: ../../what-is-iot.rst:None
+msgid "internet-of-things.png"
 msgstr ""
-

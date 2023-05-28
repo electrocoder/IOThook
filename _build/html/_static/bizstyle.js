@@ -36,6 +36,6 @@ $(window).resize(function(){
         $("li.nav-item-0 a").text("Top");
     }
     else {
-        $("li.nav-item-0 a").text("IOTHOOK Internet Of Things Project");
+        $("li.nav-item-0 a").text("IoT Internet Of Things Project");
     }
 });

@@ -9,7 +9,7 @@ if "%SPHINXBUILD%" == "" (
 )
 set SOURCEDIR=.
 set BUILDDIR=_build
-set SPHINXPROJ=iothook
+set SPHINXPROJ=iot-examples
 
 if "%1" == "" goto help
 

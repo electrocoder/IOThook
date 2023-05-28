@@ -1,35 +1,43 @@
-***********
-Veri Gönder
-***********
+*********
+Send Data
+*********
 
-Veri göndermek için öncelikle cihaz eklemeniz gerekir. Cihaz oluşturulduğunda
-size özel okuma ve yazma "API KEY" üretilerek belirlenen erişim metoduna göre (POST, GET, POST/GET) veri işlemi gerçekleştirilir.
+HTTP Send Data
+**************
 
-Örneğin; Cihazımız ısı, ışık, hareket, bar ve nem değerlerini alan bir yapıda olsun.
-Cihaz içerisinde bulunacak sensörlerimiz bizlere bu dataları 15 saniyede bir ve toplamda 100 kere göndersin.
+To send data, you must first add a device. Special read and write "API KEY" when the device is created
+Data processing is performed according to the access method (POST, GET, POST/GET) that is generated and determined.
 
-Oluşturulan Okuma ve Yazma API Key Yöneticisi sayfasından görülebilir.
+For example; Let our device be in a structure that receives humidity, heat and light values.
+For this example, the device named "# 650 - iot_examples" was created on iothook.com.
+`IoThook <https://iothook.com/en/device/settings/650/>`_ .
 
-Python ile JSON Veri Gönderme
------------------------------
+Let the IoT device read the data from the sensors and send this data to us once every 15 seconds, a total of 100 times.
 
-Python ile IOT sunucularına veri göndermek için kullanacağımız API ENDPOINT adresi *https://iothook.com/api/update/* dir.
-Veri göndermek için yazma *api_key* bilgisine ihtiyaç vardır. Bu KEY e cihaz **detail** sayfasından ulaşabilirsiniz.
+You can access the read and write API Keys created for the #650 iot device from the IoThook dashboard.
 
-Veri göndermek için olmazsa olmaz 2 alan vardır. Bunlar **api_key ve field_1** alanlarıdır. APIKEY cihaz sahipliğinizi
-onaylar ve en az bir veri alanı olması gerektiğinden *field_1* kesinlikle olmalıdır. Diğer alanlar tanımlanmış
-bile olsalar gönderilmedikleri zaman **None** olarak işaretlenir.
+The API ENDPOINT address we will use to send data to IoThook servers with Python is *https://iothook.com/api/update/*.
+Writing *api_key* information is needed to send data. You can access this KEY from the device **settings** page.
 
-Veri başarılı bir şekilde gönderildiğinde veriye dair Json REST çıktı gelmelidir. Bunu *response.json()* metodu ile
-gerçekleştiriyoruz. Örnek çıktı:
+There are 2 required fields to send data. These fields are **api_key** and **field_1** fields. APIKEY your device ownership
+*field_1* absolutely must be because it validates and must have at least one data field. Other fields defined
+even if they are not sent, they are recorded as **None**.
 
-    >>> {'device': 17, 'field_1': '6', 'field_2': '3.49', 'field_3': None, 'field_4': None, 'field_5': None, 'field_6': None, 'field_7': None, 'field_8': None, 'id': 502491, 'pub_date': '2019-08-31T01:07:29.438160', 'remote_address': '88.242.135.167&python-requests/2.18.4&HTTP/1.1'}
+Send JSON Data in POST with Python
+==================================
 
-Bu örneğe ve diğerlerine `IOTHOOK Git`_ sayfasından ulaşabilirsiniz.
+In this example, JSON data is sent to the device channel named "# 650 - iot_examples" using the HTTP POST method with
+Python. When the data is sent successfully, Json REST output of the data is received. You can do this with the
+*response.json()* method, we are doing.
 
-.. _IOTHOOK Git: https://github.com/electrocoder/IOThook/tree/master/examples/
+Example output:
 
-Python ile Json Post Örneği:
+    >>> {'device': 650, 'field_1': '6', 'field_2': '3.49', 'field_3': '22', 'field_4': None, 'field_5': None, 'field_6': None, 'field_7': None, 'field_8': None, 'id': 502491, 'pub_date': '2019-08-31T01:07:29.438160', 'remote_address': '88.242.135.167&python-requests/2.18.4&HTTP/1.1'}
+
+Send JSON Data in POST with Python Examples:
+-------------------------------------------
+
+You can find this example and others at `IoT Examples Github <https://github.com/meseiot/iot-examples/blob/master/http/python/iot_post_json_update_post.py>`_.
 
 .. figure:: _static/python-send-data.png
    :alt: python-send-data.png
@@ -37,40 +45,39 @@ Python ile Json Post Örneği:
 
 .. code-block:: python
 
-    # -*- coding: utf-8 -*-
-
     """
-      Python ile IOThook REST Api Testi
+    Python ile IoThook REST Api Testi
 
-      Kod çalıştırıldığında APIKEY ile doğrulama gerçekleştirilir.
-      Cihaz api_key ile ilgili veriler IOThook a post edilir.
+    IoThook'da her cihazin bir kimlik numarasi APIKEY'i vardir.
+    Bu APIKEY kullanilarak veriler IoThook'a POST metodu ile gonderilir.
+    5 kere 15 saniyede bir random verileri iothook'a gonderir.
 
-      Bu ornek IotHook servisine veri almak/gondermek icin baslangic seviyesinde
-      testlerin yapilmasini amaclamaktadir.
+    Bu ornek IotHook servisine veri almak/gondermek icin baslangic seviyesinde
+    testlerin yapilmasini amaclamaktadir.
 
-      20 Eylul 2017
-      Güncelleme : 19 Agustos 2019
-      Sahin MERSIN
+    v1 : 11 Eylul 2017
+    v2 : 19 Agustos 2019
+    v3 : 31 Ekim 2022
 
-      Daha fazlasi icin
+    Sahin MERSIN - electrocoder
 
-      http://www.iothook.com
-      ve
-      https://github.com/electrocoder/IOThook
+    Daha fazlasi icin
 
-      sitelerine gidiniz.
+    http://www.iothook.com
+    https://www.mesebilisim.com
+    https://mesemekatronik.com
+    https://electrocoder.blogspot.com
+    https://github.com/meseiot/iotexamples
 
-      Sorular ve destek talepleri icin
-      https://github.com/electrocoder/IOThook/issues
-      sayfasindan veya Meşe Bilişim den yardım alabilirsiniz.
+    sitelerine gidiniz.
 
-      Yayin : http://mesebilisim.com
+    Yayin : http://mesebilisim.com
 
-      Licensed under the Apache License, Version 2.0 (the "License").
-      You may not use this file except in compliance with the License.
-      A copy of the License is located at
+    Licensed under the Apache License, Version 2.0 (the "License").
+    You may not use this file except in compliance with the License.
+    A copy of the License is located at
 
-      http://www.apache.org/licenses/
+    http://www.apache.org/licenses/
     """
 
     import json
@@ -82,11 +89,89 @@ Python ile Json Post Örneği:
 
     headers = {'Content-type': 'application/json'}
 
+    # demo account API_KEY
+    # https://iothook.com/en/device/data/650/
+    # 650 - iot_examples
+    API_KEY = '21579c1e874fda7276d94f3c'  # write api key
+    url = 'http://iothook.com/api/update/'
+
+    for i in range(5):
+    data = {  # write api key
+        'api_key': API_KEY,  # demo hesap #650 - iot_examples
+        'field_1': random.randint(1, 10),
+        'field_2': round(random.uniform(0.0, 10.0), 2),
+    }
+
+    data_json = json.dumps(data)
+
+    response = requests.post(url, data=data_json, headers=headers)
+    pprint.pprint(response.json())
+    time.sleep(15)
+
+Send JSON Data in POST with Python Examples 2:
+----------------------------------------------
+
+You can find this example and others at `IoT Examples Github <https://github.com/meseiot/iot-examples/blob/master/http/python/iot_post_json_update_post_1.py>`_.
+
+.. figure:: _static/python-send-data.png
+   :alt: python-send-data.png
+   :align: center
+
+.. code-block:: python
+
+    """
+    Python ile IoThook REST Api Testi
+
+    IoThook'da her cihazin bir kimlik numarasi APIKEY'i vardir.
+    Bu APIKEY kullanilarak veriler IoThook'a POST metodu ile gonderilir.
+    100 kere 15 saniyede bir random verileri iothook'a gonderir.
+
+    Bu ornek IotHook servisine veri almak/gondermek icin baslangic seviyesinde
+    testlerin yapilmasini amaclamaktadir.
+
+    v1 : 11 Eylul 2017
+    v2 : 19 Agustos 2019
+    v3 : 31 Ekim 2022
+
+    Sahin MERSIN - electrocoder
+
+    Daha fazlasi icin
+
+    http://www.iothook.com
+    https://www.mesebilisim.com
+    https://mesemekatronik.com
+    https://electrocoder.blogspot.com
+    https://github.com/meseiot/iotexamples
+
+    sitelerine gidiniz.
+
+    Yayin : http://mesebilisim.com
+
+    Licensed under the Apache License, Version 2.0 (the "License").
+    You may not use this file except in compliance with the License.
+    A copy of the License is located at
+
+    http://www.apache.org/licenses/
+    """
+
+    import json
+    import pprint
+    import random
+    import time
+
+    import requests
+
+    headers = {'Content-type': 'application/json'}
+
+    # demo account API_KEY
+    # https://iothook.com/en/device/data/650/
+    # 650 - iot_examples
+    API_KEY = '21579c1e874fda7276d94f3c'  # write api key
     url = 'http://iothook.com/api/update/'
 
     for i in range(100):
         data = {  # write api key
-            'api_key': '78b0ca6a4a7da7e20f689818',  # demo hesap #17 random test
+            'api_key': API_KEY,  # demo hesap #650 - iot_examples
             'field_1': random.randint(1, 10),
             'field_2': round(random.uniform(0.0, 10.0), 2),
         }
@@ -97,8 +182,10 @@ Python ile Json Post Örneği:
         pprint.pprint(response.json())
         time.sleep(15)
 
+Send JSON Data in POST with Python Examples 3:
+----------------------------------------------
 
-Python ile Json Post Örneği 2:
+You can find this example and others at `IoT Examples Github <https://github.com/meseiot/iot-examples/blob/master/http/python/iot_post_json_update_post_2.py>`_.
 
 .. figure:: _static/python-send-data.png
    :alt: python-send-data.png
@@ -106,40 +193,29 @@ Python ile Json Post Örneği 2:
 
 .. code-block:: python
 
-    # -*- coding: utf-8 -*-
-
     """
-      Python ile IOThook REST Api Testi
-
-      Kod çalıştırıldığında APIKEY ile doğrulama gerçekleştirilir.
-      Cihaz api_key ile ilgili veriler IOThook a post edilir.
-
-      Bu ornek IotHook servisine veri almak/gondermek icin baslangic seviyesinde
-      testlerin yapilmasini amaclamaktadir.
-
-      20 Eylul 2017
-      Güncelleme : 19 Agustos 2019
-      Sahin MERSIN
-
-      Daha fazlasi icin
-
-      http://www.iothook.com
-      ve
-      https://github.com/electrocoder/IOThook
-
-      sitelerine gidiniz.
-
-      Sorular ve destek talepleri icin
-      https://github.com/electrocoder/IOThook/issues
-      sayfasindan veya Meşe Bilişim den yardım alabilirsiniz.
-
-      Yayin : http://mesebilisim.com
-
-      Licensed under the Apache License, Version 2.0 (the "License").
-      You may not use this file except in compliance with the License.
-      A copy of the License is located at
-
-      http://www.apache.org/licenses/
+    Python ile IoThook REST Api Testi
+    IoThook'da her cihazin bir kimlik numarasi APIKEY'i vardir.
+    Bu APIKEY kullanilarak veriler IoThook'a POST metodu ile gonderilir.
+    1000 kere 15 saniyede bir random verileri iothook'a gonderir.
+    Bu ornek IotHook servisine veri almak/gondermek icin baslangic seviyesinde
+    testlerin yapilmasini amaclamaktadir.
+    v1 : 11 Eylul 2017
+    v2 : 19 Agustos 2019
+    v3 : 31 Ekim 2022
+    Sahin MERSIN - electrocoder
+    Daha fazlasi icin
+    http://www.iothook.com
+    https://www.mesebilisim.com
+    https://mesemekatronik.com
+    https://electrocoder.blogspot.com
+    https://github.com/meseiot/iotexamples
+    sitelerine gidiniz.
+    Yayin : http://mesebilisim.com
+    Licensed under the Apache License, Version 2.0 (the "License").
+    You may not use this file except in compliance with the License.
+    A copy of the License is located at
+    http://www.apache.org/licenses/
     """
 
     import json
@@ -151,11 +227,15 @@ Python ile Json Post Örneği 2:
 
     headers = {'Content-type': 'application/json'}
 
-    url = 'https://iothook.com/api/update/'
+    # demo account API_KEY
+    # https://iothook.com/en/device/data/650/
+    # 650 - iot_examples
+    API_KEY = '21579c1e874fda7276d94f3c'  # write api key
+    url = 'http://iothook.com/api/update/'
 
-    for i in range(100):
+    for i in range(1000):
         data = {  # write api key
-            'api_key': 'd88f4aa6b089478f78a9c9e5',  # demo hesap #24 Temperature sensor
+            'api_key': API_KEY,  # demo hesap #650 - iot_examples
             'field_1': random.randint(1, 10),
             'field_2': round(random.uniform(0.0, 10.0), 2),
         }
@@ -164,17 +244,35 @@ Python ile Json Post Örneği 2:
 
         response = requests.post(url, data=data_json, headers=headers)
         pprint.pprint(response.json())
-        time.sleep(10)
+        time.sleep(15)
 
+Send Data in GET with Python
+============================
 
-Python GET Metodu ile Veri Gönderme
------------------------------------
+With the IoThook Api v6 update, it allows sending data with the GET method.
 
-IOThook Api güncellemesi ile GET metodu ile veri göndermeye izin vermektedir.
+To send data, you must first add a device. Special read and write "API KEY" when the device is created Data processing
+is performed according to the access method (POST, GET, POST/GET) that is generated and determined.
 
-Bu örneğe ve diğerlerine `IOTHOOK Git`_ sayfasından ulaşabilirsiniz.
+For example; Let our device be in a structure that receives humidity, heat and light values. For this example,
+the device named "# 650 - iot_examples" was created on iothook.com.
+`IoThook <https://iothook.com/en/device/settings/650/>`_ .
 
-Python ile Get Metodu Kullanarak Veri Gönderme Örneği:
+Let the IoT device read the data from the sensors and send this data to us once every 15 seconds, a total of 100 times.
+
+You can access the read and write API Keys created for the #650 iot device from the IoThook dashboard.
+
+The API ENDPOINT address we will use to send data to IoThook servers with Python is https://iothook.com/api/update/.
+Writing api_key information is needed to send data. You can access this KEY from the device settings page.
+
+There are 2 required fields to send data. These fields are api_key and field_1 fields. APIKEY your device ownership
+field_1 absolutely must be because it validates and must have at least one data field. Other fields defined even if
+they are not sent, they are recorded as None.
+
+Send Data in GET with Python Examples:
+--------------------------------------
+
+You can find this example and others at `IoT Examples Github <https://github.com/meseiot/iot-examples/blob/master/http/python/iot_get_write.py>`_.
 
 .. figure:: _static/python-iothook.png
    :alt: python-send-data.png
@@ -182,32 +280,91 @@ Python ile Get Metodu Kullanarak Veri Gönderme Örneği:
 
 .. code-block:: python
 
-    # -*- coding: utf-8 -*-
+    """
+    Python ile IoThook REST Api Ornegi
+
+    IoThook'da her cihazin bir kimlik numarasi APIKEY'i vardir.
+    Bu APIKEY kullanilarak veriler IoThook'a GET metodu ile gonderilir.
+
+    Bu ornek IoThook servisine veri almak/gondermek icin baslangic seviyesinde
+    testlerin yapilmasini amaclamaktadir.
+
+    v1 : 20 Eylul 2017
+    v2 : 19 Agustos 2019
+    v3 : 31 Ekim 2022
+
+    Sahin MERSIN - electrocoder
+
+    Daha fazlasi icin
+
+    http://www.iothook.com
+    https://www.mesebilisim.com
+    https://mesemekatronik.com
+    https://electrocoder.blogspot.com
+    https://github.com/meseiot/iotexamples
+
+    sitelerine gidiniz.
+
+    Yayin : http://mesebilisim.com
+
+    Licensed under the Apache License, Version 2.0 (the "License").
+    You may not use this file except in compliance with the License.
+    A copy of the License is located at
+
+    http://www.apache.org/licenses/
+    """
+
+    import pprint
+    import requests
+
+    # demo account API_KEY
+    # https://iothook.com/en/device/data/650/
+    # 650 - iot_examples
+    API_KEY = '21579c1e874fda7276d94f3c'  # write api key
+    url = 'http://iothook.com/api/update/?api_key=' + API_KEY
+
+    data = url + '&field_1=10&field_2=20&field_3=30'
+
+    response = requests.get(data)
+    pprint.pprint(response.json())
+
+Send Data in GET with Python Examples 2:
+--------------------------------------
+
+You can find this example and others at `IoT Examples Github <https://raw.githubusercontent.com/meseiot/iot-examples/master/http/python/iot_get_write_1.py>`_.
+
+.. figure:: _static/python-iothook.png
+   :alt: python-send-data.png
+   :align: center
+
+.. code-block:: python
 
     """
-      Python ile IOThook REST Api Testi
+      Python ile IoThook REST Api Ornegi
 
-      Kod çalıştırıldığında APIKEY ile doğrulama gerçekleştirilir.
-      Cihaz api_key ile ilgili veriler IOThook a post edilir.
+      IoThook'da her cihazin bir kimlik numarasi APIKEY'i vardir.
+      Bu APIKEY kullanilarak veriler IoThook'a GET metodu ile gonderilir.
+      10 kere 15 saniyede bir random verileri iothook'a gonderir.
 
-      Bu ornek IotHook servisine veri almak/gondermek icin baslangic seviyesinde
+
+      Bu ornek IoThook servisine veri almak/gondermek icin baslangic seviyesinde
       testlerin yapilmasini amaclamaktadir.
 
-      11 Eylul 2017
-      Güncelleme : 19 Agustos 2019
-      Sahin MERSIN
+      v1 : 20 Eylul 2017
+      v2 : 19 Agustos 2019
+      v3 : 31 Ekim 2022
+
+      Sahin MERSIN - electrocoder
 
       Daha fazlasi icin
 
       http://www.iothook.com
-      ve
-      https://github.com/electrocoder/IOThook
+      https://www.mesebilisim.com
+      https://mesemekatronik.com
+      https://electrocoder.blogspot.com
+      https://github.com/meseiot/iotexamples
 
       sitelerine gidiniz.
-
-      Sorular ve destek talepleri icin
-      https://github.com/electrocoder/IOThook/issues
-      sayfasindan veya Meşe Bilişim den yardım alabilirsiniz.
 
       Yayin : http://mesebilisim.com
 
@@ -219,29 +376,33 @@ Python ile Get Metodu Kullanarak Veri Gönderme Örneği:
     """
 
     import pprint
-    import random
+    import requests
     import time
 
-    import requests
+    # demo account API_KEY
+    # https://iothook.com/en/device/data/650/
+    # 650 - iot_examples
+    API_KEY = '21579c1e874fda7276d94f3c'  # write api key
+    url = 'http://iothook.com/api/update/?api_key=' + API_KEY
 
-    for i in range(100):  # write api key
-        url = 'http://iothook.com/api/update/?api_key=78b0ca6a4a7da7e20f689818&field_1={}&field_2={}'.format(
-            random.randint(1, 100), round(random.uniform(0.0, 10.0), 2))
+    for i in range(10):
+        data = url + '&field_1=10&field_2=20&field_3=30'
 
-        response = requests.get(url)
+        response = requests.get(data)
         pprint.pprint(response.json())
         time.sleep(15)
 
+Arduino and ESP8266
+===================
 
-Arduino, ESP8266 POST Metodu ile Veri Gönderme
-----------------------------------------------
+Arduino and ESP8266 HTTP POST Send Data
+---------------------------------------
 
-Bu örnekde Arduino Uno ya RX ve TX ile bağlanmış olan ESP8266 ile iothook a veri gonderme örneği verilmiştir.
-Örnekde 0-100 arasında rastgele sayı üretilerek iothook da #19 test id numaralı
-cihaz için gönderim gerçekleşmiştir. Cihaz datalarını https://iothook.com/en/device/data/19/ linkinden gercek
-zamanlı olarak takip edebilirsiniz.
+In this example, Arduino code is given for sending data to iothook with ESP8266 connected to Arduino Uno with RX and TX.
+In the example, random numbers between 0-100 were generated and the device was sent to the device with
+"# 650 - iot_examples" on iothook.
 
-Bu örneğe ve diğerlerine `IOTHOOK Git`_ sayfasından ulaşabilirsiniz.
+You can find this example and others at `IoT Examples Github <https://github.com/meseiot/iot-examples/blob/master/http/arduino/esp8266/arduino_esp8266_post_send_data.ino>`_.
 
 .. code-block:: c
 
@@ -420,16 +581,15 @@ Bu örneğe ve diğerlerine `IOTHOOK Git`_ sayfasından ulaşabilirsiniz.
         Serial.println("Gonderim hatasi! ESP hazir degil!");
     }
 
+Arduino and ESP8266 HTTP POST Send Data 2
+-----------------------------------------
 
-Arduino, ESP8266 POST Metodu ile 2 Veri Gönderme
-------------------------------------------------
+In this example, Arduino code is given for sending data to iothook with ESP8266 connected to Arduino Uno with RX and TX.
+In the example, random numbers between 0-100 were generated and the device was sent to the device with
+"# 650 - iot_examples" on iothook.
 
-Bu örnekde Arduino Uno ya RX ve TX ile bağlanmış olan ESP8266 ile iothook a veri gonderme örneği verilmiştir.
-Örnekde 0-100 arasında rastgele 2 sayı üretilerek iothook da #12 temp id numaralı
-cihaz için gönderim gerçekleşmiştir. Cihaz datalarını https://iothook.com/en/device/data/12/ linkinden gercek
-zamanlı olarak takip edebilirsiniz.
+You can find this example and others at `IoT Examples Github <https://github.com/meseiot/iot-examples/blob/master/http/arduino/esp8266/arduino_esp8266_post_send_data.ino>`_.
 
-Bu örneğe ve diğerlerine `IOTHOOK Git`_ sayfasından ulaşabilirsiniz.
 
 .. code-block:: c
 
@@ -612,7 +772,7 @@ Bu örneğe ve diğerlerine `IOTHOOK Git`_ sayfasından ulaşabilirsiniz.
 
 
 Arduino, ESP8266, Nodemcu GET Metodu ile Veri Gönderme
-------------------------------------------------------
+======================================================
 
 IOThook Api v1.4 güncellemesi ile GET metodu ile veri göndermeye izin vermektedir.
 
@@ -805,7 +965,7 @@ Bu örnekde Arduino, ESP8266 ve NodeMCU ile ile Get metodu kullanarak veri gönd
 
 
 GO GET Metodu ile Veri Gönderme
--------------------------------
+===============================
 
 IOThook Api v1.4 güncellemesi ile GET metodu ile veri göndermeye izin vermektedir.
 
@@ -850,7 +1010,7 @@ Bu örnekde GO dili ile ile Get metodu kullanarak veri gönderme örneği verilm
 
 
 PHP GET Metodu ile Veri Gönderme
---------------------------------
+================================
 
 IOThook Api v1.4 güncellemesi ile GET metodu ile veri göndermeye izin vermektedir.
 
@@ -894,7 +1054,7 @@ Bu örnekde PHP dili ile ile Get metodu kullanarak veri gönderme örneği veril
 
 
 NodeJS GET Metodu ile Veri Gönderme
------------------------------------
+===================================
 
 IOThook Api v1.4 güncellemesi ile GET metodu ile veri göndermeye izin vermektedir.
 
@@ -940,7 +1100,7 @@ Bu örnekde NodeJS Native metodu kullanarak veri gönderme örneği verilmiştir
 
 
 Javascript Jquery Ajax GET Metodu ile Veri Gönderme
----------------------------------------------------
+===================================================
 
 IOThook Api v1.4 güncellemesi ile GET metodu ile veri göndermeye izin vermektedir.
 
@@ -972,7 +1132,7 @@ Bu örnekde NodeJS Native metodu kullanarak veri gönderme örneği verilmiştir
 
 
 Java Unirest GET Metodu ile Veri Gönderme
------------------------------------------
+=========================================
 
 IOThook Api v1.4 güncellemesi ile GET metodu ile veri göndermeye izin vermektedir.
 
@@ -994,7 +1154,7 @@ Bu örnekde NodeJS Native metodu kullanarak veri gönderme örneği verilmiştir
 
 
 Java Unirest GET Metodu ile Veri Gönderme
------------------------------------------
+=========================================
 
 IOThook Api v1.4 güncellemesi ile GET metodu ile veri göndermeye izin vermektedir.
 

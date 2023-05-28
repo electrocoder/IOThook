@@ -1,0 +1,71 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022, electrocoder
+# This file is distributed under the same license as the iot-examples
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: iot-examples 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-19 23:50+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../why-iothook.rst:3
+msgid "Niçin Iothook?"
+msgstr ""
+
+#: ../../why-iothook.rst:5
+msgid "Iothook ücretsizdir,"
+msgstr ""
+
+#: ../../why-iothook.rst:6
+msgid "Iothook Açık Kaynaktır,"
+msgstr ""
+
+#: ../../why-iothook.rst:7
+msgid "Iothook hızlıdır,"
+msgstr ""
+
+#: ../../why-iothook.rst:8
+msgid "Sınırsız Cihaz oluşturabilirsin,"
+msgstr ""
+
+#: ../../why-iothook.rst:9
+msgid "Sınırsız Sensör ekleyebilirsin,"
+msgstr ""
+
+#: ../../why-iothook.rst:10
+msgid "Tüm cihazların ile kolayca veri gönderebilirsin (post),"
+msgstr ""
+
+#: ../../why-iothook.rst:11
+msgid "Tüm iot cihazlarından kolayca veri alabilirsin (get),"
+msgstr ""
+
+#: ../../why-iothook.rst:12
+msgid "Datalarını gerçek zamanlı takip edebilirsin,"
+msgstr ""
+
+#: ../../why-iothook.rst:13
+msgid "Dataların için gerçek zamanlı grafik oluşturabilirsin,"
+msgstr ""
+
+#: ../../why-iothook.rst:15
+msgid ""
+"Iothook tüm cihazlarınız arasında kesintisiz veri aktarımı yapan, "
+"internete bağlı nesnelerin kolayca ulaşabileceği iletişim protokollerini "
+"destekler."
+msgstr ""
+
+#: ../../why-iothook.rst:18
+msgid "ChartJS ile entegre olarak verileri gerçek zamanlı izleme olanağı sağlar."
+msgstr ""
+

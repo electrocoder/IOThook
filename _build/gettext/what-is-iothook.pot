@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2019, electrocoder
-# This file is distributed under the same license as the iothook package.
+# Copyright (C) 2022, electrocoder
+# This file is distributed under the same license as the iot-examples package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: iothook 1.4\n"
+"Project-Id-Version: iot-examples 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-18 23:55+0300\n"
+"POT-Creation-Date: 2022-11-21 13:47+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,4 +23,3 @@ msgstr ""
 #: ../../what-is-iothook.rst:5
 msgid "Iothook internete bağlı nesneler (iot) arasında veri transferi yapan web servis ağı projesidir. Iothook ile Arduino, Raspberry Pi, Android, iOS, Windows Phone, Web Site, Banana Pi, Orange Pi, Beaglebone, ARM, Pic, Windows, Mac OS X, ve Linux tabanlı sistemleri birbirine bağlar."
 msgstr ""
-

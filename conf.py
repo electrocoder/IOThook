@@ -48,8 +48,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'IOTHOOK'
-copyright = '2019, electrocoder'
+project = 'iot-examples'
+copyright = '2022, electrocoder'
 author = 'electrocoder'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -57,7 +57,7 @@ author = 'electrocoder'
 # built documents.
 #
 # The short X.Y version.
-version = '1.5'
+version = '0.1'
 # The full version, including alpha/beta/rc tags.
 release = '1'
 
@@ -66,7 +66,7 @@ release = '1'
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = 'tr'
+language = 'en'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -102,7 +102,7 @@ html_static_path = ['_static']
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'iothookdoc'
+htmlhelp_basename = 'iot-examples'
 
 
 # -- Options for LaTeX output ---------------------------------------------
@@ -129,7 +129,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'iothook.tex', 'IOTHOOK Documentation',
+    (master_doc, 'iot-examples.tex', 'IoT Documentation',
      'electrocoder', 'manual'),
 ]
 
@@ -139,7 +139,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'iothook', 'IOTHOOK Documentation',
+    (master_doc, 'iot-examples', 'IoT Documentation',
      [author], 1)
 ]
 
@@ -150,12 +150,12 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'IOTHOOK', 'IOTHOOK Documentation',
-     author, 'IOTHOOK', 'Internet Of Things Project',
+    (master_doc, 'iot-examples', 'IoT Documentation',
+     author, 'electrocoder', 'Internet Of Things Project',
      'Miscellaneous'),
 ]
 
-html_title = 'IOTHOOK Internet Of Things Project'
+html_title = 'IoT Internet Of Things Project'
 
 html_short_title = html_title
 
@@ -163,4 +163,11 @@ html_logo = '_static/internet-of-things.png'
 
 html_favicon = '_static/internet-of-things.png'
 
-html_show_sourcelink = False
+html_show_sourcelink = True
+
+html_sidebars = {
+   '**': ['globaltoc.html', 'sourcelink.html', 'searchbox.html'],
+   'using/windows': ['windowssidebar.html', 'searchbox.html'],
+}
+
+html_search_language = 'en'
