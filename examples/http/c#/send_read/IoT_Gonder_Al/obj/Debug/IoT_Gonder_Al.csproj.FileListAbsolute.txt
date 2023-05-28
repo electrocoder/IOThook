@@ -1,0 +1,17 @@
+d:\Users\elect\Documents\projects\c#\IoT_Gonder_Al\IoT_Gonder_Al\obj\Debug\IoT_Gonder_Al.csproj.AssemblyReference.cache
+d:\Users\elect\Documents\projects\c#\IoT_Gonder_Al\IoT_Gonder_Al\obj\Debug\IoT_Gonder_Al.Form1.resources
+d:\Users\elect\Documents\projects\c#\IoT_Gonder_Al\IoT_Gonder_Al\obj\Debug\IoT_Gonder_Al.Properties.Resources.resources
+d:\Users\elect\Documents\projects\c#\IoT_Gonder_Al\IoT_Gonder_Al\obj\Debug\IoT_Gonder_Al.csproj.GenerateResource.cache
+d:\Users\elect\Documents\projects\c#\IoT_Gonder_Al\IoT_Gonder_Al\obj\Debug\IoT_Gonder_Al.csproj.CoreCompileInputs.cache
+d:\Users\elect\Documents\projects\c#\IoT_Gonder_Al\IoT_Gonder_Al\bin\Debug\IoT_Gonder_Al.exe.config
+d:\Users\elect\Documents\projects\c#\IoT_Gonder_Al\IoT_Gonder_Al\bin\Debug\IoT_Gonder_Al.exe
+d:\Users\elect\Documents\projects\c#\IoT_Gonder_Al\IoT_Gonder_Al\bin\Debug\IoT_Gonder_Al.pdb
+d:\Users\elect\Documents\projects\c#\IoT_Gonder_Al\IoT_Gonder_Al\bin\Debug\FubarCoder.RestSharp.Portable.Core.dll
+d:\Users\elect\Documents\projects\c#\IoT_Gonder_Al\IoT_Gonder_Al\bin\Debug\FubarCoder.RestSharp.Portable.HttpClient.dll
+d:\Users\elect\Documents\projects\c#\IoT_Gonder_Al\IoT_Gonder_Al\bin\Debug\Newtonsoft.Json.dll
+d:\Users\elect\Documents\projects\c#\IoT_Gonder_Al\IoT_Gonder_Al\bin\Debug\FubarCoder.RestSharp.Portable.Core.xml
+d:\Users\elect\Documents\projects\c#\IoT_Gonder_Al\IoT_Gonder_Al\bin\Debug\FubarCoder.RestSharp.Portable.HttpClient.xml
+d:\Users\elect\Documents\projects\c#\IoT_Gonder_Al\IoT_Gonder_Al\bin\Debug\Newtonsoft.Json.xml
+d:\Users\elect\Documents\projects\c#\IoT_Gonder_Al\IoT_Gonder_Al\obj\Debug\IoT_Gonder_Al.csproj.CopyComplete
+d:\Users\elect\Documents\projects\c#\IoT_Gonder_Al\IoT_Gonder_Al\obj\Debug\IoT_Gonder_Al.exe
+d:\Users\elect\Documents\projects\c#\IoT_Gonder_Al\IoT_Gonder_Al\obj\Debug\IoT_Gonder_Al.pdb

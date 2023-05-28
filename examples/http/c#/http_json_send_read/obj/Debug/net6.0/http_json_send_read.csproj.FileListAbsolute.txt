@@ -1,0 +1,15 @@
+/Users/sahin/Documents/projects/iot-examples/http/c#/http_json_send_read/bin/Debug/net6.0/http_json_send_read
+/Users/sahin/Documents/projects/iot-examples/http/c#/http_json_send_read/bin/Debug/net6.0/http_json_send_read.deps.json
+/Users/sahin/Documents/projects/iot-examples/http/c#/http_json_send_read/bin/Debug/net6.0/http_json_send_read.runtimeconfig.json
+/Users/sahin/Documents/projects/iot-examples/http/c#/http_json_send_read/bin/Debug/net6.0/http_json_send_read.dll
+/Users/sahin/Documents/projects/iot-examples/http/c#/http_json_send_read/bin/Debug/net6.0/http_json_send_read.pdb
+/Users/sahin/Documents/projects/iot-examples/http/c#/http_json_send_read/obj/Debug/net6.0/http_json_send_read.csproj.AssemblyReference.cache
+/Users/sahin/Documents/projects/iot-examples/http/c#/http_json_send_read/obj/Debug/net6.0/http_json_send_read.GeneratedMSBuildEditorConfig.editorconfig
+/Users/sahin/Documents/projects/iot-examples/http/c#/http_json_send_read/obj/Debug/net6.0/http_json_send_read.AssemblyInfoInputs.cache
+/Users/sahin/Documents/projects/iot-examples/http/c#/http_json_send_read/obj/Debug/net6.0/http_json_send_read.AssemblyInfo.cs
+/Users/sahin/Documents/projects/iot-examples/http/c#/http_json_send_read/obj/Debug/net6.0/http_json_send_read.csproj.CoreCompileInputs.cache
+/Users/sahin/Documents/projects/iot-examples/http/c#/http_json_send_read/obj/Debug/net6.0/http_json_send_read.dll
+/Users/sahin/Documents/projects/iot-examples/http/c#/http_json_send_read/obj/Debug/net6.0/refint/http_json_send_read.dll
+/Users/sahin/Documents/projects/iot-examples/http/c#/http_json_send_read/obj/Debug/net6.0/http_json_send_read.pdb
+/Users/sahin/Documents/projects/iot-examples/http/c#/http_json_send_read/obj/Debug/net6.0/http_json_send_read.genruntimeconfig.cache
+/Users/sahin/Documents/projects/iot-examples/http/c#/http_json_send_read/obj/Debug/net6.0/ref/http_json_send_read.dll

@@ -1,0 +1,617 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FubarCoder.RestSharp.Portable.HttpClient</name>
+    </assembly>
+    <members>
+        <member name="T:RestSharp.Portable.HttpClient.DefaultHttpExtensions">
+            <summary>
+            Extension methods useful for supporting conversion between the objects used by <see cref="T:System.Net.Http.HttpClient"/> and <see cref="T:RestSharp.Portable.HttpClient.RestClient"/>.
+            </summary>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.DefaultHttpExtensions.AsRestHeaders(System.Net.Http.Headers.HttpHeaders)">
+            <summary>
+            Converts <see cref="T:System.Net.Http.Headers.HttpHeaders"/> to <see cref="T:RestSharp.Portable.IHttpHeaders"/>
+            </summary>
+            <param name="headers">The <see cref="T:System.Net.Http.Headers.HttpHeaders"/> to convert to <see cref="T:RestSharp.Portable.IHttpHeaders"/></param>
+            <returns>The converted <see cref="T:RestSharp.Portable.IHttpHeaders"/></returns>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.DefaultHttpExtensions.AsHttpHeaders(RestSharp.Portable.IHttpHeaders)">
+            <summary>
+            Converts the <see cref="T:RestSharp.Portable.IHttpHeaders"/> to <see cref="T:System.Net.Http.Headers.HttpHeaders"/>
+            </summary>
+            <param name="headers">The <see cref="T:RestSharp.Portable.IHttpHeaders"/> to convert</param>
+            <returns>The converted <see cref="T:RestSharp.Portable.IHttpHeaders"/></returns>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.DefaultHttpExtensions.AsRestHttpContent(System.Net.Http.HttpContent)">
+            <summary>
+            Converts the <see cref="T:System.Net.Http.HttpContent"/> to a <see cref="T:RestSharp.Portable.IHttpContent"/>
+            </summary>
+            <param name="content">The <see cref="T:System.Net.Http.HttpContent"/> to convert</param>
+            <returns>The converted <see cref="T:System.Net.Http.HttpContent"/></returns>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.DefaultHttpExtensions.AsHttpContent(RestSharp.Portable.IHttpContent)">
+            <summary>
+            Converts the <see cref="T:RestSharp.Portable.IHttpContent"/> to a <see cref="T:System.Net.Http.HttpContent"/>
+            </summary>
+            <param name="content">The <see cref="T:RestSharp.Portable.IHttpContent"/> to convert</param>
+            <returns>The converted <see cref="T:RestSharp.Portable.IHttpContent"/></returns>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.DefaultHttpExtensions.CopyTo(RestSharp.Portable.IHttpHeaders,System.Net.Http.Headers.HttpHeaders)">
+            <summary>
+            Copy the <see cref="T:RestSharp.Portable.IHttpHeaders"/> into the <see cref="T:System.Net.Http.Headers.HttpHeaders"/>
+            </summary>
+            <param name="headers">The <see cref="T:RestSharp.Portable.IHttpHeaders"/> to copy from</param>
+            <param name="destination">The <see cref="T:System.Net.Http.Headers.HttpHeaders"/> to copy to</param>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.DefaultHttpExtensions.AsHttpRequestMessage(RestSharp.Portable.IHttpRequestMessage)">
+            <summary>
+            Creates a <see cref="T:System.Net.Http.HttpRequestMessage"/> from a <see cref="T:RestSharp.Portable.IHttpRequestMessage"/>
+            </summary>
+            <param name="message">The <see cref="T:RestSharp.Portable.IHttpRequestMessage"/> used to create the <see cref="T:System.Net.Http.HttpRequestMessage"/> from</param>
+            <returns>The <see cref="T:System.Net.Http.HttpRequestMessage"/> created from <paramref name="message"/></returns>
+        </member>
+        <member name="T:RestSharp.Portable.HttpClient.HttpMethodExtensions">
+            <summary>
+            Helper functions to convert to/from <see cref="T:System.Net.Http.HttpMethod"/>
+            </summary>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.HttpMethodExtensions.ToHttpMethod(RestSharp.Portable.Method)">
+            <summary>
+            Converts a <see cref="T:RestSharp.Portable.Method"/> to a <see cref="T:System.Net.Http.HttpMethod"/>
+            </summary>
+            <param name="method">The <see cref="T:RestSharp.Portable.Method"/> to convert from</param>
+            <returns>The converted <paramref name="method"/></returns>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.HttpMethodExtensions.ToMethod(System.Net.Http.HttpMethod)">
+            <summary>
+            Converts a <see cref="T:System.Net.Http.HttpMethod"/> to a <see cref="T:RestSharp.Portable.Method"/>
+            </summary>
+            <param name="method">The <see cref="T:System.Net.Http.HttpMethod"/> to convert from</param>
+            <returns>The converted <paramref name="method"/></returns>
+        </member>
+        <member name="T:RestSharp.Portable.HttpClient.RestClient">
+            <summary>
+            The default REST client
+            </summary>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.RestClient.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:RestSharp.Portable.HttpClient.RestClient" /> class.
+            </summary>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.RestClient.#ctor(System.Uri)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RestSharp.Portable.HttpClient.RestClient" /> class.
+            </summary>
+            <param name="baseUrl">Base URL</param>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.RestClient.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RestSharp.Portable.HttpClient.RestClient" /> class.
+            </summary>
+            <param name="baseUrl">Base URL</param>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.RestClient.GetContent(RestSharp.Portable.IRestRequest,RestSharp.Portable.RequestParameters)">
+            <inheritdoc/>
+        </member>
+        <member name="T:RestSharp.Portable.HttpClient.RestClientExtensions">
+            <summary>
+            Extension functions for REST clients
+            </summary>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.RestClientExtensions.GetContent(RestSharp.Portable.IRestClient,RestSharp.Portable.IRestRequest,RestSharp.Portable.RequestParameters)">
+            <summary>
+            Gets the content for a request
+            </summary>
+            <param name="client">The REST client that will execute the request</param>
+            <param name="request">REST request to get the content for</param>
+            <param name="parameters">The request parameters for the REST request (read-only)</param>
+            <returns>The HTTP content to be sent</returns>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.RestClientExtensions.GetBasicContent(RestSharp.Portable.IRestClient,RestSharp.Portable.IRestRequest,RestSharp.Portable.RequestParameters)">
+            <summary>
+            Gets the basic content (without files) for a request
+            </summary>
+            <param name="client">The REST client that will execute the request</param>
+            <param name="request">REST request to get the content for</param>
+            <param name="parameters">The request parameters for the REST request (read-only)</param>
+            <returns>The HTTP content to be sent</returns>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.RestClientExtensions.GetMultiPartContent(RestSharp.Portable.IRestClient,RestSharp.Portable.IRestRequest,RestSharp.Portable.RequestParameters)">
+            <summary>
+            Gets the multi-part content (with files) for a request
+            </summary>
+            <param name="client">The REST client that will execute the request</param>
+            <param name="request">REST request to get the content for</param>
+            <param name="parameters">The request parameters for the REST request (read-only)</param>
+            <returns>The HTTP content to be sent</returns>
+        </member>
+        <member name="T:RestSharp.Portable.HttpClient.RestRequestExtensions">
+            <summary>
+            Extension functions for REST requests
+            </summary>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.RestRequestExtensions.GetBodyContent(RestSharp.Portable.IRestRequest,RestSharp.Portable.Parameter)">
+            <summary>
+            Returns the HttpContent for the body parameter
+            </summary>
+            <param name="request">
+            The request the body parameter belongs to
+            </param>
+            <param name="body">
+            The body parameter
+            </param>
+            <returns>
+            The resulting HttpContent
+            </returns>
+        </member>
+        <member name="T:RestSharp.Portable.HttpClient.Impl.DefaultHttpClientFactory">
+            <summary>
+            The default HTTP client factory
+            </summary>
+            <remarks>
+            Any other implementation should derive from this class, because it contains several
+            useful utility functions for the creation of a HTTP client and request message.
+            </remarks>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.Impl.DefaultHttpClientFactory.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:RestSharp.Portable.HttpClient.Impl.DefaultHttpClientFactory" /> class.
+            </summary>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.Impl.DefaultHttpClientFactory.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RestSharp.Portable.HttpClient.Impl.DefaultHttpClientFactory"/> class.
+            </summary>
+            <param name="setCredentials">Set the credentials for the native <see cref="T:System.Net.Http.HttpMessageHandler"/> (<see cref="T:System.Net.Http.HttpClientHandler"/>)?</param>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.Impl.DefaultHttpClientFactory.CreateClient(RestSharp.Portable.IRestClient)">
+            <summary>
+            Create the client
+            </summary>
+            <param name="client">The REST client that wants to create the HTTP client</param>
+            <returns>A new HttpClient object</returns>
+            <remarks>
+            The DefaultHttpClientFactory contains some helpful protected methods that helps gathering
+            the data required for a proper configuration of the HttpClient.
+            </remarks>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.Impl.DefaultHttpClientFactory.CreateRequestMessage(RestSharp.Portable.IRestClient,RestSharp.Portable.IRestRequest,System.Collections.Generic.IList{RestSharp.Portable.Parameter})">
+            <summary>
+            Create the request message
+            </summary>
+            <param name="client">The REST client that wants to create the HTTP request message</param>
+            <param name="request">The REST request for which the HTTP request message is created</param>
+            <param name="parameters">The request parameters for the REST request except the content header parameters (read-only)</param>
+            <returns>A new HttpRequestMessage object</returns>
+            <remarks>
+            The DefaultHttpClientFactory contains some helpful protected methods that helps gathering
+            the data required for a proper configuration of the HttpClient.
+            </remarks>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.Impl.DefaultHttpClientFactory.GetBaseAddress(RestSharp.Portable.IRestClient)">
+            <summary>
+            Get the REST requests base address (for HTTP client)
+            </summary>
+            <param name="client">REST client</param>
+            <returns>The base URL</returns>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.Impl.DefaultHttpClientFactory.GetMessageAddress(RestSharp.Portable.IRestClient,RestSharp.Portable.IRestRequest)">
+            <summary>
+            Get the REST requests relative address (for HTTP request message)
+            </summary>
+            <param name="client">REST client</param>
+            <param name="request">REST request</param>
+            <returns>The relative request message URL</returns>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.Impl.DefaultHttpClientFactory.GetHttpMethod(RestSharp.Portable.IRestClient,RestSharp.Portable.IRestRequest)">
+            <summary>
+            Returns the HTTP method for the request message.
+            </summary>
+            <param name="client">The REST client that wants to create the HTTP client</param>
+            <param name="request">REST request</param>
+            <returns>HTTP method</returns>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.Impl.DefaultHttpClientFactory.AddHttpHeaderParameters(System.Net.Http.HttpRequestMessage,RestSharp.Portable.IRestRequest,System.Collections.Generic.IList{RestSharp.Portable.Parameter})">
+            <summary>
+            Returns a modified HTTP request message object with HTTP header parameters
+            </summary>
+            <param name="message">HTTP request message</param>
+            <param name="request">REST request</param>
+            <param name="parameters">The request parameters for the REST request except the content header parameters (read-only)</param>
+            <returns>The modified HTTP request message</returns>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.Impl.DefaultHttpClientFactory.CreateMessageHandler(RestSharp.Portable.IRestClient)">
+            <summary>
+            Create the message handler
+            </summary>
+            <param name="client">The REST client that wants to create the HTTP client</param>
+            <returns>A new HttpMessageHandler object</returns>
+        </member>
+        <member name="T:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpClient">
+            <summary>
+            Wraps a <see cref="N:RestSharp.Portable.HttpClient"/> instance as <see cref="T:RestSharp.Portable.IHttpClient"/>.
+            </summary>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpClient.#ctor(System.Net.Http.HttpClient,System.Net.CookieContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpClient"/> class.
+            </summary>
+            <param name="client">The <see cref="N:RestSharp.Portable.HttpClient"/> to wrap.</param>
+            <param name="cookies">A container of cookies</param>
+        </member>
+        <member name="P:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpClient.Client">
+            <summary>
+            Gets the HTTP client to wrap.
+            </summary>
+        </member>
+        <member name="P:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpClient.BaseAddress">
+            <summary>
+            Gets or sets the base address of the HTTP client
+            </summary>
+        </member>
+        <member name="P:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpClient.DefaultRequestHeaders">
+            <summary>
+            Gets the default request headers
+            </summary>
+        </member>
+        <member name="P:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpClient.Timeout">
+            <summary>
+            Gets or sets the timeout
+            </summary>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpClient.SendAsync(RestSharp.Portable.IHttpRequestMessage,System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously send a request
+            </summary>
+            <param name="request">The request do send</param>
+            <param name="cancellationToken">The cancellation token used to signal an abortion</param>
+            <returns>The task to query the response</returns>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpClient.Dispose">
+            <summary>
+            Disposes the underlying HTTP client
+            </summary>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpClient.Dispose(System.Boolean)">
+            <summary>
+            Disposes the underlying HTTP client when disposing is set to true
+            </summary>
+            <param name="disposing">true, when called from <see cref="M:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpClient.Dispose"/>.</param>
+        </member>
+        <member name="T:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpContent">
+            <summary>
+            A shallow wrapper around a <see cref="T:System.Net.Http.HttpContent"/> instance.
+            </summary>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpContent.#ctor(System.Net.Http.HttpContent)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpContent"/> class.
+            </summary>
+            <param name="content">The content to perform the actions on</param>
+        </member>
+        <member name="P:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpContent.Content">
+            <summary>
+            Gets the content to perform the actions on.
+            </summary>
+        </member>
+        <member name="P:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpContent.Headers">
+            <summary>
+            Gets the HTTP headers for the content.
+            </summary>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpContent.CopyToAsync(System.IO.Stream)">
+            <summary>
+            Asynchronously copy the data to the given stream.
+            </summary>
+            <param name="stream">
+            The stream to copy to
+            </param>
+            <returns>
+            The task that copies the data to the stream
+            </returns>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpContent.LoadIntoBufferAsync(System.Int64)">
+            <summary>
+            Gets the raw content as byte array.
+            </summary>
+            <param name="maxBufferSize">
+            The maximum buffer size
+            </param>
+            <returns>
+            The task that loads the data into an internal buffer
+            </returns>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpContent.ReadAsStreamAsync">
+            <summary>
+            Returns the data as a stream
+            </summary>
+            <returns>The task that returns the stream</returns>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpContent.ReadAsByteArrayAsync">
+            <summary>
+            Returns the data as byte array
+            </summary>
+            <returns>The task that returns the data as byte array</returns>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpContent.ReadAsStringAsync">
+            <summary>
+            Returns the data as string
+            </summary>
+            <returns>The task that returns the data as string</returns>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpContent.TryComputeLength(System.Int64@)">
+            <summary>
+            Determines whether the HTTP content has a valid length in bytes.
+            </summary>
+            <returns>
+            Returns <see cref="T:System.Boolean"/>.true if <paramref name="length"/> is a valid length; otherwise, false.
+            </returns>
+            <param name="length">The length in bytes of the HTTP content.</param>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpContent.Dispose">
+            <summary>
+            Disposes the underlying HTTP request message
+            </summary>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpContent.Dispose(System.Boolean)">
+            <summary>
+            Disposes the underlying HTTP request message when disposing is set to true
+            </summary>
+            <param name="disposing">true, when called from <see cref="M:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpContent.Dispose"/>.</param>
+        </member>
+        <member name="T:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpHeaders">
+            <summary>
+            <see cref="T:RestSharp.Portable.IHttpHeaders"/> implementation using an underlying <see cref="T:System.Net.Http.Headers.HttpHeaders"/>.
+            </summary>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpHeaders.#ctor(System.Net.Http.Headers.HttpHeaders)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpHeaders"/> class.
+            </summary>
+            <param name="headers">The headers collection to use in the background</param>
+        </member>
+        <member name="P:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpHeaders.Headers">
+            <summary>
+            Gets the underlying HTTP headers
+            </summary>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpHeaders.GetEnumerator">
+            <summary>
+            Returns an enumerator for all headers and their values.
+            </summary>
+            <returns>An enumerator for all headers and their values</returns>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpHeaders.System#Collections#IEnumerable#GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpHeaders.Add(System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Adds header values
+            </summary>
+            <param name="name">The header to add the values for</param>
+            <param name="values">The values to add</param>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpHeaders.Add(System.String,System.String)">
+            <summary>
+            Add a header value
+            </summary>
+            <param name="name">The header to add the value for</param>
+            <param name="value">The value to add</param>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpHeaders.Clear">
+            <summary>
+            Remove all headers
+            </summary>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpHeaders.Contains(System.String)">
+            <summary>
+            Is there a value for a header?
+            </summary>
+            <param name="name">The name of the header</param>
+            <returns>true, if there is at least one value for the header</returns>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpHeaders.GetValues(System.String)">
+            <summary>
+            Returns all values for a given header
+            </summary>
+            <remarks>
+            Throws an exception if the header doesn't exist.
+            </remarks>
+            <param name="name">The header name</param>
+            <returns>The sequence of header values</returns>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpHeaders.Remove(System.String)">
+            <summary>
+            Remove the header with the given name
+            </summary>
+            <param name="name">The header name</param>
+            <returns>true, if the header could be removed</returns>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpHeaders.TryGetValues(System.String,System.Collections.Generic.IEnumerable{System.String}@)">
+            <summary>
+            Try to get the values
+            </summary>
+            <param name="name">The header name</param>
+            <param name="values">The values of the header to return</param>
+            <returns>true, if the HTTP header was found</returns>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpHeaders.TryAddWithoutValidation(System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Try to add header values without validation
+            </summary>
+            <param name="name">The header name</param>
+            <param name="values">The values to add</param>
+            <returns>true, if the HTTP header values could be added</returns>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpHeaders.TryAddWithoutValidation(System.String,System.String)">
+            <summary>
+            Try to add a header value without validation
+            </summary>
+            <param name="name">The header name</param>
+            <param name="value">The value to add</param>
+            <returns>true, if the HTTP header value could be added</returns>
+        </member>
+        <member name="T:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpRequestMessage">
+            <summary>
+            Wraps an instance of the <see cref="T:System.Net.Http.HttpRequestMessage"/> as <see cref="T:RestSharp.Portable.IHttpRequestMessage"/>.
+            </summary>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpRequestMessage.#ctor(System.Net.Http.HttpRequestMessage)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpRequestMessage"/> class.
+            </summary>
+            <param name="requestMessage">The request message to wrap</param>
+        </member>
+        <member name="P:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpRequestMessage.RequestMessage">
+            <summary>
+            Gets the HTTP request message to wrap
+            </summary>
+        </member>
+        <member name="P:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpRequestMessage.Headers">
+            <summary>
+            Gets the HTTP headers for the request message
+            </summary>
+        </member>
+        <member name="P:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpRequestMessage.Method">
+            <summary>
+            Gets or sets the HTTP request method
+            </summary>
+        </member>
+        <member name="P:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpRequestMessage.RequestUri">
+            <summary>
+            Gets or sets the request URI
+            </summary>
+        </member>
+        <member name="P:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpRequestMessage.Version">
+            <summary>
+            Gets or sets the HTTP protocol version
+            </summary>
+        </member>
+        <member name="P:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpRequestMessage.Content">
+            <summary>
+            Gets or sets the content of the request message
+            </summary>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpRequestMessage.Dispose">
+            <summary>
+            Disposes the underlying HTTP request message
+            </summary>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpRequestMessage.Dispose(System.Boolean)">
+            <summary>
+            Disposes the underlying HTTP request message when disposing is set to true
+            </summary>
+            <param name="disposing">true, when called from <see cref="M:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpRequestMessage.Dispose"/>.</param>
+        </member>
+        <member name="T:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpResponseMessage">
+            <summary>
+            Wraps a <see cref="T:System.Net.Http.HttpResponseMessage"/> as <see cref="T:RestSharp.Portable.IHttpResponseMessage"/>.
+            </summary>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpResponseMessage.#ctor(System.Net.Http.HttpRequestMessage,System.Net.Http.HttpResponseMessage,System.Net.CookieContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpResponseMessage"/> class.
+            </summary>
+            <param name="requestMessage">The request message</param>
+            <param name="responseMessage">The response message to wrap</param>
+            <param name="cookies">Container of cookies to query the cookies from</param>
+        </member>
+        <member name="P:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpResponseMessage.ResponseMessage">
+            <summary>
+            Gets the wrapper <see cref="T:System.Net.Http.HttpResponseMessage"/> instance.
+            </summary>
+        </member>
+        <member name="P:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpResponseMessage.Cookies">
+            <inheritdoc/>
+        </member>
+        <member name="P:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpResponseMessage.Headers">
+            <summary>
+            Gets the HTTP headers returned by the response
+            </summary>
+        </member>
+        <member name="P:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpResponseMessage.IsSuccessStatusCode">
+            <summary>
+            Gets a value indicating whether the request was successful
+            </summary>
+        </member>
+        <member name="P:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpResponseMessage.ReasonPhrase">
+            <summary>
+            Gets the reason phrase returned together with the status code
+            </summary>
+        </member>
+        <member name="P:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpResponseMessage.RequestMessage">
+            <summary>
+            Gets the request message this response was returned for
+            </summary>
+        </member>
+        <member name="P:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpResponseMessage.StatusCode">
+            <summary>
+            Gets the status code
+            </summary>
+        </member>
+        <member name="P:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpResponseMessage.Content">
+            <summary>
+            Gets the content of the response
+            </summary>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpResponseMessage.EnsureSuccessStatusCode">
+            <summary>
+            Throws an exception when the status doesn't indicate success.
+            </summary>
+            <exception cref="T:System.Net.WebException">Thrown when no response message was returned for a request.</exception>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpResponseMessage.Dispose">
+            <summary>
+            Disposes the underlying HTTP response message
+            </summary>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpResponseMessage.Dispose(System.Boolean)">
+            <summary>
+            Disposes the underlying HTTP response message when disposing is set to true
+            </summary>
+            <param name="disposing">true, when called from <see cref="M:RestSharp.Portable.HttpClient.Impl.Http.DefaultHttpResponseMessage.Dispose"/>.</param>
+        </member>
+        <member name="T:RestSharp.Portable.HttpClient.Impl.Http.HttpContentWrapper">
+            <summary>
+            Wraps a <see cref="T:RestSharp.Portable.IHttpContent"/> as <see cref="T:System.Net.Http.HttpContent"/>.
+            </summary>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.Impl.Http.HttpContentWrapper.#ctor(RestSharp.Portable.IHttpContent)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RestSharp.Portable.HttpClient.Impl.Http.HttpContentWrapper"/> class.
+            </summary>
+            <param name="content">The content to wrap</param>
+        </member>
+        <member name="P:RestSharp.Portable.HttpClient.Impl.Http.HttpContentWrapper.Content">
+            <summary>
+            Gets the <see cref="T:RestSharp.Portable.IHttpContent"/> to wrap.
+            </summary>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.Impl.Http.HttpContentWrapper.SerializeToStreamAsync(System.IO.Stream,System.Net.TransportContext)">
+            <summary>
+            Serialize the HTTP content to a stream as an asynchronous operation.
+            </summary>
+            <returns>
+            Returns <see cref="T:System.Threading.Tasks.Task"/>.The task object representing the asynchronous operation.
+            </returns>
+            <param name="stream">The target stream.</param><param name="context">Information about the transport (channel binding token, for example). This parameter may be null.</param>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.Impl.Http.HttpContentWrapper.TryComputeLength(System.Int64@)">
+            <summary>
+            Determines whether the HTTP content has a valid length in bytes.
+            </summary>
+            <returns>
+            Returns <see cref="T:System.Boolean"/>.true if <paramref name="length"/> is a valid length; otherwise, false.
+            </returns>
+            <param name="length">The length in bytes of the HHTP content.</param>
+        </member>
+        <member name="M:RestSharp.Portable.HttpClient.Impl.Http.HttpContentWrapper.Dispose(System.Boolean)">
+            <summary>
+            Releases the unmanaged resources used by the <see cref="T:System.Net.Http.HttpContent"/> and optionally disposes of the managed resources.
+            </summary>
+            <param name="disposing">true to release both managed and unmanaged resources; false to releases only unmanaged resources.</param>
+        </member>
+    </members>
+</doc>

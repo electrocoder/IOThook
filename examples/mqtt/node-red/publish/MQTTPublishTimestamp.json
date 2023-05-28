@@ -1,0 +1,100 @@
+[
+    {
+        "id": "1a1996f4c8fa7feb",
+        "type": "tab",
+        "label": "MQTT Publish Timestamp",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d2dc8403353424d5",
+        "type": "mqtt out",
+        "z": "1a1996f4c8fa7feb",
+        "name": "",
+        "topic": "timestamp",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "dd3d60f865a89602",
+        "x": 570,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "039f311cb0ae730e",
+        "type": "inject",
+        "z": "1a1996f4c8fa7feb",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 360,
+        "y": 180,
+        "wires": [
+            [
+                "d2dc8403353424d5",
+                "58ae8c44db52e483"
+            ]
+        ]
+    },
+    {
+        "id": "58ae8c44db52e483",
+        "type": "debug",
+        "z": "1a1996f4c8fa7feb",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 570,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "dd3d60f865a89602",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "publicmqttbroker.iiotmq.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    }
+]

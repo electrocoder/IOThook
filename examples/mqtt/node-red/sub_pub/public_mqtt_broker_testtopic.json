@@ -1,0 +1,120 @@
+[
+    {
+        "id": "9ddf79a28e597a81",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d9fc0c7e5e98f667",
+        "type": "mqtt in",
+        "z": "9ddf79a28e597a81",
+        "name": "",
+        "topic": "testtopic/#",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "a54d22fad9f72d96",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 120,
+        "wires": [
+            [
+                "1381a3d6524381ba"
+            ]
+        ]
+    },
+    {
+        "id": "1381a3d6524381ba",
+        "type": "debug",
+        "z": "9ddf79a28e597a81",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 390,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "140ab0f69ced11be",
+        "type": "mqtt out",
+        "z": "9ddf79a28e597a81",
+        "name": "",
+        "topic": "testtopic",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a54d22fad9f72d96",
+        "x": 420,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "de78d9e8d9226082",
+        "type": "inject",
+        "z": "9ddf79a28e597a81",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 210,
+        "y": 240,
+        "wires": [
+            [
+                "140ab0f69ced11be"
+            ]
+        ]
+    },
+    {
+        "id": "a54d22fad9f72d96",
+        "type": "mqtt-broker",
+        "name": "publicmqttbroker.iiotmq.com",
+        "broker": "publicmqttbroker.iiotmq.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    }
+]

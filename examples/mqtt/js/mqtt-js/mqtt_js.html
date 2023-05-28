@@ -1,0 +1,146 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js" type="text/javascript"></script>
+<script src="/static/dashboard/js/iothook_mqtt_js.js"></script>
+
+<div class="row row-cards">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><a href="https://github.com/mqttjs/MQTT.js">MQTT Js Mosquitto WS Example</a></h3>
+            </div>
+            <div class="card-body">
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-3">
+                        <div class="form-group">
+                            <label class="form-label">Server</label>
+                            <input type="text" class="form-control" id="host" value="test.mosquitto.org">
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <div class="form-group">
+                            <label class="form-label">Client ID</label>
+                            <input type="text" class="form-control" id="client_id" value="client_id">
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <div class="form-group">
+                            <label class="form-label">WS Port</label>
+                            <input type="text" class="form-control" id="port" value="8081">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-footer">
+                    <button class="btn btn-primary" id="connect" onclick="MQTTconnect();">Connect</button>
+                    <button class="btn btn-danger" id="disconnect" onclick="disconnect();">Disconnect</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Help</h3>
+            </div>
+            <div class="card-body">
+                <div class="markdown">
+
+                    <ul class="list-unstyled">
+                        <li>
+                            - <a href="https://github.com/meseiot/iot-examples/tree/master/mqtt/python">Python Subscribe & Publish</a>
+                        </li>
+                        <li>
+                            - <a href="https://github.com/meseiot/iot-examples/tree/master/mqtt/node-red">Node-RED Subscribe & Publish</a>
+                        </li>
+                        <li>
+                            - To use this page save with CTRL+S or download from Github
+                            - <a href="https://github.com/meseiot/iot-examples/tree/master/mqtt/node-red">Node-RED Subscribe & Publish</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
+
+<div class="row row-cards">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Publish</h3>
+            </div>
+            <div class="card-body">
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            <label class="form-label">Topic</label>
+                            <input type="text" class="form-control" id="topic_pub" value="test">
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            <label class="form-label">Message</label>
+                            <input type="text" class="form-control" id="msg_pub"
+                                   value="iothook">
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            <label class="form-label">.</label>
+                            <button class="btn btn-primary" id="pub" onclick="publish();">Publish</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Subscriptions</h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            <label class="form-label">Topic</label>
+                            <input type="text" class="form-control" id="topic_sub" value="test">
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            <label class="form-label">.</label>
+                            <button class="btn btn-primary" id="sub" onclick="subscribe();">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Messages</h3>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <table class="table card-table">
+                                <tbody>
+                                <tr>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

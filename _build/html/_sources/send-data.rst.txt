@@ -35,7 +35,7 @@ Example output:
     >>> {'device': 650, 'field_1': '6', 'field_2': '3.49', 'field_3': '22', 'field_4': None, 'field_5': None, 'field_6': None, 'field_7': None, 'field_8': None, 'id': 502491, 'pub_date': '2019-08-31T01:07:29.438160', 'remote_address': '88.242.135.167&python-requests/2.18.4&HTTP/1.1'}
 
 Send JSON Data in POST with Python Examples:
--------------------------------------------
+--------------------------------------------
 
 You can find this example and others at `IoT Examples Github <https://github.com/meseiot/iot-examples/blob/master/http/python/iot_post_json_update_post.py>`_.
 
@@ -329,7 +329,7 @@ You can find this example and others at `IoT Examples Github <https://github.com
     pprint.pprint(response.json())
 
 Send Data in GET with Python Examples 2:
---------------------------------------
+----------------------------------------
 
 You can find this example and others at `IoT Examples Github <https://raw.githubusercontent.com/meseiot/iot-examples/master/http/python/iot_get_write_1.py>`_.
 
@@ -776,7 +776,7 @@ Arduino, ESP8266, Nodemcu GET Metodu ile Veri Gönderme
 
 IOThook Api v1.4 güncellemesi ile GET metodu ile veri göndermeye izin vermektedir.
 
-Bu örneğe ve diğerlerine `IOTHOOK Git`_ sayfasından ulaşabilirsiniz.
+Bu örneğe ve diğerlerine `IOTHOOK Git <https://github.com/electrocoder/IoThook>`_ sayfasından ulaşabilirsiniz.
 
 Bu örnekde Arduino, ESP8266 ve NodeMCU ile ile Get metodu kullanarak veri gönderme örneği verilmiştir:
 
@@ -969,7 +969,7 @@ GO GET Metodu ile Veri Gönderme
 
 IOThook Api v1.4 güncellemesi ile GET metodu ile veri göndermeye izin vermektedir.
 
-Bu örneğe ve diğerlerine `IOTHOOK Git`_ sayfasından ulaşabilirsiniz.
+Bu örneğe ve diğerlerine `IOTHOOK Git <https://github.com/electrocoder/IoThook>`_ sayfasından ulaşabilirsiniz.
 
 Bu örnekde GO dili ile ile Get metodu kullanarak veri gönderme örneği verilmiştir:
 
@@ -1014,7 +1014,7 @@ PHP GET Metodu ile Veri Gönderme
 
 IOThook Api v1.4 güncellemesi ile GET metodu ile veri göndermeye izin vermektedir.
 
-Bu örneğe ve diğerlerine `IOTHOOK Git`_ sayfasından ulaşabilirsiniz.
+Bu örneğe ve diğerlerine `IOTHOOK Git <https://github.com/electrocoder/IoThook>`_ sayfasından ulaşabilirsiniz.
 
 Bu örnekde PHP dili ile ile Get metodu kullanarak veri gönderme örneği verilmiştir:
 
@@ -1058,7 +1058,7 @@ NodeJS GET Metodu ile Veri Gönderme
 
 IOThook Api v1.4 güncellemesi ile GET metodu ile veri göndermeye izin vermektedir.
 
-Bu örneğe ve diğerlerine `IOTHOOK Git`_ sayfasından ulaşabilirsiniz.
+Bu örneğe ve diğerlerine `IOTHOOK Git <https://github.com/electrocoder/IoThook>`_ sayfasından ulaşabilirsiniz.
 
 Bu örnekde NodeJS Native metodu kullanarak veri gönderme örneği verilmiştir:
 
@@ -1104,7 +1104,7 @@ Javascript Jquery Ajax GET Metodu ile Veri Gönderme
 
 IOThook Api v1.4 güncellemesi ile GET metodu ile veri göndermeye izin vermektedir.
 
-Bu örneğe ve diğerlerine `IOTHOOK Git`_ sayfasından ulaşabilirsiniz.
+Bu örneğe ve diğerlerine `IOTHOOK Git <https://github.com/electrocoder/IoThook>`_ sayfasından ulaşabilirsiniz.
 
 Bu örnekde NodeJS Native metodu kullanarak veri gönderme örneği verilmiştir:
 
@@ -1136,7 +1136,7 @@ Java Unirest GET Metodu ile Veri Gönderme
 
 IOThook Api v1.4 güncellemesi ile GET metodu ile veri göndermeye izin vermektedir.
 
-Bu örneğe ve diğerlerine `IOTHOOK Git`_ sayfasından ulaşabilirsiniz.
+Bu örneğe ve diğerlerine `IOTHOOK Git <https://github.com/electrocoder/IoThook>`_ sayfasından ulaşabilirsiniz.
 
 Bu örnekde NodeJS Native metodu kullanarak veri gönderme örneği verilmiştir:
 
@@ -1158,7 +1158,7 @@ Java Unirest GET Metodu ile Veri Gönderme
 
 IOThook Api v1.4 güncellemesi ile GET metodu ile veri göndermeye izin vermektedir.
 
-Bu örneğe ve diğerlerine `IOTHOOK Git`_ sayfasından ulaşabilirsiniz.
+Bu örneğe ve diğerlerine `IOTHOOK Git <https://github.com/electrocoder/IoThook>`_ sayfasından ulaşabilirsiniz.
 
 Bu örnekde NodeJS Native metodu kullanarak veri gönderme örneği verilmiştir:
 

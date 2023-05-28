@@ -1,0 +1,73 @@
+[
+    {
+        "id": "5ab07aed853145ea",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "4ffbf298e83ed729",
+        "type": "debug",
+        "z": "5ab07aed853145ea",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 490,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "4284109b2a3fdecf",
+        "type": "mqtt in",
+        "z": "5ab07aed853145ea",
+        "name": "",
+        "topic": "timestamp",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "8a594a468698248a",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 300,
+        "y": 220,
+        "wires": [
+            [
+                "4ffbf298e83ed729"
+            ]
+        ]
+    },
+    {
+        "id": "8a594a468698248a",
+        "type": "mqtt-broker",
+        "name": "publicmqttbroker.iiotmq.com",
+        "broker": "publicmqttbroker.iiotmq.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    }
+]
