@@ -56,9 +56,9 @@ Adafruit_MQTT_Client mqtt(&client, SERVER, SERVERPORT, USERNAME, PASSWORD);
 /****************************** Feeds ***************************************/
 
 // Setup a feed called 'testtopic' for publishing.
-// http://iothook.com/en/device-mqtt/data/658/
+// https://iothook.com/en/device/data/101/
 // MQTT Device Datas
-// # 658 - iot_examples
+// # 101 - Demo Data MQTT
 
 Adafruit_MQTT_Publish photocell = Adafruit_MQTT_Publish(&mqtt,  USERNAME "/testtopic");
 

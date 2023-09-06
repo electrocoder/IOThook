@@ -1,0 +1,188 @@
+
+
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>IoThook IoT Device Dashboard &#8212; IoTHook IoT Internet Of Things Arduino, ESP, Raspberry Pi</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/bizstyle.js"></script>
+    <link rel="shortcut icon" href="_static/internet-of-things.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="What is IOT?" href="what-is-iot.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="what-is-iot.html" title="What is IOT?"
+             accesskey="N">next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">IoTHook IoT Internet Of Things Arduino, ESP, Raspberry Pi</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">IoThook IoT Device Dashboard</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="iothook-iot-device-dashboard">
+<h1>IoThook IoT Device Dashboard<a class="headerlink" href="#iothook-iot-device-dashboard" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="what-is-iot.html">What is IOT?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="what-is-iothook.html">What is IOTHOOK?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="why-iothook.html">Why IoThook?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create-new-device.html">Add New Device</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="create-new-device.html#add-http-device">Add HTTP Device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create-new-device.html#http-device-add-sensor">HTTP Device Add Sensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create-new-device.html#add-mqtt-device">Add MQTT Device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create-new-device.html#mqtt-device-add-sensor">MQTT Device Add Sensor</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="send-data.html">Send Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="send-data.html#http-send-data">HTTP Send Data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="send-data.html#send-json-data-in-post-with-python">Send JSON Data in POST with Python</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="send-data.html#send-json-data-in-post-with-python-examples">Send JSON Data in POST with Python Examples:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="send-data.html#send-json-data-in-post-with-python-examples-2">Send JSON Data in POST with Python Examples 2:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="send-data.html#send-json-data-in-post-with-python-examples-3">Send JSON Data in POST with Python Examples 3:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="send-data.html#send-data-in-get-with-python">Send Data in GET with Python</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="send-data.html#send-data-in-get-with-python-examples">Send Data in GET with Python Examples:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="send-data.html#send-data-in-get-with-python-examples-2">Send Data in GET with Python Examples 2:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="send-data.html#arduino-and-esp8266">Arduino and ESP8266</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="send-data.html#arduino-and-esp8266-http-post-send-data">Arduino and ESP8266 HTTP POST Send Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="send-data.html#arduino-and-esp8266-http-post-send-data-2">Arduino and ESP8266 HTTP POST Send Data 2</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="send-data.html#arduino-esp8266-nodemcu-send-data-in-get">Arduino, ESP8266, Nodemcu Send Data in GET</a></li>
+<li class="toctree-l3"><a class="reference internal" href="send-data.html#nodemcu-send-data-in-get">NodeMCU Send Data in GET</a></li>
+<li class="toctree-l3"><a class="reference internal" href="send-data.html#go-send-data-in-get">GO Send Data in GET</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="send-data.html#go-language-send-data-with-get-method">Go Language Send Data with GET Method</a></li>
+<li class="toctree-l4"><a class="reference internal" href="send-data.html#go-language-send-data-with-get-method-2">Go Language Send Data with GET Method 2</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="send-data.html#php-send-data-in-get">PHP Send Data in GET</a></li>
+<li class="toctree-l3"><a class="reference internal" href="send-data.html#nodejs-send-data-in-get">NodeJS Send Data in GET</a></li>
+<li class="toctree-l3"><a class="reference internal" href="send-data.html#javascript-jquery-ajax-send-data-in-get">Javascript Jquery Ajax Send Data in GET</a></li>
+<li class="toctree-l3"><a class="reference internal" href="send-data.html#java-unirest-send-data-in-get">Java Unirest Send Data in GET</a></li>
+<li class="toctree-l3"><a class="reference internal" href="send-data.html#java-request-send-data-in-get-2">Java Request Send Data in GET 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="send-data.html#arduino-esp32-esp-c3-13-request-send-data-in-get">Arduino ESP32 ESP-C3-13 Request Send Data in GET</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="send-data.html#mqtt-send-data">MQTT Send Data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="read-data.html">Read Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="read-data.html#data-retrieving-with-python-2-python-3-json">Data Retrieving with Python 2, Python 3 Json</a></li>
+<li class="toctree-l2"><a class="reference internal" href="read-data.html#getting-the-first-data-with-python-2-python-3-json">Getting the First Data with Python 2, Python 3 Json</a></li>
+<li class="toctree-l2"><a class="reference internal" href="read-data.html#getting-the-last-data-with-python-2-python-3-json">Getting the Last Data with Python 2, Python 3 Json</a></li>
+<li class="toctree-l2"><a class="reference internal" href="read-data.html#fetching-data-in-json-format-with-c">Fetching Data in JSON Format with C#</a></li>
+<li class="toctree-l2"><a class="reference internal" href="read-data.html#iot-data-fetching-with-go">IOT Data Fetching with GO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="read-data.html#iot-data-fetching-with-java">IOT Data Fetching with JAVA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="read-data.html#iot-data-fetching-with-php">IOT Data Fetching with PHP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="read-data.html#iot-data-fetching-with-ruby">IOT Data Fetching with Ruby</a></li>
+<li class="toctree-l2"><a class="reference internal" href="read-data.html#iot-data-fetching-with-javascript-ajax">IOT Data Fetching with Javascript Ajax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="read-data.html#iot-data-fetching-with-python-pyside2">IOT Data Fetching with Python PySide2</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="how-to-find-iot-device-ip-address.html">How to Find IoT Device IP Address</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="how-to-find-iot-device-ip-address.html#iothook-iot-device-get-global-ip-address-api">IoTHook IoT Device Get Global IP Address API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="how-to-find-iot-device-ip-address.html#iothook-iot-device-get-global-ip-address-api-arduino-ethernet-shield">IoTHook IoT Device Get Global IP Address API Arduino Ethernet Shield</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="get-ip-to-location-address.html">Finding location from IoT Device IP address</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="get-ip-to-location-address.html#getting-location-by-iot-device-ip-address-with-iothook">Getting Location by IoT Device IP Address with IoTHook</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="#">
+              <img class="logo" src="_static/internet-of-things.png" alt="Logo"/>
+            </a></p>
+<h3><a href="#">Table of Contents</a></h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="what-is-iot.html">What is IOT?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="what-is-iothook.html">What is IOTHOOK?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="why-iothook.html">Why IoThook?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create-new-device.html">Add New Device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="send-data.html">Send Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="read-data.html">Read Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how-to-find-iot-device-ip-address.html">How to Find IoT Device IP Address</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get-ip-to-location-address.html">Finding location from IoT Device IP address</a></li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="what-is-iot.html" title="What is IOT?"
+             >next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">IoTHook IoT Internet Of Things Arduino, ESP, Raspberry Pi</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">IoThook IoT Device Dashboard</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2023, iothook.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.0.
+    </div>
+  </body>
+</html>

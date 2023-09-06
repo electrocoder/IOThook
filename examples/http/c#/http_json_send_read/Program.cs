@@ -6,7 +6,7 @@ namespace HelloWorld
     {
         public static async Task Main(string[] args)
         {
-            // # 650 - iot_examples https://iothook.com/en/device/data/650/
+            // #100 - Demo Data HTTP https://iothook.com/en/device/data/100/
 
             HttpClient client = new HttpClient();
 
@@ -14,7 +14,7 @@ namespace HelloWorld
             String send_url = "http://iothook.com/api/update/";
             var values = new Dictionary<string, string>
             {
-                { "api_key", "21579c1e874fda7276d94f3c" }, 
+                { "api_key", "9e722c4fc6c834b15ba01e86" },
                 { "field_1", "1" },
                 { "field_2", "2" },
                 { "field_3", "3" }
@@ -25,7 +25,7 @@ namespace HelloWorld
             Console.WriteLine(result_send);
 
             // read
-            String read_url = "http://iothook.com/api/device/?api_key=f1403e03949c7f9060a4bdd2&results=1";
+            String read_url = "http://iothook.com/api/device/?api_key=b5d91b83c85276cddc84eb67&results=1";
             var response_read = await client.GetAsync(read_url);
             var result_read = await response_read.Content.ReadAsStringAsync();
             Console.WriteLine(result_read);

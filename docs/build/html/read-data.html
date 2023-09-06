@@ -1,0 +1,796 @@
+
+
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Read Data &#8212; IoTHook IoT Internet Of Things Arduino, ESP, Raspberry Pi</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/bizstyle.js"></script>
+    <link rel="shortcut icon" href="_static/internet-of-things.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="How to Find IoT Device IP Address" href="how-to-find-iot-device-ip-address.html" />
+    <link rel="prev" title="Send Data" href="send-data.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="how-to-find-iot-device-ip-address.html" title="How to Find IoT Device IP Address"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="send-data.html" title="Send Data"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">IoTHook IoT Internet Of Things Arduino, ESP, Raspberry Pi</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Read Data</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="read-data">
+<h1>Read Data<a class="headerlink" href="#read-data" title="Permalink to this headline">¶</a></h1>
+<p>We need API KEY information for retrieving the data of temperature, damp, voltage, light etc. values like that which are sending Iot device.Datas which are sending from your Iot device can monitore with mobile devices like Pi, Android, iOs or your website.</p>
+<p>For example; Assume that our device’s name “Temperature sensor” and it will be in the device additionally assume that our sensors “temperature” and “humidity”</p>
+<section id="data-retrieving-with-python-2-python-3-json">
+<h2>Data Retrieving with Python 2, Python 3 Json<a class="headerlink" href="#data-retrieving-with-python-2-python-3-json" title="Permalink to this headline">¶</a></h2>
+<p>Get Example with Python Json:
+The number of data specified by <em>results</em> was read,by using the <em>requests.get</em> method from the IOTHOOK server
+Up to 99 pieces of data can be read with the <em>results</em> variable. If the <em>results</em> variable is not specified, only 1 data can be read.
+The format of readed data is <em>json</em></p>
+<p>The following output is obtained, by running the following Python script.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="mi">502483</span><span class="p">,</span> <span class="s1">&#39;device&#39;</span><span class="p">:</span> <span class="mi">17</span><span class="p">,</span> <span class="s1">&#39;field_1&#39;</span><span class="p">:</span> <span class="s1">&#39;46&#39;</span><span class="p">,</span> <span class="s1">&#39;field_2&#39;</span><span class="p">:</span> <span class="s1">&#39;6.70&#39;</span><span class="p">,</span> <span class="s1">&#39;field_3&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;field_4&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;field_5&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;field_6&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;field_7&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;field_8&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;pub_date&#39;</span><span class="p">:</span> <span class="s1">&#39;2019-08-31T00:57:27.086837&#39;</span><span class="p">,</span> <span class="s1">&#39;remote_address&#39;</span><span class="p">:</span> <span class="s1">&#39;88.242.132.150&amp;python-requests/2.12.4&amp;HTTP/1.1&#39;</span><span class="p">}]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">502483</span>
+</pre></div>
+</div>
+<p>You can find this example and others on the <a class="reference external" href="https://github.com/electrocoder/iothookdoc/tree/main/examples/">IOTHOOK Git</a> page.</p>
+<div class="literal-block-wrapper docutils container" id="get-json-py">
+<div class="code-block-caption"><span class="caption-text">get_json.py</span><a class="headerlink" href="#get-json-py" title="Permalink to this code">¶</a></div>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    IoThook REST Api Test with Python 2, Python 3 </span>
+
+<span class="sd">    This example is at the beginner level for sending/receiving data to the IotHook service.</span>
+<span class="sd">    it aims to carry out tests.</span>
+
+<span class="sd">    10 May 2017</span>
+<span class="sd">    Update: 19 August 2019</span>
+<span class="sd">    Sahin MERSIN</span>
+
+<span class="sd">    For more</span>
+
+<span class="sd">    http://www.iothook.com</span>
+<span class="sd">    and</span>
+<span class="sd">    https://github.com/electrocoder/iotHook</span>
+
+<span class="sd">    go to theese sites</span>
+
+<span class="sd">    For questions and support requests</span>
+<span class="sd">    https://github.com/electrocoder/iotHook/issues</span>
+<span class="sd">    you can take support Mese Bilisim or above github page.</span>
+<span class="sd">    </span>
+
+<span class="sd">    Broadcasting : http://mesebilisim.com</span>
+
+
+<span class="sd">    Licensed under the Apache License, Version 2.0 (the &quot;License&quot;).</span>
+<span class="sd">    You may not use this file except in compliance with the License.</span>
+<span class="sd">    A copy of the License is located at</span>
+
+<span class="sd">    http://www.apache.org/licenses/</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="c1"># read api key</span>
+<span class="n">API_KEY</span> <span class="o">=</span> <span class="s1">&#39;b5d91b83c85276cddc84eb67&#39;</span> <span class="c1"># demo account #100 Demo Data HTTP random test</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://iothook.com/api/device/?api_key=&#39;</span> <span class="o">+</span> <span class="n">API_KEY</span> <span class="o">+</span> <span class="s2">&quot;&amp;results=1&quot;</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="getting-the-first-data-with-python-2-python-3-json">
+<h2>Getting the First Data with Python 2, Python 3 Json<a class="headerlink" href="#getting-the-first-data-with-python-2-python-3-json" title="Permalink to this headline">¶</a></h2>
+<p>Python Getting the First Data, Get Example with Json:</p>
+<p>You can find this example and others on the <a class="reference external" href="https://github.com/electrocoder/iothookdoc/tree/main/examples/">IOTHOOK Git</a> page.</p>
+<div class="literal-block-wrapper docutils container" id="request-get-py">
+<div class="code-block-caption"><span class="caption-text">request_get.py</span><a class="headerlink" href="#request-get-py" title="Permalink to this code">¶</a></div>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    IoThook REST Api Test with Python 2, Python 3 </span>
+
+<span class="sd">    This example is at the beginner level for sending/receiving data to the IotHook service.</span>
+<span class="sd">    it aims to carry out tests.</span>
+
+<span class="sd">    10 May 2017</span>
+<span class="sd">    Update: 19 August 2019</span>
+<span class="sd">    Sahin MERSIN</span>
+
+<span class="sd">    For more</span>
+
+<span class="sd">    http://www.iothook.com</span>
+<span class="sd">    and</span>
+<span class="sd">    https://github.com/electrocoder/iotHook</span>
+
+<span class="sd">    go to theese sites</span>
+
+
+<span class="sd">    For questions and support requests</span>
+<span class="sd">    https://github.com/electrocoder/iotHook/issues</span>
+<span class="sd">    you can take support Mese Bilisim or above github page.</span>
+<span class="sd">    </span>
+
+<span class="sd">    Broadcasting : http://mesebilisim.com</span>
+
+<span class="sd">    Licensed under the Apache License, Version 2.0 (the &quot;License&quot;).</span>
+<span class="sd">    You may not use this file except in compliance with the License.</span>
+<span class="sd">    A copy of the License is located at</span>
+
+<span class="sd">    http://www.apache.org/licenses/</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="c1"># read api key</span>
+<span class="n">API_KEY</span> <span class="o">=</span> <span class="s1">&#39;b5d91b83c85276cddc84eb67&#39;</span> <span class="c1"># demo account #100 Demo Data HTTP Temperature sensor</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://iothook.com/api/device/?api_key=&#39;</span> <span class="o">+</span> <span class="n">API_KEY</span> <span class="o">+</span> <span class="s2">&quot;&amp;results=2&quot;</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;datas&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;datas&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;pub_date&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;datas&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;datas&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;pub_date&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="getting-the-last-data-with-python-2-python-3-json">
+<h2>Getting the Last Data with Python 2, Python 3 Json<a class="headerlink" href="#getting-the-last-data-with-python-2-python-3-json" title="Permalink to this headline">¶</a></h2>
+<p>Python Getting the Last Data, Get Example with Json:</p>
+<p>You can find this example and others on the <a class="reference external" href="https://github.com/electrocoder/iothookdoc/tree/main/examples/">IOTHOOK Git</a> page.</p>
+<div class="literal-block-wrapper docutils container" id="request-get-last-data-py">
+<div class="code-block-caption"><span class="caption-text">request_get_last_data.py</span><a class="headerlink" href="#request-get-last-data-py" title="Permalink to this code">¶</a></div>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    IoThook REST Api Test with Python 2, Python 3 </span>
+
+<span class="sd">    This example is at the beginner level for sending/receiving data to the IotHook service.</span>
+<span class="sd">    it aims to carry out tests.</span>
+
+<span class="sd">    10 May 2017</span>
+<span class="sd">    Update: 19 August 2019</span>
+<span class="sd">    Sahin MERSIN</span>
+
+<span class="sd">    For more</span>
+
+<span class="sd">    http://www.iothook.com</span>
+<span class="sd">    and</span>
+<span class="sd">    https://github.com/electrocoder/iotHook</span>
+
+<span class="sd">    go to theese sites</span>
+
+<span class="sd">    For questions and support requests</span>
+<span class="sd">    https://github.com/electrocoder/iotHook/issues</span>
+<span class="sd">    </span>
+<span class="sd">    you can take support Mese Bilisim or above github page.</span>
+<span class="sd">    Broadcasting : http://mesebilisim.com</span>
+
+<span class="sd">    Licensed under the Apache License, Version 2.0 (the &quot;License&quot;).</span>
+<span class="sd">    You may not use this file except in compliance with the License.</span>
+<span class="sd">    A copy of the License is located at</span>
+
+<span class="sd">    http://www.apache.org/licenses/</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="c1"># read api key</span>
+<span class="n">API_KEY</span> <span class="o">=</span> <span class="s1">&#39;b5d91b83c85276cddc84eb67&#39;</span> <span class="c1"># demo account #100 Demo Data HTTP Temperature sensor</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://iothook.com/api/device/?api_key=&#39;</span> <span class="o">+</span> <span class="n">API_KEY</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;datas&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;datas&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;pub_date&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="fetching-data-in-json-format-with-c">
+<h2>Fetching Data in JSON Format with C#<a class="headerlink" href="#fetching-data-in-json-format-with-c" title="Permalink to this headline">¶</a></h2>
+<p>It has been produced with the GET method using Postman so that the IoThook user can use the data of his device.</p>
+<p>You can find this example and others on the <a class="reference external" href="https://github.com/electrocoder/iothookdoc/tree/main/examples/">IOTHOOK Git</a> page.</p>
+<div class="literal-block-wrapper docutils container" id="c-request-get-data-cs">
+<div class="code-block-caption"><span class="caption-text">c#/request_get_data.cs</span><a class="headerlink" href="#c-request-get-data-cs" title="Permalink to this code">¶</a></div>
+<div class="highlight-cs notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
+<span class="cm">    Testing IoThook REST Api with C#</span>
+
+<span class="cm">    In this example, device data is retrieved with CSharp with the get method.</span>
+
+<span class="cm">    This example is at the beginner level for sending/receiving data to the IotHook service.</span>
+<span class="cm">    it aims to carry out tests.</span>
+
+<span class="cm">    29 July 2017</span>
+<span class="cm">    Update: 19 August 2019</span>
+<span class="cm">    Sahin MERSIN</span>
+
+<span class="cm">    For more</span>
+
+<span class="cm">    http://www.iothook.com</span>
+<span class="cm">    and</span>
+<span class="cm">    https://github.com/electrocoder/iotHook</span>
+
+<span class="cm">    go to theese sites</span>
+
+<span class="cm">    For questions and support requests</span>
+<span class="cm">    https://github.com/electrocoder/iotHook/issues</span>
+<span class="cm">    you can take support Mese Bilisim or above github page.</span>
+
+<span class="cm">    Broadcasting : http://mesebilisim.com</span>
+
+<span class="cm">    Licensed under the Apache License, Version 2.0 (the &quot;License&quot;).</span>
+<span class="cm">    You may not use this file except in compliance with the License.</span>
+<span class="cm">    A copy of the License is located at</span>
+
+<span class="cm">    http://www.apache.org/licenses/</span>
+<span class="cm">*/</span>
+
+<span class="c1">// demo account #100 Demo Data HTTP</span>
+
+<span class="kt">var</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RestClient</span><span class="p">(</span><span class="s">&quot;https://iothook.com/api/device/?api_key=9e722c4fc6c834b15ba01e86&amp;results=1&quot;</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">GET</span><span class="p">);</span>
+<span class="n">request</span><span class="p">.</span><span class="n">AddHeader</span><span class="p">(</span><span class="s">&quot;cache-control&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;no-cache&quot;</span><span class="p">);</span>
+<span class="n">request</span><span class="p">.</span><span class="n">AddHeader</span><span class="p">(</span><span class="s">&quot;Connection&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;keep-alive&quot;</span><span class="p">);</span>
+<span class="n">request</span><span class="p">.</span><span class="n">AddHeader</span><span class="p">(</span><span class="s">&quot;Accept-Encoding&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;gzip, deflate&quot;</span><span class="p">);</span>
+<span class="n">request</span><span class="p">.</span><span class="n">AddHeader</span><span class="p">(</span><span class="s">&quot;Host&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;iothook.com&quot;</span><span class="p">);</span>
+<span class="n">request</span><span class="p">.</span><span class="n">AddHeader</span><span class="p">(</span><span class="s">&quot;Postman-Token&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ce2f06c2-817e-414a-8c7a-2c2fc59ad043,af31a3d8-02e4-49eb-b78f-05ebdce70149&quot;</span><span class="p">);</span>
+<span class="n">request</span><span class="p">.</span><span class="n">AddHeader</span><span class="p">(</span><span class="s">&quot;Cache-Control&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;no-cache&quot;</span><span class="p">);</span>
+<span class="n">request</span><span class="p">.</span><span class="n">AddHeader</span><span class="p">(</span><span class="s">&quot;Accept&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;*/*&quot;</span><span class="p">);</span>
+<span class="n">request</span><span class="p">.</span><span class="n">AddHeader</span><span class="p">(</span><span class="s">&quot;User-Agent&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;PostmanRuntime/7.15.2&quot;</span><span class="p">);</span>
+<span class="n">IRestResponse</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="n">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="iot-data-fetching-with-go">
+<h2>IOT Data Fetching with GO<a class="headerlink" href="#iot-data-fetching-with-go" title="Permalink to this headline">¶</a></h2>
+<p>It has been produced with the GET method using Postman so that the IoThook user can use the data of his device.</p>
+<p>You can find this example and others on the <a class="reference external" href="https://github.com/electrocoder/iothookdoc/tree/main/examples/">IOTHOOK Git</a> page.</p>
+<div class="literal-block-wrapper docutils container" id="request-get-data-go">
+<div class="code-block-caption"><span class="caption-text">request_get_data.go</span><a class="headerlink" href="#request-get-data-go" title="Permalink to this code">¶</a></div>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="c1">// Go HTTP GET</span>
+
+<span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="s">&quot;fmt&quot;</span>
+<span class="w">    </span><span class="s">&quot;net/http&quot;</span>
+<span class="w">    </span><span class="s">&quot;io/ioutil&quot;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nx">url</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">&quot;https://iothook.com/api/device/?api_key=9e722c4fc6c834b15ba01e86&amp;results=1&quot;</span>
+
+<span class="w">    </span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">http</span><span class="p">.</span><span class="nx">NewRequest</span><span class="p">(</span><span class="s">&quot;GET&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">url</span><span class="p">,</span><span class="w"> </span><span class="kc">nil</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nx">req</span><span class="p">.</span><span class="nx">Header</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="s">&quot;User-Agent&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;PostmanRuntime/7.15.2&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">req</span><span class="p">.</span><span class="nx">Header</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="s">&quot;Accept&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;*/*&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">req</span><span class="p">.</span><span class="nx">Header</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="s">&quot;Cache-Control&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;no-cache&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">req</span><span class="p">.</span><span class="nx">Header</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="s">&quot;Postman-Token&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ce2f06c2-817e-414a-8c7a-2c2fc59ad043,8a0938fc-5c87-459a-9b9f-fa6aebe561f2&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">req</span><span class="p">.</span><span class="nx">Header</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="s">&quot;Host&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;iothook.com&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">req</span><span class="p">.</span><span class="nx">Header</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="s">&quot;Accept-Encoding&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;gzip, deflate&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">req</span><span class="p">.</span><span class="nx">Header</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="s">&quot;Connection&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;keep-alive&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">req</span><span class="p">.</span><span class="nx">Header</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="s">&quot;cache-control&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;no-cache&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">http</span><span class="p">.</span><span class="nx">DefaultClient</span><span class="p">.</span><span class="nx">Do</span><span class="p">(</span><span class="nx">req</span><span class="p">)</span>
+
+<span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">Body</span><span class="p">.</span><span class="nx">Close</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">body</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">ioutil</span><span class="p">.</span><span class="nx">ReadAll</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">Body</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">body</span><span class="p">))</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="iot-data-fetching-with-java">
+<h2>IOT Data Fetching with JAVA<a class="headerlink" href="#iot-data-fetching-with-java" title="Permalink to this headline">¶</a></h2>
+<p>It has been produced with the GET method using Postman so that the IoThook user can use the data of his device.</p>
+<p>You can find this example and others on the <a class="reference external" href="https://github.com/electrocoder/iothookdoc/tree/main/examples/">IOTHOOK Git</a> page.</p>
+<div class="literal-block-wrapper docutils container" id="request-get-data-java">
+<div class="code-block-caption"><span class="caption-text">request_get_data.java</span><a class="headerlink" href="#request-get-data-java" title="Permalink to this code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">OkHttpClient</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">OkHttpClient</span><span class="p">();</span>
+
+<span class="n">Request</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Request</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span>
+<span class="w">    </span><span class="p">.</span><span class="na">url</span><span class="p">(</span><span class="s">&quot;https://iothook.com/api/device/?api_key=9e722c4fc6c834b15ba01e86&amp;results=1&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="na">get</span><span class="p">()</span>
+<span class="w">    </span><span class="p">.</span><span class="na">addHeader</span><span class="p">(</span><span class="s">&quot;User-Agent&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;PostmanRuntime/7.15.2&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="na">addHeader</span><span class="p">(</span><span class="s">&quot;Accept&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;*/*&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="na">addHeader</span><span class="p">(</span><span class="s">&quot;Cache-Control&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;no-cache&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="na">addHeader</span><span class="p">(</span><span class="s">&quot;Postman-Token&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ce2f06c2-817e-414a-8c7a-2c2fc59ad043,bdcd2494-5109-4621-8256-296e0c6a4fad&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="na">addHeader</span><span class="p">(</span><span class="s">&quot;Host&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;iothook.com&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="na">addHeader</span><span class="p">(</span><span class="s">&quot;Accept-Encoding&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;gzip, deflate&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="na">addHeader</span><span class="p">(</span><span class="s">&quot;Connection&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;keep-alive&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="na">addHeader</span><span class="p">(</span><span class="s">&quot;cache-control&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;no-cache&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+
+<span class="n">Response</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="na">newCall</span><span class="p">(</span><span class="n">request</span><span class="p">).</span><span class="na">execute</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="iot-data-fetching-with-php">
+<h2>IOT Data Fetching with PHP<a class="headerlink" href="#iot-data-fetching-with-php" title="Permalink to this headline">¶</a></h2>
+<p>It has been produced with the GET method using Postman so that the IoThook user can use the data of his device.</p>
+<p>You can find this example and others on the <a class="reference external" href="https://github.com/electrocoder/iothookdoc/tree/main/examples/">IOTHOOK Git</a> page.</p>
+<div class="literal-block-wrapper docutils container" id="request-get-data-php">
+<div class="code-block-caption"><span class="caption-text">request_get_data.php</span><a class="headerlink" href="#request-get-data-php" title="Permalink to this code">¶</a></div>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="nv">$request</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">HttpRequest</span><span class="p">();</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setUrl</span><span class="p">(</span><span class="s1">&#39;https://iothook.com/api/device/&#39;</span><span class="p">);</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setMethod</span><span class="p">(</span><span class="nx">HTTP_METH_GET</span><span class="p">);</span>
+
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setQueryData</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;api_key&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;b5d91b83c85276cddc84eb67&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;results&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;1&#39;</span>
+<span class="p">));</span>
+
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setHeaders</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;cache-control&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;no-cache&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Connection&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;keep-alive&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Accept-Encoding&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;gzip, deflate&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Host&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;iothook.com&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Postman-Token&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;ce2f06c2-817e-414a-8c7a-2c2fc59ad043,dfad2e87-d4a1-4657-a5b6-183c4604c818&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Cache-Control&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;no-cache&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Accept&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;*/*&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;User-Agent&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;PostmanRuntime/7.15.2&#39;</span>
+<span class="p">));</span>
+
+<span class="k">try</span> <span class="p">{</span>
+    <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">();</span>
+
+    <span class="k">echo</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getBody</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">HttpException</span> <span class="nv">$ex</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="nv">$ex</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="iot-data-fetching-with-ruby">
+<h2>IOT Data Fetching with Ruby<a class="headerlink" href="#iot-data-fetching-with-ruby" title="Permalink to this headline">¶</a></h2>
+<p>It has been produced with the GET method using Postman so that the IoThook user can use the data of his device.</p>
+<p>You can find this example and others on the <a class="reference external" href="https://github.com/electrocoder/iothookdoc/tree/main/examples/">IOTHOOK Git</a> page.</p>
+<div class="literal-block-wrapper docutils container" id="request-get-data-rb">
+<div class="code-block-caption"><span class="caption-text">request_get_data.rb</span><a class="headerlink" href="#request-get-data-rb" title="Permalink to this code">¶</a></div>
+<div class="highlight-rb notranslate"><div class="highlight"><pre><span></span><span class="nb">require</span><span class="w"> </span><span class="s1">&#39;uri&#39;</span>
+<span class="nb">require</span><span class="w"> </span><span class="s1">&#39;net/http&#39;</span>
+
+<span class="n">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">URI</span><span class="p">(</span><span class="s2">&quot;https://iothook.com/api/device/?api_key=b5d91b83c85276cddc84eb67&amp;results=1&quot;</span><span class="p">)</span>
+
+<span class="n">http</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">url</span><span class="o">.</span><span class="n">host</span><span class="p">,</span><span class="w"> </span><span class="n">url</span><span class="o">.</span><span class="n">port</span><span class="p">)</span>
+
+<span class="n">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">request</span><span class="o">[</span><span class="s2">&quot;User-Agent&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;PostmanRuntime/7.15.2&#39;</span>
+<span class="n">request</span><span class="o">[</span><span class="s2">&quot;Accept&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;*/*&#39;</span>
+<span class="n">request</span><span class="o">[</span><span class="s2">&quot;Cache-Control&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;no-cache&#39;</span>
+<span class="n">request</span><span class="o">[</span><span class="s2">&quot;Postman-Token&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;ce2f06c2-817e-414a-8c7a-2c2fc59ad043,8fe93ff6-b857-4978-838e-2d8efac2e6b6&#39;</span>
+<span class="n">request</span><span class="o">[</span><span class="s2">&quot;Host&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;iothook.com&#39;</span>
+<span class="n">request</span><span class="o">[</span><span class="s2">&quot;Accept-Encoding&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;gzip, deflate&#39;</span>
+<span class="n">request</span><span class="o">[</span><span class="s2">&quot;Connection&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;keep-alive&#39;</span>
+<span class="n">request</span><span class="o">[</span><span class="s2">&quot;cache-control&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;no-cache&#39;</span>
+
+<span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">http</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="nb">puts</span><span class="w"> </span><span class="n">response</span><span class="o">.</span><span class="n">read_body</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="iot-data-fetching-with-javascript-ajax">
+<h2>IOT Data Fetching with Javascript Ajax<a class="headerlink" href="#iot-data-fetching-with-javascript-ajax" title="Permalink to this headline">¶</a></h2>
+<p>It has been produced with the GET method using Postman so that the IoThook user can use the data of his device.</p>
+<p>You can find this example and others on the <a class="reference external" href="https://github.com/electrocoder/iothookdoc/tree/main/examples/">IOTHOOK Git</a> page.</p>
+<div class="literal-block-wrapper docutils container" id="request-get-data-js">
+<div class="code-block-caption"><span class="caption-text">request_get_data.js</span><a class="headerlink" href="#request-get-data-js" title="Permalink to this code">¶</a></div>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">settings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;async&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;crossDomain&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;url&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;https://iothook.com/api/device/?api_key=9e722c4fc6c834b15ba01e86&amp;results=1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;method&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;GET&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;headers&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">&quot;User-Agent&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;PostmanRuntime/7.15.2&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;Accept&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;*/*&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;Cache-Control&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;no-cache&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;Postman-Token&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ce2f06c2-817e-414a-8c7a-2c2fc59ad043,27a5bb35-4b13-48b2-8dbd-efe7188a68c6&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;Host&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;iothook.com&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;Accept-Encoding&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;gzip, deflate&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;Connection&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;keep-alive&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;cache-control&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;no-cache&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">response</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="w">  </span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="iot-data-fetching-with-python-pyside2">
+<h2>IOT Data Fetching with Python PySide2<a class="headerlink" href="#iot-data-fetching-with-python-pyside2" title="Permalink to this headline">¶</a></h2>
+<p>PySide2 is the official Python module that provides access to the Qt 5.12+ framework for Python projects. Before using PySide2, the following modules need to be installed</p>
+<blockquote>
+<div><p>$ pip install matplotlib</p>
+<p>$ pip install numpy</p>
+<p>$ pip install PySide2</p>
+</div></blockquote>
+<p>The installation of Python libraries has been done using pip. If pip is not installed on your system, you can visit the following address, <a class="reference external" href="https://bootstrap.pypa.io/get-pip.py">https://bootstrap.pypa.io/get-pip.py</a>, to download the file to your computer and run it.</p>
+<p>Here, we will use PySide2 and Matplotlib to display the incoming data as a graph within a Window.</p>
+<p>When the script is executed, we should see a window like the one shown below.</p>
+<figure class="align-center">
+<img alt="pyside2-matplotlib-iothook.png" src="_images/pyside2-matplotlib-iothook.png" />
+</figure>
+<p>In this example, the interface design was created using <em>QT Designer</em>. For the widget,*Promote to …* option was used with the <em>MplWidget</em> class. In prepearing this example <em>manap.se</em> <a class="reference external" href="https://blog.manap.se/pyqt/bolum3/plot.html">Manap</a> and <em>yapayzekalabs.blogspot.com</em> <a class="reference external" href="http://yapayzekalabs.blogspot.com/2018/11/pyside2-gui-qt-designer-matplotlib.html">Yapayzekalabs</a>
+used this sites. You can find more resources at these sites.</p>
+<dl class="simple">
+<dt>The test process was carried out with a device named <em>5 channel test</em> with id number <em>230</em> in IoThook.</dt><dd><p>This device belongs to demo user</p>
+</dd>
+</dl>
+<p>You can find this example and others on the <a class="reference external" href="https://github.com/electrocoder/iothookdoc/tree/main/examples/">IOTHOOK Git</a> page.</p>
+<p>iothook.ui folder:</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">iothook.ui</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;ui</span><span class="w"> </span><span class="na">version=</span><span class="s">&quot;4.0&quot;</span><span class="nt">&gt;</span>
+<span class="w"> </span><span class="nt">&lt;class&gt;</span>Form<span class="nt">&lt;/class&gt;</span>
+<span class="w"> </span><span class="nt">&lt;widget</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;QWidget&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Form&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;geometry&quot;</span><span class="nt">&gt;</span>
+<span class="w">   </span><span class="nt">&lt;rect&gt;</span>
+<span class="w">    </span><span class="nt">&lt;x&gt;</span>0<span class="nt">&lt;/x&gt;</span>
+<span class="w">    </span><span class="nt">&lt;y&gt;</span>0<span class="nt">&lt;/y&gt;</span>
+<span class="w">    </span><span class="nt">&lt;width&gt;</span>689<span class="nt">&lt;/width&gt;</span>
+<span class="w">    </span><span class="nt">&lt;height&gt;</span>553<span class="nt">&lt;/height&gt;</span>
+<span class="w">   </span><span class="nt">&lt;/rect&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/property&gt;</span>
+<span class="w">  </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;windowTitle&quot;</span><span class="nt">&gt;</span>
+<span class="w">   </span><span class="nt">&lt;string&gt;</span>Form<span class="nt">&lt;/string&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/property&gt;</span>
+<span class="w">  </span><span class="nt">&lt;layout</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;QGridLayout&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;gridLayout&quot;</span><span class="nt">&gt;</span>
+<span class="w">   </span><span class="nt">&lt;item</span><span class="w"> </span><span class="na">row=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">column=</span><span class="s">&quot;0&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;widget</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;QLabel&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;label&quot;</span><span class="nt">&gt;</span>
+<span class="w">     </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;text&quot;</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nt">&lt;string&gt;</span>Read<span class="w"> </span>API<span class="w"> </span>KEY<span class="nt">&lt;/string&gt;</span>
+<span class="w">     </span><span class="nt">&lt;/property&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/widget&gt;</span>
+<span class="w">   </span><span class="nt">&lt;/item&gt;</span>
+<span class="w">   </span><span class="nt">&lt;item</span><span class="w"> </span><span class="na">row=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">column=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;widget</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;QLineEdit&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;lineEdit&quot;</span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;/item&gt;</span>
+<span class="w">   </span><span class="nt">&lt;item</span><span class="w"> </span><span class="na">row=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">column=</span><span class="s">&quot;2&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;widget</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;QPushButton&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;pushButton&quot;</span><span class="nt">&gt;</span>
+<span class="w">     </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;text&quot;</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nt">&lt;string&gt;</span>Connect<span class="nt">&lt;/string&gt;</span>
+<span class="w">     </span><span class="nt">&lt;/property&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/widget&gt;</span>
+<span class="w">   </span><span class="nt">&lt;/item&gt;</span>
+<span class="w">   </span><span class="nt">&lt;item</span><span class="w"> </span><span class="na">row=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="na">column=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">colspan=</span><span class="s">&quot;3&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;widget</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;MplWidget&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;MplWidget&quot;</span><span class="w"> </span><span class="na">native=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;/item&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/layout&gt;</span>
+<span class="w"> </span><span class="nt">&lt;/widget&gt;</span>
+<span class="w"> </span><span class="nt">&lt;customwidgets&gt;</span>
+<span class="w">  </span><span class="nt">&lt;customwidget&gt;</span>
+<span class="w">   </span><span class="nt">&lt;class&gt;</span>MplWidget<span class="nt">&lt;/class&gt;</span>
+<span class="w">   </span><span class="nt">&lt;extends&gt;</span>QWidget<span class="nt">&lt;/extends&gt;</span>
+<span class="w">   </span><span class="nt">&lt;header&gt;</span>mplwidget.h<span class="nt">&lt;/header&gt;</span>
+<span class="w">   </span><span class="nt">&lt;container&gt;</span>1<span class="nt">&lt;/container&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/customwidget&gt;</span>
+<span class="w"> </span><span class="nt">&lt;/customwidgets&gt;</span>
+<span class="w"> </span><span class="nt">&lt;resources/&gt;</span>
+<span class="w"> </span><span class="nt">&lt;connections/&gt;</span>
+<span class="nt">&lt;/ui&gt;</span>
+</pre></div>
+</div>
+</div>
+<p>iothook.py folder:</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">iothook.py</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Python ile IoThook REST Api Testi</span>
+
+<span class="sd">  IoThook&#39;da her cihazin bir kimlik numarasi APIKEY&#39;i vardir.</span>
+<span class="sd">  Bu APIKEY kullanilarak veriler IoThook&#39;a GET metodu gonderilir ve cihaz detay verileri alinir.</span>
+<span class="sd">  PySide2 ile arayuz olusturulmustur.</span>
+
+<span class="sd">  Bu ornek IotHook servisine veri almak/gondermek icin baslangic seviyesinde</span>
+<span class="sd">  testlerin yapilmasini amaclamaktadir.</span>
+
+<span class="sd">  v1 : 19 Agustos 2019</span>
+<span class="sd">  v2 : 31 Ekim 2022</span>
+
+<span class="sd">  Sahin MERSIN - electrocoder</span>
+
+<span class="sd">  Daha fazlasi icin</span>
+
+<span class="sd">  http://www.iothook.com</span>
+<span class="sd">  https://www.mesebilisim.com</span>
+<span class="sd">  https://mesemekatronik.com</span>
+<span class="sd">  https://electrocoder.blogspot.com</span>
+<span class="sd">  https://github.com/meseiot/iotexamples</span>
+
+<span class="sd">  sitelerine gidiniz.</span>
+
+<span class="sd">  Yayin : http://mesebilisim.com</span>
+
+<span class="sd">  Licensed under the Apache License, Version 2.0 (the &quot;License&quot;).</span>
+<span class="sd">  You may not use this file except in compliance with the License.</span>
+<span class="sd">  A copy of the License is located at</span>
+
+<span class="sd">  http://www.apache.org/licenses/</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">PySide2.QtWidgets</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">PySide2.QtUiTools</span> <span class="kn">import</span> <span class="n">QUiLoader</span>
+<span class="kn">from</span> <span class="nn">PySide2.QtCore</span> <span class="kn">import</span> <span class="n">QFile</span><span class="p">,</span> <span class="n">QTimer</span>
+
+<span class="kn">from</span> <span class="nn">matplotlib.backends.backend_qt5agg</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">FigureCanvas</span><span class="p">,</span> <span class="n">NavigationToolbar2QT</span> <span class="k">as</span> <span class="n">NavigationToolbar</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">matplotlib.figure</span> <span class="kn">import</span> <span class="n">Figure</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+
+<span class="k">class</span> <span class="nc">MplWidget</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">QWidget</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span> <span class="o">=</span> <span class="n">FigureCanvas</span><span class="p">(</span><span class="n">Figure</span><span class="p">())</span>
+
+        <span class="n">vertical_layout</span> <span class="o">=</span> <span class="n">QVBoxLayout</span><span class="p">()</span>
+        <span class="n">vertical_layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="p">)</span>
+        <span class="n">vertical_layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">NavigationToolbar</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="p">,</span> <span class="bp">self</span><span class="p">))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">axes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setLayout</span><span class="p">(</span><span class="n">vertical_layout</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">MainWidget</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">QWidget</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="n">designer_file</span> <span class="o">=</span> <span class="n">QFile</span><span class="p">(</span><span class="s2">&quot;iothook.ui&quot;</span><span class="p">)</span>
+        <span class="n">designer_file</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">QFile</span><span class="o">.</span><span class="n">ReadOnly</span><span class="p">)</span>
+        <span class="n">loader</span> <span class="o">=</span> <span class="n">QUiLoader</span><span class="p">()</span>
+        <span class="n">loader</span><span class="o">.</span><span class="n">registerCustomWidget</span><span class="p">(</span><span class="n">MplWidget</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ui</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">designer_file</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="n">designer_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s2">&quot;IOTHOOK&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">field_1_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">field_2_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">field_3_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">field_4_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">field_5_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">field_6_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">field_7_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">field_8_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">lineEdit</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">findChild</span><span class="p">(</span><span class="n">QLineEdit</span><span class="p">,</span> <span class="s1">&#39;lineEdit&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pushButton</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">findChild</span><span class="p">(</span><span class="n">QPushButton</span><span class="p">,</span> <span class="s1">&#39;pushButton&#39;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">pushButton</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="p">)</span>
+
+        <span class="n">grid_layout</span> <span class="o">=</span> <span class="n">QGridLayout</span><span class="p">()</span>
+        <span class="n">grid_layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setLayout</span><span class="p">(</span><span class="n">grid_layout</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">result</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">timer</span> <span class="o">=</span> <span class="n">QTimer</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">timer</span><span class="o">.</span><span class="n">setInterval</span><span class="p">(</span><span class="mi">5000</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">timer</span><span class="o">.</span><span class="n">timeout</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">timer</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;update&quot;</span><span class="p">)</span>
+        <span class="c1"># demo account API_KEY</span>
+        <span class="c1"># https://iothook.com/en/device/data/100/</span>
+        <span class="c1"># 100 - Demo Data HTTP</span>
+        <span class="c1"># API_KEY = &#39;b5d91b83c85276cddc84eb67&#39;  # read api key</span>
+        <span class="n">API_KEY</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lineEdit</span><span class="o">.</span><span class="n">text</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">API_KEY</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pushButton</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s2">&quot;Stop&quot;</span><span class="p">)</span>
+            <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://iothook.com/api/device/?api_key=&#39;</span> <span class="o">+</span> <span class="n">API_KEY</span> <span class="o">+</span> <span class="s2">&quot;&amp;results=1&quot;</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">MplWidget</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">field_title_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+                <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;field_1&#39;</span><span class="p">]:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">field_title_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;field_1&#39;</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">field_1_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;field_1&#39;</span><span class="p">])</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">MplWidget</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">field_1_list</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;field_2&#39;</span><span class="p">]:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">field_title_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;field_2&#39;</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">field_2_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;field_2&#39;</span><span class="p">])</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">MplWidget</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">field_2_list</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;field_3&#39;</span><span class="p">]:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">field_title_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;field_3&#39;</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">field_3_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;field_3&#39;</span><span class="p">])</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">MplWidget</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">field_3_list</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;field_4&#39;</span><span class="p">]:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">field_title_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;field_4&#39;</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">field_4_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;field_4&#39;</span><span class="p">])</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">MplWidget</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">field_4_list</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;field_5&#39;</span><span class="p">]:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">field_title_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;field_5&#39;</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">field_5_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;field_5&#39;</span><span class="p">])</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">MplWidget</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">field_5_list</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;field_6&#39;</span><span class="p">]:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">field_title_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;field_6&#39;</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">field_6_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;field_6&#39;</span><span class="p">])</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">MplWidget</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">field_6_list</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;field_7&#39;</span><span class="p">]:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">field_title_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;field_7&#39;</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">field_7_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;field_7&#39;</span><span class="p">])</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">MplWidget</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">field_7_list</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;field_8&#39;</span><span class="p">]:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">field_title_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;field_8&#39;</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">field_8_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;field_8&#39;</span><span class="p">])</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">MplWidget</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">field_8_list</span><span class="p">)</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">MplWidget</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">legend</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">field_title_list</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">MplWidget</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">repaint</span><span class="p">()</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="k">pass</span>
+
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">([])</span>
+<span class="n">window</span> <span class="o">=</span> <span class="n">MainWidget</span><span class="p">()</span>
+<span class="n">window</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/internet-of-things.png" alt="Logo"/>
+            </a></p>
+<h3><a href="index.html">Table of Contents</a></h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="what-is-iot.html">What is IOT?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="what-is-iothook.html">What is IOTHOOK?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="why-iothook.html">Why IoThook?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create-new-device.html">Add New Device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="send-data.html">Send Data</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Read Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#data-retrieving-with-python-2-python-3-json">Data Retrieving with Python 2, Python 3 Json</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-the-first-data-with-python-2-python-3-json">Getting the First Data with Python 2, Python 3 Json</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-the-last-data-with-python-2-python-3-json">Getting the Last Data with Python 2, Python 3 Json</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fetching-data-in-json-format-with-c">Fetching Data in JSON Format with C#</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#iot-data-fetching-with-go">IOT Data Fetching with GO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#iot-data-fetching-with-java">IOT Data Fetching with JAVA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#iot-data-fetching-with-php">IOT Data Fetching with PHP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#iot-data-fetching-with-ruby">IOT Data Fetching with Ruby</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#iot-data-fetching-with-javascript-ajax">IOT Data Fetching with Javascript Ajax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#iot-data-fetching-with-python-pyside2">IOT Data Fetching with Python PySide2</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="how-to-find-iot-device-ip-address.html">How to Find IoT Device IP Address</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get-ip-to-location-address.html">Finding location from IoT Device IP address</a></li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/read-data.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="how-to-find-iot-device-ip-address.html" title="How to Find IoT Device IP Address"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="send-data.html" title="Send Data"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">IoTHook IoT Internet Of Things Arduino, ESP, Raspberry Pi</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Read Data</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2023, iothook.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.0.
+    </div>
+  </body>
+</html>

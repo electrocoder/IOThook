@@ -1,0 +1,5 @@
+django==4.2.2
+djangorestframework
+markdown==3.4.3
+django-filter==23.2
+drf-yasg[validation]

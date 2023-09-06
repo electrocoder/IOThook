@@ -22,6 +22,6 @@ In this list, we have listed MQTT brokers that are open source and developed for
 | AWS        | aws                         |      | 443      |      | 8883      | 
 | CloudMQTT  | cloudmqtt.com               |      |          |      |           | 
 | mqtthq     | public.mqtthq.com           | 8083 |          | 1883 |           | 
-| eclipse    | mqtt.eclipseprojects.io​     | 80   | 443      | 1883 | 8883      | 
+| eclipse    | mqtt.eclipseprojects.io     | 80   | 443      | 1883 | 8883      |
 
 

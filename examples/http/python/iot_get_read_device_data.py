@@ -35,9 +35,9 @@
 import requests
 
 # demo account API_KEY
-# https://iothook.com/en/device/data/650/
-# 650 - iot_examples
-API_KEY = 'f1403e03949c7f9060a4bdd2'  # read api key
+# https://iothook.com/en/device/data/100/
+# 100 - Demo Data HTTP
+API_KEY = 'b5d91b83c85276cddc84eb67'  # read api key
 url = 'http://iothook.com/api/device/?api_key=' + API_KEY + "&results=1"
 
 response = requests.get(url)

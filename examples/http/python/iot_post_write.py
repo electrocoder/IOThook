@@ -41,9 +41,9 @@ import requests
 headers = {'Content-type': 'application/json'}
 
 # demo account API_KEY
-# https://iothook.com/en/device/data/650/
-# 650 - iot_examples
-API_KEY = '21579c1e874fda7276d94f3c'  # write api key
+# https://iothook.com/en/device/data/100/
+# 100 - Demo Data HTTP
+API_KEY = '9e722c4fc6c834b15ba01e86'  # write api key
 url = 'http://iothook.com/api/update/'
 
 data = {

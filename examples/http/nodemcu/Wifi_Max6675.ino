@@ -22,7 +22,7 @@
 
 #ifndef STASSID
 #define STASSID "Sahin"
-#define STAPSK  "Ss12345***"
+#define STAPSK  "Ss123Mese"
 #endif
 
 int thermoDO = 13; // 13 D7
@@ -73,7 +73,7 @@ void loop() {
 
     Serial.print("[HTTP] POST...\n");
     // start connection and send HTTP header and body
-    int httpCode = http.POST("{\"api_key\":\"a628cd3e51473876a5e874de\",\"field_1\":\"" + String(temp) + "\"}");
+    int httpCode = http.POST("{\"api_key\":\"9e722c4fc6c834b15ba01e86\",\"field_1\":\"" + String(temp) + "\"}");
 
     // httpCode will be negative on error
     if (httpCode > 0) {

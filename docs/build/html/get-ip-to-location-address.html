@@ -1,0 +1,244 @@
+
+
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Finding location from IoT Device IP address &#8212; IoTHook IoT Internet Of Things Arduino, ESP, Raspberry Pi</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/bizstyle.js"></script>
+    <link rel="shortcut icon" href="_static/internet-of-things.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="How to Find IoT Device IP Address" href="how-to-find-iot-device-ip-address.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="how-to-find-iot-device-ip-address.html" title="How to Find IoT Device IP Address"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">IoTHook IoT Internet Of Things Arduino, ESP, Raspberry Pi</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Finding location from IoT Device IP address</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="finding-location-from-iot-device-ip-address">
+<h1>Finding location from IoT Device IP address<a class="headerlink" href="#finding-location-from-iot-device-ip-address" title="Permalink to this headline">¶</a></h1>
+<p>Finding the precise location of an IoT device based solely on its IP address can be challenging and often
+inaccurate. IP addresses are assigned to devices by internet service providers (ISPs) and generally provide
+information about the network or region to which the device is connected, rather than its physical location.</p>
+<p>However, there are techniques that can be used to estimate the approximate location of an IP address. Here
+are a few methods:</p>
+<p>1. Geolocation Databases: Some organizations maintain databases that map IP addresses to geographic locations.
+These databases are compiled using various sources such as user-reported data, ISP information, and publicly
+available data. By querying these databases, it’s possible to obtain an approximate location associated with
+an IP address.</p>
+<p>2. Wi-Fi Network Mapping: In some cases, the IP address of an IoT device may be associated with a Wi-Fi network.
+By mapping the known locations of Wi-Fi networks, it’s possible to estimate the location of a device connected
+to a particular network. This method is typically more accurate in urban areas with denser Wi-Fi coverage.</p>
+<p>3. Mobile Network Data: If the IoT device is connected to a mobile network, the IP address can provide
+information about the location of the mobile network’s serving gateway. However, this location may not
+correspond directly to the physical location of the IoT device, as mobile networks can cover large areas.</p>
+<p>It’s important to note that these methods have limitations and may not always provide precise or reliable
+results. IP addresses can be dynamically assigned, and devices may connect through proxies or virtual private
+networks (VPNs), which can affect the accuracy of geolocation estimates.</p>
+<p>For applications where accurate location information is crucial, IoT devices often incorporate additional
+positioning technologies such as GPS or triangulation using cellular tower signals to determine
+their precise location.</p>
+<section id="getting-location-by-iot-device-ip-address-with-iothook">
+<h2>Getting Location by IoT Device IP Address with IoTHook<a class="headerlink" href="#getting-location-by-iot-device-ip-address-with-iothook" title="Permalink to this headline">¶</a></h2>
+<p>After finding the IP address of the IoT device, to get the Location information from the IP
+address <a class="reference external" href="https://iothook.com/api/get-ip-to-location-address/">https://iothook.com/api/get-ip-to-location-address/</a> or <a class="reference external" href="https://iothook.com/api/get-ip-to-location/">https://iothook.com/api/get-ip-to-location/</a> A GET
+request is sent to -address/. With the GET request, first the IoT device IP address is found, then the
+location is found and the location address is sent.</p>
+<p>When a GET request is sent to IoTHook, first the IP address is found and then the location is found. The
+location example can be sampled in JSON format as follows. {“location”:”Yunusemre,Manisa,TR”}</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
+
+<span class="cm">  Location by IoT Device IP Address</span>
+<span class="cm">  electrocoder@gmail.com</span>
+<span class="cm">  sahin@mesebilisim.com</span>
+<span class="cm">  mesebilisim.com</span>
+<span class="cm">  30.05.2023</span>
+
+<span class="cm">*/</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;SPI.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Ethernet.h&gt;</span>
+
+
+<span class="n">byte</span><span class="w"> </span><span class="n">mac</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="mh">0xDE</span><span class="p">,</span><span class="w"> </span><span class="mh">0xAD</span><span class="p">,</span><span class="w"> </span><span class="mh">0xBE</span><span class="p">,</span><span class="w"> </span><span class="mh">0xEF</span><span class="p">,</span><span class="w"> </span><span class="mh">0xFE</span><span class="p">,</span><span class="w"> </span><span class="mh">0xED</span>
+<span class="p">};</span>
+
+<span class="n">IPAddress</span><span class="w"> </span><span class="nf">ip</span><span class="p">(</span><span class="mi">192</span><span class="p">,</span><span class="w"> </span><span class="mi">168</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">177</span><span class="p">);</span>
+<span class="n">IPAddress</span><span class="w"> </span><span class="nf">myDns</span><span class="p">(</span><span class="mi">192</span><span class="p">,</span><span class="w"> </span><span class="mi">168</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+
+<span class="n">EthernetClient</span><span class="w"> </span><span class="n">client</span><span class="p">;</span>
+
+<span class="kt">char</span><span class="w"> </span><span class="n">server</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;iothook.com&quot;</span><span class="p">;</span>
+
+<span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">lastConnectionTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">postingInterval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span>
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">Serial</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Initialize Ethernet with DHCP:&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Ethernet</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">mac</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Failed to configure Ethernet using DHCP&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// Check for Ethernet hardware present</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Ethernet</span><span class="p">.</span><span class="n">hardwareStatus</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">EthernetNoHardware</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Ethernet shield was not found.  Sorry, can&#39;t run without hardware. :(&quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">delay</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Ethernet</span><span class="p">.</span><span class="n">linkStatus</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">LinkOFF</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Ethernet cable is not connected.&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">Ethernet</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">mac</span><span class="p">,</span><span class="w"> </span><span class="n">ip</span><span class="p">,</span><span class="w"> </span><span class="n">myDns</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;My IP address: &quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">Ethernet</span><span class="p">.</span><span class="n">localIP</span><span class="p">());</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;  DHCP assigned IP &quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">Ethernet</span><span class="p">.</span><span class="n">localIP</span><span class="p">());</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+
+<span class="p">}</span>
+
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">available</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="n">read</span><span class="p">();</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">millis</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lastConnectionTime</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">postingInterval</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">httpRequest</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="p">}</span>
+
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">httpRequest</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="n">client</span><span class="p">.</span><span class="n">stop</span><span class="p">();</span>
+
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="n">server</span><span class="p">,</span><span class="w"> </span><span class="mi">80</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;connecting...&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;GET /api/get-ip-to-location-address/ HTTP/1.1&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Host: www.iothook.com&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;User-Agent: arduino-ethernet&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Connection: close&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">();</span>
+
+
+<span class="w">    </span><span class="n">lastConnectionTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">millis</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;connection failed&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/internet-of-things.png" alt="Logo"/>
+            </a></p>
+<h3><a href="index.html">Table of Contents</a></h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="what-is-iot.html">What is IOT?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="what-is-iothook.html">What is IOTHOOK?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="why-iothook.html">Why IoThook?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create-new-device.html">Add New Device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="send-data.html">Send Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="read-data.html">Read Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how-to-find-iot-device-ip-address.html">How to Find IoT Device IP Address</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Finding location from IoT Device IP address</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#getting-location-by-iot-device-ip-address-with-iothook">Getting Location by IoT Device IP Address with IoTHook</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/get-ip-to-location-address.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="how-to-find-iot-device-ip-address.html" title="How to Find IoT Device IP Address"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">IoTHook IoT Internet Of Things Arduino, ESP, Raspberry Pi</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Finding location from IoT Device IP address</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2023, iothook.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.0.
+    </div>
+  </body>
+</html>

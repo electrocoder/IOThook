@@ -82,7 +82,7 @@ void httpRequest() {
   if (client.connect(server, 80)) {
     Serial.println("connecting...");
 
-    client.println("GET /api/update/?api_key=1c68681&field_1=0 HTTP/1.1");
+    client.println("GET /api/update/?api_key=9e722c4fc6c834b15ba01e86&field_1=0 HTTP/1.1");
     client.println("Host: www.iothook.com");
     client.println("User-Agent: arduino-ethernet");
     client.println("Connection: close");

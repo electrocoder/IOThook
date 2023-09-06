@@ -17,7 +17,7 @@
 
 #ifndef STASSID
 #define STASSID "Sahin"
-#define STAPSK  "Ss12345***"
+#define STAPSK  "Ss123Mese"
 #endif
 
 int LED = D4; // 2; // esp nin ledi
@@ -68,7 +68,7 @@ void loop() {
 
     Serial.print("[HTTP] POST...\n");
     // start connection and send HTTP header and body
-    int httpCode = http.POST("{\"api_key\":\"2194c3c11f8bd12daeaba7e2\",\"field_1\":\"" + String(durum) + "\"}");
+    int httpCode = http.POST("{\"api_key\":\"9e722c4fc6c834b15ba01e86\",\"field_1\":\"" + String(durum) + "\"}");
 
     // httpCode will be negative on error
     if (httpCode > 0) {

@@ -58,20 +58,31 @@ function mqttDisconnect() {
 
 function mqttConnect() {
   var client_id = "clientId-ZRBQ1xt4DK";
-  var host = "broker.emqx.io";
-  var port = 8083;
-  var host = "broker.hivemq.com";
-  var port = 8000;
-  var host = "mqtt.eclipse.org";
-  var port = 1883;
+
+//  var host = "broker.emqx.io";
+//  var port = 8083;
+//  var host = "broker.hivemq.com";
+//  var port = 8000;
+//  var host = "mqtt.eclipse.org";
+//  var port = 1883;
+
+  var host = "iothook.com";
+//  var port = 8083;  // ws
+  var port = 8084;  // wss
 
   console.log("connecting to " + host + " " + port);
   mqtt = new Paho.MQTT.Client(host, port, client_id);
+//  mqtt.tls_set(ca_certs='./mqtt_my_root_ca.pem')
+
   mqtt.onMessageArrived = onMessageArrived;
   mqtt.onConnectionLost = onConnectionLost;
 
   var options = {
-    useSSL: false,
+    useSSL: true,  // if wss is set true
+//    ca: ['mqtt_my_root_ca.pem'],
+    userName : "publicmqttbroker",
+    password : "publicmqttbroker",
+//    protocol: 'wss',
     timeout: 3,
     onSuccess: onConnect,
   };

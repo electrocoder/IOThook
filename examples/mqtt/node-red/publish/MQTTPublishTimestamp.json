@@ -75,7 +75,7 @@
         "id": "dd3d60f865a89602",
         "type": "mqtt-broker",
         "name": "",
-        "broker": "publicmqttbroker.iiotmq.com",
+        "broker": "iothook.com",
         "port": "1883",
         "clientid": "",
         "autoConnect": true,

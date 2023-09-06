@@ -94,8 +94,8 @@
     {
         "id": "a54d22fad9f72d96",
         "type": "mqtt-broker",
-        "name": "publicmqttbroker.iiotmq.com",
-        "broker": "publicmqttbroker.iiotmq.com",
+        "name": "iothook.com",
+        "broker": "iothook.com",
         "port": "1883",
         "clientid": "",
         "autoConnect": true,

@@ -66,7 +66,7 @@ void loop() {
 
   HTTPClient http;
 
-  http.begin("http://iothook.com/api/update/?api_key=1274db1febddee135c5d26042&field_1=1");
+  http.begin("http://iothook.com/api/update/?api_key=9e722c4fc6c834b15ba01e86&field_1=1");
 
   Serial.print("[HTTP] GET...\n");
 
