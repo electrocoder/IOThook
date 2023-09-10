@@ -130,6 +130,8 @@ You can find this example and others at `IoT Examples Get Write 1 Github <https:
 Arduino and ESP8266
 ===================
 
+Arduino and ESP8266 HTTP Post Examples.
+
 Arduino and ESP8266 HTTP POST Send Data
 ---------------------------------------
 
@@ -280,6 +282,33 @@ Here is an example of sending data using the Get method with Java:
     :language: java
     :caption: send_data_in_get_2.java
     :name: send_data_in_get_2.java
+
+Arduino ESP32 ESP-C3-13 Request Send Data in GET
+================================================
+
+Data will be sent to IoThook with HTTP GET method with ESP32 on Arduino IDE.
+
+The device used in this project is the ESP-C3-13 produced by ai-thinker. The features of the device and the
+settings for programming with Arduino IDE are as follows.
+
+* Device: ESP-C3-13
+* FCC ID: 2ATPO-ESP-C3-X C3-2M
+* Device Doc.: https://docs.ai-thinker.com/_media/esp32/docs/esp-c3-12f_specification.pdf
+* Arduino IDE Board Select: ESP32C3 Dev Module
+* Arduino IDE CPU Frequency: 160MHZ
+* Arduino IDE Flash Size: 2MB
+* Arduino IDE Partition Schema: 2MB
+* Arduino IDE MacOS Upload Speed: MacOS: 115200, Windows and Linux: 460800
+
+
+You can find this example and others at `IOTHOOK Git <https://github.com/electrocoder/iothookdoc>`_
+
+Here is an example of sending data using the Get method with C:
+
+.. literalinclude:: /../../examples/http/esp32/esp32-c3/BasicHttpClient_ESP_C3_13/BasicHttpClient_ESP_C3_13.ino
+    :language: c
+    :caption: BasicHttpClient_ESP_C3_13.ino
+    :name: BasicHttpClient_ESP_C3_13.ino
 
 Arduino ESP32 ESP-C3-13 Request Send Data in GET
 ================================================

@@ -2,12 +2,15 @@
 Read Data
 *********
 
+HTTP Read Data
+**************
+
 We need API KEY information for retrieving the data of temperature, damp, voltage, light etc. values like that which are sending Iot device.Datas which are sending from your Iot device can monitore with mobile devices like Pi, Android, iOs or your website.
 
 For example; Assume that our device's name "Temperature sensor" and it will be in the device additionally assume that our sensors "temperature" and "humidity"
 
 Data Retrieving with Python 2, Python 3 Json
---------------------------------------------
+============================================
 
 Get Example with Python Json:
 The number of data specified by *results* was read,by using the *requests.get* method from the IOTHOOK server
@@ -31,7 +34,7 @@ You can find this example and others on the `IOTHOOK Git`_ page.
     :name: get_json.py
 
 Getting the First Data with Python 2, Python 3 Json
----------------------------------------------------
+====================================================
 
 Python Getting the First Data, Get Example with Json:
 
@@ -43,7 +46,7 @@ You can find this example and others on the `IOTHOOK Git`_ page.
     :name: request_get.py
 
 Getting the Last Data with Python 2, Python 3 Json
---------------------------------------------------
+==================================================
 
 Python Getting the Last Data, Get Example with Json:
 
@@ -55,7 +58,7 @@ You can find this example and others on the `IOTHOOK Git`_ page.
     :name: request_get_last_data.py
 
 Fetching Data in JSON Format with C#
-------------------------------------
+====================================
 
 It has been produced with the GET method using Postman so that the IoThook user can use the data of his device.
 
@@ -67,7 +70,7 @@ You can find this example and others on the `IOTHOOK Git`_ page.
     :name: c#/request_get_data.cs
 
 IOT Data Fetching with GO
--------------------------
+=========================
 
 It has been produced with the GET method using Postman so that the IoThook user can use the data of his device.
 
@@ -79,7 +82,7 @@ You can find this example and others on the `IOTHOOK Git`_ page.
     :name: request_get_data.go
 
 IOT Data Fetching with JAVA
----------------------------
+===========================
 
 It has been produced with the GET method using Postman so that the IoThook user can use the data of his device.
 
@@ -91,7 +94,7 @@ You can find this example and others on the `IOTHOOK Git`_ page.
     :name: request_get_data.java
 
 IOT Data Fetching with PHP
---------------------------
+==========================
 
 It has been produced with the GET method using Postman so that the IoThook user can use the data of his device.
 
@@ -103,7 +106,7 @@ You can find this example and others on the `IOTHOOK Git`_ page.
     :name: request_get_data.php
 
 IOT Data Fetching with Ruby
----------------------------
+===========================
 
 It has been produced with the GET method using Postman so that the IoThook user can use the data of his device.
 
@@ -115,7 +118,7 @@ You can find this example and others on the `IOTHOOK Git`_ page.
     :name: request_get_data.rb
 
 IOT Data Fetching with Javascript Ajax
---------------------------------------
+======================================
 
 It has been produced with the GET method using Postman so that the IoThook user can use the data of his device.
 
@@ -127,7 +130,7 @@ You can find this example and others on the `IOTHOOK Git`_ page.
     :name: request_get_data.js
 
 IOT Data Fetching with Python PySide2
--------------------------------------
+=====================================
 
 PySide2 is the official Python module that provides access to the Qt 5.12+ framework for Python projects. Before using PySide2, the following modules need to be installed
 
@@ -170,5 +173,35 @@ iothook.py folder:
 .. literalinclude:: /../../examples/http/python/pyside2/iothook.py
     :caption: iothook.py
 
+ESP32 Read Data in GET
+======================
+
+ESP32 Read HTTP Data with GET method.
+
+Arduino ESP32 ESP-C3-13 Request Read Data in GET
+------------------------------------------------
+
+Data will be read to IoThook with HTTP GET method with ESP32 on Arduino IDE.
+
+The device used in this project is the ESP-C3-13 produced by ai-thinker. The features of the device and the
+settings for programming with Arduino IDE are as follows.
+
+* Device: ESP-C3-13
+* FCC ID: 2ATPO-ESP-C3-X C3-2M
+* Device Doc.: https://docs.ai-thinker.com/_media/esp32/docs/esp-c3-12f_specification.pdf
+* Arduino IDE Board Select: ESP32C3 Dev Module
+* Arduino IDE CPU Frequency: 160MHZ
+* Arduino IDE Flash Size: 2MB
+* Arduino IDE Partition Schema: 2MB
+* Arduino IDE MacOS Upload Speed: MacOS: 115200, Windows and Linux: 460800
+
+You can find this example and others at `IOTHOOK Git <https://github.com/electrocoder/iothookdoc>`_
+
+Here is an example of sending data using the Get method with C:
+
+.. literalinclude:: /../../examples/http/esp32/esp32-c3/Read_HttpClient_1_ESP_C3_13/Read_HttpClient_1_ESP_C3_13.ino
+    :language: c
+    :caption: Read_HttpClient_1_ESP_C3_13.ino
+    :name: Read_HttpClient_1_ESP_C3_13.ino
 
 

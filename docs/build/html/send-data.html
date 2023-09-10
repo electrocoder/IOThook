@@ -282,8 +282,14 @@ Python. When the data is sent successfully, Json REST output of the data is rece
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
     <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>  <span class="c1"># write api key</span>
         <span class="s1">&#39;api_key&#39;</span><span class="p">:</span> <span class="n">API_KEY</span><span class="p">,</span>  <span class="c1"># demo hesap #100 - Demo Data HTTP</span>
-        <span class="s1">&#39;field_1&#39;</span><span class="p">:</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
-        <span class="s1">&#39;field_2&#39;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">),</span> <span class="mi">2</span><span class="p">),</span>
+        <span class="s1">&#39;field_1&#39;</span><span class="p">:</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+        <span class="s1">&#39;field_2&#39;</span><span class="p">:</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+        <span class="s1">&#39;field_3&#39;</span><span class="p">:</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+        <span class="s1">&#39;field_4&#39;</span><span class="p">:</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+        <span class="s1">&#39;field_5&#39;</span><span class="p">:</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+        <span class="s1">&#39;field_6&#39;</span><span class="p">:</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+        <span class="s1">&#39;field_7&#39;</span><span class="p">:</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+        <span class="s1">&#39;field_8&#39;</span><span class="p">:</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
     <span class="p">}</span>
 
     <span class="n">data_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
@@ -437,6 +443,7 @@ they are not sent, they are recorded as None.</p>
 </section>
 <section id="arduino-and-esp8266">
 <h3>Arduino and ESP8266<a class="headerlink" href="#arduino-and-esp8266" title="Permalink to this headline">¶</a></h3>
+<p>Arduino and ESP8266 HTTP Post Examples.</p>
 <section id="arduino-and-esp8266-http-post-send-data">
 <h4>Arduino and ESP8266 HTTP POST Send Data<a class="headerlink" href="#arduino-and-esp8266-http-post-send-data" title="Permalink to this headline">¶</a></h4>
 <p>In this example, Arduino code is given for sending data to iothook with ESP8266 connected to Arduino Uno with RX and TX.
@@ -1505,6 +1512,131 @@ settings for programming with Arduino IDE are as follows.</p>
 </div>
 </div>
 </section>
+<section id="id10">
+<h3>Arduino ESP32 ESP-C3-13 Request Send Data in GET<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>Data will be sent to IoThook with HTTP GET method with ESP32 on Arduino IDE.</p>
+<p>The device used in this project is the ESP-C3-13 produced by ai-thinker. The features of the device and the
+settings for programming with Arduino IDE are as follows.</p>
+<ul class="simple">
+<li><p>Device: ESP-C3-13</p></li>
+<li><p>FCC ID: 2ATPO-ESP-C3-X C3-2M</p></li>
+<li><p>Device Doc.: <a class="reference external" href="https://docs.ai-thinker.com/_media/esp32/docs/esp-c3-12f_specification.pdf">https://docs.ai-thinker.com/_media/esp32/docs/esp-c3-12f_specification.pdf</a></p></li>
+<li><p>Arduino IDE Board Select: ESP32C3 Dev Module</p></li>
+<li><p>Arduino IDE CPU Frequency: 160MHZ</p></li>
+<li><p>Arduino IDE Flash Size: 2MB</p></li>
+<li><p>Arduino IDE Partition Schema: 2MB</p></li>
+<li><p>Arduino IDE MacOS Upload Speed: MacOS: 115200, Windows and Linux: 460800</p></li>
+</ul>
+<p>You can find this example and others at <a class="reference external" href="https://github.com/electrocoder/iothookdoc">IOTHOOK Git</a></p>
+<p>Here is an example of sending data using the Get method with C:</p>
+<div class="literal-block-wrapper docutils container" id="id12">
+<div class="code-block-caption"><span class="caption-text">BasicHttpClient_ESP_C3_13.ino</span><a class="headerlink" href="#id12" title="Permalink to this code">¶</a></div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
+<span class="cm">  Date: 02.09.2023</span>
+<span class="cm">  Device: ESP-C3-13</span>
+<span class="cm">  FCC ID: 2ATPO-ESP-C3-X C3-2M</span>
+<span class="cm">  Device Doc.: https://docs.ai-thinker.com/_media/esp32/docs/esp-c3-12f_specification.pdf</span>
+<span class="cm">  Arduino IDE Board Select: ESP32C3 Dev Module</span>
+<span class="cm">  Arduino IDE CPU Frequency: 160MHZ</span>
+<span class="cm">  Arduino IDE Flash Size: 2MB</span>
+<span class="cm">  Arduino IDE Partition Schema: 2MB</span>
+<span class="cm">  Arduino IDE MacOS Upload Speed: MacOS: 115200, Windows and Linux: 460800</span>
+
+<span class="cm">  BasicHTTPClient.ino</span>
+<span class="cm">  Created on: 24.05.2015</span>
+
+<span class="cm">  MacOS Boud Rate Error:</span>
+<span class="cm">    18:15:51.714 -&gt; ESP-ROM:esp32c3-api1-20210207</span>
+<span class="cm">    18:15:51.714 -&gt; Build:Feb  7 2021</span>
+<span class="cm">    18:15:51.714 -&gt; rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)</span>
+<span class="cm">    18:15:51.714 -&gt; SPIWP:0xee</span>
+<span class="cm">    18:15:51.714 -&gt; mode:QIO, clock div:1</span>
+<span class="cm">    18:15:51.714 -&gt; load:0x3fcd5810,len:0x438</span>
+<span class="cm">    18:15:51.714 -&gt; ets_loader.c 78 </span>
+<span class="cm"> */</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;WiFi.h&gt;</span>
+
+<span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">ssid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;ssid&quot;</span><span class="p">;</span><span class="w">       </span><span class="c1">// Change this to your WiFi SSID</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;password&quot;</span><span class="p">;</span><span class="w">  </span><span class="c1">// Change this to your WiFi password</span>
+
+<span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">host</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;iothook.com&quot;</span><span class="p">;</span><span class="w">  </span><span class="c1">// This should not be changed</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">httpPort</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">80</span><span class="p">;</span><span class="w">           </span><span class="c1">// This should not be changed</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">Serial</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">();</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;******************************************************&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Connecting to &quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">ssid</span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">WiFi</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">ssid</span><span class="p">,</span><span class="w"> </span><span class="n">password</span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">WiFi</span><span class="p">.</span><span class="n">status</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">WL_CONNECTED</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;.&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;WiFi connected&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;IP address: &quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">WiFi</span><span class="p">.</span><span class="n">localIP</span><span class="p">());</span>
+
+<span class="p">}</span><span class="w"> </span><span class="c1">// setup</span>
+
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="n">WiFiClient</span><span class="w"> </span><span class="n">client</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">client</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="n">host</span><span class="p">,</span><span class="w"> </span><span class="n">httpPort</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">field_1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">random</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">String</span><span class="w"> </span><span class="n">footer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot; HTTP/1.1</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;Host: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="n">host</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;Connection: close</span><span class="se">\r\n\r\n</span><span class="s">&quot;</span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">// HTTP Device Data List</span>
+<span class="w">  </span><span class="c1">// # 100 - Demo Data HTTP-100</span>
+<span class="w">  </span><span class="c1">// https://iothook.com/en/device/data/100/</span>
+<span class="w">  </span><span class="c1">// Device Read API Key	b5d91b83c85276cddc84eb67</span>
+<span class="w">  </span><span class="c1">// Read Device Data	https://iothook.com/api/device/?api_key=b5d91b83c85276cddc84eb67&amp;results=2</span>
+<span class="w">  </span><span class="c1">// Device Write API Key	9e722c4fc6c834b15ba01e86</span>
+<span class="w">  </span><span class="c1">// Write Device Data	https://iothook.com/api/update/?api_key=9e722c4fc6c834b15ba01e86&amp;field_1=10</span>
+
+<span class="w">  </span><span class="n">client</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;GET /api/update/?api_key=9e722c4fc6c834b15ba01e86&amp;field_1=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="n">field_1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">footer</span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">String</span><span class="p">(</span><span class="n">field_1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; send ok&quot;</span><span class="p">);</span>
+
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">maxloops</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">//wait for the server&#39;s reply to become available</span>
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">client</span><span class="p">.</span><span class="n">available</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">maxloops</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1000</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">maxloops</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c1">//delay 1 msec</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">available</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">//read back one line from the server</span>
+<span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="n">readStringUntil</span><span class="p">(</span><span class="sc">&#39;\r&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">line</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">else</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;client.available() timed out &quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">5000</span><span class="p">);</span>
+
+<span class="p">}</span><span class="w"> </span><span class="c1">// loop</span>
+</pre></div>
+</div>
+</div>
+</section>
 </section>
 <section id="mqtt-send-data">
 <h2>MQTT Send Data<a class="headerlink" href="#mqtt-send-data" title="Permalink to this headline">¶</a></h2>
@@ -1559,6 +1691,7 @@ settings for programming with Arduino IDE are as follows.</p>
 <li class="toctree-l3"><a class="reference internal" href="#java-unirest-send-data-in-get">Java Unirest Send Data in GET</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#java-request-send-data-in-get-2">Java Request Send Data in GET 2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#arduino-esp32-esp-c3-13-request-send-data-in-get">Arduino ESP32 ESP-C3-13 Request Send Data in GET</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">Arduino ESP32 ESP-C3-13 Request Send Data in GET</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#mqtt-send-data">MQTT Send Data</a></li>

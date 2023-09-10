@@ -51,8 +51,14 @@ url = 'http://iothook.com/api/update/'
 for i in range(1000):
     data = {  # write api key
         'api_key': API_KEY,  # demo hesap #100 - Demo Data HTTP
-        'field_1': random.randint(1, 10),
-        'field_2': round(random.uniform(0.0, 10.0), 2),
+        'field_1': random.randint(0, 100),
+        'field_2': random.randint(0, 100),
+        'field_3': random.randint(0, 100),
+        'field_4': random.randint(0, 100),
+        'field_5': random.randint(0, 100),
+        'field_6': random.randint(0, 100),
+        'field_7': random.randint(0, 100),
+        'field_8': random.randint(0, 100),
     }
 
     data_json = json.dumps(data)

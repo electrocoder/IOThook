@@ -50,10 +50,12 @@
             
   <section id="read-data">
 <h1>Read Data<a class="headerlink" href="#read-data" title="Permalink to this headline">¶</a></h1>
+<section id="http-read-data">
+<h2>HTTP Read Data<a class="headerlink" href="#http-read-data" title="Permalink to this headline">¶</a></h2>
 <p>We need API KEY information for retrieving the data of temperature, damp, voltage, light etc. values like that which are sending Iot device.Datas which are sending from your Iot device can monitore with mobile devices like Pi, Android, iOs or your website.</p>
 <p>For example; Assume that our device’s name “Temperature sensor” and it will be in the device additionally assume that our sensors “temperature” and “humidity”</p>
 <section id="data-retrieving-with-python-2-python-3-json">
-<h2>Data Retrieving with Python 2, Python 3 Json<a class="headerlink" href="#data-retrieving-with-python-2-python-3-json" title="Permalink to this headline">¶</a></h2>
+<h3>Data Retrieving with Python 2, Python 3 Json<a class="headerlink" href="#data-retrieving-with-python-2-python-3-json" title="Permalink to this headline">¶</a></h3>
 <p>Get Example with Python Json:
 The number of data specified by <em>results</em> was read,by using the <em>requests.get</em> method from the IOTHOOK server
 Up to 99 pieces of data can be read with the <em>results</em> variable. If the <em>results</em> variable is not specified, only 1 data can be read.
@@ -64,7 +66,7 @@ The format of readed data is <em>json</em></p>
 <span class="gp">&gt;&gt;&gt; </span><span class="mi">502483</span>
 </pre></div>
 </div>
-<p>You can find this example and others on the <a class="reference external" href="https://github.com/electrocoder/iothookdoc/tree/main/examples/">IOTHOOK Git</a> page.</p>
+<p>You can find this example and others on the <a href="#id4"><span class="problematic" id="id5">`IOTHOOK Git`_</span></a> page.</p>
 <div class="literal-block-wrapper docutils container" id="get-json-py">
 <div class="code-block-caption"><span class="caption-text">get_json.py</span><a class="headerlink" href="#get-json-py" title="Permalink to this code">¶</a></div>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
@@ -120,9 +122,9 @@ The format of readed data is <em>json</em></p>
 </div>
 </section>
 <section id="getting-the-first-data-with-python-2-python-3-json">
-<h2>Getting the First Data with Python 2, Python 3 Json<a class="headerlink" href="#getting-the-first-data-with-python-2-python-3-json" title="Permalink to this headline">¶</a></h2>
+<h3>Getting the First Data with Python 2, Python 3 Json<a class="headerlink" href="#getting-the-first-data-with-python-2-python-3-json" title="Permalink to this headline">¶</a></h3>
 <p>Python Getting the First Data, Get Example with Json:</p>
-<p>You can find this example and others on the <a class="reference external" href="https://github.com/electrocoder/iothookdoc/tree/main/examples/">IOTHOOK Git</a> page.</p>
+<p>You can find this example and others on the <a href="#id6"><span class="problematic" id="id7">`IOTHOOK Git`_</span></a> page.</p>
 <div class="literal-block-wrapper docutils container" id="request-get-py">
 <div class="code-block-caption"><span class="caption-text">request_get.py</span><a class="headerlink" href="#request-get-py" title="Permalink to this code">¶</a></div>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
@@ -180,9 +182,9 @@ The format of readed data is <em>json</em></p>
 </div>
 </section>
 <section id="getting-the-last-data-with-python-2-python-3-json">
-<h2>Getting the Last Data with Python 2, Python 3 Json<a class="headerlink" href="#getting-the-last-data-with-python-2-python-3-json" title="Permalink to this headline">¶</a></h2>
+<h3>Getting the Last Data with Python 2, Python 3 Json<a class="headerlink" href="#getting-the-last-data-with-python-2-python-3-json" title="Permalink to this headline">¶</a></h3>
 <p>Python Getting the Last Data, Get Example with Json:</p>
-<p>You can find this example and others on the <a class="reference external" href="https://github.com/electrocoder/iothookdoc/tree/main/examples/">IOTHOOK Git</a> page.</p>
+<p>You can find this example and others on the <a href="#id8"><span class="problematic" id="id9">`IOTHOOK Git`_</span></a> page.</p>
 <div class="literal-block-wrapper docutils container" id="request-get-last-data-py">
 <div class="code-block-caption"><span class="caption-text">request_get_last_data.py</span><a class="headerlink" href="#request-get-last-data-py" title="Permalink to this code">¶</a></div>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
@@ -236,9 +238,9 @@ The format of readed data is <em>json</em></p>
 </div>
 </section>
 <section id="fetching-data-in-json-format-with-c">
-<h2>Fetching Data in JSON Format with C#<a class="headerlink" href="#fetching-data-in-json-format-with-c" title="Permalink to this headline">¶</a></h2>
+<h3>Fetching Data in JSON Format with C#<a class="headerlink" href="#fetching-data-in-json-format-with-c" title="Permalink to this headline">¶</a></h3>
 <p>It has been produced with the GET method using Postman so that the IoThook user can use the data of his device.</p>
-<p>You can find this example and others on the <a class="reference external" href="https://github.com/electrocoder/iothookdoc/tree/main/examples/">IOTHOOK Git</a> page.</p>
+<p>You can find this example and others on the <a href="#id10"><span class="problematic" id="id11">`IOTHOOK Git`_</span></a> page.</p>
 <div class="literal-block-wrapper docutils container" id="c-request-get-data-cs">
 <div class="code-block-caption"><span class="caption-text">c#/request_get_data.cs</span><a class="headerlink" href="#c-request-get-data-cs" title="Permalink to this code">¶</a></div>
 <div class="highlight-cs notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
@@ -292,9 +294,9 @@ The format of readed data is <em>json</em></p>
 </div>
 </section>
 <section id="iot-data-fetching-with-go">
-<h2>IOT Data Fetching with GO<a class="headerlink" href="#iot-data-fetching-with-go" title="Permalink to this headline">¶</a></h2>
+<h3>IOT Data Fetching with GO<a class="headerlink" href="#iot-data-fetching-with-go" title="Permalink to this headline">¶</a></h3>
 <p>It has been produced with the GET method using Postman so that the IoThook user can use the data of his device.</p>
-<p>You can find this example and others on the <a class="reference external" href="https://github.com/electrocoder/iothookdoc/tree/main/examples/">IOTHOOK Git</a> page.</p>
+<p>You can find this example and others on the <a href="#id12"><span class="problematic" id="id13">`IOTHOOK Git`_</span></a> page.</p>
 <div class="literal-block-wrapper docutils container" id="request-get-data-go">
 <div class="code-block-caption"><span class="caption-text">request_get_data.go</span><a class="headerlink" href="#request-get-data-go" title="Permalink to this code">¶</a></div>
 <div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="c1">// Go HTTP GET</span>
@@ -336,9 +338,9 @@ The format of readed data is <em>json</em></p>
 </div>
 </section>
 <section id="iot-data-fetching-with-java">
-<h2>IOT Data Fetching with JAVA<a class="headerlink" href="#iot-data-fetching-with-java" title="Permalink to this headline">¶</a></h2>
+<h3>IOT Data Fetching with JAVA<a class="headerlink" href="#iot-data-fetching-with-java" title="Permalink to this headline">¶</a></h3>
 <p>It has been produced with the GET method using Postman so that the IoThook user can use the data of his device.</p>
-<p>You can find this example and others on the <a class="reference external" href="https://github.com/electrocoder/iothookdoc/tree/main/examples/">IOTHOOK Git</a> page.</p>
+<p>You can find this example and others on the <a href="#id14"><span class="problematic" id="id15">`IOTHOOK Git`_</span></a> page.</p>
 <div class="literal-block-wrapper docutils container" id="request-get-data-java">
 <div class="code-block-caption"><span class="caption-text">request_get_data.java</span><a class="headerlink" href="#request-get-data-java" title="Permalink to this code">¶</a></div>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">OkHttpClient</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">OkHttpClient</span><span class="p">();</span>
@@ -362,9 +364,9 @@ The format of readed data is <em>json</em></p>
 </div>
 </section>
 <section id="iot-data-fetching-with-php">
-<h2>IOT Data Fetching with PHP<a class="headerlink" href="#iot-data-fetching-with-php" title="Permalink to this headline">¶</a></h2>
+<h3>IOT Data Fetching with PHP<a class="headerlink" href="#iot-data-fetching-with-php" title="Permalink to this headline">¶</a></h3>
 <p>It has been produced with the GET method using Postman so that the IoThook user can use the data of his device.</p>
-<p>You can find this example and others on the <a class="reference external" href="https://github.com/electrocoder/iothookdoc/tree/main/examples/">IOTHOOK Git</a> page.</p>
+<p>You can find this example and others on the <a href="#id16"><span class="problematic" id="id17">`IOTHOOK Git`_</span></a> page.</p>
 <div class="literal-block-wrapper docutils container" id="request-get-data-php">
 <div class="code-block-caption"><span class="caption-text">request_get_data.php</span><a class="headerlink" href="#request-get-data-php" title="Permalink to this code">¶</a></div>
 <div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
@@ -401,9 +403,9 @@ The format of readed data is <em>json</em></p>
 </div>
 </section>
 <section id="iot-data-fetching-with-ruby">
-<h2>IOT Data Fetching with Ruby<a class="headerlink" href="#iot-data-fetching-with-ruby" title="Permalink to this headline">¶</a></h2>
+<h3>IOT Data Fetching with Ruby<a class="headerlink" href="#iot-data-fetching-with-ruby" title="Permalink to this headline">¶</a></h3>
 <p>It has been produced with the GET method using Postman so that the IoThook user can use the data of his device.</p>
-<p>You can find this example and others on the <a class="reference external" href="https://github.com/electrocoder/iothookdoc/tree/main/examples/">IOTHOOK Git</a> page.</p>
+<p>You can find this example and others on the <a href="#id18"><span class="problematic" id="id19">`IOTHOOK Git`_</span></a> page.</p>
 <div class="literal-block-wrapper docutils container" id="request-get-data-rb">
 <div class="code-block-caption"><span class="caption-text">request_get_data.rb</span><a class="headerlink" href="#request-get-data-rb" title="Permalink to this code">¶</a></div>
 <div class="highlight-rb notranslate"><div class="highlight"><pre><span></span><span class="nb">require</span><span class="w"> </span><span class="s1">&#39;uri&#39;</span>
@@ -430,9 +432,9 @@ The format of readed data is <em>json</em></p>
 </div>
 </section>
 <section id="iot-data-fetching-with-javascript-ajax">
-<h2>IOT Data Fetching with Javascript Ajax<a class="headerlink" href="#iot-data-fetching-with-javascript-ajax" title="Permalink to this headline">¶</a></h2>
+<h3>IOT Data Fetching with Javascript Ajax<a class="headerlink" href="#iot-data-fetching-with-javascript-ajax" title="Permalink to this headline">¶</a></h3>
 <p>It has been produced with the GET method using Postman so that the IoThook user can use the data of his device.</p>
-<p>You can find this example and others on the <a class="reference external" href="https://github.com/electrocoder/iothookdoc/tree/main/examples/">IOTHOOK Git</a> page.</p>
+<p>You can find this example and others on the <a href="#id20"><span class="problematic" id="id21">`IOTHOOK Git`_</span></a> page.</p>
 <div class="literal-block-wrapper docutils container" id="request-get-data-js">
 <div class="code-block-caption"><span class="caption-text">request_get_data.js</span><a class="headerlink" href="#request-get-data-js" title="Permalink to this code">¶</a></div>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">settings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
@@ -461,7 +463,7 @@ The format of readed data is <em>json</em></p>
 </div>
 </section>
 <section id="iot-data-fetching-with-python-pyside2">
-<h2>IOT Data Fetching with Python PySide2<a class="headerlink" href="#iot-data-fetching-with-python-pyside2" title="Permalink to this headline">¶</a></h2>
+<h3>IOT Data Fetching with Python PySide2<a class="headerlink" href="#iot-data-fetching-with-python-pyside2" title="Permalink to this headline">¶</a></h3>
 <p>PySide2 is the official Python module that provides access to the Qt 5.12+ framework for Python projects. Before using PySide2, the following modules need to be installed</p>
 <blockquote>
 <div><p>$ pip install matplotlib</p>
@@ -480,10 +482,10 @@ used this sites. You can find more resources at these sites.</p>
 <dt>The test process was carried out with a device named <em>5 channel test</em> with id number <em>230</em> in IoThook.</dt><dd><p>This device belongs to demo user</p>
 </dd>
 </dl>
-<p>You can find this example and others on the <a class="reference external" href="https://github.com/electrocoder/iothookdoc/tree/main/examples/">IOTHOOK Git</a> page.</p>
+<p>You can find this example and others on the <a href="#id22"><span class="problematic" id="id23">`IOTHOOK Git`_</span></a> page.</p>
 <p>iothook.ui folder:</p>
-<div class="literal-block-wrapper docutils container" id="id1">
-<div class="code-block-caption"><span class="caption-text">iothook.ui</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">iothook.ui</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <span class="nt">&lt;ui</span><span class="w"> </span><span class="na">version=</span><span class="s">&quot;4.0&quot;</span><span class="nt">&gt;</span>
 <span class="w"> </span><span class="nt">&lt;class&gt;</span>Form<span class="nt">&lt;/class&gt;</span>
@@ -537,8 +539,8 @@ used this sites. You can find more resources at these sites.</p>
 </div>
 </div>
 <p>iothook.py folder:</p>
-<div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-text">iothook.py</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">iothook.py</span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">  Python ile IoThook REST Api Testi</span>
 
@@ -714,6 +716,202 @@ used this sites. You can find more resources at these sites.</p>
 </div>
 </div>
 </section>
+<section id="esp32-read-data-in-get">
+<h3>ESP32 Read Data in GET<a class="headerlink" href="#esp32-read-data-in-get" title="Permalink to this headline">¶</a></h3>
+<p>ESP32 Read HTTP Data with GET method.</p>
+<section id="arduino-esp32-esp-c3-13-request-read-data-in-get">
+<h4>Arduino ESP32 ESP-C3-13 Request Read Data in GET<a class="headerlink" href="#arduino-esp32-esp-c3-13-request-read-data-in-get" title="Permalink to this headline">¶</a></h4>
+<p>Data will be read to IoThook with HTTP GET method with ESP32 on Arduino IDE.</p>
+<p>The device used in this project is the ESP-C3-13 produced by ai-thinker. The features of the device and the
+settings for programming with Arduino IDE are as follows.</p>
+<ul class="simple">
+<li><p>Device: ESP-C3-13</p></li>
+<li><p>FCC ID: 2ATPO-ESP-C3-X C3-2M</p></li>
+<li><p>Device Doc.: <a class="reference external" href="https://docs.ai-thinker.com/_media/esp32/docs/esp-c3-12f_specification.pdf">https://docs.ai-thinker.com/_media/esp32/docs/esp-c3-12f_specification.pdf</a></p></li>
+<li><p>Arduino IDE Board Select: ESP32C3 Dev Module</p></li>
+<li><p>Arduino IDE CPU Frequency: 160MHZ</p></li>
+<li><p>Arduino IDE Flash Size: 2MB</p></li>
+<li><p>Arduino IDE Partition Schema: 2MB</p></li>
+<li><p>Arduino IDE MacOS Upload Speed: MacOS: 115200, Windows and Linux: 460800</p></li>
+</ul>
+<p>You can find this example and others at <a class="reference external" href="https://github.com/electrocoder/iothookdoc">IOTHOOK Git</a></p>
+<p>Here is an example of sending data using the Get method with C:</p>
+<div class="literal-block-wrapper docutils container" id="read-httpclient-1-esp-c3-13-ino">
+<div class="code-block-caption"><span class="caption-text">Read_HttpClient_1_ESP_C3_13.ino</span><a class="headerlink" href="#read-httpclient-1-esp-c3-13-ino" title="Permalink to this code">¶</a></div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
+<span class="cm">  Date: 02.09.2023</span>
+<span class="cm">  Device: ESP-C3-13</span>
+<span class="cm">  FCC ID: 2ATPO-ESP-C3-X C3-2M</span>
+<span class="cm">  Device Doc.: https://docs.ai-thinker.com/_media/esp32/docs/esp-c3-12f_specification.pdf</span>
+<span class="cm">  Arduino IDE Board Select: ESP32C3 Dev Module</span>
+<span class="cm">  Arduino IDE CPU Frequency: 160MHZ</span>
+<span class="cm">  Arduino IDE Flash Size: 2MB</span>
+<span class="cm">  Arduino IDE Partition Schema: 2MB</span>
+<span class="cm">  Arduino IDE MacOS Upload Speed: MacOS: 115200, Windows and Linux: 460800</span>
+
+<span class="cm">  MacOS Boud Rate Error:</span>
+<span class="cm">    18:15:51.714 -&gt; ESP-ROM:esp32c3-api1-20210207</span>
+<span class="cm">    18:15:51.714 -&gt; Build:Feb  7 2021</span>
+<span class="cm">    18:15:51.714 -&gt; rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)</span>
+<span class="cm">    18:15:51.714 -&gt; SPIWP:0xee</span>
+<span class="cm">    18:15:51.714 -&gt; mode:QIO, clock div:1</span>
+<span class="cm">    18:15:51.714 -&gt; load:0x3fcd5810,len:0x438</span>
+<span class="cm">    18:15:51.714 -&gt; ets_loader.c 78 </span>
+<span class="cm"> */</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;WiFi.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;WiFiMulti.h&gt;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;HTTPClient.h&gt;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Arduino_JSON.h&gt;</span>
+
+<span class="n">WiFiMulti</span><span class="w"> </span><span class="n">wifiMulti</span><span class="p">;</span>
+
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">red</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">green</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">blue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">cold_white</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">18</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">warm_white</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">19</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">Serial</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">();</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;******************************************************&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Connecting to &quot;</span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">wifiMulti</span><span class="p">.</span><span class="n">addAP</span><span class="p">(</span><span class="s">&quot;ssid&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;password&quot;</span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">red</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span>
+<span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">green</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span>
+<span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">blue</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span>
+<span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">cold_white</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span>
+<span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">warm_white</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">);</span>
+
+<span class="p">}</span><span class="w">  </span><span class="c1">// setup</span>
+
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">wifiMulti</span><span class="p">.</span><span class="n">run</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">WL_CONNECTED</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="c1">// HTTP Device Data List</span>
+<span class="w">    </span><span class="c1">// # 100 - Demo Data HTTP-100</span>
+<span class="w">    </span><span class="c1">// https://iothook.com/en/device/data/100/</span>
+<span class="w">    </span><span class="c1">// Device Read API Key	b5d91b83c85276cddc84eb67</span>
+<span class="w">    </span><span class="c1">// Read Device Data	https://iothook.com/api/device/?api_key=b5d91b83c85276cddc84eb67&amp;results=2</span>
+<span class="w">    </span><span class="c1">// Device Write API Key	9e722c4fc6c834b15ba01e86</span>
+<span class="w">    </span><span class="c1">// Write Device Data	https://iothook.com/api/update/?api_key=9e722c4fc6c834b15ba01e86&amp;field_1=10</span>
+
+<span class="w">    </span><span class="n">HTTPClient</span><span class="w"> </span><span class="n">http</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">serverPath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;http://iothook.com/api/device/?api_key=b5d91b83c85276cddc84eb67&amp;results=1&amp;format=json&quot;</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">http</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">serverPath</span><span class="p">);</span>
+
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">httpCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">http</span><span class="p">.</span><span class="n">GET</span><span class="p">();</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">httpCode</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">httpCode</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">      </span><span class="n">String</span><span class="w"> </span><span class="n">payload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">http</span><span class="p">.</span><span class="n">getString</span><span class="p">();</span>
+
+<span class="w">      </span><span class="n">JSONVar</span><span class="w"> </span><span class="n">myObject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JSON</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="n">payload</span><span class="p">);</span>
+
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">JSON</span><span class="p">.</span><span class="n">typeof</span><span class="p">(</span><span class="n">myObject</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;undefined&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Parsing input failed!&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">      </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">myObject</span><span class="p">);</span>
+<span class="w">      </span><span class="n">JSONVar</span><span class="w"> </span><span class="n">keys</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myObject</span><span class="p">.</span><span class="n">keys</span><span class="p">();</span>
+
+<span class="w">      </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">myObject</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">&quot;field_1&quot;</span><span class="p">]);</span>
+<span class="w">      </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">myObject</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">&quot;field_2&quot;</span><span class="p">]);</span>
+<span class="w">      </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">myObject</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">&quot;field_3&quot;</span><span class="p">]);</span>
+<span class="w">      </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">myObject</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">&quot;field_4&quot;</span><span class="p">]);</span>
+<span class="w">      </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">myObject</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">&quot;field_5&quot;</span><span class="p">]);</span>
+<span class="w">      </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">myObject</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">&quot;field_6&quot;</span><span class="p">]);</span>
+<span class="w">      </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">myObject</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">&quot;field_7&quot;</span><span class="p">]);</span>
+<span class="w">      </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">myObject</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">&quot;field_8&quot;</span><span class="p">]);</span>
+
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">myObject</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">&quot;field_1&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">answer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myObject</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">&quot;field_1&quot;</span><span class="p">];</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">field_1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">answer</span><span class="p">.</span><span class="n">toInt</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;field_1: &quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">field_1</span><span class="p">);</span>
+<span class="w">        </span><span class="n">analogWrite</span><span class="p">(</span><span class="n">red</span><span class="p">,</span><span class="w"> </span><span class="n">field_1</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">myObject</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">&quot;field_2&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">answer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myObject</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">&quot;field_2&quot;</span><span class="p">];</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">field_2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">answer</span><span class="p">.</span><span class="n">toInt</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;field_2: &quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">field_2</span><span class="p">);</span>
+<span class="w">        </span><span class="n">analogWrite</span><span class="p">(</span><span class="n">green</span><span class="p">,</span><span class="w"> </span><span class="n">field_2</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">myObject</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">&quot;field_3&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">answer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myObject</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">&quot;field_3&quot;</span><span class="p">];</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">field_3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">answer</span><span class="p">.</span><span class="n">toInt</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;field_3: &quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">field_3</span><span class="p">);</span>
+<span class="w">        </span><span class="n">analogWrite</span><span class="p">(</span><span class="n">blue</span><span class="p">,</span><span class="w"> </span><span class="n">field_3</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">myObject</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">&quot;field_4&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">answer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myObject</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">&quot;field_4&quot;</span><span class="p">];</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">field_4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">answer</span><span class="p">.</span><span class="n">toInt</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;field_4: &quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">field_4</span><span class="p">);</span>
+<span class="w">        </span><span class="n">analogWrite</span><span class="p">(</span><span class="n">cold_white</span><span class="p">,</span><span class="w"> </span><span class="n">field_4</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">myObject</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">&quot;field_5&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">answer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myObject</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">&quot;field_5&quot;</span><span class="p">];</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">field_5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">answer</span><span class="p">.</span><span class="n">toInt</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;field_5: &quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">field_5</span><span class="p">);</span>
+<span class="w">        </span><span class="n">analogWrite</span><span class="p">(</span><span class="n">warm_white</span><span class="p">,</span><span class="w"> </span><span class="n">field_5</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">myObject</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">&quot;field_6&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">answer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myObject</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">&quot;field_6&quot;</span><span class="p">];</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">field_6</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">answer</span><span class="p">.</span><span class="n">toInt</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;field_6: &quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">field_6</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">myObject</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">&quot;field_7&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">answer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myObject</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">&quot;field_7&quot;</span><span class="p">];</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">field_7</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">answer</span><span class="p">.</span><span class="n">toInt</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;field_7: &quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">field_7</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">myObject</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">&quot;field_8&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">answer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myObject</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">&quot;field_8&quot;</span><span class="p">];</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">field_8</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">answer</span><span class="p">.</span><span class="n">toInt</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;field_8: &quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">field_8</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+
+
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Error code: &quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">httpCode</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">http</span><span class="p">.</span><span class="n">end</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">5000</span><span class="p">);</span>
+
+<span class="p">}</span><span class="w">  </span><span class="c1">// loop</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+</section>
 </section>
 
 
@@ -735,16 +933,23 @@ used this sites. You can find more resources at these sites.</p>
 <li class="toctree-l1"><a class="reference internal" href="create-new-device.html">Add New Device</a></li>
 <li class="toctree-l1"><a class="reference internal" href="send-data.html">Send Data</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Read Data</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#data-retrieving-with-python-2-python-3-json">Data Retrieving with Python 2, Python 3 Json</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#getting-the-first-data-with-python-2-python-3-json">Getting the First Data with Python 2, Python 3 Json</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#getting-the-last-data-with-python-2-python-3-json">Getting the Last Data with Python 2, Python 3 Json</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#fetching-data-in-json-format-with-c">Fetching Data in JSON Format with C#</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#iot-data-fetching-with-go">IOT Data Fetching with GO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#iot-data-fetching-with-java">IOT Data Fetching with JAVA</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#iot-data-fetching-with-php">IOT Data Fetching with PHP</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#iot-data-fetching-with-ruby">IOT Data Fetching with Ruby</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#iot-data-fetching-with-javascript-ajax">IOT Data Fetching with Javascript Ajax</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#iot-data-fetching-with-python-pyside2">IOT Data Fetching with Python PySide2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#http-read-data">HTTP Read Data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#data-retrieving-with-python-2-python-3-json">Data Retrieving with Python 2, Python 3 Json</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#getting-the-first-data-with-python-2-python-3-json">Getting the First Data with Python 2, Python 3 Json</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#getting-the-last-data-with-python-2-python-3-json">Getting the Last Data with Python 2, Python 3 Json</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fetching-data-in-json-format-with-c">Fetching Data in JSON Format with C#</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#iot-data-fetching-with-go">IOT Data Fetching with GO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#iot-data-fetching-with-java">IOT Data Fetching with JAVA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#iot-data-fetching-with-php">IOT Data Fetching with PHP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#iot-data-fetching-with-ruby">IOT Data Fetching with Ruby</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#iot-data-fetching-with-javascript-ajax">IOT Data Fetching with Javascript Ajax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#iot-data-fetching-with-python-pyside2">IOT Data Fetching with Python PySide2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#esp32-read-data-in-get">ESP32 Read Data in GET</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#arduino-esp32-esp-c3-13-request-read-data-in-get">Arduino ESP32 ESP-C3-13 Request Read Data in GET</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="how-to-find-iot-device-ip-address.html">How to Find IoT Device IP Address</a></li>
