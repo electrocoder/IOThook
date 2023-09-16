@@ -1638,8 +1638,180 @@ settings for programming with Arduino IDE are as follows.</p>
 </div>
 </section>
 </section>
-<section id="mqtt-send-data">
-<h2>MQTT Send Data<a class="headerlink" href="#mqtt-send-data" title="Permalink to this headline">¶</a></h2>
+<section id="mqtt-send-data-publish">
+<h2>MQTT Send Data Publish<a class="headerlink" href="#mqtt-send-data-publish" title="Permalink to this headline">¶</a></h2>
+<p>Hello; In this help file, we will try to do everything you need to know about the MQTT messaging protocol and
+any IO operations you need. These examples should be customized to your device and MQTT Broker. For this
+reason, you should thoroughly learn why you want to use it and how it is applied. In a nutshell, MQTT uses
+your Internet home network and Mobile GSM 3G, 4G, 4.5G and 5G networks to send and respond to messages to
+your IoT devices.</p>
+<p>You can make your MQTT experiments on the <a class="reference external" href="https://iothook.com/en/mqtt/full-featured-mqtt-client/">IoThook MQTT</a> MQTT Broker page here.</p>
+<section id="arduino-esp32-esp-c3-13-send-json-data-publish-mqtt">
+<h3>Arduino ESP32 ESP-C3-13 Send JSON Data Publish MQTT<a class="headerlink" href="#arduino-esp32-esp-c3-13-send-json-data-publish-mqtt" title="Permalink to this headline">¶</a></h3>
+<p>In this example, JSON data is sent to the device channel named “#100 - Demo Data HTTP” using the HTTP POST method with
+Python. When the data is sent successfully, Json REST output of the data is received. You can do this with the
+<em>response.json()</em> method, we are doing.</p>
+<p>You can find this example and others at <a class="reference external" href="https://github.com/electrocoder/iothookdoc">IOTHOOK Git</a></p>
+<p>Here is an example of sending data using the Get method with C:</p>
+<div class="literal-block-wrapper docutils container" id="esp32-c3-mqtt-iot-ino">
+<div class="code-block-caption"><span class="caption-text">esp32_c3_mqtt_iot.ino</span><a class="headerlink" href="#esp32-c3-mqtt-iot-ino" title="Permalink to this code">¶</a></div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
+<span class="cm">  Test MQTT Publish</span>
+<span class="cm">  16.09.2023</span>
+
+<span class="cm">  * Device: ESP-C3-13</span>
+<span class="cm">  * FCC ID: 2ATPO-ESP-C3-X C3-2M</span>
+<span class="cm">  * Device Doc.: https://docs.ai-thinker.com/_media/esp32/docs/esp-c3-12f_specification.pdf</span>
+<span class="cm">  * Arduino IDE Board Select: ESP32C3 Dev Module</span>
+<span class="cm">  * Arduino IDE CPU Frequency: 160MHZ</span>
+<span class="cm">  * Arduino IDE Flash Size: 2MB</span>
+<span class="cm">  * Arduino IDE Partition Schema: 2MB</span>
+<span class="cm">  * Arduino IDE MacOS Upload Speed: MacOS: 115200, Windows and Linux: 460800</span>
+
+<span class="cm">  REQUIRES the following Arduino libraries:</span>
+<span class="cm">  DHT Sensor Library: https://github.com/adafruit/DHT-sensor-library</span>
+<span class="cm">  Adafruit Unified Sensor Lib: https://github.com/adafruit/Adafruit_Sensor</span>
+<span class="cm">  HX711 https://github.com/bogde/HX711</span>
+<span class="cm">  Mqtt : https://github.com/256dpi/arduino-mqtt?ysclid=leihxfhhq6294250283</span>
+<span class="cm">*/</span>
+
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;WiFi.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;MQTT.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;HX711.h&quot;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;DHT.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;DHT_U.h&gt;</span>
+
+<span class="cp">#define DHTPIN 23</span>
+<span class="cp">#define DHTTYPE DHT21</span>
+
+<span class="n">DHT_Unified</span><span class="w"> </span><span class="nf">dht</span><span class="p">(</span><span class="n">DHTPIN</span><span class="p">,</span><span class="w"> </span><span class="n">DHTTYPE</span><span class="p">);</span>
+
+<span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">ssid</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;SSID&quot;</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">pass</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;PASS&quot;</span><span class="p">;</span>
+
+<span class="n">WiFiClient</span><span class="w"> </span><span class="n">net</span><span class="p">;</span>
+<span class="n">MQTTClient</span><span class="w"> </span><span class="n">client</span><span class="p">;</span>
+
+<span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">BROKER</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;iothook.com&quot;</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">BROKERUSERNAME</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;iothookpublic&quot;</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">BROKERPASSWORD</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;iothookpublic&quot;</span><span class="p">;</span>
+
+<span class="c1">// ID 101 : https://iothook.com/en/device/pub-sub-mqtt/101/</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">PUBTOPIC</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;iot/879ba3d9ab3df048f8b3299f/esp32test/r&quot;</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">SUBTOPIC</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;iot/879ba3d9ab3df048f8b3299f/esp32test/w/UID005&quot;</span><span class="p">;</span>
+
+<span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">UID</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;UID005&quot;</span><span class="p">;</span>
+
+
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">LED_RED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ldr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A0</span><span class="p">;</span>
+
+<span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">lastMillis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="cp">#define DEBUG 1</span>
+
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">messageReceived</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="o">&amp;</span><span class="n">topic</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">&amp;</span><span class="n">payload</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">DEBUG</span><span class="p">)</span><span class="w"> </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;messageReceived: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">topic</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; - &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">payload</span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">String</span><span class="w"> </span><span class="n">messageTemp</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">payload</span><span class="p">.</span><span class="n">length</span><span class="p">();</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Serial.print((char)payload[i]);</span>
+<span class="w">    </span><span class="n">messageTemp</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="p">)</span><span class="n">payload</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">messageTemp</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;led:on&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot; led on &quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED_RED</span><span class="p">,</span><span class="w"> </span><span class="n">HIGH</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">messageTemp</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;led:off&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot; led off &quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED_RED</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="p">}</span><span class="w">  </span><span class="c1">// messageReceived</span>
+
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">LED_RED</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">WiFi</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">ssid</span><span class="p">,</span><span class="w"> </span><span class="n">pass</span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">client</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">BROKER</span><span class="p">,</span><span class="w"> </span><span class="n">net</span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">client</span><span class="p">.</span><span class="n">onMessage</span><span class="p">(</span><span class="n">messageReceived</span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">connect</span><span class="p">();</span>
+
+<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+
+<span class="p">}</span><span class="w">  </span><span class="c1">// setup</span>
+
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">connect</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;checking wifi...&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">WiFi</span><span class="p">.</span><span class="n">status</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">WL_CONNECTED</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">DEBUG</span><span class="p">)</span><span class="w"> </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;.&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">connecting...&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">client</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="n">UID</span><span class="p">,</span><span class="w"> </span><span class="n">BROKERUSERNAME</span><span class="p">,</span><span class="w"> </span><span class="n">BROKERPASSWORD</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">DEBUG</span><span class="p">)</span><span class="w"> </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;.&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">connected!&quot;</span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">client</span><span class="p">.</span><span class="n">subscribe</span><span class="p">(</span><span class="n">SUBTOPIC</span><span class="p">);</span>
+
+<span class="p">}</span><span class="w">  </span><span class="c1">// connect</span>
+
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="n">client</span><span class="p">.</span><span class="n">loop</span><span class="p">();</span>
+<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">client</span><span class="p">.</span><span class="n">connected</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">5000</span><span class="p">);</span>
+<span class="w">    </span><span class="n">connect</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">millis</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lastMillis</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1000</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">lastMillis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">millis</span><span class="p">();</span>
+<span class="w">    </span><span class="n">send_data</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+
+<span class="p">}</span><span class="w">  </span><span class="c1">// loop</span>
+
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">send_data</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">field_1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">random</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2000</span><span class="p">);</span>
+
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">isik</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">analogRead</span><span class="p">(</span><span class="n">ldr</span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">String</span><span class="w"> </span><span class="n">veriler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;{&#39;weight&#39;:&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="n">field_1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;,&#39;temperature&#39;:&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="n">field_1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;,&#39;humidity&#39;:&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="n">field_1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;,&#39;image&#39;:1,&#39;ldr&#39;:&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="n">isik</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;,&#39;device_id&#39;:&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">UID</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;}&quot;</span><span class="p">;</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">DEBUG</span><span class="p">)</span><span class="w"> </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;send_data &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">veriler</span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">client</span><span class="p">.</span><span class="n">publish</span><span class="p">(</span><span class="n">PUBTOPIC</span><span class="p">,</span><span class="w"> </span><span class="n">veriler</span><span class="p">);</span>
+
+<span class="p">}</span><span class="w">  </span><span class="c1">// send_data</span>
+</pre></div>
+</div>
+</div>
+</section>
 </section>
 </section>
 
@@ -1694,12 +1866,16 @@ settings for programming with Arduino IDE are as follows.</p>
 <li class="toctree-l3"><a class="reference internal" href="#id10">Arduino ESP32 ESP-C3-13 Request Send Data in GET</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#mqtt-send-data">MQTT Send Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mqtt-send-data-publish">MQTT Send Data Publish</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#arduino-esp32-esp-c3-13-send-json-data-publish-mqtt">Arduino ESP32 ESP-C3-13 Send JSON Data Publish MQTT</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="read-data.html">Read Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="how-to-find-iot-device-ip-address.html">How to Find IoT Device IP Address</a></li>
 <li class="toctree-l1"><a class="reference internal" href="get-ip-to-location-address.html">Finding location from IoT Device IP address</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mqtt-broker-list.html">MQTT Broker List</a></li>
 </ul>
 
   <div role="note" aria-label="source link">

@@ -18,3 +18,4 @@ IoThook IoT Device Dashboard
    read-data.rst
    how-to-find-iot-device-ip-address.rst
    get-ip-to-location-address.rst
+   mqtt-broker-list.rst

@@ -204,4 +204,7 @@ Here is an example of sending data using the Get method with C:
     :caption: Read_HttpClient_1_ESP_C3_13.ino
     :name: Read_HttpClient_1_ESP_C3_13.ino
 
+MQTT Read Data Subscriber
+*************************
+
 

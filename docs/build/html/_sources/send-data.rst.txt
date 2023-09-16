@@ -327,7 +327,6 @@ settings for programming with Arduino IDE are as follows.
 * Arduino IDE Partition Schema: 2MB
 * Arduino IDE MacOS Upload Speed: MacOS: 115200, Windows and Linux: 460800
 
-
 You can find this example and others at `IOTHOOK Git <https://github.com/electrocoder/iothookdoc>`_
 
 Here is an example of sending data using the Get method with C:
@@ -337,6 +336,30 @@ Here is an example of sending data using the Get method with C:
     :caption: BasicHttpClient_ESP_C3_13.ino
     :name: BasicHttpClient_ESP_C3_13.ino
 
-MQTT Send Data
-**************
+MQTT Send Data Publish
+**********************
+
+Hello; In this help file, we will try to do everything you need to know about the MQTT messaging protocol and
+any IO operations you need. These examples should be customized to your device and MQTT Broker. For this
+reason, you should thoroughly learn why you want to use it and how it is applied. In a nutshell, MQTT uses
+your Internet home network and Mobile GSM 3G, 4G, 4.5G and 5G networks to send and respond to messages to
+your IoT devices.
+
+You can make your MQTT experiments on the `IoThook MQTT <https://iothook.com/en/mqtt/full-featured-mqtt-client/>`_ MQTT Broker page here.
+
+Arduino ESP32 ESP-C3-13 Send JSON Data Publish MQTT
+===================================================
+
+In this example, JSON data is sent to the device channel named "#100 - Demo Data HTTP" using the HTTP POST method with
+Python. When the data is sent successfully, Json REST output of the data is received. You can do this with the
+*response.json()* method, we are doing.
+
+You can find this example and others at `IOTHOOK Git <https://github.com/electrocoder/iothookdoc>`_
+
+Here is an example of sending data using the Get method with C:
+
+.. literalinclude:: /../../examples/mqtt/esp32/esp32-c3/esp32_c3_mqtt_iot.ino
+    :language: c
+    :caption: esp32_c3_mqtt_iot.ino
+    :name: esp32_c3_mqtt_iot.ino
 
