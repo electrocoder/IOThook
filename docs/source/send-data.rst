@@ -174,6 +174,20 @@ Here is an example of sending data using the Get method with Arduino, ESP8266, N
     :caption: arduino_nodemcu_esp8266_temp_hum_send_data.ino
     :name: arduino_nodemcu_esp8266_temp_hum_send_data.ino
 
+ESP8266EX Wemos Send Data in GET
+================================
+
+ESP8266EX Wemos D1 mini v3 HTTP Send Method.
+
+You can find this example and others at `IOTHOOK Git <https://github.com/electrocoder/IoThook>`_
+
+Here is an example of sending data using the Get method with NodeMCU:
+
+.. highlight:: c
+.. literalinclude:: /../../examples/http/nodemcu/esp8266ex_send_http_data.ino
+    :caption: esp8266ex_send_http_data.ino
+    :name: esp8266ex_send_http_data.ino
+
 NodeMCU Send Data in GET
 ========================
 

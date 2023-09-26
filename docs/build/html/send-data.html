@@ -1013,6 +1013,116 @@ In the example, random numbers between 0-100 were generated and the device was s
 </div>
 </div>
 </section>
+<section id="esp8266ex-wemos-send-data-in-get">
+<h3>ESP8266EX Wemos Send Data in GET<a class="headerlink" href="#esp8266ex-wemos-send-data-in-get" title="Permalink to this headline">¶</a></h3>
+<p>ESP8266EX Wemos D1 mini v3 HTTP Send Method.</p>
+<p>You can find this example and others at <a class="reference external" href="https://github.com/electrocoder/IoThook">IOTHOOK Git</a></p>
+<p>Here is an example of sending data using the Get method with NodeMCU:</p>
+<div class="literal-block-wrapper docutils container" id="esp8266ex-send-http-data-ino">
+<div class="code-block-caption"><span class="caption-text">esp8266ex_send_http_data.ino</span><a class="headerlink" href="#esp8266ex-send-http-data-ino" title="Permalink to this code">¶</a></div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">   esp8266ex_send_http_data.ino</span>
+
+<span class="cm">   sahin mersin</span>
+
+<span class="cm">   https://github.com/electrocoder/IOThook/tree/master/examples</span>
+
+<span class="cm">   iothook.com</span>
+<span class="cm">   mesebilisim.com</span>
+
+<span class="cm">   https://github.com/esp8266/Arduino Created on: 24.05.2015</span>
+<span class="cm">*/</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Arduino.h&gt;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;ESP8266WiFi.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;ESP8266WiFiMulti.h&gt;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;ESP8266HTTPClient.h&gt;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;WiFiClient.h&gt;</span>
+
+<span class="n">ESP8266WiFiMulti</span><span class="w"> </span><span class="n">WiFiMulti</span><span class="p">;</span>
+
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">led</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// Serial.setDebugOutput(true);</span>
+
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">();</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">();</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">();</span>
+
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">t</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;[SETUP] WAIT %d...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">flush</span><span class="p">();</span>
+<span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">led</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">WiFi</span><span class="p">.</span><span class="n">mode</span><span class="p">(</span><span class="n">WIFI_STA</span><span class="p">);</span>
+<span class="w">  </span><span class="n">WiFiMulti</span><span class="p">.</span><span class="n">addAP</span><span class="p">(</span><span class="s">&quot;SSID&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;PASS&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// wait for WiFi connection</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">WiFiMulti</span><span class="p">.</span><span class="n">run</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">WL_CONNECTED</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">led</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">WiFiClient</span><span class="w"> </span><span class="n">client</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">HTTPClient</span><span class="w"> </span><span class="n">http</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;[HTTP] begin...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">12.34</span><span class="p">;</span><span class="w"> </span><span class="c1">// example value</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">45.67</span><span class="p">;</span><span class="w"> </span><span class="c1">// example value</span>
+
+<span class="w">    </span><span class="c1">// https://iothook.com/en/device/data/100/</span>
+<span class="w">    </span><span class="c1">// # 100 - Demo Data HTTP-100</span>
+
+<span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;http://iothook.com/api/update/?api_key=9e722c4fc6c834b15ba01e86&amp;field_1=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;&amp;field_2=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="n">h</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">address</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">http</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="n">address</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// HTTP</span>
+
+
+<span class="w">      </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;[HTTP] GET...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="c1">// start connection and send HTTP header</span>
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">httpCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">http</span><span class="p">.</span><span class="n">GET</span><span class="p">();</span>
+
+<span class="w">      </span><span class="c1">// httpCode will be negative on error</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">httpCode</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// HTTP header has been send and Server response header has been handled</span>
+<span class="w">        </span><span class="n">Serial</span><span class="p">.</span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;[HTTP] GET... code: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">httpCode</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// file found at server</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">httpCode</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">HTTP_CODE_OK</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">httpCode</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">HTTP_CODE_MOVED_PERMANENTLY</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">String</span><span class="w"> </span><span class="n">payload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">http</span><span class="p">.</span><span class="n">getString</span><span class="p">();</span>
+<span class="w">          </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">payload</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Serial</span><span class="p">.</span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;[HTTP] GET... failed, error: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">http</span><span class="p">.</span><span class="n">errorToString</span><span class="p">(</span><span class="n">httpCode</span><span class="p">).</span><span class="n">c_str</span><span class="p">());</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">      </span><span class="n">http</span><span class="p">.</span><span class="n">end</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;[HTTP] Unable to connect&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">led</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">10000</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</section>
 <section id="nodemcu-send-data-in-get">
 <h3>NodeMCU Send Data in GET<a class="headerlink" href="#nodemcu-send-data-in-get" title="Permalink to this headline">¶</a></h3>
 <p>With the IOThook Api v1.4 update, it allows sending data with the GET method.</p>
@@ -1512,8 +1622,8 @@ settings for programming with Arduino IDE are as follows.</p>
 </div>
 </div>
 </section>
-<section id="id10">
-<h3>Arduino ESP32 ESP-C3-13 Request Send Data in GET<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<section id="id11">
+<h3>Arduino ESP32 ESP-C3-13 Request Send Data in GET<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
 <p>Data will be sent to IoThook with HTTP GET method with ESP32 on Arduino IDE.</p>
 <p>The device used in this project is the ESP-C3-13 produced by ai-thinker. The features of the device and the
 settings for programming with Arduino IDE are as follows.</p>
@@ -1529,8 +1639,8 @@ settings for programming with Arduino IDE are as follows.</p>
 </ul>
 <p>You can find this example and others at <a class="reference external" href="https://github.com/electrocoder/iothookdoc">IOTHOOK Git</a></p>
 <p>Here is an example of sending data using the Get method with C:</p>
-<div class="literal-block-wrapper docutils container" id="id12">
-<div class="code-block-caption"><span class="caption-text">BasicHttpClient_ESP_C3_13.ino</span><a class="headerlink" href="#id12" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id13">
+<div class="code-block-caption"><span class="caption-text">BasicHttpClient_ESP_C3_13.ino</span><a class="headerlink" href="#id13" title="Permalink to this code">¶</a></div>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
 <span class="cm">  Date: 02.09.2023</span>
 <span class="cm">  Device: ESP-C3-13</span>
@@ -1851,6 +1961,7 @@ Python. When the data is sent successfully, Json REST output of the data is rece
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#arduino-esp8266-nodemcu-send-data-in-get">Arduino, ESP8266, Nodemcu Send Data in GET</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#esp8266ex-wemos-send-data-in-get">ESP8266EX Wemos Send Data in GET</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#nodemcu-send-data-in-get">NodeMCU Send Data in GET</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#go-send-data-in-get">GO Send Data in GET</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#go-language-send-data-with-get-method">Go Language Send Data with GET Method</a></li>
@@ -1863,7 +1974,7 @@ Python. When the data is sent successfully, Json REST output of the data is rece
 <li class="toctree-l3"><a class="reference internal" href="#java-unirest-send-data-in-get">Java Unirest Send Data in GET</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#java-request-send-data-in-get-2">Java Request Send Data in GET 2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#arduino-esp32-esp-c3-13-request-send-data-in-get">Arduino ESP32 ESP-C3-13 Request Send Data in GET</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id10">Arduino ESP32 ESP-C3-13 Request Send Data in GET</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">Arduino ESP32 ESP-C3-13 Request Send Data in GET</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#mqtt-send-data-publish">MQTT Send Data Publish</a><ul>
