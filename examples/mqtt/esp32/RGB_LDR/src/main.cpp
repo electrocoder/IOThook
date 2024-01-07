@@ -1,5 +1,7 @@
 /*
   07.01.2024
+  ESP32 C3
+  2MB
   iothook.com
   mesebilisim.com
   electrocoder
