@@ -6,6 +6,44 @@
   mesebilisim.com
   electrocoder
   https://github.com/electrocoder/IOThook
+
+    ESP-C3-13 ESP-C3-13-KIT development board ESP32
+    ESP-C3-13-Kit
+    Esp32-C3 2M flash ESP-C3 ESP C3 13 13U ESP-C3-13U WiFi + Bluetooth 5.0 BLE5.0 2.4GHz Geliştirme kartı
+
+    Model: ESP-C3-13-KIT development board
+    Package size: DIP-30 20.0x18.0x3.1mm (±0.2mm)
+    Antenna: On-board PCB antenna
+    Spectrum range: 2400 - 2483.5MHz
+    Operating temperature: -40℃ - 85℃
+    Storage environment: -40℃ - 125℃, <90% RH
+    Power Supply Requirement: 5V >500mA
+    Supported Interfaces: UART / GPIO / ADC / PWM / I2C / I2S
+    IO Ports: IO0, IO1, IO2, IO3, IO4, IO5, IO6, IO7, IO8, IO9, IO10, IO18, IO19, IO20, IO21
+    Serial port speed: 110 - 4608000 bps, default 115200 bps
+    Bluetooth: BLE 5.0
+    WIFI security: WEP / WPA-PSK / WPA2-PSK
+    SPI Flash: 4MB
+    Onboard LED: RGBWA (IO3 Red, IO4 Green, IO5 Blue), IO18 Amber, IO19 White
+
+    Device: ESP-C3-13
+    FCC ID: 2ATPO-ESP-C3-X C3-2M
+    Device Doc.: https://docs.ai-thinker.com/_media/esp32/docs/esp-c3-12f_specification.pdf
+    Arduino IDE Board Select: ESP32C3 Dev Module
+    Arduino IDE CPU Frequency: 160MHZ
+    Arduino IDE Flash Size: 2MB
+    Arduino IDE Partition Schema: 2MB
+    Arduino IDE MacOS Upload Speed: MacOS: 115200, Windows and Linux: 460800
+
+      MacOS Boud Rate Error:
+        18:15:51.714 -> ESP-ROM:esp32c3-api1-20210207
+        18:15:51.714 -> Build:Feb  7 2021
+        18:15:51.714 -> rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+        18:15:51.714 -> SPIWP:0xee
+        18:15:51.714 -> mode:QIO, clock div:1
+        18:15:51.714 -> load:0x3fcd5810,len:0x438
+        18:15:51.714 -> ets_loader.c 78
+
 */
 
 #include <Arduino.h>
